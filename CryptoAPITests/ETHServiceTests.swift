@@ -10,11 +10,17 @@ import XCTest
 @testable import CryptoAPI
 
 class ETHServiceTests: XCTestCase {
+    
+    let ethAddressWithBalance = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
+    let ethAddressWithBalance2 = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
+    let ethContractAddress = "0xf36c145eff2771ea22ece5fd87392fc8eeae719c"
+    let ethInvalidAddress = "invalid address"
+
     func testGetBalance() {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testGetBalance")
-        let address = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
+        let address = ethAddressWithBalance
         //act
         api.eth.balance(address: address) { result in
             switch result {
@@ -36,7 +42,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testGetBalance")
-        let address = "invalida address"
+        let address = ethInvalidAddress
         //act
         api.eth.balance(address: address) { result in
             switch result {
@@ -57,8 +63,8 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testEstimateSendAmountTransaction")
-        let fromAddress = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
-        let toAddress = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
+        let fromAddress = ethAddressWithBalance
+        let toAddress = ethAddressWithBalance2
         let amount = "10"
         let data = ""
 
@@ -83,8 +89,8 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testEstimateSendAmountTransaction")
-        let fromAddress = "invalida address"
-        let toAddress = "invalida address"
+        let fromAddress = ethInvalidAddress
+        let toAddress = ethInvalidAddress
         let amount = "10"
         let data = ""
 
@@ -130,7 +136,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testInfoTest")
-        let address = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
+        let address = ethAddressWithBalance
 
         //act
         //act
@@ -155,7 +161,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testInfoContractTest")
-        let address = "0xf36c145eff2771ea22ece5fd87392fc8eeae719c"
+        let address = ethContractAddress
 
         //act
         //act
@@ -180,7 +186,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testInfoFailedTest")
-        let address = "invalid address"
+        let address = ethInvalidAddress
 
         //act
         api.eth.info(address: address) { result in
@@ -202,7 +208,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testHistoryAddressTest")
-        let address = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
+        let address = ethAddressWithBalance
         let skip = 0
         let limit = 10
         let positive = ""
@@ -228,7 +234,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testHistoryAddressFailedTest")
-        let address = "invalid address"
+        let address = ethInvalidAddress
         let skip = 0
         let limit = 10
         let positive = ""
@@ -253,7 +259,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testExternalHistoryAddressTest")
-        let address = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
+        let address = ethAddressWithBalance
         let skip = 0
         let limit = 10
 
@@ -278,7 +284,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testExternalHistoryAddressFailedTest")
-        let address = "invalid address"
+        let address = ethInvalidAddress
         let skip = 0
         let limit = 10
 
@@ -302,8 +308,8 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let fromAddress = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
-        let toAddress = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
+        let fromAddress = ethAddressWithBalance
+        let toAddress = ethAddressWithBalance2
         let skip = 0
         let limit = 10
 
@@ -328,8 +334,8 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testTransfersFailedTest")
-        let fromAddress = "invalid address"
-        let toAddress = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
+        let fromAddress = ethInvalidAddress
+        let toAddress = ethAddressWithBalance2
         let skip = 0
         let limit = 10
 
@@ -376,7 +382,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testTransactionFailedTest")
-        let hash = "invalid address"
+        let hash = ethInvalidAddress
 
         //act
         api.eth.transaction(hash: hash) { result in
@@ -398,7 +404,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testContractInfoTest")
-        let address = "0xf36c145eff2771ea22ece5fd87392fc8eeae719c"
+        let address = ethContractAddress
 
         //act
         api.eth.contractInfo(address: address) { result in
@@ -421,7 +427,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testContractInfoFailedTest")
-        let address = "invalid address"
+        let address = ethInvalidAddress
 
         //act
         api.eth.contractInfo(address: address) { result in
