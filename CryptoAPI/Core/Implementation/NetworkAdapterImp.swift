@@ -54,4 +54,16 @@ final class NetworkAdapterImp: NetworkAdapter {
         ETHNetwork.transactions(fromAddress: fromAddress, toAddress: toAddress, skip: skip, limit: limit)
             .request(type: ETHTransactionsResponseModel.self, completionHandler: completion)
     }
+    
+    func transaction(hash: String,
+                     completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.transaction(hash: hash)
+            .request(type: ETHTransactionResponseModel.self, completionHandler: completion)
+    }
+    
+    func contractInfo(address: String,
+                      completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.contractInfo(address: address)
+            .request(type: ETHContractInfoResponseModel.self, completionHandler: completion)
+    }
 }

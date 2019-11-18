@@ -28,4 +28,8 @@ protocol NetworkAdapter {
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void)
     func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void)
+    func transaction(hash: String,
+                     completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void)
+    func contractInfo(address: String,
+                      completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void)
 }

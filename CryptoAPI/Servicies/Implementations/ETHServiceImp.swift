@@ -47,4 +47,14 @@ final class ETHServiceImp: ETHService {
         networkAdapter.transactions(skip: skip, limit: limit, fromAddress: fromAddress,
                                     toAddress: toAddress, completion: completion)
     }
+    
+    func transaction(hash: String,
+                     completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.transaction(hash: hash, completion: completion)
+    }
+    
+    func contractInfo(address: String,
+                      completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.contractInfo(address: address, completion: completion)
+    }
 }

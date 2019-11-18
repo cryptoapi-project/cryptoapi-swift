@@ -227,7 +227,7 @@ class ETHServiceTests: XCTestCase {
     func testHistoryAddressFailedTest() {
         //arrange
         let api = CtyptoAPI.default
-        let expectation = XCTestExpectation(description: "testHistoryAddressTest")
+        let expectation = XCTestExpectation(description: "testHistoryAddressFailedTest")
         let address = "invalid address"
         let skip = 0
         let limit = 10
@@ -308,7 +308,7 @@ class ETHServiceTests: XCTestCase {
         let limit = 10
 
         //act
-        api.eth.transfers(skip: skip, limit: limit, addresses: fromAddress, positive: toAddress) { result in
+        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -327,14 +327,104 @@ class ETHServiceTests: XCTestCase {
     func testTransfersFailedTest() {
         //arrange
         let api = CtyptoAPI.default
-        let expectation = XCTestExpectation(description: "testExternalHistoryAddressFailedTest")
+        let expectation = XCTestExpectation(description: "testTransfersFailedTest")
         let fromAddress = "invalid address"
         let toAddress = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
         let skip = 0
         let limit = 10
 
         //act
-        api.eth.transfers(skip: skip, limit: limit, addresses: fromAddress, positive: toAddress) { result in
+        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testTransactionTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTransactionTest")
+        let hash = "0xaa70e870c45862a9881d44bb4f3f5e47ec986dc6d6cb5b10d553587ecd9e4fd4"
+
+        //act
+        api.eth.transaction(hash: hash) { result in
+            switch result {
+            case let .success(item):
+                //assert
+                XCTAssertTrue(!item.hash.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testTransactionFailedTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTransactionFailedTest")
+        let hash = "invalid address"
+
+        //act
+        api.eth.transaction(hash: hash) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testContractInfoTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testContractInfoTest")
+        let address = "0xf36c145eff2771ea22ece5fd87392fc8eeae719c"
+
+        //act
+        api.eth.contractInfo(address: address) { result in
+            switch result {
+            case let .success(info):
+                //assert
+                XCTAssertTrue(!info.bytecode.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testContractInfoFailedTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testContractInfoFailedTest")
+        let address = "invalid address"
+
+        //act
+        api.eth.contractInfo(address: address) { result in
             switch result {
               case .success:
                   //assert
