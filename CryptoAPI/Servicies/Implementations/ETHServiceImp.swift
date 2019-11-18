@@ -57,4 +57,9 @@ final class ETHServiceImp: ETHService {
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.contractInfo(address: address, completion: completion)
     }
+    
+    func tokensBalance(address: String, skip: Int, limit: Int,
+                       completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.tokensBalance(address: address, skip: skip, limit: limit, completion: completion)
+    }
 }

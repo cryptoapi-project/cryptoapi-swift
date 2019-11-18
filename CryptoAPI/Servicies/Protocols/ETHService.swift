@@ -24,5 +24,7 @@ public protocol ETHService {
                      completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void)
     func contractInfo(address: String,
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void)
+    func tokensBalance(address: String, skip: Int, limit: Int,
+                       completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void)
 }
  

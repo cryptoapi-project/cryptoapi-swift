@@ -66,4 +66,11 @@ final class NetworkAdapterImp: NetworkAdapter {
         ETHNetwork.contractInfo(address: address)
             .request(type: ETHContractInfoResponseModel.self, completionHandler: completion)
     }
+    
+    func tokensBalance(address: String, skip: Int, limit: Int,
+                       completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.tokenBalance(address: address, skip: skip, limit: limit)
+            .request(type: ETHTokensBalanceResponseModel.self, completionHandler: completion)
+    }
 }
+    

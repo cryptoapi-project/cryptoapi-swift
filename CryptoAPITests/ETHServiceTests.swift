@@ -444,4 +444,51 @@ class ETHServiceTests: XCTestCase {
         //assert
         wait(for: [expectation], timeout: 10.0)
     }
+    
+    func testTokensBalanceTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokensBalanceTest")
+        let address = ethContractAddress
+        let skip = 0
+        let limit = 10
+        //act
+        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
+            switch result {
+            case let .success(balances):
+                //assert
+                XCTAssertTrue(!balances.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testTokensBalanceFailedTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokensBalanceFailedTest")
+        let address = ethInvalidAddress
+        let skip = 0
+        let limit = 10
+        //act
+        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
 }
