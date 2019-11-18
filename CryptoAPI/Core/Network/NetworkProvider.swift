@@ -9,7 +9,10 @@
 import Foundation
 
 enum ETHNetwork: Resty {
+    case info(address: String)
+    case network
     case history(address: String, from: Int, limit: Int)
+    case externalHistory(address: String, from: Int, limit: Int)
     case tokenHistory(tokenAddress: String, address: String, from: Int, limit: Int)
     case balance(address: String)
     case tokenBalance(address: String, skip: Int, limit: Int)
@@ -25,12 +28,18 @@ enum ETHNetwork: Resty {
 
 extension ETHNetwork {
     var host: String {
-        return ""
+        return "https://697-crypto-api.pixelplexlabs.com/api"
     }
     var path: String {
         switch self {
+        case .info(let address):
+            return "/v1/coins/eth/accounts/\(address)/info"
+        case .network:
+            return "/v1/coins/eth/network"
         case .history( let address, _, _):
             return "/v1/coins/eth/accounts/\(address)/transfers"
+        case .externalHistory( let address, _, _):
+            return "/v1/coins/eth/accounts/\(address)/transactions/external"
         case .tokenHistory(let tokenAddress, let address, _, _):
             return "/v1/coins/eth/tokens/\(tokenAddress)/\(address)/transfers"
         case .estimateFee:
@@ -58,7 +67,8 @@ extension ETHNetwork {
         
     var method: HTTPMethod {
         switch self {
-        case .history, .tokenHistory, .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .tokenBalance:
+        case .history, .tokenHistory, .balance, .outputs, .coinRates, .estimateFee,
+             .coinsRateHistory, .tokenBalance, .network, .info, .externalHistory:
             return .get
 
         case .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications:
@@ -68,7 +78,8 @@ extension ETHNetwork {
     
     var bodyParameters: [String: Any]? {
         switch self {
-        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .history, .tokenHistory, .tokenBalance:
+        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .history,
+             .tokenHistory, .tokenBalance, .network, .info, .externalHistory:
             return nil
             
         case let .sendRawTransaction(transaction):
@@ -91,11 +102,14 @@ extension ETHNetwork {
     
     var queryParameters: [String: String]? {
         switch self {
-        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory,
+        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .network, .info,
              .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications:
             return nil
             
         case let .history(_, from, limit):
+            return ["skip": String(from), "limit": String(limit)]
+            
+        case let .externalHistory(_, from, limit):
             return ["skip": String(from), "limit": String(limit)]
             
         case let .tokenHistory(_, _, from, limit):

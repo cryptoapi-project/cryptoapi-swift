@@ -8,10 +8,10 @@
 
 extension Dictionary where Key: CustomStringConvertible, Value: CustomStringConvertible {
     func stringFromHttpParameters() -> String {
-        var parametersString = ""
+        var parametersString = "?"
         for (key, value) in self {
             parametersString += key.description + "=" + value.description + "&"
         }
-        return parametersString
+        return String(parametersString.dropLast())
     }
 }

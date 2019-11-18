@@ -44,6 +44,7 @@ public enum HTTPMethod: String {
 /// Resty Errors
 enum RestyError: Error {
     case badURL
+    case emptyResponse
 }
 
 extension Resty {
@@ -52,9 +53,9 @@ extension Resty {
         return host + path + (queryParameters?.stringFromHttpParameters() ?? "")
     }
 
-    func request<T: Codable>(type: T.Type, session: URLSession = .shared, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Codable>(type: T.Type, session: URLSession = .shared, completionHandler: @escaping (Result<T, CryptoApiError>) -> Void) {
         guard let url = URL(string: url) else {
-            completionHandler(.failure(RestyError.badURL))
+            completionHandler(.failure(CryptoApiError.innerError(RestyError.badURL)))
             return
         }
 
@@ -67,24 +68,60 @@ extension Resty {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
             } catch {
-                completionHandler(.failure(error))
+                completionHandler(.failure(CryptoApiError.innerError(error)))
                 return
             }
         }
 
-        let dataTask = session.dataTask(with: request) { ( data, _, error) -> Void in
+        let dataTask = session.dataTask(with: request) { data, response, error -> Void in
             if let error = error {
-                completionHandler(.failure(error))
+                completionHandler(.failure(CryptoApiError.innerError(error)))
                 return
             }
-
-            if let data = data {
-                do {
-                    completionHandler(.success(try JSONDecoder().decode(type, from: data)))
-                } catch {
-                    completionHandler(.failure(error))
-                    return
+            if let httpResponse = response as? HTTPURLResponse, let data = data {
+                if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
+                    do {
+                          print("""
+                              ------------
+                              \(String(describing: String(data: data, encoding: .utf8)))
+                              ----------
+                              """)
+                          completionHandler(.success(try JSONDecoder().decode(type, from: data)))
+                      } catch let error {
+                          print("""
+                                ------------
+                                \(error)
+                                ----------
+                                """)
+                          completionHandler(.failure(CryptoApiError.innerError(error)))
+                          return
+                      }
+                } else {
+                    do {
+                        print("""
+                              ------------
+                              \(String(describing: String(data: data, encoding: .utf8)))
+                              ----------
+                              """)
+                        if let error = try? JSONDecoder().decode(CryptoApiTypedErrors.self, from: data) {
+                            completionHandler(.failure(CryptoApiError.customErrorList(error)))
+                        } else {
+                            let error = try JSONDecoder().decode(CryptoApiTypedError.self, from: data)
+                            completionHandler(.failure(CryptoApiError.customError(error)))
+                        }
+                      } catch let error {
+                          print("""
+                                ------------
+                                \(error)
+                                ----------
+                                """)
+                        completionHandler(.failure(CryptoApiError.innerError(error)))
+                          return
+                      }
                 }
+                print(httpResponse.statusCode)
+            } else {
+                completionHandler(.failure(CryptoApiError.innerError(RestyError.emptyResponse)))
             }
         }
 

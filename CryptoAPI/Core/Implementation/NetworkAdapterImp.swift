@@ -16,7 +16,36 @@ final class NetworkAdapterImp: NetworkAdapter {
     }
     
     func balance(address: String,
-                 completion: @escaping (() throws -> (BalanceModel)) -> Void) {
-        
+                 completion: @escaping (Result<[ETHBalanceResponseModel], CryptoApiError>) -> Void) {
+        ETHNetwork.balance(address: address)
+            .request(type: [ETHBalanceResponseModel].self, session: session, completionHandler: completion)
+    }
+    
+    func estimateGas(fromAddress: String, toAddress: String, data: String, value: String,
+                     completion: @escaping (Result<ETHEstimateGasResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.estimateGas(from: fromAddress, to: toAddress, value: value, data: data)
+            .request(type: ETHEstimateGasResponseModel.self, completionHandler: completion)
+    }
+    
+    func network(completion: @escaping (Result<ETHNetworkResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.network
+            .request(type: ETHNetworkResponseModel.self, completionHandler: completion)
+    }
+    
+    func info(address: String, completion: @escaping (Result<[ETHInfoResponseModel], CryptoApiError>) -> Void) {
+        ETHNetwork.info(address: address)
+            .request(type: [ETHInfoResponseModel].self, completionHandler: completion)
+    }
+    
+    func transfers(skip: Int, limit: Int, addresses: String, positive: String,
+                   completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.history(address: addresses, from: skip, limit: limit)
+            .request(type: ETHTransfersResponseModel.self, completionHandler: completion)
+    }
+    
+    func externalTransfers(skip: Int, limit: Int, addresses: String,
+                           completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.externalHistory(address: addresses, from: skip, limit: limit)
+            .request(type: ETHExternalTransfersResponseModel.self, completionHandler: completion)
     }
 }
