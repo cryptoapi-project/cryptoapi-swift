@@ -6,5 +6,5 @@
 //  Copyright © 2019 PixelPlex. All rights reserved.
 //
 
-protocol CommonService {
+public protocol CommonService {
 }

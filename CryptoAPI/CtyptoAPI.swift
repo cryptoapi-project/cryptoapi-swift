@@ -8,12 +8,12 @@
 
 import Foundation
 
-final class CtyptoAPI {
-    static let `default` = CtyptoAPI(settings: Settings())
+public final class CtyptoAPI {
+    public static let `default` = CtyptoAPI(settings: Settings())
     let eth: ETHService
     let common: CommonService
     
-    init(settings: Settings) {
+    public init(settings: Settings) {
         let configuration = settings.sessionConfiguration
         configuration.timeoutIntervalForRequest = settings.timeoutIntervalForRequest
         configuration.timeoutIntervalForResource = settings.timeoutIntervalForResource
