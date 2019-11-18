@@ -297,4 +297,55 @@ class ETHServiceTests: XCTestCase {
         //assert
         wait(for: [expectation], timeout: 10.0)
     }
+    
+    func testTransfersTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTransfersTest")
+        let fromAddress = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
+        let toAddress = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
+        let skip = 0
+        let limit = 10
+
+        //act
+        api.eth.transfers(skip: skip, limit: limit, addresses: fromAddress, positive: toAddress) { result in
+            switch result {
+            case let .success(history):
+                //assert
+                XCTAssertTrue(!history.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testTransfersFailedTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testExternalHistoryAddressFailedTest")
+        let fromAddress = "invalid address"
+        let toAddress = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
+        let skip = 0
+        let limit = 10
+
+        //act
+        api.eth.transfers(skip: skip, limit: limit, addresses: fromAddress, positive: toAddress) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: 10.0)
+    }
 }

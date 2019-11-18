@@ -48,4 +48,10 @@ final class NetworkAdapterImp: NetworkAdapter {
         ETHNetwork.externalHistory(address: addresses, from: skip, limit: limit)
             .request(type: ETHExternalTransfersResponseModel.self, completionHandler: completion)
     }
+    
+    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
+                      completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.transactions(fromAddress: fromAddress, toAddress: toAddress, skip: skip, limit: limit)
+            .request(type: ETHTransactionsResponseModel.self, completionHandler: completion)
+    }
 }

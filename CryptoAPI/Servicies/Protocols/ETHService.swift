@@ -18,5 +18,7 @@ public protocol ETHService {
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void)
     func externalTransfers(skip: Int, limit: Int, addresses: String,
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void)
+    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
+                      completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void)
 }
  

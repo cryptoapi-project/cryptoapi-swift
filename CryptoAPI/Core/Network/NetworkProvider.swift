@@ -12,6 +12,7 @@ enum ETHNetwork: Resty {
     case info(address: String)
     case network
     case history(address: String, from: Int, limit: Int)
+    case transactions(fromAddress: String, toAddress: String, skip: Int, limit: Int)
     case externalHistory(address: String, from: Int, limit: Int)
     case tokenHistory(tokenAddress: String, address: String, from: Int, limit: Int)
     case balance(address: String)
@@ -38,6 +39,8 @@ extension ETHNetwork {
             return "/v1/coins/eth/network"
         case .history( let address, _, _):
             return "/v1/coins/eth/accounts/\(address)/transfers"
+        case .transactions:
+            return "/v1/coins/eth/transactions"
         case .externalHistory( let address, _, _):
             return "/v1/coins/eth/accounts/\(address)/transactions/external"
         case .tokenHistory(let tokenAddress, let address, _, _):
@@ -67,7 +70,7 @@ extension ETHNetwork {
         
     var method: HTTPMethod {
         switch self {
-        case .history, .tokenHistory, .balance, .outputs, .coinRates, .estimateFee,
+        case .history, .tokenHistory, .balance, .outputs, .coinRates, .estimateFee, .transactions,
              .coinsRateHistory, .tokenBalance, .network, .info, .externalHistory:
             return .get
 
@@ -92,6 +95,9 @@ extension ETHNetwork {
                 return ["from": from, "to": to, "value": value, "data": data]
             }
             
+        case let .transactions(from, to, skip, limit):
+            return ["from": from, "to": to, "skip": skip, "limit": limit]
+            
         case let .subscribePushNotifications(_, token):
             return ["token": token]
             
@@ -102,7 +108,7 @@ extension ETHNetwork {
     
     var queryParameters: [String: String]? {
         switch self {
-        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .network, .info,
+        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .network, .info, .transactions,
              .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications:
             return nil
             
