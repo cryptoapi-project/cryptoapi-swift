@@ -72,5 +72,11 @@ final class NetworkAdapterImp: NetworkAdapter {
         ETHNetwork.tokenBalance(address: address, skip: skip, limit: limit)
             .request(type: ETHTokensBalanceResponseModel.self, completionHandler: completion)
     }
+    
+    func tokenTransfers(tokenAddress: String, address: String, skip: Int, limit: Int,
+                        completion: @escaping (Result<ETHTokenTransfersResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.tokenHistory(tokenAddress: tokenAddress, address: address, from: skip, limit: limit)
+            .request(type: ETHTokenTransfersResponseModel.self, completionHandler: completion)
+    }
 }
     

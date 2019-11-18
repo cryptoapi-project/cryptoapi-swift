@@ -34,4 +34,6 @@ protocol NetworkAdapter {
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void)
     func tokensBalance(address: String, skip: Int, limit: Int,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void)
+    func tokenTransfers(tokenAddress: String, address: String, skip: Int, limit: Int,
+                        completion: @escaping (Result<ETHTokenTransfersResponseModel, CryptoApiError>) -> Void)
 }

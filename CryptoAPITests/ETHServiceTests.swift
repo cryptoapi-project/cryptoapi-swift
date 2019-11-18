@@ -15,6 +15,7 @@ class ETHServiceTests: XCTestCase {
     let ethAddressWithBalance2 = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
     let ethContractAddress = "0xf36c145eff2771ea22ece5fd87392fc8eeae719c"
     let ethInvalidAddress = "invalid address"
+    let testTimeout: TimeInterval = 10
 
     func testGetBalance() {
         //arrange
@@ -35,7 +36,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testGetBalanceFailed() {
@@ -56,7 +57,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testEstimateSendAmountTransaction() {
@@ -82,7 +83,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testEstimateSendAmountTransactionFailed() {
@@ -107,7 +108,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testNetworkTest() {
@@ -129,7 +130,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testInfoTest() {
@@ -154,7 +155,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testInfoContractTest() {
@@ -179,7 +180,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testInfoFailedTest() {
@@ -201,7 +202,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testHistoryAddressTest() {
@@ -227,7 +228,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testHistoryAddressFailedTest() {
@@ -252,7 +253,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testExternalHistoryAddressTest() {
@@ -277,7 +278,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testExternalHistoryAddressFailedTest() {
@@ -301,7 +302,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testTransfersTest() {
@@ -327,7 +328,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testTransfersFailedTest() {
@@ -352,7 +353,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testTransactionTest() {
@@ -375,7 +376,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testTransactionFailedTest() {
@@ -397,7 +398,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testContractInfoTest() {
@@ -420,7 +421,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testContractInfoFailedTest() {
@@ -442,7 +443,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testTokensBalanceTest() {
@@ -466,7 +467,7 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
     }
     
     func testTokensBalanceFailedTest() {
@@ -489,6 +490,55 @@ class ETHServiceTests: XCTestCase {
         }
 
         //assert
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testTokenHistoryTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokenHistoryTest")
+        let address = ethContractAddress
+        let tokenAddress = ethContractAddress
+        let skip = 0
+        let limit = 10
+        //act
+        api.eth.tokenTransfers(tokenAddress: tokenAddress, address: address, skip: skip, limit: limit) { result in
+            switch result {
+            case let .success(balances):
+                //assert
+                XCTAssertTrue(!balances.addresses.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testTokenHistoryFailedTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokenHistoryFailedTest")
+        let address = ethInvalidAddress
+        let tokenAddress = ethContractAddress
+        let skip = 0
+        let limit = 10
+        //act
+        api.eth.tokenTransfers(tokenAddress: tokenAddress, address: address, skip: skip, limit: limit) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
     }
 }
