@@ -9,7 +9,9 @@
 import Foundation
 
 enum ETHNetwork: Resty {
+    case queryTokens(query: String, skip: Int, limit: Int, types: [String])
     case contractInfo(address: String)
+    case tokenInfo(address: String)
     case info(address: String)
     case network
     case history(address: String, from: Int, limit: Int)
@@ -35,6 +37,10 @@ extension ETHNetwork {
     }
     var path: String {
         switch self {
+        case .queryTokens:
+            return "/v1/coins/eth/tokens/search"
+        case .tokenInfo(let address):
+            return "/v1/coins/eth/tokens/\(address)/info"
         case .transaction(let hash):
             return "/v1/coins/eth/transactions/\(hash)"
         case .contractInfo(let address):
@@ -76,8 +82,9 @@ extension ETHNetwork {
         
     var method: HTTPMethod {
         switch self {
-        case .history, .tokenHistory, .balance, .outputs, .coinRates, .estimateFee, .transactions, .contractInfo,
-             .transaction, .coinsRateHistory, .tokenBalance, .network, .info, .externalHistory:
+        case .history, .tokenHistory, .balance, .outputs, .coinRates, .estimateFee, .transactions,
+             .contractInfo, .transaction, .coinsRateHistory, .tokenBalance, .network, .info,
+             .externalHistory, .tokenInfo, .queryTokens:
             return .get
 
         case .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications:
@@ -88,7 +95,7 @@ extension ETHNetwork {
     var bodyParameters: [String: Any]? {
         switch self {
         case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .history, .transactions, .contractInfo,
-             .tokenHistory, .tokenBalance, .network, .info, .externalHistory, .transaction:
+             .tokenHistory, .tokenBalance, .network, .info, .externalHistory, .transaction, .tokenInfo, .queryTokens:
             return nil
             
         case let .sendRawTransaction(transaction):
@@ -112,8 +119,11 @@ extension ETHNetwork {
     var queryParameters: [String: String]? {
         switch self {
         case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .network, .info, .transaction, .contractInfo,
-             .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications:
+             .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications, .tokenInfo:
             return nil
+            
+        case let .queryTokens(query, skip, limit, types):
+            return ["query": query, "skip": String(skip), "limit": String(limit), "types": types.joined(separator: ",")]
             
         case let .history(_, from, limit):
             return ["skip": String(from), "limit": String(limit)]

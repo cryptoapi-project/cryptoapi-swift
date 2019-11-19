@@ -68,4 +68,14 @@ final class ETHServiceImp: ETHService {
         networkAdapter.tokenTransfers(tokenAddress: tokenAddress, address: address,
                                       skip: skip, limit: limit, completion: completion)
     }
+    
+    func tokenInfo(address: String,
+                   completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.tokenInfo(address: address, completion: completion)
+    }
+    
+    func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
+                     completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.tokenSearch(query: query, skip: skip, limit: limit, types: types, completion: completion)
+    }
 }

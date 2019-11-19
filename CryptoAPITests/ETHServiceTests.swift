@@ -541,4 +541,149 @@ class ETHServiceTests: XCTestCase {
         //assert
         wait(for: [expectation], timeout: testTimeout)
     }
+    
+    func testTokenInfoTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokenInfoTest")
+        let address = ethContractAddress
+
+        //act
+        api.eth.tokenInfo(address: address) { result in
+            switch result {
+            case let .success(info):
+                //assert
+                XCTAssertTrue(!info.createTransactionHash.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testTokenInfoFailedTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokenInfoFailedTest")
+        let address = ethInvalidAddress
+
+        //act
+        api.eth.tokenInfo(address: address) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testQueryTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testQueryTest")
+        let query = ""
+        let skip = 0
+        let limit = 10
+        let types = ["ERC20"]
+        //act
+        api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
+            switch result {
+            case let .success(query):
+                //assert
+                XCTAssertTrue(!query.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testQueryWithTypesTest() {
+         //arrange
+         let api = CtyptoAPI.default
+         let expectation = XCTestExpectation(description: "testQueryTest")
+         let query = ""
+         let skip = 0
+         let limit = 10
+         let types = ["ERC20", "ERC721"]
+         //act
+         api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
+             switch result {
+             case let .success(query):
+                 //assert
+                 XCTAssertTrue(!query.items.isEmpty)
+             case let .failure(error):
+                 //asserts
+                 XCTAssertThrowsError(error)
+             }
+             expectation.fulfill()
+         }
+
+         //assert
+         wait(for: [expectation], timeout: testTimeout)
+     }
+    
+    func testQueryWithQueryTest() {
+         //arrange
+         let api = CtyptoAPI.default
+         let expectation = XCTestExpectation(description: "testQueryTest")
+         let query = ""
+         let skip = 0
+         let limit = 10
+         let types = ["ERC20", "ERC721"]
+         //act
+         api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
+             switch result {
+             case let .success(query):
+                 //assert
+                 XCTAssertTrue(!query.items.isEmpty)
+             case let .failure(error):
+                 //asserts
+                 XCTAssertThrowsError(error)
+             }
+             expectation.fulfill()
+         }
+
+         //assert
+         wait(for: [expectation], timeout: testTimeout)
+     }
+    
+    func testQueryFailedTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testQueryFailedTest")
+        let query = ""
+        let skip = 0
+        let limit = 10
+        let types: [String] = []
+
+        //act
+        api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
 }

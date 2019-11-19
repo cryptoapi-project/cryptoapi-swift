@@ -78,5 +78,17 @@ final class NetworkAdapterImp: NetworkAdapter {
         ETHNetwork.tokenHistory(tokenAddress: tokenAddress, address: address, from: skip, limit: limit)
             .request(type: ETHTokenTransfersResponseModel.self, completionHandler: completion)
     }
+    
+    func tokenInfo(address: String,
+                   completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.tokenInfo(address: address)
+            .request(type: ETHTokenInfoResponseModel.self, completionHandler: completion)
+    }
+    
+    func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
+                     completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.queryTokens(query: query, skip: skip, limit: limit, types: types)
+            .request(type: ETHTokensQueryResponseModel.self, completionHandler: completion)
+    }
 }
     
