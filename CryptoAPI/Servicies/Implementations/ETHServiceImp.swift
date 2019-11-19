@@ -53,14 +53,14 @@ final class ETHServiceImp: ETHService {
         networkAdapter.transaction(hash: hash, completion: completion)
     }
     
-    func contractInfo(addresses: [String],
+    func contractInfo(address: String,
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.contractInfo(addresses: addresses, completion: completion)
+        networkAdapter.contractInfo(address: address, completion: completion)
     }
     
-    func tokensBalance(addresses: [String], skip: Int, limit: Int,
+    func tokensBalance(address: String, skip: Int, limit: Int,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.tokensBalance(addresses: addresses, skip: skip, limit: limit, completion: completion)
+        networkAdapter.tokensBalance(address: address, skip: skip, limit: limit, completion: completion)
     }
     
     func tokenTransfers(tokenAddress: String, addresses: [String], skip: Int, limit: Int,
@@ -69,9 +69,9 @@ final class ETHServiceImp: ETHService {
                                       skip: skip, limit: limit, completion: completion)
     }
     
-    func tokenInfo(addresses: [String],
+    func tokenInfo(address: String,
                    completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.tokenInfo(addresses: addresses, completion: completion)
+        networkAdapter.tokenInfo(address: address, completion: completion)
     }
     
     func tokenSearch(query: String, skip: Int, limit: Int, types: [String],

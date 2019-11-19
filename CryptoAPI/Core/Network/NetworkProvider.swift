@@ -10,8 +10,8 @@ import Foundation
 
 enum ETHNetwork: Resty {
     case queryTokens(query: String, skip: Int, limit: Int, types: [String])
-    case contractInfo(addresses: [String])
-    case tokenInfo(addresses: [String])
+    case contractInfo(address: String)
+    case tokenInfo(address: String)
     case info(addresses: [String])
     case network
     case history(addresses: [String], from: Int, limit: Int)
@@ -20,7 +20,7 @@ enum ETHNetwork: Resty {
     case externalHistory(addresses: [String], from: Int, limit: Int)
     case tokenHistory(tokenAddress: String, addresses: [String], from: Int, limit: Int)
     case balance(addresses: [String])
-    case tokenBalance(addresses: [String], skip: Int, limit: Int)
+    case tokenBalance(address: String, skip: Int, limit: Int)
     case sendRawTransaction(transaction: String)
     case estimateGas(from: String, to: String, value: String, data: String)
     case outputs(addresses: [String])
@@ -39,8 +39,8 @@ extension ETHNetwork {
         switch self {
         case .queryTokens:
             return "/v1/coins/eth/tokens/search"
-        case .tokenInfo(let addresses):
-            return "/v1/coins/eth/tokens/\(addresses.description)/info"
+        case .tokenInfo(let address):
+            return "/v1/coins/eth/tokens/\(address)/info"
         case .transaction(let hash):
             return "/v1/coins/eth/transactions/\(hash)"
         case .contractInfo(let addresses):

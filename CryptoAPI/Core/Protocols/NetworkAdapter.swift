@@ -30,13 +30,13 @@ protocol NetworkAdapter {
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void)
     func transaction(hash: String,
                      completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void)
-    func contractInfo(addresses: [String],
+    func contractInfo(address: String,
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void)
-    func tokensBalance(addresses: [String], skip: Int, limit: Int,
+    func tokensBalance(address: String, skip: Int, limit: Int,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void)
     func tokenTransfers(tokenAddress: String, addresses: [String], skip: Int, limit: Int,
                         completion: @escaping (Result<ETHTokenTransfersResponseModel, CryptoApiError>) -> Void)
-    func tokenInfo(addresses: [String],
+    func tokenInfo(address: String,
                    completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void)
     func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
                      completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void)

@@ -61,15 +61,15 @@ final class NetworkAdapterImp: NetworkAdapter {
             .request(type: ETHTransactionResponseModel.self, completionHandler: completion)
     }
     
-    func contractInfo(addresses: [String],
+    func contractInfo(address: String,
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.contractInfo(addresses: addresses)
+        ETHNetwork.contractInfo(address: address)
             .request(type: ETHContractInfoResponseModel.self, completionHandler: completion)
     }
     
-    func tokensBalance(addresses: [String], skip: Int, limit: Int,
+    func tokensBalance(address: String, skip: Int, limit: Int,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.tokenBalance(addresses: addresses, skip: skip, limit: limit)
+        ETHNetwork.tokenBalance(address: address, skip: skip, limit: limit)
             .request(type: ETHTokensBalanceResponseModel.self, completionHandler: completion)
     }
     
@@ -79,9 +79,9 @@ final class NetworkAdapterImp: NetworkAdapter {
             .request(type: ETHTokenTransfersResponseModel.self, completionHandler: completion)
     }
     
-    func tokenInfo(addresses: [String],
+    func tokenInfo(address: String,
                    completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.tokenInfo(addresses: addresses)
+        ETHNetwork.tokenInfo(address: address)
             .request(type: ETHTokenInfoResponseModel.self, completionHandler: completion)
     }
     

@@ -39,6 +39,29 @@ class ETHServiceTests: XCTestCase {
         wait(for: [expectation], timeout: testTimeout)
     }
     
+    func testGetBalances() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testGetBalance")
+        let address = ethAddressWithBalance
+        let address2 = ethAddressWithBalance2
+        //act
+        api.eth.balance(addresses: [address, address2]) { result in
+            switch result {
+            case let .success(balances):
+                //assert
+                XCTAssertTrue(!balances.isEmpty)
+            case let .failure(error):
+                //assert
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
     func testGetBalanceFailed() {
         //arrange
         let api = CtyptoAPI.default
@@ -158,6 +181,32 @@ class ETHServiceTests: XCTestCase {
         wait(for: [expectation], timeout: testTimeout)
     }
     
+    func testInfosTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testInfoTest")
+        let address = ethAddressWithBalance
+        let address2 = ethAddressWithBalance2
+
+        //act
+        //act
+        api.eth.info(addresses: [address, address2]) { result in
+            switch result {
+            case let .success(infos):
+                //assert
+                XCTAssertTrue(!infos.isEmpty)
+                XCTAssertFalse(infos.first!.isContract)
+            case let .failure(error):
+                //assert
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
     func testInfoContractTest() {
         //arrange
         let api = CtyptoAPI.default
@@ -231,6 +280,33 @@ class ETHServiceTests: XCTestCase {
         wait(for: [expectation], timeout: testTimeout)
     }
     
+    func testHistoryAddressesTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testHistoryAddressTest")
+        let address = ethAddressWithBalance
+        let address2 = ethAddressWithBalance2
+        let skip = 0
+        let limit = 10
+        let positive = ""
+
+        //act
+        api.eth.transfers(skip: skip, limit: limit, addresses: [address, address2], positive: positive) { result in
+            switch result {
+            case let .success(history):
+                //assert
+                XCTAssertTrue(!history.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
     func testHistoryAddressFailedTest() {
         //arrange
         let api = CtyptoAPI.default
@@ -266,6 +342,32 @@ class ETHServiceTests: XCTestCase {
 
         //act
         api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address]) { result in
+            switch result {
+            case let .success(history):
+                //assert
+                XCTAssertTrue(!history.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testExternalHistoryAddressesTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testExternalHistoryAddressTest")
+        let address = ethAddressWithBalance
+        let address2 = ethAddressWithBalance2
+        let skip = 0
+        let limit = 10
+
+        //act
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address, address2]) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -408,7 +510,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethContractAddress
 
         //act
-        api.eth.contractInfo(addresses: [address]) { result in
+        api.eth.contractInfo(address: address) { result in
             switch result {
             case let .success(info):
                 //assert
@@ -431,7 +533,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
 
         //act
-        api.eth.contractInfo(addresses: [address]) { result in
+        api.eth.contractInfo(address: address) { result in
             switch result {
               case .success:
                   //assert
@@ -454,7 +556,31 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         //act
-        api.eth.tokensBalance(addresses: [address], skip: skip, limit: limit) { result in
+        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
+            switch result {
+            case let .success(balances):
+                //assert
+                XCTAssertTrue(!balances.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testTokensBalancesTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokensBalanceTest")
+        let address = ethContractAddress
+        let skip = 0
+        let limit = 10
+        //act
+        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
             switch result {
             case let .success(balances):
                 //assert
@@ -478,7 +604,7 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         //act
-        api.eth.tokensBalance(addresses: [address], skip: skip, limit: limit) { result in
+        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
             switch result {
               case .success:
                   //assert
@@ -503,6 +629,32 @@ class ETHServiceTests: XCTestCase {
         let limit = 10
         //act
         api.eth.tokenTransfers(tokenAddress: tokenAddress, addresses: [address], skip: skip, limit: limit) { result in
+            switch result {
+            case let .success(balances):
+                //assert
+                XCTAssertTrue(!balances.addresses.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testTokensHistoryTest() {
+        //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testTokenHistoryTest")
+        let address = ethAddressWithBalance
+        let address2 = ethAddressWithBalance2
+        let tokenAddress = ethContractAddress
+        let skip = 0
+        let limit = 10
+        //act
+        api.eth.tokenTransfers(tokenAddress: tokenAddress, addresses: [address, address2], skip: skip, limit: limit) { result in
             switch result {
             case let .success(balances):
                 //assert
@@ -549,7 +701,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethContractAddress
 
         //act
-        api.eth.tokenInfo(addresses: [address]) { result in
+        api.eth.tokenInfo(address: address) { result in
             switch result {
             case let .success(info):
                 //assert
@@ -572,7 +724,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
 
         //act
-        api.eth.tokenInfo(addresses: [address]) { result in
+        api.eth.tokenInfo(address: address) { result in
             switch result {
               case .success:
                   //assert
