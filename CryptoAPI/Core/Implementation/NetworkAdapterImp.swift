@@ -15,9 +15,9 @@ final class NetworkAdapterImp: NetworkAdapter {
         self.session = session
     }
     
-    func balance(address: String,
+    func balance(addresses: [String],
                  completion: @escaping (Result<[ETHBalanceResponseModel], CryptoApiError>) -> Void) {
-        ETHNetwork.balance(address: address)
+        ETHNetwork.balance(addresses: addresses)
             .request(type: [ETHBalanceResponseModel].self, session: session, completionHandler: completion)
     }
     
@@ -32,20 +32,20 @@ final class NetworkAdapterImp: NetworkAdapter {
             .request(type: ETHNetworkResponseModel.self, completionHandler: completion)
     }
     
-    func info(address: String, completion: @escaping (Result<[ETHInfoResponseModel], CryptoApiError>) -> Void) {
-        ETHNetwork.info(address: address)
+    func info(addresses: [String], completion: @escaping (Result<[ETHInfoResponseModel], CryptoApiError>) -> Void) {
+        ETHNetwork.info(addresses: addresses)
             .request(type: [ETHInfoResponseModel].self, completionHandler: completion)
     }
     
-    func transfers(skip: Int, limit: Int, addresses: String, positive: String,
+    func transfers(skip: Int, limit: Int, addresses: [String], positive: String,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.history(address: addresses, from: skip, limit: limit)
+        ETHNetwork.history(addresses: addresses, from: skip, limit: limit)
             .request(type: ETHTransfersResponseModel.self, completionHandler: completion)
     }
     
-    func externalTransfers(skip: Int, limit: Int, addresses: String,
+    func externalTransfers(skip: Int, limit: Int, addresses: [String],
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.externalHistory(address: addresses, from: skip, limit: limit)
+        ETHNetwork.externalHistory(addresses: addresses, from: skip, limit: limit)
             .request(type: ETHExternalTransfersResponseModel.self, completionHandler: completion)
     }
     
@@ -61,27 +61,27 @@ final class NetworkAdapterImp: NetworkAdapter {
             .request(type: ETHTransactionResponseModel.self, completionHandler: completion)
     }
     
-    func contractInfo(address: String,
+    func contractInfo(addresses: [String],
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.contractInfo(address: address)
+        ETHNetwork.contractInfo(addresses: addresses)
             .request(type: ETHContractInfoResponseModel.self, completionHandler: completion)
     }
     
-    func tokensBalance(address: String, skip: Int, limit: Int,
+    func tokensBalance(addresses: [String], skip: Int, limit: Int,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.tokenBalance(address: address, skip: skip, limit: limit)
+        ETHNetwork.tokenBalance(addresses: addresses, skip: skip, limit: limit)
             .request(type: ETHTokensBalanceResponseModel.self, completionHandler: completion)
     }
     
-    func tokenTransfers(tokenAddress: String, address: String, skip: Int, limit: Int,
+    func tokenTransfers(tokenAddress: String, addresses: [String], skip: Int, limit: Int,
                         completion: @escaping (Result<ETHTokenTransfersResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.tokenHistory(tokenAddress: tokenAddress, address: address, from: skip, limit: limit)
+        ETHNetwork.tokenHistory(tokenAddress: tokenAddress, addresses: addresses, from: skip, limit: limit)
             .request(type: ETHTokenTransfersResponseModel.self, completionHandler: completion)
     }
     
-    func tokenInfo(address: String,
+    func tokenInfo(addresses: [String],
                    completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.tokenInfo(address: address)
+        ETHNetwork.tokenInfo(addresses: addresses)
             .request(type: ETHTokenInfoResponseModel.self, completionHandler: completion)
     }
     

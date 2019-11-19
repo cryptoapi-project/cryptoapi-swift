@@ -10,23 +10,23 @@ import Foundation
 
 enum ETHNetwork: Resty {
     case queryTokens(query: String, skip: Int, limit: Int, types: [String])
-    case contractInfo(address: String)
-    case tokenInfo(address: String)
-    case info(address: String)
+    case contractInfo(addresses: [String])
+    case tokenInfo(addresses: [String])
+    case info(addresses: [String])
     case network
-    case history(address: String, from: Int, limit: Int)
+    case history(addresses: [String], from: Int, limit: Int)
     case transactions(fromAddress: String, toAddress: String, skip: Int, limit: Int)
     case transaction(hash: String)
-    case externalHistory(address: String, from: Int, limit: Int)
-    case tokenHistory(tokenAddress: String, address: String, from: Int, limit: Int)
-    case balance(address: String)
-    case tokenBalance(address: String, skip: Int, limit: Int)
+    case externalHistory(addresses: [String], from: Int, limit: Int)
+    case tokenHistory(tokenAddress: String, addresses: [String], from: Int, limit: Int)
+    case balance(addresses: [String])
+    case tokenBalance(addresses: [String], skip: Int, limit: Int)
     case sendRawTransaction(transaction: String)
     case estimateGas(from: String, to: String, value: String, data: String)
-    case outputs(address: String)
+    case outputs(addresses: [String])
     case estimateFee
-    case subscribePushNotifications(address: String, token: String)
-    case unsubscribePushNotifications(address: String, token: String)
+    case subscribePushNotifications(addresses: [String], token: String)
+    case unsubscribePushNotifications(addresses: [String], token: String)
     case coinRates
     case coinsRateHistory
 }
@@ -39,36 +39,36 @@ extension ETHNetwork {
         switch self {
         case .queryTokens:
             return "/v1/coins/eth/tokens/search"
-        case .tokenInfo(let address):
-            return "/v1/coins/eth/tokens/\(address)/info"
+        case .tokenInfo(let addresses):
+            return "/v1/coins/eth/tokens/\(addresses.description)/info"
         case .transaction(let hash):
             return "/v1/coins/eth/transactions/\(hash)"
-        case .contractInfo(let address):
-            return "/v1/coins/eth/contracts/\(address)/info"
-        case .info(let address):
-            return "/v1/coins/eth/accounts/\(address)/info"
+        case .contractInfo(let addresses):
+            return "/v1/coins/eth/contracts/\(addresses.description)/info"
+        case .info(let addresses):
+            return "/v1/coins/eth/accounts/\(addresses.description)/info"
         case .network:
             return "/v1/coins/eth/network"
-        case .history( let address, _, _):
-            return "/v1/coins/eth/accounts/\(address)/transfers"
+        case .history( let addresses, _, _):
+            return "/v1/coins/eth/accounts/\(addresses.description)/transfers"
         case .transactions:
             return "/v1/coins/eth/transactions"
-        case .externalHistory( let address, _, _):
-            return "/v1/coins/eth/accounts/\(address)/transactions/external"
-        case .tokenHistory(let tokenAddress, let address, _, _):
-            return "/v1/coins/eth/tokens/\(tokenAddress)/\(address)/transfers"
+        case .externalHistory( let addresses, _, _):
+            return "/v1/coins/eth/accounts/\(addresses.description)/transactions/external"
+        case .tokenHistory(let tokenAddress, let addresses, _, _):
+            return "/v1/coins/eth/tokens/\(tokenAddress)/\(addresses.description)/transfers"
         case .estimateFee:
             return "/v1/coins/eth/estimate-fee-per-kb"
-        case .balance(let address):
-            return "/v1/coins/eth/accounts/\(address)/balance"
-        case .tokenBalance(let address, _, _):
-            return "/v1/coins/eth/tokens/\(address)/balances"
+        case .balance(let addresses):
+            return "/v1/coins/eth/accounts/\(addresses.description)/balance"
+        case .tokenBalance(let addresses, _, _):
+            return "/v1/coins/eth/tokens/\(addresses.description)/balances"
         case .sendRawTransaction:
             return "/v1/coins/eth/transactions/raw/send"
         case .estimateGas:
             return "/v1/coins/eth/estimate-gas"
-        case .outputs(let address):
-            return "/v1/coins/eth/\(address)/outputs"
+        case .outputs(let addresses):
+            return "/v1/coins/eth/\(addresses.description)/outputs"
         case .subscribePushNotifications(let address, _):
             return "/v1/coins/eth/accounts/\(address)/token/subscribe/balance"
         case .unsubscribePushNotifications(let address, _):

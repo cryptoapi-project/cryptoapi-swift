@@ -23,7 +23,7 @@ class ETHServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testGetBalance")
         let address = ethAddressWithBalance
         //act
-        api.eth.balance(address: address) { result in
+        api.eth.balance(addresses: [address]) { result in
             switch result {
             case let .success(balances):
                 //assert
@@ -45,7 +45,7 @@ class ETHServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testGetBalance")
         let address = ethInvalidAddress
         //act
-        api.eth.balance(address: address) { result in
+        api.eth.balance(addresses: [address]) { result in
             switch result {
             case .success:
                 //assert
@@ -141,7 +141,7 @@ class ETHServiceTests: XCTestCase {
 
         //act
         //act
-        api.eth.info(address: address) { result in
+        api.eth.info(addresses: [address]) { result in
             switch result {
             case let .success(infos):
                 //assert
@@ -166,7 +166,7 @@ class ETHServiceTests: XCTestCase {
 
         //act
         //act
-        api.eth.info(address: address) { result in
+        api.eth.info(addresses: [address]) { result in
             switch result {
             case let .success(infos):
                 //assert
@@ -190,7 +190,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
 
         //act
-        api.eth.info(address: address) { result in
+        api.eth.info(addresses: [address]) { result in
             switch result {
               case .success:
                   //assert
@@ -215,7 +215,7 @@ class ETHServiceTests: XCTestCase {
         let positive = ""
 
         //act
-        api.eth.transfers(skip: skip, limit: limit, addresses: address, positive: positive) { result in
+        api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -241,7 +241,7 @@ class ETHServiceTests: XCTestCase {
         let positive = ""
 
         //act
-        api.eth.transfers(skip: skip, limit: limit, addresses: address, positive: positive) { result in
+        api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive) { result in
             switch result {
               case .success:
                   //assert
@@ -265,7 +265,7 @@ class ETHServiceTests: XCTestCase {
         let limit = 10
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: address) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address]) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -290,7 +290,7 @@ class ETHServiceTests: XCTestCase {
         let limit = 10
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: address) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address]) { result in
             switch result {
               case .success:
                   //assert
@@ -408,7 +408,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethContractAddress
 
         //act
-        api.eth.contractInfo(address: address) { result in
+        api.eth.contractInfo(addresses: [address]) { result in
             switch result {
             case let .success(info):
                 //assert
@@ -431,7 +431,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
 
         //act
-        api.eth.contractInfo(address: address) { result in
+        api.eth.contractInfo(addresses: [address]) { result in
             switch result {
               case .success:
                   //assert
@@ -454,7 +454,7 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         //act
-        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
+        api.eth.tokensBalance(addresses: [address], skip: skip, limit: limit) { result in
             switch result {
             case let .success(balances):
                 //assert
@@ -478,7 +478,7 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         //act
-        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
+        api.eth.tokensBalance(addresses: [address], skip: skip, limit: limit) { result in
             switch result {
               case .success:
                   //assert
@@ -502,7 +502,7 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         //act
-        api.eth.tokenTransfers(tokenAddress: tokenAddress, address: address, skip: skip, limit: limit) { result in
+        api.eth.tokenTransfers(tokenAddress: tokenAddress, addresses: [address], skip: skip, limit: limit) { result in
             switch result {
             case let .success(balances):
                 //assert
@@ -527,7 +527,7 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         //act
-        api.eth.tokenTransfers(tokenAddress: tokenAddress, address: address, skip: skip, limit: limit) { result in
+        api.eth.tokenTransfers(tokenAddress: tokenAddress, addresses: [address], skip: skip, limit: limit) { result in
             switch result {
               case .success:
                   //assert
@@ -549,7 +549,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethContractAddress
 
         //act
-        api.eth.tokenInfo(address: address) { result in
+        api.eth.tokenInfo(addresses: [address]) { result in
             switch result {
             case let .success(info):
                 //assert
@@ -572,7 +572,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
 
         //act
-        api.eth.tokenInfo(address: address) { result in
+        api.eth.tokenInfo(addresses: [address]) { result in
             switch result {
               case .success:
                   //assert

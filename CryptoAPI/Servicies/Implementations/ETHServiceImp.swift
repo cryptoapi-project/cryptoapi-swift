@@ -13,8 +13,8 @@ final class ETHServiceImp: ETHService {
         self.networkAdapter = networkAdapter
     }
     
-    func balance(address: String, completion: @escaping (Result<[ETHBalanceResponseModel], CryptoApiError>) -> Void) {
-        networkAdapter.balance(address: address, completion: completion)
+    func balance(addresses: [String], completion: @escaping (Result<[ETHBalanceResponseModel], CryptoApiError>) -> Void) {
+        networkAdapter.balance(addresses: addresses, completion: completion)
     }
     
     func estimateGas(fromAddress: String, toAddress: String, data: String, value: String,
@@ -26,17 +26,17 @@ final class ETHServiceImp: ETHService {
         networkAdapter.network(completion: completion)
     }
     
-    func info(address: String, completion: @escaping (Result<[ETHInfoResponseModel], CryptoApiError>) -> Void) {
-        networkAdapter.info(address: address, completion: completion)
+    func info(addresses: [String], completion: @escaping (Result<[ETHInfoResponseModel], CryptoApiError>) -> Void) {
+        networkAdapter.info(addresses: addresses, completion: completion)
     }
     
-    func transfers(skip: Int, limit: Int, addresses: String, positive: String,
+    func transfers(skip: Int, limit: Int, addresses: [String], positive: String,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.transfers(skip: skip, limit: limit,
                                  addresses: addresses, positive: positive, completion: completion)
     }
     
-    func externalTransfers(skip: Int, limit: Int, addresses: String,
+    func externalTransfers(skip: Int, limit: Int, addresses: [String],
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.externalTransfers(skip: skip, limit: limit,
                                  addresses: addresses, completion: completion)
@@ -53,25 +53,25 @@ final class ETHServiceImp: ETHService {
         networkAdapter.transaction(hash: hash, completion: completion)
     }
     
-    func contractInfo(address: String,
+    func contractInfo(addresses: [String],
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.contractInfo(address: address, completion: completion)
+        networkAdapter.contractInfo(addresses: addresses, completion: completion)
     }
     
-    func tokensBalance(address: String, skip: Int, limit: Int,
+    func tokensBalance(addresses: [String], skip: Int, limit: Int,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.tokensBalance(address: address, skip: skip, limit: limit, completion: completion)
+        networkAdapter.tokensBalance(addresses: addresses, skip: skip, limit: limit, completion: completion)
     }
     
-    func tokenTransfers(tokenAddress: String, address: String, skip: Int, limit: Int,
+    func tokenTransfers(tokenAddress: String, addresses: [String], skip: Int, limit: Int,
                         completion: @escaping (Result<ETHTokenTransfersResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.tokenTransfers(tokenAddress: tokenAddress, address: address,
+        networkAdapter.tokenTransfers(tokenAddress: tokenAddress, addresses: addresses,
                                       skip: skip, limit: limit, completion: completion)
     }
     
-    func tokenInfo(address: String,
+    func tokenInfo(addresses: [String],
                    completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.tokenInfo(address: address, completion: completion)
+        networkAdapter.tokenInfo(addresses: addresses, completion: completion)
     }
     
     func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
