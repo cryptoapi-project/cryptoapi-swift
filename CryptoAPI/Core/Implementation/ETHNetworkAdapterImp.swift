@@ -1,5 +1,5 @@
 //
-//  NetworkAdapterImp.swift
+//  ETHNetworkAdapterImp.swift
 //  CryptoAPI
 //
 //  Created by Fedorenko Nikita on 11/16/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class NetworkAdapterImp: NetworkAdapter {
+final class ETHNetworkAdapterImp: ETHNetworkAdapter {
     let session: URLSession
     
     init(session: URLSession) {

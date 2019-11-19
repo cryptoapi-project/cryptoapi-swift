@@ -7,9 +7,21 @@
 //
 
 final class CommonServiceImp: CommonService {
-    let networkAdapter: NetworkAdapter
+    let networkAdapter: CommonNetworkAdapter
 
-    public init(networkAdapter: NetworkAdapter) {
+    public init(networkAdapter: CommonNetworkAdapter) {
         self.networkAdapter = networkAdapter
+    }
+    
+    func rates(completion: @escaping (Result<CmnRatesResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.rates(completion: completion)
+    }
+    
+    func ratesHistory(coin: String, completion: @escaping (Result<[CmnRatesHistoryResponseModel], CryptoApiError>) -> Void) {
+        networkAdapter.ratesHistory(coin: coin, completion: completion)
+    }
+    
+    func coins(completion: @escaping (Result<[String], CryptoApiError>) -> Void) {
+        networkAdapter.coins(completion: completion)
     }
 }

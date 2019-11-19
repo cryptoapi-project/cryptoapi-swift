@@ -7,9 +7,9 @@
 //
 
 final class ETHServiceImp: ETHService {
-    let networkAdapter: NetworkAdapter
+    let networkAdapter: ETHNetworkAdapter
     
-    public init(networkAdapter: NetworkAdapter) {
+    public init(networkAdapter: ETHNetworkAdapter) {
         self.networkAdapter = networkAdapter
     }
     

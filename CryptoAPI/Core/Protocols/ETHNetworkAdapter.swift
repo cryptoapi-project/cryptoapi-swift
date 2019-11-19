@@ -13,7 +13,8 @@ enum MapError: Swift.Error, Equatable {
     case invalidFormat
 }
 
-protocol NetworkAdapter {
+protocol ETHNetworkAdapter {
+    //ETH
     func balance(addresses: [String],
                  completion: @escaping (Result<[ETHBalanceResponseModel], CryptoApiError>) -> Void)
     

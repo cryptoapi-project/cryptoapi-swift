@@ -18,17 +18,23 @@
 		B34D0F112382C751002823F8 /* ETHTokenTransfersResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0F102382C751002823F8 /* ETHTokenTransfersResponseModel.swift */; };
 		B34D0F132382D41B002823F8 /* ETHTokenInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0F122382D41B002823F8 /* ETHTokenInfoResponseModel.swift */; };
 		B34D0F152382DECD002823F8 /* ETHTokenQueryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0F142382DECD002823F8 /* ETHTokenQueryResponseModel.swift */; };
+		B3A4AE3523842EDA005AFE8E /* CommonNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3423842EDA005AFE8E /* CommonNetwork.swift */; };
+		B3A4AE3723843072005AFE8E /* CommonNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3623843072005AFE8E /* CommonNetworkAdapter.swift */; };
+		B3A4AE3923843091005AFE8E /* CommonNetworkAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3823843091005AFE8E /* CommonNetworkAdapterImp.swift */; };
+		B3A4AE3B23843130005AFE8E /* CommonServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3A23843130005AFE8E /* CommonServiceTests.swift */; };
+		B3A4AE3D238431B8005AFE8E /* CmnRatesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3C238431B8005AFE8E /* CmnRatesResponseModel.swift */; };
+		B3A4AE3F23843293005AFE8E /* CmnRatesHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3E23843293005AFE8E /* CmnRatesHistoryResponseModel.swift */; };
 		B3BD0BF0237FE2D400EF0600 /* CtyptoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BEF237FE2D400EF0600 /* CtyptoAPI.swift */; };
 		B3BD0BF3237FE9C500EF0600 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BF2237FE9C500EF0600 /* Configurator.swift */; };
 		B3BD0BF5237FEAE900EF0600 /* ETHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BF4237FEAE900EF0600 /* ETHService.swift */; };
 		B3BD0BF7237FEB1100EF0600 /* CommonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BF6237FEB1100EF0600 /* CommonService.swift */; };
 		B3BD0BF9237FF78D00EF0600 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BF8237FF78D00EF0600 /* Settings.swift */; };
-		B3BD0BFC237FFBD600EF0600 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BFA237FFBD500EF0600 /* NetworkProvider.swift */; };
-		B3BD0BFD237FFBD600EF0600 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BFB237FFBD500EF0600 /* NetworkAdapter.swift */; };
+		B3BD0BFC237FFBD600EF0600 /* ETHNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BFA237FFBD500EF0600 /* ETHNetwork.swift */; };
+		B3BD0BFD237FFBD600EF0600 /* ETHNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BFB237FFBD500EF0600 /* ETHNetworkAdapter.swift */; };
 		B3BD0C00237FFD5500EF0600 /* Resty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0BFF237FFD5500EF0600 /* Resty.swift */; };
 		B3BD0C022380055D00EF0600 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C012380055D00EF0600 /* Dictionary+Extension.swift */; };
 		B3BD0C072380127600EF0600 /* ETHWalletBalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C032380127600EF0600 /* ETHWalletBalanceModel.swift */; };
-		B3BD0C0C2380134600EF0600 /* NetworkAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C0B2380134600EF0600 /* NetworkAdapterImp.swift */; };
+		B3BD0C0C2380134600EF0600 /* ETHNetworkAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C0B2380134600EF0600 /* ETHNetworkAdapterImp.swift */; };
 		B3BD0C112380147100EF0600 /* ETHServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C102380147100EF0600 /* ETHServiceImp.swift */; };
 		B3BD0C132380147900EF0600 /* CommonServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C122380147900EF0600 /* CommonServiceImp.swift */; };
 		B3BD0C21238017DC00EF0600 /* CryptoAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BD0BE4237FE11000EF0600 /* CryptoAPI.framework */; };
@@ -58,6 +64,12 @@
 		B34D0F102382C751002823F8 /* ETHTokenTransfersResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHTokenTransfersResponseModel.swift; sourceTree = "<group>"; };
 		B34D0F122382D41B002823F8 /* ETHTokenInfoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHTokenInfoResponseModel.swift; sourceTree = "<group>"; };
 		B34D0F142382DECD002823F8 /* ETHTokenQueryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHTokenQueryResponseModel.swift; sourceTree = "<group>"; };
+		B3A4AE3423842EDA005AFE8E /* CommonNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetwork.swift; sourceTree = "<group>"; };
+		B3A4AE3623843072005AFE8E /* CommonNetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetworkAdapter.swift; sourceTree = "<group>"; };
+		B3A4AE3823843091005AFE8E /* CommonNetworkAdapterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetworkAdapterImp.swift; sourceTree = "<group>"; };
+		B3A4AE3A23843130005AFE8E /* CommonServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonServiceTests.swift; sourceTree = "<group>"; };
+		B3A4AE3C238431B8005AFE8E /* CmnRatesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CmnRatesResponseModel.swift; sourceTree = "<group>"; };
+		B3A4AE3E23843293005AFE8E /* CmnRatesHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CmnRatesHistoryResponseModel.swift; sourceTree = "<group>"; };
 		B3BD0BE4237FE11000EF0600 /* CryptoAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CryptoAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BD0BE8237FE11000EF0600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3BD0BEF237FE2D400EF0600 /* CtyptoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtyptoAPI.swift; sourceTree = "<group>"; };
@@ -65,12 +77,12 @@
 		B3BD0BF4237FEAE900EF0600 /* ETHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHService.swift; sourceTree = "<group>"; };
 		B3BD0BF6237FEB1100EF0600 /* CommonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonService.swift; sourceTree = "<group>"; };
 		B3BD0BF8237FF78D00EF0600 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		B3BD0BFA237FFBD500EF0600 /* NetworkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		B3BD0BFB237FFBD500EF0600 /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
+		B3BD0BFA237FFBD500EF0600 /* ETHNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHNetwork.swift; sourceTree = "<group>"; };
+		B3BD0BFB237FFBD500EF0600 /* ETHNetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHNetworkAdapter.swift; sourceTree = "<group>"; };
 		B3BD0BFF237FFD5500EF0600 /* Resty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resty.swift; sourceTree = "<group>"; };
 		B3BD0C012380055D00EF0600 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		B3BD0C032380127600EF0600 /* ETHWalletBalanceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHWalletBalanceModel.swift; sourceTree = "<group>"; };
-		B3BD0C0B2380134600EF0600 /* NetworkAdapterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapterImp.swift; sourceTree = "<group>"; };
+		B3BD0C0B2380134600EF0600 /* ETHNetworkAdapterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHNetworkAdapterImp.swift; sourceTree = "<group>"; };
 		B3BD0C102380147100EF0600 /* ETHServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHServiceImp.swift; sourceTree = "<group>"; };
 		B3BD0C122380147900EF0600 /* CommonServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonServiceImp.swift; sourceTree = "<group>"; };
 		B3BD0C1C238017DC00EF0600 /* CryptoAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +167,8 @@
 				B34D0F102382C751002823F8 /* ETHTokenTransfersResponseModel.swift */,
 				B34D0F122382D41B002823F8 /* ETHTokenInfoResponseModel.swift */,
 				B34D0F142382DECD002823F8 /* ETHTokenQueryResponseModel.swift */,
+				B3A4AE3C238431B8005AFE8E /* CmnRatesResponseModel.swift */,
+				B3A4AE3E23843293005AFE8E /* CmnRatesHistoryResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,7 +213,8 @@
 		B3BD0C15238014AD00EF0600 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B3BD0BFB237FFBD500EF0600 /* NetworkAdapter.swift */,
+				B3BD0BFB237FFBD500EF0600 /* ETHNetworkAdapter.swift */,
+				B3A4AE3623843072005AFE8E /* CommonNetworkAdapter.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -207,7 +222,8 @@
 		B3BD0C16238014B400EF0600 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				B3BD0C0B2380134600EF0600 /* NetworkAdapterImp.swift */,
+				B3BD0C0B2380134600EF0600 /* ETHNetworkAdapterImp.swift */,
+				B3A4AE3823843091005AFE8E /* CommonNetworkAdapterImp.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -215,8 +231,9 @@
 		B3BD0C17238014D500EF0600 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B3BD0BFA237FFBD500EF0600 /* NetworkProvider.swift */,
+				B3BD0BFA237FFBD500EF0600 /* ETHNetwork.swift */,
 				B3BD0BFF237FFD5500EF0600 /* Resty.swift */,
+				B3A4AE3423842EDA005AFE8E /* CommonNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -226,6 +243,7 @@
 			children = (
 				B3BD0C20238017DC00EF0600 /* Info.plist */,
 				B3BD0C2723801A5000EF0600 /* ETHServiceTests.swift */,
+				B3A4AE3A23843130005AFE8E /* CommonServiceTests.swift */,
 			);
 			path = CryptoAPITests;
 			sourceTree = "<group>";
@@ -366,6 +384,9 @@
 				B3BD0BF7237FEB1100EF0600 /* CommonService.swift in Sources */,
 				B3BD0BF5237FEAE900EF0600 /* ETHService.swift in Sources */,
 				B34D0F152382DECD002823F8 /* ETHTokenQueryResponseModel.swift in Sources */,
+				B3A4AE3D238431B8005AFE8E /* CmnRatesResponseModel.swift in Sources */,
+				B3A4AE3523842EDA005AFE8E /* CommonNetwork.swift in Sources */,
+				B3A4AE3923843091005AFE8E /* CommonNetworkAdapterImp.swift in Sources */,
 				B34D0F0D2382B48B002823F8 /* ETHContractInfoResponseModel.swift in Sources */,
 				B34D0F0523828163002823F8 /* ETHInfoResponseModel.swift in Sources */,
 				B3BD0BF3237FE9C500EF0600 /* Configurator.swift in Sources */,
@@ -374,17 +395,19 @@
 				B34D0F0B2382AC4D002823F8 /* ETHTransactionsResponseModel.swift in Sources */,
 				B34D0F0F2382C252002823F8 /* ETHTokensBalanceResponseModel.swift in Sources */,
 				B3BD0BF0237FE2D400EF0600 /* CtyptoAPI.swift in Sources */,
-				B3BD0BFD237FFBD600EF0600 /* NetworkAdapter.swift in Sources */,
+				B3BD0BFD237FFBD600EF0600 /* ETHNetworkAdapter.swift in Sources */,
 				B34D0F112382C751002823F8 /* ETHTokenTransfersResponseModel.swift in Sources */,
 				B3BD0C022380055D00EF0600 /* Dictionary+Extension.swift in Sources */,
 				B3BD0C132380147900EF0600 /* CommonServiceImp.swift in Sources */,
 				B3BD0C112380147100EF0600 /* ETHServiceImp.swift in Sources */,
-				B3BD0C0C2380134600EF0600 /* NetworkAdapterImp.swift in Sources */,
+				B3BD0C0C2380134600EF0600 /* ETHNetworkAdapterImp.swift in Sources */,
+				B3A4AE3F23843293005AFE8E /* CmnRatesHistoryResponseModel.swift in Sources */,
 				B3BD0C00237FFD5500EF0600 /* Resty.swift in Sources */,
 				B3BD0C072380127600EF0600 /* ETHWalletBalanceModel.swift in Sources */,
+				B3A4AE3723843072005AFE8E /* CommonNetworkAdapter.swift in Sources */,
 				B3BD0BF9237FF78D00EF0600 /* Settings.swift in Sources */,
 				B34D0F0023826C47002823F8 /* ETHNetworkResponseModel.swift in Sources */,
-				B3BD0BFC237FFBD600EF0600 /* NetworkProvider.swift in Sources */,
+				B3BD0BFC237FFBD600EF0600 /* ETHNetwork.swift in Sources */,
 				B34D0F072382851E002823F8 /* ETHTransfersResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A4AE3B23843130005AFE8E /* CommonServiceTests.swift in Sources */,
 				B3BD0C2823801A5000EF0600 /* ETHServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

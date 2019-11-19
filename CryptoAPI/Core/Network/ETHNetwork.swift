@@ -1,5 +1,5 @@
 //
-//  NetworkProviderImp.swift
+//  ETHNetwork.swift
 //  CryptoAPI
 //
 //  Created by Fedorenko Nikita on 14.01.2019.
