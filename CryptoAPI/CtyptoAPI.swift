@@ -19,9 +19,10 @@ public final class CtyptoAPI {
         configuration.timeoutIntervalForResource = settings.timeoutIntervalForResource
         
         let urlSession = URLSession(configuration: configuration)
-        let networkAdapter = NetworkAdapterImp(session: urlSession)
-        let ethService = ETHServiceImp(networkAdapter: networkAdapter)
-        let commonService = CommonServiceImp(networkAdapter: networkAdapter)
+        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession)
+        let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession)
+        let ethService = ETHServiceImp(networkAdapter: ethNetworkAdapter)
+        let commonService = CommonServiceImp(networkAdapter: commonNetworkAdapter)
         
         eth = ethService
         common = commonService

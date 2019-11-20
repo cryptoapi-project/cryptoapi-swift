@@ -15,3 +15,7 @@ extension Dictionary where Key: CustomStringConvertible, Value: CustomStringConv
         return String(parametersString.dropLast())
     }
 }
+
+extension Array where Element: StringProtocol {
+    public var description: String { return self.joined(separator: ",") }
+}

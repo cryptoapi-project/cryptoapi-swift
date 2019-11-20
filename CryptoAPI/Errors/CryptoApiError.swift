@@ -19,5 +19,6 @@ public struct CryptoApiTypedErrors: Codable {
 
 public struct CryptoApiTypedError: Codable {
     let message: String
-    let field: String
+    let field: String?
+    let value: String?
 }
