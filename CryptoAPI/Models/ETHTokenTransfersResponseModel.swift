@@ -10,7 +10,7 @@ public struct ETHTokenTransfersResponseModel: Codable {
     let addresses: [String]
     let skip: Int
     let limit: Int
-    let items: [ETHTransferResponseModel]
+    let items: [ETHTokenTransferResponseModel]
     let count: Int
 }
 
