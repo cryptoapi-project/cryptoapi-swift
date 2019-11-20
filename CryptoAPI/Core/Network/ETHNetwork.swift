@@ -21,14 +21,14 @@ enum ETHNetwork: Resty {
     case tokenHistory(tokenAddress: String, addresses: [String], from: Int, limit: Int)
     case balance(addresses: [String])
     case tokenBalance(address: String, skip: Int, limit: Int)
-    case sendRawTransaction(transaction: String)
+    case sendRaw(transaction: String)
+    case decodeRaw(transaction: String)
+    case callContract(address: String, sender: String, amount: Int, bytecode: String)
     case estimateGas(from: String, to: String, value: String, data: String)
     case outputs(addresses: [String])
     case estimateFee
     case subscribePushNotifications(addresses: [String], token: String)
     case unsubscribePushNotifications(addresses: [String], token: String)
-    case coinRates
-    case coinsRateHistory
 }
 
 extension ETHNetwork {
@@ -37,6 +37,8 @@ extension ETHNetwork {
     }
     var path: String {
         switch self {
+        case let .callContract(address, _, _, _):
+            return "/v1/coins/eth/contracts/\(address)/call"
         case .queryTokens:
             return "/v1/coins/eth/tokens/search"
         case .tokenInfo(let address):
@@ -44,7 +46,7 @@ extension ETHNetwork {
         case .transaction(let hash):
             return "/v1/coins/eth/transactions/\(hash)"
         case .contractInfo(let addresses):
-            return "/v1/coins/eth/contracts/\(addresses.description)/info"
+            return "/v1/coins/eth/contracts/\(addresses)/info"
         case .info(let addresses):
             return "/v1/coins/eth/accounts/\(addresses.description)/info"
         case .network:
@@ -61,10 +63,12 @@ extension ETHNetwork {
             return "/v1/coins/eth/estimate-fee-per-kb"
         case .balance(let addresses):
             return "/v1/coins/eth/accounts/\(addresses.description)/balance"
-        case .tokenBalance(let addresses, _, _):
-            return "/v1/coins/eth/tokens/\(addresses.description)/balances"
-        case .sendRawTransaction:
+        case .tokenBalance(let address, _, _):
+            return "/v1/coins/eth/tokens/\(address)/balances"
+        case .sendRaw:
             return "/v1/coins/eth/transactions/raw/send"
+        case .decodeRaw:
+            return "/v1/coins/eth/transactions/raw/decode"
         case .estimateGas:
             return "/v1/coins/eth/estimate-gas"
         case .outputs(let addresses):
@@ -73,32 +77,38 @@ extension ETHNetwork {
             return "/v1/coins/eth/accounts/\(address)/token/subscribe/balance"
         case .unsubscribePushNotifications(let address, _):
             return "/v1/coins/eth/accounts/\(address)/token/unsubscribe/balance"
-        case .coinRates:
-            return "/v1/coins/rates"
-        case .coinsRateHistory:
-            return "/v1/coins/rates/eth/history"
         }
     }
         
     var method: HTTPMethod {
         switch self {
-        case .history, .tokenHistory, .balance, .outputs, .coinRates, .estimateFee, .transactions,
-             .contractInfo, .transaction, .coinsRateHistory, .tokenBalance, .network, .info,
-             .externalHistory, .tokenInfo, .queryTokens:
+        case .history, .tokenHistory, .balance, .outputs, .estimateFee, .transactions,
+             .contractInfo, .transaction, .tokenBalance, .network, .info,.externalHistory,
+             .tokenInfo, .queryTokens:
             return .get
 
-        case .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications:
+        case .sendRaw, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications, .callContract, .decodeRaw:
             return .post
         }
     }
     
     var bodyParameters: [String: Any]? {
         switch self {
-        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .history, .transactions, .contractInfo,
+        case .balance, .outputs, .estimateFee, .history, .transactions, .contractInfo,
              .tokenHistory, .tokenBalance, .network, .info, .externalHistory, .transaction, .tokenInfo, .queryTokens:
             return nil
             
-        case let .sendRawTransaction(transaction):
+        case let .sendRaw(transaction):
+            return ["tx": transaction]
+            
+        case let .callContract(_, sender, amount, bytecode):
+            return [
+                "sender": sender,
+                "amount": amount,
+                "bytecode": bytecode
+            ]
+            
+        case let .decodeRaw(transaction):
             return ["tx": transaction]
             
         case let .estimateGas(from, to, value, data):
@@ -118,8 +128,8 @@ extension ETHNetwork {
     
     var queryParameters: [String: String]? {
         switch self {
-        case .balance, .outputs, .coinRates, .estimateFee, .coinsRateHistory, .network, .info, .transaction, .contractInfo,
-             .sendRawTransaction, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications, .tokenInfo:
+        case .balance, .outputs, .estimateFee, .network, .info, .transaction, .contractInfo, .sendRaw, .decodeRaw,
+             .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications, .tokenInfo, .callContract:
             return nil
             
         case let .queryTokens(query, skip, limit, types):

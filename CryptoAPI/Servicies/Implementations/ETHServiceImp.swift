@@ -78,4 +78,20 @@ final class ETHServiceImp: ETHService {
                      completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.tokenSearch(query: query, skip: skip, limit: limit, types: types, completion: completion)
     }
+    
+    func sendRaw(transaction: String,
+                 completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        networkAdapter.sendRaw(transaction: transaction, completion: completion)
+    }
+    
+    func decodeRaw(transaction: String,
+                   completion: @escaping (Result<ETHDecodeRawResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.decodeRaw(transaction: transaction, completion: completion)
+    }
+    
+    func callContract(sender: String, amount: Int, bytecode: String, address: String,
+                      completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        networkAdapter.callContract(sender: sender, amount: amount,
+                                    bytecode: bytecode, address: address, completion: completion)
+    }
 }

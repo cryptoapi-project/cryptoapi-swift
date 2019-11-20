@@ -90,5 +90,22 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
         ETHNetwork.queryTokens(query: query, skip: skip, limit: limit, types: types)
             .request(type: ETHTokensQueryResponseModel.self, completionHandler: completion)
     }
+    
+    func sendRaw(transaction: String,
+                 completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        ETHNetwork.sendRaw(transaction: transaction).request(type: String.self, completionHandler: completion)
+    }
+    
+    func decodeRaw(transaction: String,
+                   completion: @escaping (Result<ETHDecodeRawResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.decodeRaw(transaction: transaction)
+            .request(type: ETHDecodeRawResponseModel.self, completionHandler: completion)
+    }
+    
+    func callContract(sender: String, amount: Int, bytecode: String, address: String,
+                      completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        ETHNetwork.callContract(address: address, sender: sender, amount: amount, bytecode: bytecode)
+            .request(type: String.self, completionHandler: completion)
+    }
 }
     

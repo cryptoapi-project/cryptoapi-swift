@@ -41,4 +41,10 @@ protocol ETHNetworkAdapter {
                    completion: @escaping (Result<ETHTokenInfoResponseModel, CryptoApiError>) -> Void)
     func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
                      completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void)
+    func sendRaw(transaction: String,
+                 completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    func decodeRaw(transaction: String,
+                   completion: @escaping (Result<ETHDecodeRawResponseModel, CryptoApiError>) -> Void)
+    func callContract(sender: String, amount: Int, bytecode: String, address: String,
+                      completion: @escaping (Result<String, CryptoApiError>) -> Void)
 }

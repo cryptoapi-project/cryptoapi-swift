@@ -18,6 +18,7 @@
 		B34D0F112382C751002823F8 /* ETHTokenTransfersResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0F102382C751002823F8 /* ETHTokenTransfersResponseModel.swift */; };
 		B34D0F132382D41B002823F8 /* ETHTokenInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0F122382D41B002823F8 /* ETHTokenInfoResponseModel.swift */; };
 		B34D0F152382DECD002823F8 /* ETHTokenQueryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0F142382DECD002823F8 /* ETHTokenQueryResponseModel.swift */; };
+		B37C4EAC2385523100082779 /* ETHDecodeRawResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C4EAB2385523100082779 /* ETHDecodeRawResponseModel.swift */; };
 		B3A4AE3523842EDA005AFE8E /* CommonNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3423842EDA005AFE8E /* CommonNetwork.swift */; };
 		B3A4AE3723843072005AFE8E /* CommonNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3623843072005AFE8E /* CommonNetworkAdapter.swift */; };
 		B3A4AE3923843091005AFE8E /* CommonNetworkAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A4AE3823843091005AFE8E /* CommonNetworkAdapterImp.swift */; };
@@ -64,6 +65,7 @@
 		B34D0F102382C751002823F8 /* ETHTokenTransfersResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHTokenTransfersResponseModel.swift; sourceTree = "<group>"; };
 		B34D0F122382D41B002823F8 /* ETHTokenInfoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHTokenInfoResponseModel.swift; sourceTree = "<group>"; };
 		B34D0F142382DECD002823F8 /* ETHTokenQueryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHTokenQueryResponseModel.swift; sourceTree = "<group>"; };
+		B37C4EAB2385523100082779 /* ETHDecodeRawResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHDecodeRawResponseModel.swift; sourceTree = "<group>"; };
 		B3A4AE3423842EDA005AFE8E /* CommonNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetwork.swift; sourceTree = "<group>"; };
 		B3A4AE3623843072005AFE8E /* CommonNetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetworkAdapter.swift; sourceTree = "<group>"; };
 		B3A4AE3823843091005AFE8E /* CommonNetworkAdapterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetworkAdapterImp.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				B34D0F102382C751002823F8 /* ETHTokenTransfersResponseModel.swift */,
 				B34D0F122382D41B002823F8 /* ETHTokenInfoResponseModel.swift */,
 				B34D0F142382DECD002823F8 /* ETHTokenQueryResponseModel.swift */,
+				B37C4EAB2385523100082779 /* ETHDecodeRawResponseModel.swift */,
 				B3A4AE3C238431B8005AFE8E /* CmnRatesResponseModel.swift */,
 				B3A4AE3E23843293005AFE8E /* CmnRatesHistoryResponseModel.swift */,
 			);
@@ -409,6 +412,7 @@
 				B34D0F0023826C47002823F8 /* ETHNetworkResponseModel.swift in Sources */,
 				B3BD0BFC237FFBD600EF0600 /* ETHNetwork.swift in Sources */,
 				B34D0F072382851E002823F8 /* ETHTransfersResponseModel.swift in Sources */,
+				B37C4EAC2385523100082779 /* ETHDecodeRawResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

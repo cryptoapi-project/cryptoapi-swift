@@ -838,4 +838,115 @@ class ETHServiceTests: XCTestCase {
         //assert
         wait(for: [expectation], timeout: testTimeout)
     }
+    
+//    func testSendRawTransactionTest() {
+//         //arrange
+//         let api = CtyptoAPI.default
+//         let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
+//         let tx = "0xf86b24843b9aca0082520894b0202ebbf797dd61a3b28d5e82fba2523edc1a9b880de0b6b3a7640000801ba07cf766c8ec0c2d24e98d4fd6ec8af69dadc7fc8f9ba18e1476705f016ceeda6ea0375633e6bfe837b21e4ca97f8751c6e6e9a5e4ae06bb00d83f6337ca5e714cfb"
+//         //act
+//         api.eth.sendRaw(transaction: tx) { result in
+//             switch result {
+//             case let .success(result):
+//                 //assert
+//                 XCTAssertTrue(!result.isEmpty)
+//             case let .failure(error):
+//                 //asserts
+//                 XCTAssertThrowsError(error)
+//             }
+//             expectation.fulfill()
+//         }
+//
+//         //assert
+//         wait(for: [expectation], timeout: testTimeout)
+//     }
+    
+    func testSendRawTransactionFailedTest() {
+         //arrange
+         let api = CtyptoAPI.default
+         let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
+         let tx = "invalidc tion hash"
+         //act
+         api.eth.sendRaw(transaction: tx) { result in
+             switch result {
+               case .success:
+                   //assert
+                   XCTFail()
+               case .failure:
+                   break
+               }
+             expectation.fulfill()
+         }
+
+         //assert
+         wait(for: [expectation], timeout: testTimeout)
+     }
+    
+    func testDecodeRawTransactionTest() {
+         //arrange
+         let api = CtyptoAPI.default
+         let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
+         let tx = "0xf86b24843b9aca0082520894b0202ebbf797dd61a3b28d5e82fba2523edc1a9b880de0b6b3a7640000801ba07cf766c8ec0c2d24e98d4fd6ec8af69dadc7fc8f9ba18e1476705f016ceeda6ea0375633e6bfe837b21e4ca97f8751c6e6e9a5e4ae06bb00d83f6337ca5e714cfb"
+         //act
+         api.eth.decodeRaw(transaction: tx) { result in
+             switch result {
+             case let .success(result):
+                 //assert
+                XCTAssertTrue(!result.data.isEmpty)
+             case let .failure(error):
+                 //asserts
+                 XCTAssertThrowsError(error)
+             }
+             expectation.fulfill()
+         }
+
+         //assert
+         wait(for: [expectation], timeout: testTimeout)
+     }
+    
+    func testDecodeRawTransactionFailedTest() {
+         //arrange
+         let api = CtyptoAPI.default
+         let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
+         let tx = "invalid transaction"
+         //act
+         api.eth.decodeRaw(transaction: tx) { result in
+             switch result {
+               case .success:
+                   //assert
+                   XCTFail()
+               case .failure:
+                   break
+               }
+             expectation.fulfill()
+         }
+
+         //assert
+         wait(for: [expectation], timeout: testTimeout)
+     }
+    
+    func testCallContractFailedTest() {
+         //arrange
+        let api = CtyptoAPI.default
+        let expectation = XCTestExpectation(description: "testCallContractFailedTest")
+        let sender = "invalid sender"
+        let amount = 1
+        let bytecode = "invalid bytecode"
+        let address = "invalid address"
+        
+         //act
+         api.eth.callContract(sender: sender, amount: amount, bytecode: bytecode, address: address) { result in
+             switch result {
+               case .success:
+                   //assert
+                   XCTFail()
+               case .failure:
+                   break
+               }
+             expectation.fulfill()
+         }
+
+         //assert
+         wait(for: [expectation], timeout: testTimeout)
+     }
 }

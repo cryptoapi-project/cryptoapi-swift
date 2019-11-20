@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// The protocol used to define the specifications necessary for a `Restly`.
+/// The protocol used to define the specifications necessary for a `Resty`.
 public protocol Resty {
     /// The host, conforming to RFC 1808.
     var host: String { get }
@@ -49,7 +49,7 @@ enum RestyError: Error {
 
 extension Resty {
     /// The URL of the receiver.
-    fileprivate var url: String {
+    private var url: String {
         return host + path + (queryParameters?.stringFromHttpParameters() ?? "")
     }
 
@@ -81,12 +81,18 @@ extension Resty {
             if let httpResponse = response as? HTTPURLResponse, let data = data {
                 if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                     do {
-                          print("""
-                              ------------
-                              \(String(describing: String(data: data, encoding: .utf8)))
-                              ----------
-                              """)
-                          completionHandler(.success(try JSONDecoder().decode(type, from: data)))
+                        let result: String = String(describing: String(data: data, encoding: .utf8))
+                        print("""
+                                 ------------
+                                 \(result))
+                                 ----------
+                                 """)
+                        if let result = result as? T {
+                            //if result is not json, but string as we requred
+                            completionHandler(.success(result))
+                        } else {
+                            completionHandler(.success(try JSONDecoder().decode(type, from: data)))
+                        }
                       } catch let error {
                           print("""
                                 ------------
@@ -119,7 +125,6 @@ extension Resty {
                           return
                       }
                 }
-                print(httpResponse.statusCode)
             } else {
                 completionHandler(.failure(CryptoApiError.innerError(RestyError.emptyResponse)))
             }
