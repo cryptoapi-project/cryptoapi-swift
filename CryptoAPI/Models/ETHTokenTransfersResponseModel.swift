@@ -7,24 +7,24 @@
 //
 
 public struct ETHTokenTransfersResponseModel: Codable {
-    let addresses: [String]
-    let skip: Int
-    let limit: Int
-    let items: [ETHTokenTransferResponseModel]
-    let count: Int
+    public let addresses: [String]
+    public let skip: Int
+    public let limit: Int
+    public let items: [ETHTokenTransferResponseModel]
+    public let count: Int
 }
 
 public struct ETHTokenTransferResponseModel {
-    let type: String
-    let executeAddress: String
-    let from: String
-    let to: String
-    let value: String
-    let address: String
-    let blockNumber: Int
-    let transactionHash: String
-    let transactionIndex: Int
-    let timestamp: String
+    public let type: String
+    public let executeAddress: String
+    public let from: String
+    public let to: String
+    public let value: String
+    public let address: String
+    public let blockNumber: Int
+    public let transactionHash: String
+    public let transactionIndex: Int
+    public let timestamp: String
 }
 
 extension ETHTokenTransferResponseModel: Codable {

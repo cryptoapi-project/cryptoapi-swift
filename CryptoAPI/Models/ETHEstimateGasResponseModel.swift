@@ -7,9 +7,9 @@
 //
 
 public struct ETHEstimateGasResponseModel {
-    var esimateGas: Int
-    var gasPrice: String
-    var nonce: Int
+    public let esimateGas: Int
+    public let gasPrice: String
+    public let nonce: Int
 }
 
 extension ETHEstimateGasResponseModel: Codable {

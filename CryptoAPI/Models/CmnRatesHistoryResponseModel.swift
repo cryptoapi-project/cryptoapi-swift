@@ -7,8 +7,8 @@
 //
 
 public struct CmnRatesHistoryResponseModel {
-    let createdAt: String
-    let rate: CmnUSDRateResponseModel
+    public let createdAt: String
+    public let rate: CmnUSDRateResponseModel
 }
 
 extension CmnRatesHistoryResponseModel: Codable {

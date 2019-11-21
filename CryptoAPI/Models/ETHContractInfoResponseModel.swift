@@ -7,5 +7,5 @@
 //
 
 public struct ETHContractInfoResponseModel: Codable {
-    let bytecode: String
+    public let bytecode: String
 }

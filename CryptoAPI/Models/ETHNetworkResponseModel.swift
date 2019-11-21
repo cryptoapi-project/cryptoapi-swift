@@ -7,9 +7,9 @@
 //
 
 public struct ETHNetworkResponseModel: Codable {
-    let lastBlock: Int
-    let countTransactions: String
-    let hashRate: Int
-    let gasPrice: Int
-    let difficulty: Int
+    public let lastBlock: Int
+    public let countTransactions: String
+    public let hashRate: Int
+    public let gasPrice: Int
+    public let difficulty: Int
 }

@@ -7,20 +7,20 @@
 //
 
 public struct ETHTokensQueryResponseModel: Codable {
-    let query: String?
-    let skip: Int
-    let limit: Int
-    let count: Int
-    let items: [ETHTokenQueryResponseModel]
-    let types: [String]
+    public let query: String?
+    public let skip: Int
+    public let limit: Int
+    public let count: Int
+    public let items: [ETHTokenQueryResponseModel]
+    public let types: [String]
 }
 
 public struct ETHTokenQueryResponseModel {
-    let address: String
-    let createTransactionHash: String
-    let status: Bool
-    let type: String
-    let info: ETHTokenQueryItemResponseModel
+    public let address: String
+    public let createTransactionHash: String
+    public let status: Bool
+    public let type: String
+    public let info: ETHTokenQueryItemResponseModel
 }
 
 extension ETHTokenQueryResponseModel: Codable {
@@ -34,8 +34,8 @@ extension ETHTokenQueryResponseModel: Codable {
 }
 
 public struct ETHTokenQueryItemResponseModel: Codable {
-    let decimals: String
-    let totalSupply: String
-    let symbol: String
-    let name: String
+    public let decimals: String
+    public let totalSupply: String
+    public let symbol: String
+    public let name: String
 }

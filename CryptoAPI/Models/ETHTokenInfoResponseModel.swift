@@ -7,14 +7,14 @@
 //
 
 public struct ETHTokenInfoResponseModel {
-    let address: String
-    let type: String
-    let name: String
-    let symbol: String
-    let decimals: String
-    let totalSupply: String
-    let createTransactionHash: String
-    let holdersCount: Int
+    public let address: String
+    public let type: String
+    public let name: String
+    public let symbol: String
+    public let decimals: String
+    public let totalSupply: String
+    public let createTransactionHash: String
+    public let holdersCount: Int
 }
 
 extension ETHTokenInfoResponseModel: Codable {

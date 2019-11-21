@@ -7,7 +7,7 @@
 //
 
 public struct CmnRatesResponseModel {
-    let eth: CmnUSDRateResponseModel
+    public let eth: CmnUSDRateResponseModel
 }
 
 extension CmnRatesResponseModel: Codable {
@@ -17,7 +17,7 @@ extension CmnRatesResponseModel: Codable {
 }
 
 public struct CmnUSDRateResponseModel {
-    let usd: Double
+    public let usd: Double
 }
 
 extension CmnUSDRateResponseModel: Codable {

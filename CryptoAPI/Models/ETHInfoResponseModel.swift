@@ -7,11 +7,11 @@
 //
 
 public struct ETHInfoResponseModel {
-    let address: String
-    let balance: String
-    let isContract: Bool
-    let type: String
-    let countTransactions: Int
+    public let address: String
+    public let balance: String
+    public let isContract: Bool
+    public let type: String
+    public let countTransactions: Int
 }
 
 extension ETHInfoResponseModel: Codable {

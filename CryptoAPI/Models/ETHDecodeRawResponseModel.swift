@@ -7,19 +7,19 @@
 //
 
 public struct ETHDecodeRawResponseModel: Codable {
-    let nonce: Int
-    let gasPrice: ETHDecodeHexResponseModel
-    let gasLimit: ETHDecodeHexResponseModel
-    let to: String
-    let value: ETHDecodeHexResponseModel
-    let data: String
-    let v: Int
-    let r: String
-    let s: String
+    public let nonce: Int
+    public let gasPrice: ETHDecodeHexResponseModel
+    public let gasLimit: ETHDecodeHexResponseModel
+    public let to: String
+    public let value: ETHDecodeHexResponseModel
+    public let data: String
+    public let v: Int
+    public let r: String
+    public let s: String
 }
 
 public struct ETHDecodeHexResponseModel {
-    let hex: String
+    public let hex: String
 }
 
 extension ETHDecodeHexResponseModel: Codable {

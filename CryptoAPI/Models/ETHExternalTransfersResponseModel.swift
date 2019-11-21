@@ -7,29 +7,29 @@
 //
 
 public struct ETHExternalTransfersResponseModel: Codable {
-    let addresses: [String]
-    let skip: Int
-    let limit: Int
-    let items: [ETHExternalTransferResponseModel]
-    let count: Int
+    public let addresses: [String]
+    public let skip: Int
+    public let limit: Int
+    public let items: [ETHExternalTransferResponseModel]
+    public let count: Int
 }
 
 public struct ETHExternalTransferResponseModel {
-    let blockHash: String
-    let blockNumber: Int
-    let utc: String
-    let from: String
-    let gas: Int
-    let gasPrice: String
-    let hash: String
-    let input: String
-    let nonce: Int
-    let to: String
-    let value: String
-    let transactionIndex: Int
-    let v: String
-    let s: String
-    let r: String
+    public let blockHash: String
+    public let blockNumber: Int
+    public let utc: String
+    public let from: String
+    public let gas: Int
+    public let gasPrice: String
+    public let hash: String
+    public let input: String
+    public let nonce: Int
+    public let to: String
+    public let value: String
+    public let transactionIndex: Int
+    public let v: String
+    public let s: String
+    public let r: String
 }
 
 extension ETHExternalTransferResponseModel: Codable {

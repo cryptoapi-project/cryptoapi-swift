@@ -9,6 +9,6 @@
 import Foundation
 
 public struct ETHBalanceResponseModel: Codable {
-    let balance: String
-    let address: String
+    public let balance: String
+    public let address: String
 }

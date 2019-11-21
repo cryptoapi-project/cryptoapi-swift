@@ -7,11 +7,11 @@
 //
 
 public struct ETHTokensBalanceResponseModel: Codable {
-    let items: [ETHTokenBalanceResponseModel]
-    let total: Int
+    public let items: [ETHTokenBalanceResponseModel]
+    public let total: Int
 }
 
 public struct ETHTokenBalanceResponseModel: Codable {
-    let address: String
-    let balance: String
+    public let address: String
+    public let balance: String
 }

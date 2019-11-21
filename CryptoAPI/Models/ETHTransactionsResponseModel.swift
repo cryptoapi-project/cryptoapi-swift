@@ -7,27 +7,27 @@
 //
 
 public struct ETHTransactionsResponseModel: Codable {
-    let items: [ETHTransactionResponseModel]
-    let total: Int
+    public let items: [ETHTransactionResponseModel]
+    public let total: Int
 }
 
 public struct ETHTransactionResponseModel {
-    let blockHash: String
-    let blockNumber: Int
-    let utc: String
-    let from: String
-    let gas: Int
-    let gasPrice: String
-    let hash: String
-    let input: String
-    let nonce: Int
-    let to: String
-    let value: String
-    let transactionIndex: Int
-    let v: String
-    let s: String
-    let r: String
-    let internalTransactions: [String]
+    public let blockHash: String
+    public let blockNumber: Int
+    public let utc: String
+    public let from: String
+    public let gas: Int
+    public let gasPrice: String
+    public let hash: String
+    public let input: String
+    public let nonce: Int
+    public let to: String
+    public let value: String
+    public let transactionIndex: Int
+    public let v: String
+    public let s: String
+    public let r: String
+    public let internalTransactions: [String]
 }
 
 extension ETHTransactionResponseModel: Codable {
