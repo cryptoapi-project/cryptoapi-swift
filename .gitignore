@@ -4,3 +4,4 @@ swifty_viper_pixelplex
 xcuserdata
 Pods
 Podfile.lock
+build/

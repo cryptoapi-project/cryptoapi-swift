@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ETHService Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/ETHService" class="dashAnchor"></a>
+    <a title="ETHService Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CryptoAPI Docs</a> (13% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CryptoAPI Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ETHService Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Configurator.html">Configurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CtyptoAPI.html">CtyptoAPI</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Settings.html">Settings</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CryptoApiError.html">CryptoApiError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CommonService.html">CommonService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ETHService.html">ETHService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Resty.html">Resty</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CmnRatesHistoryResponseModel.html">CmnRatesHistoryResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CmnRatesResponseModel.html">CmnRatesResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CmnUSDRateResponseModel.html">CmnUSDRateResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:9CryptoAPI0A13ApiTypedErrorV">CryptoApiTypedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:9CryptoAPI0A14ApiTypedErrorsV">CryptoApiTypedErrors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHBalanceResponseModel.html">ETHBalanceResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHContractInfoResponseModel.html">ETHContractInfoResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHDecodeHexResponseModel.html">ETHDecodeHexResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHDecodeRawResponseModel.html">ETHDecodeRawResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHEstimateGasResponseModel.html">ETHEstimateGasResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHExternalTransferResponseModel.html">ETHExternalTransferResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHExternalTransfersResponseModel.html">ETHExternalTransfersResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHInfoResponseModel.html">ETHInfoResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHNetworkResponseModel.html">ETHNetworkResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokenBalanceResponseModel.html">ETHTokenBalanceResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokenInfoResponseModel.html">ETHTokenInfoResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokenQueryItemResponseModel.html">ETHTokenQueryItemResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokenQueryResponseModel.html">ETHTokenQueryResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokenTransferResponseModel.html">ETHTokenTransferResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokenTransfersResponseModel.html">ETHTokenTransfersResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokensBalanceResponseModel.html">ETHTokensBalanceResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTokensQueryResponseModel.html">ETHTokensQueryResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTransactionResponseModel.html">ETHTransactionResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTransactionsResponseModel.html">ETHTransactionsResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTransferResponseModel.html">ETHTransferResponseModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ETHTransfersResponseModel.html">ETHTransfersResponseModel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ETHService</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ETHService</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP7balance9addresses10completionySaySSG_ys6ResultOySayAA23ETHBalanceResponseModelVGAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/balance(addresses:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP7balance9addresses10completionySaySSG_ys6ResultOySayAA23ETHBalanceResponseModelVGAA0A8ApiErrorOGctF">balance(addresses:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return addresses balance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">balance</span><span class="p">(</span><span class="nv">addresses</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/ETHBalanceResponseModel.html">ETHBalanceResponseModel</a></span><span class="p">],</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addresses</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Addresses</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="%5BETHBalanceResponseModel%5D">[ETHBalanceResponseModel]</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP11estimateGas11fromAddress02toG04data5value10completionySS_S3Sys6ResultOyAA011ETHEstimateE13ResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/estimateGas(fromAddress:toAddress:data:value:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP11estimateGas11fromAddress02toG04data5value10completionySS_S3Sys6ResultOyAA011ETHEstimateE13ResponseModelVAA0A8ApiErrorOGctF">estimateGas(fromAddress:toAddress:data:value:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Estimate Gas</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">estimateGas</span><span class="p">(</span><span class="nv">fromAddress</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">toAddress</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHEstimateGasResponseModel.html">ETHEstimateGasResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>from address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>toAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>to address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>value</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHEstimateGasResponseModel">ETHEstimateGasResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP7network10completionyys6ResultOyAA23ETHNetworkResponseModelVAA0A8ApiErrorOGc_tF"></a>
+                    <a name="//apple_ref/swift/Method/network(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP7network10completionyys6ResultOyAA23ETHNetworkResponseModelVAA0A8ApiErrorOGc_tF">network(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Network information</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">network</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHNetworkResponseModel.html">ETHNetworkResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHNetworkResponseModel">ETHNetworkResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP4info9addresses10completionySaySSG_ys6ResultOySayAA20ETHInfoResponseModelVGAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/info(addresses:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP4info9addresses10completionySaySSG_ys6ResultOySayAA20ETHInfoResponseModelVGAA0A8ApiErrorOGctF">info(addresses:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return balance, type, count transaction by addresses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">info</span><span class="p">(</span><span class="nv">addresses</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/ETHInfoResponseModel.html">ETHInfoResponseModel</a></span><span class="p">],</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addresses</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Addresses</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHNetworkResponseModel">ETHNetworkResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP9transfers4skip5limit9addresses8positive10completionySi_SiSaySSGSSys6ResultOyAA25ETHTransfersResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/transfers(skip:limit:addresses:positive:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP9transfers4skip5limit9addresses8positive10completionySi_SiSaySSGSSys6ResultOyAA25ETHTransfersResponseModelVAA0A8ApiErrorOGctF">transfers(skip:limit:addresses:positive:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get addresses transactions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transfers</span><span class="p">(</span><span class="nv">skip</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">addresses</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">positive</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHTransfersResponseModel.html">ETHTransfersResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>skip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>limit</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addresses</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>addresses</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>positive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>positive</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHTransfersResponseModel">ETHTransfersResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP17externalTransfers4skip5limit9addresses10completionySi_SiSaySSGys6ResultOyAA011ETHExternalE13ResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/externalTransfers(skip:limit:addresses:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP17externalTransfers4skip5limit9addresses10completionySi_SiSaySSGys6ResultOyAA011ETHExternalE13ResponseModelVAA0A8ApiErrorOGctF">externalTransfers(skip:limit:addresses:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get an interception of addresses in external transactions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">externalTransfers</span><span class="p">(</span><span class="nv">skip</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">addresses</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHExternalTransfersResponseModel.html">ETHExternalTransfersResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>skip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>limit</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addresses</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>addresses</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHExternalTransfersResponseModel">ETHExternalTransfersResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP12transactions4skip5limit11fromAddress02toH010completionySi_SiS2Sys6ResultOyAA28ETHTransactionsResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/transactions(skip:limit:fromAddress:toAddress:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP12transactions4skip5limit11fromAddress02toH010completionySi_SiS2Sys6ResultOyAA28ETHTransactionsResponseModelVAA0A8ApiErrorOGctF">transactions(skip:limit:fromAddress:toAddress:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get transaction history from one address to another</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactions</span><span class="p">(</span><span class="nv">skip</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">fromAddress</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">toAddress</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHTransactionsResponseModel.html">ETHTransactionsResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>skip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>limit</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>from address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>toAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>to address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHTransactionsResponseModel">ETHTransactionsResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP11transaction4hash10completionySS_ys6ResultOyAA27ETHTransactionResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/transaction(hash:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP11transaction4hash10completionySS_ys6ResultOyAA27ETHTransactionResponseModelVAA0A8ApiErrorOGctF">transaction(hash:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get transaction history from one address to another</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transaction</span><span class="p">(</span><span class="nv">hash</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHTransactionResponseModel.html">ETHTransactionResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hash</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>hash of transaction</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHTransactionResponseModel">ETHTransactionResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP12contractInfo7address10completionySS_ys6ResultOyAA011ETHContractE13ResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/contractInfo(address:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP12contractInfo7address10completionySS_ys6ResultOyAA011ETHContractE13ResponseModelVAA0A8ApiErrorOGctF">contractInfo(address:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get contract info</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">contractInfo</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHContractInfoResponseModel.html">ETHContractInfoResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>address</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>contract address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHContractInfoResponseModel">ETHContractInfoResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP13tokensBalance7address4skip5limit10completionySS_S2iys6ResultOyAA09ETHTokensE13ResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/tokensBalance(address:skip:limit:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP13tokensBalance7address4skip5limit10completionySS_S2iys6ResultOyAA09ETHTokensE13ResponseModelVAA0A8ApiErrorOGctF">tokensBalance(address:skip:limit:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return list of tokens balances by holder address, when token balance is more than zero.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tokensBalance</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">skip</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHTokensBalanceResponseModel.html">ETHTokensBalanceResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>address</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>contract address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>skip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>limit</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHTokensBalanceResponseModel">ETHTokensBalanceResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP14tokenTransfers0D7Address9addresses4skip5limit10completionySS_SaySSGS2iys6ResultOyAA08ETHTokenE13ResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/tokenTransfers(tokenAddress:addresses:skip:limit:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP14tokenTransfers0D7Address9addresses4skip5limit10completionySS_SaySSGS2iys6ResultOyAA08ETHTokenE13ResponseModelVAA0A8ApiErrorOGctF">tokenTransfers(tokenAddress:addresses:skip:limit:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get token transfers</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tokenTransfers</span><span class="p">(</span><span class="nv">tokenAddress</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">addresses</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">skip</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHTokenTransfersResponseModel.html">ETHTokenTransfersResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tokenAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>token address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addresses</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>addresses</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>skip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>limit</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHTokenTransfersResponseModel">ETHTokenTransfersResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP9tokenInfo7address10completionySS_ys6ResultOyAA08ETHTokenE13ResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/tokenInfo(address:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP9tokenInfo7address10completionySS_ys6ResultOyAA08ETHTokenE13ResponseModelVAA0A8ApiErrorOGctF">tokenInfo(address:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get information about token contract</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tokenInfo</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHTokenInfoResponseModel.html">ETHTokenInfoResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>address</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>token address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHTokenInfoResponseModel">ETHTokenInfoResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP11tokenSearch5query4skip5limit5types10completionySS_S2iSaySSGys6ResultOyAA27ETHTokensQueryResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/tokenSearch(query:skip:limit:types:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP11tokenSearch5query4skip5limit5types10completionySS_S2iSaySSGys6ResultOyAA27ETHTokensQueryResponseModelVAA0A8ApiErrorOGctF">tokenSearch(query:skip:limit:types:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return search info about tokens</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tokenSearch</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">skip</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">types</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHTokensQueryResponseModel.html">ETHTokensQueryResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>query</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>skip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>limit</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>types</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>types</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHTokensQueryResponseModel">ETHTokensQueryResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP7sendRaw11transaction10completionySS_ys6ResultOySSAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/sendRaw(transaction:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP7sendRaw11transaction10completionySS_ys6ResultOySSAA0A8ApiErrorOGctF">sendRaw(transaction:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send raw eth transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendRaw</span><span class="p">(</span><span class="nv">transaction</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>transaction</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="String">String</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP9decodeRaw11transaction10completionySS_ys6ResultOyAA09ETHDecodeE13ResponseModelVAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/decodeRaw(transaction:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP9decodeRaw11transaction10completionySS_ys6ResultOyAA09ETHDecodeE13ResponseModelVAA0A8ApiErrorOGctF">decodeRaw(transaction:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decode raw eth transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">decodeRaw</span><span class="p">(</span><span class="nv">transaction</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ETHDecodeRawResponseModel.html">ETHDecodeRawResponseModel</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>transaction</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="ETHDecodeRawResponseModel">ETHDecodeRawResponseModel</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9CryptoAPI10ETHServiceP12callContract6sender6amount8bytecode7address10completionySS_SiS2Sys6ResultOySSAA0A8ApiErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/callContract(sender:amount:bytecode:address:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9CryptoAPI10ETHServiceP12callContract6sender6amount8bytecode7address10completionySS_SiS2Sys6ResultOySSAA0A8ApiErrorOGctF">callContract(sender:amount:bytecode:address:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Executes a message call transaction</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">callContract</span><span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">bytecode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">address</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt"><a href="../Enums/CryptoApiError.html">CryptoApiError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>sender</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>amount</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bytecode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>bytecode</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>address</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>address</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which returns an <a href="String">String</a> result  or error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://gitlab.pixelplex.by/709-crypto-api-mobile-library/ios-framework" target="_blank" rel="external">Fedorenko Nikita</a>. All rights reserved. (Last updated: 2019-11-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
