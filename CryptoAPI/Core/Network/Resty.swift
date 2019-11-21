@@ -12,18 +12,18 @@ import Foundation
 public protocol Resty {
     /// The host, conforming to RFC 1808.
     var host: String { get }
-
+    
     /// The path, conforming to RFC 1808
     var path: String { get }
-
+    
     /// The HTTP method used in the request.
     var method: HTTPMethod { get }
-
+    
     /// The HTTP request parameters.
     var bodyParameters: [String: Any]? { get }
     
     var queryParameters: [String: String]? { get }
-
+    
     /// A dictionary containing all the HTTP header fields
     var headers: [String: String]? { get }
 }
@@ -52,18 +52,26 @@ extension Resty {
     private var url: String {
         return host + path + (queryParameters?.stringFromHttpParameters() ?? "")
     }
-
+    
+    private func log(_ value: Any) {
+//        print("""
+//            ------------
+//            \(value))
+//            ----------
+//            """)
+    }
+    
     func request<T: Codable>(type: T.Type, session: URLSession = .shared, completionHandler: @escaping (Result<T, CryptoApiError>) -> Void) {
         guard let url = URL(string: url) else {
             completionHandler(.failure(CryptoApiError.innerError(RestyError.badURL)))
             return
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-
+        
         if let parameters = bodyParameters {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -72,7 +80,7 @@ extension Resty {
                 return
             }
         }
-
+        
         let dataTask = session.dataTask(with: request) { data, response, error -> Void in
             if let error = error {
                 completionHandler(.failure(CryptoApiError.innerError(error)))
@@ -82,54 +90,38 @@ extension Resty {
                 if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                     do {
                         let result: String = String(describing: String(data: data, encoding: .utf8))
-                        print("""
-                                 ------------
-                                 \(result))
-                                 ----------
-                                 """)
+                        self.log(result)
                         if let result = result as? T {
                             //if result is not json, but string as we requred
                             completionHandler(.success(result))
                         } else {
                             completionHandler(.success(try JSONDecoder().decode(type, from: data)))
                         }
-                      } catch let error {
-                          print("""
-                                ------------
-                                \(error)
-                                ----------
-                                """)
-                          completionHandler(.failure(CryptoApiError.innerError(error)))
-                          return
-                      }
+                    } catch let error {
+                        self.log(error)
+                        completionHandler(.failure(CryptoApiError.innerError(error)))
+                        return
+                    }
                 } else {
                     do {
-                        print("""
-                              ------------
-                              \(String(describing: String(data: data, encoding: .utf8)))
-                              ----------
-                              """)
+                        self.log(String(describing: String(data: data, encoding: .utf8)))
                         if let error = try? JSONDecoder().decode(CryptoApiTypedErrors.self, from: data) {
                             completionHandler(.failure(CryptoApiError.customErrorList(error)))
                         } else {
                             let error = try JSONDecoder().decode(CryptoApiTypedError.self, from: data)
                             completionHandler(.failure(CryptoApiError.customError(error)))
                         }
-                      } catch let error {
-                          print("""
-                                ------------
-                                \(error)
-                                ----------
-                                """)
+                    } catch let error {
+                        self.log(error)
                         completionHandler(.failure(CryptoApiError.innerError(error)))
-                          return
-                      }
+                        return
+                    }
                 }
             } else {
                 completionHandler(.failure(CryptoApiError.innerError(RestyError.emptyResponse)))
             }
         }
-
+        
         dataTask.resume()
     }
 }
