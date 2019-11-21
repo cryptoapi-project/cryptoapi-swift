@@ -1,0 +1,1293 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Configurator.swift",
+      "line": 11,
+      "symbol": "Configurator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Configurator.swift",
+      "line": 12,
+      "symbol": "Configurator.workingQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Configurator.swift",
+      "line": 13,
+      "symbol": "Configurator.timeoutIntervalForRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Configurator.swift",
+      "line": 14,
+      "symbol": "Configurator.timeoutIntervalForResource",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Configurator.swift",
+      "line": 15,
+      "symbol": "Configurator.sessionConfiguration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 25,
+      "symbol": "Resty.queryParameters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 33,
+      "symbol": "HTTPMethod.get",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 34,
+      "symbol": "HTTPMethod.head",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 35,
+      "symbol": "HTTPMethod.post",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 36,
+      "symbol": "HTTPMethod.put",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 37,
+      "symbol": "HTTPMethod.delete",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 38,
+      "symbol": "HTTPMethod.connect",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 39,
+      "symbol": "HTTPMethod.options",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 40,
+      "symbol": "HTTPMethod.trace",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Core/Network/Resty.swift",
+      "line": 41,
+      "symbol": "HTTPMethod.patch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/CtyptoAPI.swift",
+      "line": 11,
+      "symbol": "CtyptoAPI",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/CtyptoAPI.swift",
+      "line": 12,
+      "symbol": "CtyptoAPI.default",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/CtyptoAPI.swift",
+      "line": 13,
+      "symbol": "CtyptoAPI.eth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/CtyptoAPI.swift",
+      "line": 14,
+      "symbol": "CtyptoAPI.common",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/CtyptoAPI.swift",
+      "line": 16,
+      "symbol": "CtyptoAPI.init(settings:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Dictionary+Extension.swift",
+      "line": 20,
+      "symbol": "Array.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Errors/CryptoApiError.swift",
+      "line": 9,
+      "symbol": "CryptoApiError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Errors/CryptoApiError.swift",
+      "line": 10,
+      "symbol": "CryptoApiError.innerError(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Errors/CryptoApiError.swift",
+      "line": 11,
+      "symbol": "CryptoApiError.customError(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Errors/CryptoApiError.swift",
+      "line": 12,
+      "symbol": "CryptoApiError.customErrorList(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Errors/CryptoApiError.swift",
+      "line": 15,
+      "symbol": "CryptoApiTypedErrors",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Errors/CryptoApiError.swift",
+      "line": 20,
+      "symbol": "CryptoApiTypedError",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/CmnRatesHistoryResponseModel.swift",
+      "line": 9,
+      "symbol": "CmnRatesHistoryResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/CmnRatesHistoryResponseModel.swift",
+      "line": 10,
+      "symbol": "CmnRatesHistoryResponseModel.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/CmnRatesHistoryResponseModel.swift",
+      "line": 11,
+      "symbol": "CmnRatesHistoryResponseModel.rate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/CmnRatesResponseModel.swift",
+      "line": 9,
+      "symbol": "CmnRatesResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/CmnRatesResponseModel.swift",
+      "line": 10,
+      "symbol": "CmnRatesResponseModel.eth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/CmnRatesResponseModel.swift",
+      "line": 19,
+      "symbol": "CmnUSDRateResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/CmnRatesResponseModel.swift",
+      "line": 20,
+      "symbol": "CmnUSDRateResponseModel.usd",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHContractInfoResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHContractInfoResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHContractInfoResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHContractInfoResponseModel.bytecode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHDecodeRawResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHDecodeRawResponseModel.nonce",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHDecodeRawResponseModel.gasPrice",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHDecodeRawResponseModel.gasLimit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHDecodeRawResponseModel.to",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHDecodeRawResponseModel.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 15,
+      "symbol": "ETHDecodeRawResponseModel.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 16,
+      "symbol": "ETHDecodeRawResponseModel.v",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 17,
+      "symbol": "ETHDecodeRawResponseModel.r",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 18,
+      "symbol": "ETHDecodeRawResponseModel.s",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 21,
+      "symbol": "ETHDecodeHexResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHDecodeRawResponseModel.swift",
+      "line": 22,
+      "symbol": "ETHDecodeHexResponseModel.hex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHEstimateGasResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHEstimateGasResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHEstimateGasResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHEstimateGasResponseModel.esimateGas",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHEstimateGasResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHEstimateGasResponseModel.gasPrice",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHEstimateGasResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHEstimateGasResponseModel.nonce",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHExternalTransfersResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHExternalTransfersResponseModel.addresses",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHExternalTransfersResponseModel.skip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHExternalTransfersResponseModel.limit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHExternalTransfersResponseModel.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHExternalTransfersResponseModel.count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 17,
+      "symbol": "ETHExternalTransferResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 18,
+      "symbol": "ETHExternalTransferResponseModel.blockHash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 19,
+      "symbol": "ETHExternalTransferResponseModel.blockNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 20,
+      "symbol": "ETHExternalTransferResponseModel.utc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 21,
+      "symbol": "ETHExternalTransferResponseModel.from",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 22,
+      "symbol": "ETHExternalTransferResponseModel.gas",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 23,
+      "symbol": "ETHExternalTransferResponseModel.gasPrice",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 24,
+      "symbol": "ETHExternalTransferResponseModel.hash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 25,
+      "symbol": "ETHExternalTransferResponseModel.input",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 26,
+      "symbol": "ETHExternalTransferResponseModel.nonce",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 27,
+      "symbol": "ETHExternalTransferResponseModel.to",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 28,
+      "symbol": "ETHExternalTransferResponseModel.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 29,
+      "symbol": "ETHExternalTransferResponseModel.transactionIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 30,
+      "symbol": "ETHExternalTransferResponseModel.v",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 31,
+      "symbol": "ETHExternalTransferResponseModel.s",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHExternalTransfersResponseModel.swift",
+      "line": 32,
+      "symbol": "ETHExternalTransferResponseModel.r",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHInfoResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHInfoResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHInfoResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHInfoResponseModel.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHInfoResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHInfoResponseModel.balance",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHInfoResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHInfoResponseModel.isContract",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHInfoResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHInfoResponseModel.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHInfoResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHInfoResponseModel.countTransactions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHNetworkResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHNetworkResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHNetworkResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHNetworkResponseModel.lastBlock",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHNetworkResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHNetworkResponseModel.countTransactions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHNetworkResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHNetworkResponseModel.hashRate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHNetworkResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHNetworkResponseModel.gasPrice",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHNetworkResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHNetworkResponseModel.difficulty",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHTokenInfoResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHTokenInfoResponseModel.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHTokenInfoResponseModel.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHTokenInfoResponseModel.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHTokenInfoResponseModel.symbol",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHTokenInfoResponseModel.decimals",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 15,
+      "symbol": "ETHTokenInfoResponseModel.totalSupply",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 16,
+      "symbol": "ETHTokenInfoResponseModel.createTransactionHash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenInfoResponseModel.swift",
+      "line": 17,
+      "symbol": "ETHTokenInfoResponseModel.holdersCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHTokensQueryResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHTokensQueryResponseModel.query",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHTokensQueryResponseModel.skip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHTokensQueryResponseModel.limit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHTokensQueryResponseModel.count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHTokensQueryResponseModel.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 15,
+      "symbol": "ETHTokensQueryResponseModel.types",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 18,
+      "symbol": "ETHTokenQueryResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 19,
+      "symbol": "ETHTokenQueryResponseModel.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 20,
+      "symbol": "ETHTokenQueryResponseModel.createTransactionHash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 21,
+      "symbol": "ETHTokenQueryResponseModel.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 22,
+      "symbol": "ETHTokenQueryResponseModel.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 23,
+      "symbol": "ETHTokenQueryResponseModel.info",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 36,
+      "symbol": "ETHTokenQueryItemResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 37,
+      "symbol": "ETHTokenQueryItemResponseModel.decimals",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 38,
+      "symbol": "ETHTokenQueryItemResponseModel.totalSupply",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 39,
+      "symbol": "ETHTokenQueryItemResponseModel.symbol",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenQueryResponseModel.swift",
+      "line": 40,
+      "symbol": "ETHTokenQueryItemResponseModel.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHTokenTransfersResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHTokenTransfersResponseModel.addresses",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHTokenTransfersResponseModel.skip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHTokenTransfersResponseModel.limit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHTokenTransfersResponseModel.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHTokenTransfersResponseModel.count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 17,
+      "symbol": "ETHTokenTransferResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 18,
+      "symbol": "ETHTokenTransferResponseModel.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 19,
+      "symbol": "ETHTokenTransferResponseModel.executeAddress",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 20,
+      "symbol": "ETHTokenTransferResponseModel.from",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 21,
+      "symbol": "ETHTokenTransferResponseModel.to",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 22,
+      "symbol": "ETHTokenTransferResponseModel.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 23,
+      "symbol": "ETHTokenTransferResponseModel.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 24,
+      "symbol": "ETHTokenTransferResponseModel.blockNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 25,
+      "symbol": "ETHTokenTransferResponseModel.transactionHash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 26,
+      "symbol": "ETHTokenTransferResponseModel.transactionIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokenTransfersResponseModel.swift",
+      "line": 27,
+      "symbol": "ETHTokenTransferResponseModel.timestamp",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokensBalanceResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHTokensBalanceResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokensBalanceResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHTokensBalanceResponseModel.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokensBalanceResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHTokensBalanceResponseModel.total",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokensBalanceResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHTokenBalanceResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokensBalanceResponseModel.swift",
+      "line": 15,
+      "symbol": "ETHTokenBalanceResponseModel.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTokensBalanceResponseModel.swift",
+      "line": 16,
+      "symbol": "ETHTokenBalanceResponseModel.balance",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHTransactionsResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHTransactionsResponseModel.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHTransactionsResponseModel.total",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHTransactionResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 15,
+      "symbol": "ETHTransactionResponseModel.blockHash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 16,
+      "symbol": "ETHTransactionResponseModel.blockNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 17,
+      "symbol": "ETHTransactionResponseModel.utc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 18,
+      "symbol": "ETHTransactionResponseModel.from",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 19,
+      "symbol": "ETHTransactionResponseModel.gas",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 20,
+      "symbol": "ETHTransactionResponseModel.gasPrice",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 21,
+      "symbol": "ETHTransactionResponseModel.hash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 22,
+      "symbol": "ETHTransactionResponseModel.input",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 23,
+      "symbol": "ETHTransactionResponseModel.nonce",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 24,
+      "symbol": "ETHTransactionResponseModel.to",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 25,
+      "symbol": "ETHTransactionResponseModel.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 26,
+      "symbol": "ETHTransactionResponseModel.transactionIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 27,
+      "symbol": "ETHTransactionResponseModel.v",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 28,
+      "symbol": "ETHTransactionResponseModel.s",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 29,
+      "symbol": "ETHTransactionResponseModel.r",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransactionsResponseModel.swift",
+      "line": 30,
+      "symbol": "ETHTransactionResponseModel.internalTransactions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 9,
+      "symbol": "ETHTransfersResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 10,
+      "symbol": "ETHTransfersResponseModel.addresses",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 11,
+      "symbol": "ETHTransfersResponseModel.skip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 12,
+      "symbol": "ETHTransfersResponseModel.limit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 13,
+      "symbol": "ETHTransfersResponseModel.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 14,
+      "symbol": "ETHTransfersResponseModel.count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 17,
+      "symbol": "ETHTransferResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 18,
+      "symbol": "ETHTransferResponseModel.blockNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 19,
+      "symbol": "ETHTransferResponseModel.utc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 20,
+      "symbol": "ETHTransferResponseModel.from",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 21,
+      "symbol": "ETHTransferResponseModel.gas",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 22,
+      "symbol": "ETHTransferResponseModel.hash",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 23,
+      "symbol": "ETHTransferResponseModel.to",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 24,
+      "symbol": "ETHTransferResponseModel.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 25,
+      "symbol": "ETHTransferResponseModel.gasPrice",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHTransfersResponseModel.swift",
+      "line": 26,
+      "symbol": "ETHTransferResponseModel.isInternal",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHWalletBalanceModel.swift",
+      "line": 11,
+      "symbol": "ETHBalanceResponseModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHWalletBalanceModel.swift",
+      "line": 12,
+      "symbol": "ETHBalanceResponseModel.balance",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Models/ETHWalletBalanceModel.swift",
+      "line": 13,
+      "symbol": "ETHBalanceResponseModel.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Servicies/Protocols/CommonService.swift",
+      "line": 9,
+      "symbol": "CommonService",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Servicies/Protocols/ETHService.swift",
+      "line": 9,
+      "symbol": "ETHService",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Settings.swift",
+      "line": 11,
+      "symbol": "Settings",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Settings.swift",
+      "line": 12,
+      "symbol": "Settings.workingQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Settings.swift",
+      "line": 13,
+      "symbol": "Settings.timeoutIntervalForRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Settings.swift",
+      "line": 14,
+      "symbol": "Settings.timeoutIntervalForResource",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Settings.swift",
+      "line": 15,
+      "symbol": "Settings.sessionConfiguration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Settings.swift",
+      "line": 17,
+      "symbol": "Settings.BuildConfiguratorClosure",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios/CryptoAPI/Settings.swift",
+      "line": 19,
+      "symbol": "Settings.init(build:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/nikitafedorenko/PixelPlex/CryptoAPI-ios"
+}
