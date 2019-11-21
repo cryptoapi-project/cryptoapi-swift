@@ -10,8 +10,8 @@ import Foundation
 
 public final class CtyptoAPI {
     public static let `default` = CtyptoAPI(settings: Settings())
-    let eth: ETHService
-    let common: CommonService
+    public let eth: ETHService
+    public let common: CommonService
     
     public init(settings: Settings) {
         let configuration = settings.sessionConfiguration

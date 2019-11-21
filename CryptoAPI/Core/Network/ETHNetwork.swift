@@ -83,7 +83,7 @@ extension ETHNetwork {
     var method: HTTPMethod {
         switch self {
         case .history, .tokenHistory, .balance, .outputs, .estimateFee, .transactions,
-             .contractInfo, .transaction, .tokenBalance, .network, .info,.externalHistory,
+             .contractInfo, .transaction, .tokenBalance, .network, .info, .externalHistory,
              .tokenInfo, .queryTokens:
             return .get
 

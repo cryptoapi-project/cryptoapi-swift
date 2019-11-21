@@ -623,7 +623,7 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CtyptoAPI.default
         let expectation = XCTestExpectation(description: "testTokenHistoryTest")
-        let address = ethContractAddress
+        let address = ethAddressWithBalance
         let tokenAddress = ethContractAddress
         let skip = 0
         let limit = 10
