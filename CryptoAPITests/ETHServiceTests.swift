@@ -15,7 +15,7 @@ class ETHServiceTests: XCTestCase {
     let ethAddressWithBalance2 = "0xb0202eBbF797Dd61A3b28d5E82fbA2523edc1a9B"
     let ethContractAddress = "0xf36c145eff2771ea22ece5fd87392fc8eeae719c"
     let ethInvalidAddress = "invalid address"
-    let testTimeout: TimeInterval = 10
+    let testTimeout: TimeInterval = 20
 
     func testGetBalance() {
         //arrange

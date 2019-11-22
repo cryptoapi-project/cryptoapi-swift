@@ -1,0 +1,43 @@
+stages:
+  - build
+  - tests
+  - documentation
+
+variables:
+  LC_ALL: "en_US.UTF-8"
+  LANG: "en_US.UTF-8"
+
+
+before_script:
+  - bundle install
+
+build:
+  stage: build
+  artifacts:
+    paths:
+      - fastlane/build_output
+  script:
+    - fastlane build
+  tags:
+    - ios
+
+test:
+  stage: tests
+  artifacts:
+    paths:
+      - fastlane/tests_output
+  script:
+    - fastlane tests
+  tags:
+    - ios
+
+generate_documentation:
+  stage: documentation
+  artifacts:
+    paths:
+      - fastlane/documentation_output
+  script:
+    - fastlane run jazzy
+  when: manual
+  tags:
+    - ios
