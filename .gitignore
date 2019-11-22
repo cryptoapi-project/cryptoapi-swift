@@ -5,3 +5,9 @@ xcuserdata
 Pods
 Podfile.lock
 build/
+Gemfile.lock
+report.xml
+build
+fastlane/README.md
+report.html
+report.junit
