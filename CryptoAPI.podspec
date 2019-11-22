@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
   }
   spec.source       = { :git => 'https://gitlab.pixelplex.by/709-crypto-api-mobile-library/ios-framework.git' }
   spec.platform     = :ios
-  spec.ios.deployment_target = "10.0"
+  spec.ios.deployment_target = "9.0"
   spec.source_files    = "CryptoAPI/**/*.{swift}"
 
 end
