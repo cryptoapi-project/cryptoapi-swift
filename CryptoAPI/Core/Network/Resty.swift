@@ -48,21 +48,11 @@ enum RestyError: Error {
 }
 
 extension Resty {
-    /// The URL of the receiver.
-    private var url: String {
-        return host + path + (queryParameters?.stringFromHttpParameters() ?? "")
-    }
-    
-    private func log(_ value: Any) {
-//        print("""
-//            ------------
-//            \(value))
-//            ----------
-//            """)
-    }
-    
-    func request<T: Codable>(type: T.Type, session: URLSession = .shared, completionHandler: @escaping (Result<T, CryptoApiError>) -> Void) {
-        guard let url = URL(string: url) else {
+    func request<T: Codable>(type: T.Type,
+                             session: URLSession,
+                             authToken: AuthorizationToken,
+                             completionHandler: @escaping (Result<T, CryptoApiError>) -> Void) {
+        guard let url = URL(string: generateURL(authToken: authToken.value)) else {
             completionHandler(.failure(CryptoApiError.innerError(RestyError.badURL)))
             return
         }
@@ -123,5 +113,29 @@ extension Resty {
         }
         
         dataTask.resume()
+    }
+    
+    /// The URL of the receiver.
+    private func generateURL(authToken: String) -> String {
+        let firstSymbolForToken = queryParameters == nil ? "?" : "&"
+        let appendTokenString = "\(firstSymbolForToken)token=\(authToken)"
+        
+        var url = String()
+        url += host
+        url += path
+        url += queryParameters?.stringFromHttpParameters() ?? ""
+        url += appendTokenString
+        
+        log(url)
+        
+        return url
+    }
+    
+    private func log(_ value: Any) {
+//        print("""
+//            ------------
+//            \(value)
+//            ----------
+//            """)
     }
 }

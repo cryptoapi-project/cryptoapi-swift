@@ -9,6 +9,7 @@
 import Foundation
 
 final public class Settings {
+    public let authorizationToken: AuthorizationToken
     public var workingQueue: DispatchQueue
     public var timeoutIntervalForRequest: TimeInterval
     public var timeoutIntervalForResource: TimeInterval
@@ -16,7 +17,9 @@ final public class Settings {
     
     public typealias BuildConfiguratorClosure = (Configurator) -> Void
     
-    public init(build: BuildConfiguratorClosure = { _ in }) {
+    public init(authorizationToken: AuthorizationToken, build: BuildConfiguratorClosure = { _ in }) {
+        self.authorizationToken = authorizationToken
+        
         let configurator = Configurator()
         build(configurator)
         timeoutIntervalForResource = configurator.timeoutIntervalForResource

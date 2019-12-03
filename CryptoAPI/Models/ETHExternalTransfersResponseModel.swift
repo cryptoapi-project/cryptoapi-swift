@@ -24,7 +24,7 @@ public struct ETHExternalTransferResponseModel {
     public let hash: String
     public let input: String
     public let nonce: Int
-    public let to: String
+    public let to: String?
     public let value: String
     public let transactionIndex: Int
     public let v: String

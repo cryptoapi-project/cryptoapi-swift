@@ -10,22 +10,17 @@ import Foundation
 
 enum CommonNetwork: Resty {
     case coins
-    case rates
-    case rateHistory(coin: String)
 }
 
 extension CommonNetwork {
     var host: String {
-        return "https://697-crypto-api.pixelplexlabs.com/api"
+        return Constants.baseURL
     }
+    
     var path: String {
         switch self {
         case .coins:
             return "/v1/coins"
-        case .rates:
-            return "/v1/rates"
-        case .rateHistory(let coin):
-            return "/v1/rates/\(coin)/history"
         }
     }
         

@@ -10,23 +10,15 @@ import Foundation
 
 final class CommonNetworkAdapterImp: CommonNetworkAdapter {
     let session: URLSession
+    let authToken: AuthorizationToken
     
-    init(session: URLSession) {
+    init(session: URLSession, authToken: AuthorizationToken) {
         self.session = session
-    }
-    
-    func rates(completion: @escaping (Result<CmnRatesResponseModel, CryptoApiError>) -> Void) {
-        CommonNetwork.rates
-            .request(type: CmnRatesResponseModel.self, completionHandler: completion)
-    }
-    
-    func ratesHistory(coin: String, completion: @escaping (Result<[CmnRatesHistoryResponseModel], CryptoApiError>) -> Void) {
-        CommonNetwork.rateHistory(coin: coin)
-            .request(type: [CmnRatesHistoryResponseModel].self, completionHandler: completion)
+        self.authToken = authToken
     }
     
     func coins(completion: @escaping (Result<[String], CryptoApiError>) -> Void) {
         CommonNetwork.coins
-            .request(type: [String].self, completionHandler: completion)
+            .request(type: [String].self, session: session, authToken: authToken, completionHandler: completion)
     }
 }
