@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "CryptoAPI"
-  spec.version      = "0.0.1"
+  spec.version      = "0.1.0"
   spec.summary      = "CryptoAPI iOS Framework"
   spec.homepage     = "https://gitlab.pixelplex.by/709-crypto-api-mobile-library/ios-framework"
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
