@@ -33,8 +33,9 @@ enum ETHNetwork: Resty {
 
 extension ETHNetwork {
     var host: String {
-        return "https://697-crypto-api.pixelplexlabs.com/api"
+        return Constants.baseURL
     }
+    
     var path: String {
         switch self {
         case let .callContract(address, _, _, _):

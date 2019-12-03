@@ -9,7 +9,5 @@
 import Foundation
 
 protocol CommonNetworkAdapter {
-    func rates(completion: @escaping (Result<CmnRatesResponseModel, CryptoApiError>) -> Void)
-    func ratesHistory(coin: String, completion: @escaping (Result<[CmnRatesHistoryResponseModel], CryptoApiError>) -> Void)
     func coins(completion: @escaping (Result<[String], CryptoApiError>) -> Void)
 }

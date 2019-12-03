@@ -1,5 +1,5 @@
 //
-//  CtyptoAPI.swift
+//  CryptoAPI.swift
 //  CryptoAPI
 //
 //  Created by Fedorenko Nikita on 11/16/19.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-public final class CtyptoAPI {
-    public static let `default` = CtyptoAPI(settings: Settings())
+public final class CryptoAPI {
     public let eth: ETHService
     public let common: CommonService
     
@@ -19,8 +18,9 @@ public final class CtyptoAPI {
         configuration.timeoutIntervalForResource = settings.timeoutIntervalForResource
         
         let urlSession = URLSession(configuration: configuration)
-        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession)
-        let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession)
+        let authorizationToken = settings.authorizationToken
+        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession, authToken: authorizationToken)
+        let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession, authToken: authorizationToken)
         let ethService = ETHServiceImp(networkAdapter: ethNetworkAdapter)
         let commonService = CommonServiceImp(networkAdapter: commonNetworkAdapter)
         
