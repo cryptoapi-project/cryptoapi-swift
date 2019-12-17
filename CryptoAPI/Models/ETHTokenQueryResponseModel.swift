@@ -33,9 +33,18 @@ extension ETHTokenQueryResponseModel: Codable {
     }
 }
 
-public struct ETHTokenQueryItemResponseModel: Codable {
+public struct ETHTokenQueryItemResponseModel {
     public let decimals: String
     public let totalSupply: String
     public let symbol: String
     public let name: String
+}
+
+extension ETHTokenQueryItemResponseModel: Codable {
+    enum CodingKeys: String, CodingKey {
+        case decimals
+        case totalSupply = "total_supply"
+        case symbol
+        case name
+    }
 }
