@@ -11,6 +11,7 @@ public struct ETHTokenInfoResponseModel {
     public let type: String
     public let createTransactionHash: String
     public let holdersCount: Int
+    public let info: ETHTokenInfoDetailsResponseModel
 }
 
 extension ETHTokenInfoResponseModel: Codable {
@@ -19,6 +20,7 @@ extension ETHTokenInfoResponseModel: Codable {
         case type
         case createTransactionHash = "create_transaction_hash"
         case holdersCount = "holders_count"
+        case info
     }
 }
 
