@@ -43,29 +43,29 @@ extension ETHNetwork {
         case .queryTokens:
             return "/v1/coins/eth/tokens/search"
         case .tokenInfo(let address):
-            return "/v1/coins/eth/tokens/\(address)/info"
+            return "/v1/coins/eth/tokens/\(address)"
         case .transaction(let hash):
             return "/v1/coins/eth/transactions/\(hash)"
         case .contractInfo(let addresses):
-            return "/v1/coins/eth/contracts/\(addresses)/info"
+            return "/v1/coins/eth/contracts/\(addresses)"
         case .info(let addresses):
-            return "/v1/coins/eth/accounts/\(addresses.description)/info"
+            return "/v1/coins/eth/addresses/\(addresses.description)"
         case .network:
             return "/v1/coins/eth/network"
         case .history( let addresses, _, _):
-            return "/v1/coins/eth/accounts/\(addresses.description)/transfers"
+            return "/v1/coins/eth/addresses/\(addresses.description)/transfers"
         case .transactions:
             return "/v1/coins/eth/transactions"
         case .externalHistory( let addresses, _, _):
-            return "/v1/coins/eth/accounts/\(addresses.description)/transactions/external"
-        case .tokenHistory(let tokenAddress, let addresses, _, _):
-            return "/v1/coins/eth/tokens/\(tokenAddress)/\(addresses.description)/transfers"
+            return "/v1/coins/eth/addresses/\(addresses.description)/transactions"
+        case .tokenHistory(let tokenAddress, _, _, _):
+            return "/v1/coins/eth/tokens/\(tokenAddress)/transfers"
         case .estimateFee:
             return "/v1/coins/eth/estimate-fee-per-kb"
         case .balance(let addresses):
-            return "/v1/coins/eth/accounts/\(addresses.description)/balance"
+            return "/v1/coins/eth/addresses/\(addresses.description)/balance"
         case .tokenBalance(let address, _, _):
-            return "/v1/coins/eth/tokens/\(address)/balances"
+            return "/v1/coins/eth/addresses/\(address)/balance/tokens"
         case .sendRaw:
             return "/v1/coins/eth/transactions/raw/send"
         case .decodeRaw:
@@ -145,8 +145,8 @@ extension ETHNetwork {
         case let .externalHistory(_, from, limit):
             return ["skip": String(from), "limit": String(limit)]
             
-        case let .tokenHistory(_, _, from, limit):
-            return ["skip": String(from), "limit": String(limit)]
+        case let .tokenHistory(_, addresses, from, limit):
+            return ["skip": String(from), "limit": String(limit), "addresses": addresses.description]
             
         case let .tokenBalance(_, skip, limit):
             return ["skip": String(skip), "limit": String(limit)]
