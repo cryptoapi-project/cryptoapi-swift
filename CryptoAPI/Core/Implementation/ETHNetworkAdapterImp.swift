@@ -58,9 +58,15 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
     }
     
     func transaction(hash: String,
-                     completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void) {
+                     completion: @escaping (Result<ETHTransactionByHashResponseModel, CryptoApiError>) -> Void) {
         ETHNetwork.transaction(hash: hash)
-            .request(type: ETHTransactionResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
+            .request(type: ETHTransactionByHashResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
+    }
+    
+    func transactionReceipt(hash: String,
+                            completion: @escaping (Result<ETHTransactionReceiptResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.transactionReceipt(hash: hash)
+            .request(type: ETHTransactionReceiptResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
     }
     
     func contractInfo(address: String,
@@ -69,9 +75,9 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
             .request(type: ETHContractInfoResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
     }
     
-    func tokensBalance(address: String, skip: Int, limit: Int,
+    func tokensBalance(addresses: [String], skip: Int, limit: Int, token: String?,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.tokenBalance(address: address, skip: skip, limit: limit)
+        ETHNetwork.tokenBalance(addresses: addresses, skip: skip, limit: limit, token: token)
             .request(type: ETHTokensBalanceResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
     }
     
@@ -94,9 +100,9 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
     }
     
     func sendRaw(transaction: String,
-                 completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+                 completion: @escaping (Result<ETHSendRawResponseModel, CryptoApiError>) -> Void) {
         ETHNetwork.sendRaw(transaction: transaction)
-            .request(type: String.self, session: session, authToken: authToken, completionHandler: completion)
+            .request(type: ETHSendRawResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
     }
     
     func decodeRaw(transaction: String,
@@ -109,6 +115,22 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
                       completion: @escaping (Result<String, CryptoApiError>) -> Void) {
         ETHNetwork.callContract(address: address, sender: sender, amount: amount, bytecode: bytecode)
             .request(type: String.self, session: session, authToken: authToken, completionHandler: completion)
+    }
+    
+    func contractLogs(fromBlock: Int, toBlock: Int, addresses: [String], topics: [String],
+                      completion: @escaping (Result<[ETHContractLogsResponseModel], CryptoApiError>) -> Void) {
+        ETHNetwork.contractLogs(fromBlock: fromBlock, toBlock: toBlock, addresses: addresses, topics: topics)
+            .request(type: [ETHContractLogsResponseModel].self, session: session, authToken: authToken, completionHandler: completion)
+    }
+    
+    func block(numberOrHash: String, completion: @escaping (Result<ETHBlockResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.block(numberOrHash: numberOrHash)
+            .request(type: ETHBlockResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
+    }
+    
+    func blocks(skip: Int, limit: Int, completion: @escaping (Result<ETHBlocksResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.blocks(skip: skip, limit: limit)
+            .request(type: ETHBlocksResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
     }
 }
     

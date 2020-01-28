@@ -14,10 +14,13 @@ class ETHServiceTests: XCTestCase {
     let ethAddressWithBalance = TestConstants.ethAddressWithBalance
     let ethAddressWithBalance2 = TestConstants.ethAddressWithBalance2
     let ethContractAddress = TestConstants.ethContractAddress
+    let ethTokenWithBalances = TestConstants.ethTokenWithBalances
     let transactionHash = TestConstants.transactionHash
     let authToken = AuthorizationToken(value: TestConstants.authToken)
-    let testTimeout: TimeInterval = 20
-    let ethInvalidAddress = "invalid address"
+    let testTimeout = TestConstants.timeout
+    let ethInvalidAddress = "0x7ffc57839b00206d1ad20c69a1981b489f77203112"
+    let blockNumber = TestConstants.blockNumber
+    let blockHash = TestConstants.blockHash
     
     func testGetBalance() {
         //arrange
@@ -502,6 +505,51 @@ class ETHServiceTests: XCTestCase {
         wait(for: [expectation], timeout: testTimeout)
     }
     
+    func testTransactionReceiptTest() {
+        //arrange
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let expectation = XCTestExpectation(description: "testTransactionReceiptTest")
+        let hash = transactionHash
+
+        //act
+        api.eth.transactionReceipt(hash: hash) { result in
+            switch result {
+            case let .success(item):
+                //assert
+                XCTAssertTrue(!item.hash.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testTransactionReceiptFailedTest() {
+        //arrange
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let expectation = XCTestExpectation(description: "testTransactionReceiptFailedTest")
+        let hash = ethInvalidAddress
+
+        //act
+        api.eth.transactionReceipt(hash: hash) { result in
+            switch result {
+              case .success:
+                  //assert
+                  XCTFail()
+              case .failure:
+                  break
+              }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
     func testContractInfoTest() {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
@@ -552,11 +600,39 @@ class ETHServiceTests: XCTestCase {
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTokensBalancesTest")
         let address = ethAddressWithBalance
+        let address2 = ethAddressWithBalance2
         let skip = 0
         let limit = 10
         
         //act
-        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
+        api.eth.tokensBalance(addresses: [address, address2], skip: skip, limit: limit, token: nil) { result in
+            switch result {
+            case let .success(balances):
+                //assert
+                XCTAssertTrue(!balances.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testTokensBalancesForSpecificTokenTest() {
+        //arrange
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let expectation = XCTestExpectation(description: "testTokensBalancesTest")
+        let address = ethAddressWithBalance
+        let address2 = ethAddressWithBalance2
+        let token = ethTokenWithBalances
+        let skip = 0
+        let limit = 10
+        
+        //act
+        api.eth.tokensBalance(addresses: [address, address2], skip: skip, limit: limit, token: token) { result in
             switch result {
             case let .success(balances):
                 //assert
@@ -580,7 +656,7 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         //act
-        api.eth.tokensBalance(address: address, skip: skip, limit: limit) { result in
+        api.eth.tokensBalance(addresses: [address], skip: skip, limit: limit, token: nil) { result in
             switch result {
               case .success:
                   //assert
@@ -651,7 +727,7 @@ class ETHServiceTests: XCTestCase {
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTokenHistoryFailedTest")
         let address = ethInvalidAddress
-        let tokenAddress = ethContractAddress
+        let tokenAddress = ethInvalidAddress
         let skip = 0
         let limit = 10
         //act
@@ -819,13 +895,12 @@ class ETHServiceTests: XCTestCase {
 //         //arrange
 //         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
 //         let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
-//         let tx = "0xf86b24843b9aca0082520894b0202ebbf797dd61a3b28d5e82fba2523edc1a9b880de0b6b3a7640000801ba07cf766c8ec0c2d24e98d4fd6ec8af69dadc7fc8f9ba18e1476705f016ceeda6ea0375633e6bfe837b21e4ca97f8751c6e6e9a5e4ae06bb00d83f6337ca5e714cfb"
+//         let tx = "0xf86a2c84773594008252089446ba2677a1c982b329a81f60cf90fba2e8ca9fa8872386f26fc10000801ba09f5852f83f48dc86db7d4f5f26514bdd0ef813aa15ec3a7d874354ee99cf017da06a8aa2ef22ab41377cb30c5d48d208476491f687cf20945f91f35591a94a33d3"
 //         //act
 //         api.eth.sendRaw(transaction: tx) { result in
 //             switch result {
-//             case let .success(result):
-//                 //assert
-//                 XCTAssertTrue(!result.isEmpty)
+//             case .success:
+//                 break
 //             case let .failure(error):
 //                 //asserts
 //                 XCTAssertThrowsError(error)
@@ -951,4 +1026,102 @@ class ETHServiceTests: XCTestCase {
          //assert
          wait(for: [expectation], timeout: testTimeout)
      }
+    
+    func testContractLogsTest() {
+        //arrange
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let expectation = XCTestExpectation(description: "testCallContractFailedTest")
+        let fromBlock = TestConstants.contractLogsFromBlock
+        let toBlock = TestConstants.contractLogsToBlock
+        let addresses = TestConstants.contractLogsAddresses
+        let topics: [String] = [String]()
+       
+        //act
+        api.eth.contractLogs(fromBlock: fromBlock, toBlock: toBlock, addresses: addresses, topics: topics, completion: { result in
+            switch result {
+            case let .success(result):
+                //assert
+               XCTAssertTrue(!result.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        })
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testGetBlockByNumber() {
+        //arrange
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let expectation = XCTestExpectation(description: "testGetBlockByNumber")
+        let number = blockNumber
+        let hash = blockHash
+        
+        //act
+        api.eth.block(numberOrHash: String(number), completion: { result in
+            switch result {
+            case let .success(result):
+                //assert
+                XCTAssertTrue(result.hash == hash)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        })
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testGetBlockByHash() {
+        //arrange
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let expectation = XCTestExpectation(description: "testGetBlockByNumber")
+        let number = blockNumber
+        let hash = blockHash
+        
+        //act
+        api.eth.block(numberOrHash: hash, completion: { result in
+            switch result {
+            case let .success(result):
+                //assert
+                XCTAssertTrue(result.number == number)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        })
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+    func testGetBlocks() {
+        //arrange
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let expectation = XCTestExpectation(description: "testGetBlocks")
+        let skip = 0
+        let limit = 10
+        
+        //act
+        api.eth.blocks(skip: skip, limit: limit, completion: { result in
+            switch result {
+            case let .success(result):
+                //assert
+                XCTAssertTrue(!result.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        })
+
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
 }

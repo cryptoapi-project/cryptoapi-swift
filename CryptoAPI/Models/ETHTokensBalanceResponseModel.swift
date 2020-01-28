@@ -14,4 +14,5 @@ public struct ETHTokensBalanceResponseModel: Codable {
 public struct ETHTokenBalanceResponseModel: Codable {
     public let address: String
     public let balance: String
+    public let holder: String
 }

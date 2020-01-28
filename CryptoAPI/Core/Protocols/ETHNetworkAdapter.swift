@@ -30,10 +30,12 @@ protocol ETHNetworkAdapter {
     func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void)
     func transaction(hash: String,
-                     completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void)
+                     completion: @escaping (Result<ETHTransactionByHashResponseModel, CryptoApiError>) -> Void)
+    func transactionReceipt(hash: String,
+                            completion: @escaping (Result<ETHTransactionReceiptResponseModel, CryptoApiError>) -> Void)
     func contractInfo(address: String,
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void)
-    func tokensBalance(address: String, skip: Int, limit: Int,
+    func tokensBalance(addresses: [String], skip: Int, limit: Int, token: String?,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void)
     func tokenTransfers(tokenAddress: String, addresses: [String], skip: Int, limit: Int,
                         completion: @escaping (Result<ETHTokenTransfersResponseModel, CryptoApiError>) -> Void)
@@ -42,9 +44,14 @@ protocol ETHNetworkAdapter {
     func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
                      completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void)
     func sendRaw(transaction: String,
-                 completion: @escaping (Result<String, CryptoApiError>) -> Void)
+                 completion: @escaping (Result<ETHSendRawResponseModel, CryptoApiError>) -> Void)
     func decodeRaw(transaction: String,
                    completion: @escaping (Result<ETHDecodeRawResponseModel, CryptoApiError>) -> Void)
     func callContract(sender: String, amount: Int, bytecode: String, address: String,
                       completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    func contractLogs(fromBlock: Int, toBlock: Int, addresses: [String], topics: [String],
+                      completion: @escaping (Result<[ETHContractLogsResponseModel], CryptoApiError>) -> Void)
+
+    func block(numberOrHash: String, completion: @escaping (Result<ETHBlockResponseModel, CryptoApiError>) -> Void)
+    func blocks(skip: Int, limit: Int, completion: @escaping (Result<ETHBlocksResponseModel, CryptoApiError>) -> Void)
 }

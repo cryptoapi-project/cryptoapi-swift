@@ -10,7 +10,7 @@ public struct ETHNetworkResponseModel {
     public let lastBlock: Int
     public let countTransactions: String
     public let hashRate: Int
-    public let gasPrice: Int
+    public let gasPrice: String
     public let difficulty: Int
 }
 

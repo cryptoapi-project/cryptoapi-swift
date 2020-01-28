@@ -80,13 +80,22 @@ public protocol ETHService {
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void)
     
 /**
-    Get transaction history from one address to another
+    Get transaction by hash
 
     - Parameter hash: hash of transaction
-    - Parameter completion: Callback which returns an [ETHTransactionResponseModel](ETHTransactionResponseModel) result  or error
+    - Parameter completion: Callback which returns an [ETHTransactionByHashResponseModel](ETHTransactionByHashResponseModel) result  or error
 */
     func transaction(hash: String,
-                     completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void)
+                     completion: @escaping (Result<ETHTransactionByHashResponseModel, CryptoApiError>) -> Void)
+
+/**
+    Get transaction receipt by transaction hash
+
+    - Parameter hash: hash of transaction
+    - Parameter completion: Callback which returns an [ETHTransactionReceiptResponseModel](ETHTransactionReceiptResponseModel) result  or error
+*/
+    func transactionReceipt(hash: String,
+                            completion: @escaping (Result<ETHTransactionReceiptResponseModel, CryptoApiError>) -> Void)
     
 /**
     Get contract info
@@ -98,14 +107,15 @@ public protocol ETHService {
                       completion: @escaping (Result<ETHContractInfoResponseModel, CryptoApiError>) -> Void)
     
 /**
-    Return list of tokens balances by holder address, when token balance is more than zero.
+    Return list of tokens balances by holder addresses, when token balance is more than zero. Or returns balances for specific token.
 
-    - Parameter address: contract address
+    - Parameter addresses: holder addresses
     - Parameter skip: skip
     - Parameter limit: limit
+    - Parameter token: specific token for search balances
     - Parameter completion: Callback which returns an [ETHTokensBalanceResponseModel](ETHTokensBalanceResponseModel) result  or error
 */
-    func tokensBalance(address: String, skip: Int, limit: Int,
+    func tokensBalance(addresses: [String], skip: Int, limit: Int, token: String?,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void)
     
 /**
@@ -145,10 +155,10 @@ public protocol ETHService {
     Send raw eth transaction.
 
     - Parameter transaction: transaction
-    - Parameter completion: Callback which returns an [String](String) result  or error
+    - Parameter completion: Callback which returns an [ETHSendRawResponseModel](ETHSendRawResponseModel) result  or error
 */
     func sendRaw(transaction: String,
-                 completion: @escaping (Result<String, CryptoApiError>) -> Void)
+                 completion: @escaping (Result<ETHSendRawResponseModel, CryptoApiError>) -> Void)
     
 /**
     Decode raw eth transaction.
@@ -170,5 +180,34 @@ public protocol ETHService {
 */
     func callContract(sender: String, amount: Int, bytecode: String, address: String,
                       completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    
+/**
+    Returns logs for contract and topics
+
+    - Parameter fromBlock: start block for search
+    - Parameter toBlock: end block for search
+    - Parameter addresses: contract addresses for search
+    - Parameter topics: topics for search
+    - Parameter completion: Callback which returns an array of [ETHContractLogsResponseModel](ETHContractLogsResponseModel) result  or error
+*/
+    func contractLogs(fromBlock: Int, toBlock: Int, addresses: [String], topics: [String],
+                      completion: @escaping (Result<[ETHContractLogsResponseModel], CryptoApiError>) -> Void)
+    
+/**
+    Returns block object by number or hash
+
+    - Parameter numberOrHash: number or hash of block
+    - Parameter completion: Callback which returns an [ETHBlockResponseModel](ETHBlockResponseModel) result  or error
+*/
+    func block(numberOrHash: String, completion: @escaping (Result<ETHBlockResponseModel, CryptoApiError>) -> Void)
+    
+/**
+    Returns blocks
+
+    - Parameter skip: skip
+    - Parameter limit: limit
+    - Parameter completion: Callback which returns an [ETHBlocksResponseModel](ETHBlocksResponseModel) result  or error
+*/
+    func blocks(skip: Int, limit: Int, completion: @escaping (Result<ETHBlocksResponseModel, CryptoApiError>) -> Void)
 }
  

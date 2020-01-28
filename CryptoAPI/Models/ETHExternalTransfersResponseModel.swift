@@ -30,6 +30,7 @@ public struct ETHExternalTransferResponseModel {
     public let v: String
     public let s: String
     public let r: String
+    public let internalTransactions: [String]
 }
 
 extension ETHExternalTransferResponseModel: Codable {
@@ -49,5 +50,6 @@ extension ETHExternalTransferResponseModel: Codable {
         case v
         case s
         case r
+        case internalTransactions = "internal_transactions"
     }
 }

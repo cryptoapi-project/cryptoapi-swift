@@ -9,26 +9,28 @@
 import Foundation
 
 enum ETHNetwork: Resty {
-    case queryTokens(query: String, skip: Int, limit: Int, types: [String])
-    case contractInfo(address: String)
-    case tokenInfo(address: String)
-    case info(addresses: [String])
     case network
+    case info(addresses: [String])
+    case balance(addresses: [String])
     case history(addresses: [String], from: Int, limit: Int)
+    case externalHistory(addresses: [String], from: Int, limit: Int)
     case transactions(fromAddress: String, toAddress: String, skip: Int, limit: Int)
     case transaction(hash: String)
-    case externalHistory(addresses: [String], from: Int, limit: Int)
-    case tokenHistory(tokenAddress: String, addresses: [String], from: Int, limit: Int)
-    case balance(addresses: [String])
-    case tokenBalance(address: String, skip: Int, limit: Int)
+    case transactionReceipt(hash: String)
+    case estimateGas(from: String, to: String, value: String, data: String)
     case sendRaw(transaction: String)
     case decodeRaw(transaction: String)
+    case contractInfo(address: String)
+    case contractLogs(fromBlock: Int, toBlock: Int, addresses: [String], topics: [String])
+    case queryTokens(query: String, skip: Int, limit: Int, types: [String])
+    case tokenInfo(address: String)
+    case tokenBalance(addresses: [String], skip: Int, limit: Int, token: String?)
+    case tokenHistory(tokenAddress: String, addresses: [String], from: Int, limit: Int)
     case callContract(address: String, sender: String, amount: Int, bytecode: String)
-    case estimateGas(from: String, to: String, value: String, data: String)
-    case outputs(addresses: [String])
-    case estimateFee
     case subscribePushNotifications(addresses: [String], token: String)
     case unsubscribePushNotifications(addresses: [String], token: String)
+    case block(numberOrHash: String)
+    case blocks(skip: Int, limit: Int)
 }
 
 extension ETHNetwork {
@@ -60,32 +62,41 @@ extension ETHNetwork {
             return "/v1/coins/eth/addresses/\(addresses.description)/transactions"
         case .tokenHistory(let tokenAddress, _, _, _):
             return "/v1/coins/eth/tokens/\(tokenAddress)/transfers"
-        case .estimateFee:
-            return "/v1/coins/eth/estimate-fee-per-kb"
         case .balance(let addresses):
             return "/v1/coins/eth/addresses/\(addresses.description)/balance"
-        case .tokenBalance(let address, _, _):
-            return "/v1/coins/eth/addresses/\(address)/balance/tokens"
+        case .tokenBalance(let addresses, _, _, let token):
+            if let token = token {
+                return "/v1/coins/eth/addresses/\(addresses.description)/balance/tokens/\(token)"
+            } else {
+                return "/v1/coins/eth/addresses/\(addresses.description)/balance/tokens"
+            }
+            
         case .sendRaw:
             return "/v1/coins/eth/transactions/raw/send"
         case .decodeRaw:
             return "/v1/coins/eth/transactions/raw/decode"
         case .estimateGas:
             return "/v1/coins/eth/estimate-gas"
-        case .outputs(let addresses):
-            return "/v1/coins/eth/\(addresses.description)/outputs"
         case .subscribePushNotifications(let address, _):
             return "/v1/coins/eth/accounts/\(address)/token/subscribe/balance"
         case .unsubscribePushNotifications(let address, _):
             return "/v1/coins/eth/accounts/\(address)/token/unsubscribe/balance"
+        case .contractLogs:
+            return "/v1/coins/eth/contracts/logs"
+        case .transactionReceipt(let hash):
+            return "/v1/coins/eth/transactions/receipt/\(hash)"
+        case .block(let numberOrHash):
+            return "/v1/coins/eth/blocks/\(numberOrHash)"
+        case .blocks:
+            return "/v1/coins/eth/blocks"
         }
     }
         
     var method: HTTPMethod {
         switch self {
-        case .history, .tokenHistory, .balance, .outputs, .estimateFee, .transactions,
+        case .history, .tokenHistory, .balance, .transactions,
              .contractInfo, .transaction, .tokenBalance, .network, .info, .externalHistory,
-             .tokenInfo, .queryTokens:
+             .tokenInfo, .queryTokens, .contractLogs, .transactionReceipt, .block, .blocks:
             return .get
 
         case .sendRaw, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications, .callContract, .decodeRaw:
@@ -95,8 +106,10 @@ extension ETHNetwork {
     
     var bodyParameters: [String: Any]? {
         switch self {
-        case .balance, .outputs, .estimateFee, .history, .transactions, .contractInfo,
-             .tokenHistory, .tokenBalance, .network, .info, .externalHistory, .transaction, .tokenInfo, .queryTokens:
+        case .balance, .history, .transactions, .contractInfo,
+             .tokenHistory, .tokenBalance, .network, .info,
+             .externalHistory, .transaction, .tokenInfo, .queryTokens, .contractLogs,
+             .transactionReceipt, .block, .blocks:
             return nil
             
         case let .sendRaw(transaction):
@@ -129,8 +142,9 @@ extension ETHNetwork {
     
     var queryParameters: [String: String]? {
         switch self {
-        case .balance, .outputs, .estimateFee, .network, .info, .transaction, .contractInfo, .sendRaw, .decodeRaw,
-             .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications, .tokenInfo, .callContract:
+        case .balance, .network, .info, .transaction, .contractInfo, .sendRaw, .decodeRaw,
+             .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications,
+             .tokenInfo, .callContract, .transactionReceipt, .block:
             return nil
             
         case let .queryTokens(query, skip, limit, types):
@@ -148,7 +162,17 @@ extension ETHNetwork {
         case let .tokenHistory(_, addresses, from, limit):
             return ["skip": String(from), "limit": String(limit), "addresses": addresses.description]
             
-        case let .tokenBalance(_, skip, limit):
+        case let .tokenBalance(_, skip, limit, _):
+            return ["skip": String(skip), "limit": String(limit)]
+            
+        case let .contractLogs(from, to, addresses, topics):
+            var result = ["from_block": String(from), "to_block": String(to), "addresses": addresses.description]
+            if !topics.isEmpty {
+                result["topics"] = topics.description
+            }
+            return result
+            
+        case let .blocks(skip, limit):
             return ["skip": String(skip), "limit": String(limit)]
         }
     }

@@ -49,8 +49,12 @@ final class ETHServiceImp: ETHService {
     }
     
     func transaction(hash: String,
-                     completion: @escaping (Result<ETHTransactionResponseModel, CryptoApiError>) -> Void) {
+                     completion: @escaping (Result<ETHTransactionByHashResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.transaction(hash: hash, completion: completion)
+    }
+    
+    func transactionReceipt(hash: String, completion: @escaping (Result<ETHTransactionReceiptResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.transactionReceipt(hash: hash, completion: completion)
     }
     
     func contractInfo(address: String,
@@ -58,9 +62,9 @@ final class ETHServiceImp: ETHService {
         networkAdapter.contractInfo(address: address, completion: completion)
     }
     
-    func tokensBalance(address: String, skip: Int, limit: Int,
+    func tokensBalance(addresses: [String], skip: Int, limit: Int, token: String?,
                        completion: @escaping (Result<ETHTokensBalanceResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.tokensBalance(address: address, skip: skip, limit: limit, completion: completion)
+        networkAdapter.tokensBalance(addresses: addresses, skip: skip, limit: limit, token: token, completion: completion)
     }
     
     func tokenTransfers(tokenAddress: String, addresses: [String], skip: Int, limit: Int,
@@ -80,7 +84,7 @@ final class ETHServiceImp: ETHService {
     }
     
     func sendRaw(transaction: String,
-                 completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+                 completion: @escaping (Result<ETHSendRawResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.sendRaw(transaction: transaction, completion: completion)
     }
     
@@ -93,5 +97,18 @@ final class ETHServiceImp: ETHService {
                       completion: @escaping (Result<String, CryptoApiError>) -> Void) {
         networkAdapter.callContract(sender: sender, amount: amount,
                                     bytecode: bytecode, address: address, completion: completion)
+    }
+    
+    func contractLogs(fromBlock: Int, toBlock: Int, addresses: [String], topics: [String],
+                      completion: @escaping (Result<[ETHContractLogsResponseModel], CryptoApiError>) -> Void) {
+        networkAdapter.contractLogs(fromBlock: fromBlock, toBlock: toBlock, addresses: addresses, topics: topics, completion: completion)
+    }
+    
+    func block(numberOrHash: String, completion: @escaping (Result<ETHBlockResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.block(numberOrHash: numberOrHash, completion: completion)
+    }
+    
+    func blocks(skip: Int, limit: Int, completion: @escaping (Result<ETHBlocksResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.blocks(skip: skip, limit: limit, completion: completion)
     }
 }
