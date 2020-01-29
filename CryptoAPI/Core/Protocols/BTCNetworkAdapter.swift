@@ -9,5 +9,11 @@
 import Foundation
 
 protocol BTCNetworkAdapter {
-    
+    //BTC
+    func network(completion: @escaping (Result<BTCNetworkResponseModel, CryptoApiError>) -> Void)
+    func sendRaw(transaction: String,
+                 completion: @escaping (Result<BTCSendRawResponseModel, CryptoApiError>) -> Void)
+    func decodeRaw(transaction: String,
+                   completion: @escaping (Result<BTCDecodeRawResponseModel, CryptoApiError>) -> Void)
+
 }

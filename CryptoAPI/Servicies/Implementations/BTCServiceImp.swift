@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class BTCServiceImp: BTCService {
+final class BTCServiceImp: BTCService {    
     let networkAdapter: BTCNetworkAdapter
     
     public init(networkAdapter: BTCNetworkAdapter) {

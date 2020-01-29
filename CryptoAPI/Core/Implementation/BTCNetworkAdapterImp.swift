@@ -16,4 +16,8 @@ final class BTCNetworkAdapterImp: BTCNetworkAdapter {
         self.session = session
         self.authToken = authToken
     }
+    
+    func network(completion: @escaping (Result<BTCNetworkResponseModel, CryptoApiError>) -> Void) {
+        BTCNetwork.network.request(type: BTCNetworkResponseModel.self, session: session, authToken: authToken, completionHandler: completion)
+    }
 }

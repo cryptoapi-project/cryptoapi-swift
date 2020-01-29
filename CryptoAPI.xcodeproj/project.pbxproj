@@ -42,6 +42,9 @@
 		B3BD0C2823801A5000EF0600 /* ETHServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C2723801A5000EF0600 /* ETHServiceTests.swift */; };
 		B3BD0C2A23802CCB00EF0600 /* ETHEstimateGasResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C2923802CCB00EF0600 /* ETHEstimateGasResponseModel.swift */; };
 		CE837A1923E1994D00A951AB /* BTCServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE837A1823E1994D00A951AB /* BTCServiceTests.swift */; };
+		CE837A1D23E19D4F00A951AB /* BTCNetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE837A1C23E19D4F00A951AB /* BTCNetworkResponseModel.swift */; };
+		CE837A1F23E1D00200A951AB /* BTCSendRawResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE837A1E23E1D00200A951AB /* BTCSendRawResponseModel.swift */; };
+		CE837A2123E1D0AF00A951AB /* BTCDecodeRawResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE837A2023E1D0AF00A951AB /* BTCDecodeRawResponseModel.swift */; };
 		CEE1665923E1932900602140 /* BTCNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1665823E1932900602140 /* BTCNetwork.swift */; };
 		CEE1665C23E1957500602140 /* BTCNetworkAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1665B23E1957500602140 /* BTCNetworkAdapterImp.swift */; };
 		CEE1665E23E1958C00602140 /* BTCNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1665D23E1958C00602140 /* BTCNetworkAdapter.swift */; };
@@ -104,6 +107,9 @@
 		B3BD0C2723801A5000EF0600 /* ETHServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHServiceTests.swift; sourceTree = "<group>"; };
 		B3BD0C2923802CCB00EF0600 /* ETHEstimateGasResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHEstimateGasResponseModel.swift; sourceTree = "<group>"; };
 		CE837A1823E1994D00A951AB /* BTCServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCServiceTests.swift; sourceTree = "<group>"; };
+		CE837A1C23E19D4F00A951AB /* BTCNetworkResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCNetworkResponseModel.swift; sourceTree = "<group>"; };
+		CE837A1E23E1D00200A951AB /* BTCSendRawResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCSendRawResponseModel.swift; sourceTree = "<group>"; };
+		CE837A2023E1D0AF00A951AB /* BTCDecodeRawResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCDecodeRawResponseModel.swift; sourceTree = "<group>"; };
 		CEE1665823E1932900602140 /* BTCNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCNetwork.swift; sourceTree = "<group>"; };
 		CEE1665B23E1957500602140 /* BTCNetworkAdapterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCNetworkAdapterImp.swift; sourceTree = "<group>"; };
 		CEE1665D23E1958C00602140 /* BTCNetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCNetworkAdapter.swift; sourceTree = "<group>"; };
@@ -314,6 +320,9 @@
 		CEE1666423E1964D00602140 /* BTC */ = {
 			isa = PBXGroup;
 			children = (
+				CE837A1C23E19D4F00A951AB /* BTCNetworkResponseModel.swift */,
+				CE837A1E23E1D00200A951AB /* BTCSendRawResponseModel.swift */,
+				CE837A2023E1D0AF00A951AB /* BTCDecodeRawResponseModel.swift */,
 			);
 			path = BTC;
 			sourceTree = "<group>";
@@ -477,6 +486,7 @@
 				CEE1665923E1932900602140 /* BTCNetwork.swift in Sources */,
 				D03890FF23966A2B005DE0B4 /* Constants.swift in Sources */,
 				B3A4AE3923843091005AFE8E /* CommonNetworkAdapterImp.swift in Sources */,
+				CE837A1F23E1D00200A951AB /* BTCSendRawResponseModel.swift in Sources */,
 				B34D0F0D2382B48B002823F8 /* ETHContractInfoResponseModel.swift in Sources */,
 				B34D0F0523828163002823F8 /* ETHInfoResponseModel.swift in Sources */,
 				B3BD0BF3237FE9C500EF0600 /* Configurator.swift in Sources */,
@@ -495,8 +505,10 @@
 				D0E1628123DF35720034D908 /* ETHSendRawResponseModel.swift in Sources */,
 				B3BD0C0C2380134600EF0600 /* ETHNetworkAdapterImp.swift in Sources */,
 				CEE1665C23E1957500602140 /* BTCNetworkAdapterImp.swift in Sources */,
+				CE837A1D23E19D4F00A951AB /* BTCNetworkResponseModel.swift in Sources */,
 				B3A4AE3F23843293005AFE8E /* CmnRatesHistoryResponseModel.swift in Sources */,
 				CEE1665E23E1958C00602140 /* BTCNetworkAdapter.swift in Sources */,
+				CE837A2123E1D0AF00A951AB /* BTCDecodeRawResponseModel.swift in Sources */,
 				CEE1666023E1961100602140 /* BTCServiceImp.swift in Sources */,
 				B3BD0C00237FFD5500EF0600 /* Resty.swift in Sources */,
 				B3BD0C072380127600EF0600 /* ETHWalletBalanceModel.swift in Sources */,

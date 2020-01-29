@@ -9,5 +9,11 @@
 import Foundation
 
 public protocol BTCService {
-    
+    /**
+        Network information
+
+        - Parameter completion: Callback which returns an [BTCNetworkResponseModel](BTCNetworkResponseModel) result  or error
+    */
+        func network(completion: @escaping (Result<BTCNetworkResponseModel, CryptoApiError>) -> Void)
+        
 }
