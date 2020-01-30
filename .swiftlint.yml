@@ -106,7 +106,7 @@ file_header:
                     \/\/  .*?\.swift
                     \/\/  CryptoAPI
                     \/\/
-                    \/\/  Created by (Fedorenko Nikita|Vladimir Sharaev) on \d{1,2}(\/|.)\d{1,2}(\/|.)(2019|19|2020|20)\.
+                    \/\/  Created by (Artemy Markovsky|Fedorenko Nikita|Vladimir Sharaev) on \d{1,2}(\/|.)\d{1,2}(\/|.)(2019|19|2020|20)\.
                     \/\/  Copyright © (2019|2020) PixelPlex\. All rights reserved\.
                     \/\/
                     

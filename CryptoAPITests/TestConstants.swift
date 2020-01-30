@@ -26,4 +26,12 @@ enum TestConstants {
     
     static let blockNumber = 5870510
     static let blockHash = "0x0d424fbc11ce52261db0d97dec9a26136fdefcb55bde08f247318f8c39afb9ca"
+    
+    // BTH
+    static let bthAddressWithBalance = "bchtest:pptaejry4psdwdq8akh8zxgmdy7c2zwwave0kla5n9"
+    static let bthAddressWithBalance2 = "bchtest:qqrkr66xpllee6ujzcuexzvd3kkhtc6gqu9d7m8q33"
+    static let bthTransactionHash = "5349ec90c7d4d04b0ae32c23f881fa813043c270c8f377ccfbf4510189e0c777"
+    
+    static let bthBlockHeight = 1356613
+    static let bthBlockHash = "000000000008ecf38dfa49aa5619ee2c2d3f00d6f66a6bf54d2659965a12ac19"
 }

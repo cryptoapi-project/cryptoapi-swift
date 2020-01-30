@@ -10,6 +10,7 @@ import Foundation
 
 public final class CryptoAPI {
     public let eth: ETHService
+    public let bth: BTHService
     public let common: CommonService
     
     public init(settings: Settings) {
@@ -19,11 +20,14 @@ public final class CryptoAPI {
         
         let urlSession = URLSession(configuration: configuration)
         let authorizationToken = settings.authorizationToken
-        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession, authToken: authorizationToken)
-        let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession, authToken: authorizationToken)
+        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
+        let bthNetworkAdapter = BTHNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
+        let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
+        let bthService = BTHServiceImp(networkAdapter: bthNetworkAdapter)
         let ethService = ETHServiceImp(networkAdapter: ethNetworkAdapter)
         let commonService = CommonServiceImp(networkAdapter: commonNetworkAdapter)
         
+        bth = bthService
         eth = ethService
         common = commonService
     }
