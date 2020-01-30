@@ -17,7 +17,7 @@ public protocol BTCService {
     func network(completion: @escaping (Result<BTCNetworkResponseModel, CryptoApiError>) -> Void)
     
 /**
-     Send raw eth transaction.
+     Send raw btc transaction.
      
      - Parameter transaction: transaction
      - Parameter completion: Callback which returns an [BTCSendRawResponseModel](BTCSendRawResponseModel) result  or error

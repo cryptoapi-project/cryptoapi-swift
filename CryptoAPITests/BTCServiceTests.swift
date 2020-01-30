@@ -207,7 +207,7 @@ class BTCServiceTests: XCTestCase {
         let hash = "invalid hash"
 
         //act
-        api.eth.transaction(hash: hash) { result in
+        api.btc.transactionBy(hash: hash) { result in
             switch result {
               case .success:
                   //assert
