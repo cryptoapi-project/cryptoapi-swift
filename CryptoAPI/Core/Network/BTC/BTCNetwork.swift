@@ -12,7 +12,7 @@ enum BTCNetwork: Resty {
     case network
     case sendRaw(transactionHash: String)
     case decodeRaw(transaction: String)
-    case transactions(heightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String)
+    case transactions(blockHeightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String)
     case transactionBy(hash: String)
     case addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int)
     case addressesUxtoInfo(addresses: [String])
@@ -21,7 +21,6 @@ enum BTCNetwork: Resty {
     case blocks(skip: Int, limit: Int)
     
 }
-
 
 extension BTCNetwork {
     var host: String {
