@@ -30,12 +30,12 @@ public struct BTCTransactionByHashResponseModel {
     public let blockHeight: Int
     public let blockHash: String
     public let blockTime: String
-    public let mempoolTime: String
+    public let mempoolTime: String?
     public let fee: Int
     public let size: Int
     public let transactionIndex: Int
     public let lockTime: Int
-    public let value: String
+    public let value: Int
     public let hash: String
     public let inputCount: Int
     public let outputCount: Int

@@ -9,7 +9,6 @@
 public struct BTCAddressOutInfoResponseModel: Codable {
     public let address: String
     public let balance: BTCAddressBalanceResponseModel
-    
 }
 
 public struct BTCAddressBalanceResponseModel: Codable {
@@ -18,4 +17,3 @@ public struct BTCAddressBalanceResponseModel: Codable {
     public let confirmed: String
     public let uncorfirmed: String
 }
-

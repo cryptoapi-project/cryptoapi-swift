@@ -19,7 +19,6 @@ public struct BTCAddressOutputResponseModel {
     public let spentIndex: Int
     public let sequenceNumber: Int
     public let mempoolTime: String
-    
 }
 
 extension BTCAddressOutputResponseModel: Codable {

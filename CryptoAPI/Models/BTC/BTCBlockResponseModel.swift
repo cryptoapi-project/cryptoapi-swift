@@ -12,7 +12,7 @@ public struct BTCBlockResponseModel {
     public let bits: Int
     public let time: String
     public let merkleRoot: String
-    public let nonse: Int
+    public let nonce: Int
     public let size: Int
     public let version: Int 
     public let prevBlockHash: String
@@ -29,7 +29,7 @@ extension BTCBlockResponseModel: Codable {
         case bits
         case time
         case merkleRoot = "merkle_root"
-        case nonse
+        case nonce
         case size
         case version
         case prevBlockHash = "previous_block_hash"

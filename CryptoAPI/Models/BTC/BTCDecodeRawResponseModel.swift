@@ -24,7 +24,6 @@ extension BTCDecodeRawResponseModel: Codable {
     }
 }
 
-
 public struct Input {
     public let prevTransactionHash: String
     public let outputIndex: Int

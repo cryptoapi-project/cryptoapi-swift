@@ -132,10 +132,10 @@ extension Resty {
     }
     
     private func log(_ value: Any) {
-//        print("""
-//            ------------
-//            \(value)
-//            ----------
-//            """)
+        print("""
+            ------------
+            \(value)
+            ----------
+            """)
     }
 }

@@ -106,5 +106,5 @@ public protocol BTCService {
      - Parameter completion: Callback which returns an [BTCAddressOutHistoryResponseModel](BTCAddressOutHistoryResponseModel) result  or error
 */
     func addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int,
-                                      completion: @escaping (Result<BTCAddressOutHistoryResponseModel,CryptoApiError>) -> Void)
+                                      completion: @escaping (Result<BTCAddressOutHistoryResponseModel, CryptoApiError>) -> Void)
 }

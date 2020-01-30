@@ -37,6 +37,5 @@ protocol BTCNetworkAdapter {
                            completion: @escaping (Result<[BTCAddressOutInfoResponseModel], CryptoApiError>) -> Void)
     
     func addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int,
-                                      completion: @escaping (Result<BTCAddressOutHistoryResponseModel,CryptoApiError>) -> Void)
-    
+                                      completion: @escaping (Result<BTCAddressOutHistoryResponseModel, CryptoApiError>) -> Void)
 }

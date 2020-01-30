@@ -7,10 +7,10 @@
 //
 
 public struct BTCNetworkResponseModel {
-    public let lastBlock: Int
+    public let lastBlock: String
     public let countTransactions: String
-    public let hashRate: Int
-    public let difficulty: Int
+    public let hashRate: String
+    public let difficulty: String
 }
 
 extension BTCNetworkResponseModel: Codable {
