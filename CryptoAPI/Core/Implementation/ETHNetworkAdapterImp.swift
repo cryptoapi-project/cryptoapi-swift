@@ -11,7 +11,7 @@ import Foundation
 final class ETHNetworkAdapterImp: ETHNetworkAdapter {
     let session: URLSession
     let authToken: AuthorizationToken
-    let needLogs: Bool
+    var needLogs: Bool
     
     init(session: URLSession, authToken: AuthorizationToken, needLogs: Bool) {
         self.session = session
