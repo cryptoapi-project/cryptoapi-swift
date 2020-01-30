@@ -21,8 +21,8 @@ public final class CryptoAPI {
         let urlSession = URLSession(configuration: configuration)
         let authorizationToken = settings.authorizationToken
         
-        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession, authToken: authorizationToken)
-        let btcNetworkAdapter = BTCNetworkAdapterImp(session: urlSession, authToken: authorizationToken)
+        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
+        let btcNetworkAdapter = BTCNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
         let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession, authToken: authorizationToken)
         
         let ethService = ETHServiceImp(networkAdapter: ethNetworkAdapter)

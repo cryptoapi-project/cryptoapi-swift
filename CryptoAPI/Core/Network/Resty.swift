@@ -50,9 +50,9 @@ enum RestyError: Error {
 extension Resty {
     func request<T: Codable>(type: T.Type,
                              session: URLSession,
-                             authToken: AuthorizationToken,
+                             authToken: AuthorizationToken, withLog: Bool = false,
                              completionHandler: @escaping (Result<T, CryptoApiError>) -> Void) {
-        guard let url = URL(string: generateURL(authToken: authToken.value)) else {
+        guard let url = URL(string: generateURL(authToken: authToken.value, withLog: withLog)) else {
             completionHandler(.failure(CryptoApiError.innerError(RestyError.badURL)))
             return
         }
@@ -80,7 +80,7 @@ extension Resty {
                 if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                     do {
                         let result: String = String(describing: String(data: data, encoding: .utf8))
-                        self.log(result)
+                        self.log(result, withLog)
                         if let result = result as? T {
                             //if result is not json, but string as we requred
                             completionHandler(.success(result))
@@ -88,13 +88,13 @@ extension Resty {
                             completionHandler(.success(try JSONDecoder().decode(type, from: data)))
                         }
                     } catch let error {
-                        self.log(error)
+                        self.log(error, withLog)
                         completionHandler(.failure(CryptoApiError.innerError(error)))
                         return
                     }
                 } else {
                     do {
-                        self.log(String(describing: String(data: data, encoding: .utf8)))
+                        self.log(String(describing: String(data: data, encoding: .utf8)), withLog)
                         if let error = try? JSONDecoder().decode(CryptoApiTypedErrors.self, from: data) {
                             completionHandler(.failure(CryptoApiError.customErrorList(error)))
                         } else {
@@ -102,7 +102,7 @@ extension Resty {
                             completionHandler(.failure(CryptoApiError.customError(error)))
                         }
                     } catch let error {
-                        self.log(error)
+                        self.log(error, withLog)
                         completionHandler(.failure(CryptoApiError.innerError(error)))
                         return
                     }
@@ -116,7 +116,7 @@ extension Resty {
     }
     
     /// The URL of the receiver.
-    private func generateURL(authToken: String) -> String {
+    private func generateURL(authToken: String, withLog: Bool) -> String {
         let firstSymbolForToken = queryParameters == nil ? "?" : "&"
         let appendTokenString = "\(firstSymbolForToken)token=\(authToken)"
         
@@ -126,16 +126,18 @@ extension Resty {
         url += queryParameters?.stringFromHttpParameters() ?? ""
         url += appendTokenString
         
-        log(url)
+        log(url, withLog)
         
         return url
     }
     
-    private func log(_ value: Any) {
-        print("""
-            ------------
-            \(value)
-            ----------
-            """)
+    private func log(_ value: Any, _ isNeedLog: Bool) {
+        if isNeedLog {
+            print("""
+                ------------
+                \(value)
+                ----------
+                """)
+        }
     }
 }

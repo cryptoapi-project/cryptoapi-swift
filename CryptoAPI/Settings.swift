@@ -14,10 +14,11 @@ final public class Settings {
     public var timeoutIntervalForRequest: TimeInterval
     public var timeoutIntervalForResource: TimeInterval
     public var sessionConfiguration: URLSessionConfiguration
+    public var needLogs: Bool
     
     public typealias BuildConfiguratorClosure = (Configurator) -> Void
     
-    public init(authorizationToken: AuthorizationToken, build: BuildConfiguratorClosure = { _ in }) {
+    public init(authorizationToken: AuthorizationToken, build: BuildConfiguratorClosure = { _ in }, isNeedLogs: Bool = false) {
         self.authorizationToken = authorizationToken
         
         let configurator = Configurator()
@@ -26,5 +27,6 @@ final public class Settings {
         timeoutIntervalForRequest = configurator.timeoutIntervalForRequest
         sessionConfiguration = configurator.sessionConfiguration
         workingQueue = configurator.workingQueue
+        needLogs = isNeedLogs
     }
 }
