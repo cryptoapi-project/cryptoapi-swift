@@ -10,12 +10,12 @@ import XCTest
 @testable import CryptoAPI
 
 class CommonServiceTests: XCTestCase {
-    let authToken = AuthorizationToken(value: TestConstants.authToken)
+    let authToken = AuthorizationToken(value: ETHTestConstants.authToken)
     let testTimeout: TimeInterval = 10
             
     func testCoins() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testCoins")
         //act
         api.common.coins { result in

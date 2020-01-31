@@ -11,16 +11,16 @@ import XCTest
 
 class ETHServiceTests: XCTestCase {
     
-    let ethAddressWithBalance = TestConstants.ethAddressWithBalance
-    let ethAddressWithBalance2 = TestConstants.ethAddressWithBalance2
-    let ethContractAddress = TestConstants.ethContractAddress
-    let ethTokenWithBalances = TestConstants.ethTokenWithBalances
-    let transactionHash = TestConstants.transactionHash
-    let authToken = AuthorizationToken(value: TestConstants.authToken)
-    let testTimeout = TestConstants.timeout
-    let ethInvalidAddress = "0x7ffc57839b00206d1ad20c69a1981b489f77203112"
-    let blockNumber = TestConstants.blockNumber
-    let blockHash = TestConstants.blockHash
+    let ethAddressWithBalance = ETHTestConstants.ethAddressWithBalance
+    let ethAddressWithBalance2 = ETHTestConstants.ethAddressWithBalance2
+    let ethContractAddress = ETHTestConstants.ethContractAddress
+    let ethTokenWithBalances = ETHTestConstants.ethTokenWithBalances
+    let transactionHash = ETHTestConstants.transactionHash
+    let authToken = AuthorizationToken(value: ETHTestConstants.authToken)
+    let testTimeout = ETHTestConstants.timeout
+    let ethInvalidAddress = ETHTestConstants.ethInvalidAddress
+    let blockNumber = ETHTestConstants.blockNumber
+    let blockHash = ETHTestConstants.blockHash
     
     func testGetBalance() {
         //arrange
@@ -1031,9 +1031,9 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testCallContractFailedTest")
-        let fromBlock = TestConstants.contractLogsFromBlock
-        let toBlock = TestConstants.contractLogsToBlock
-        let addresses = TestConstants.contractLogsAddresses
+        let fromBlock = ETHTestConstants.contractLogsFromBlock
+        let toBlock = ETHTestConstants.contractLogsToBlock
+        let addresses = ETHTestConstants.contractLogsAddresses
         let topics: [String] = [String]()
        
         //act

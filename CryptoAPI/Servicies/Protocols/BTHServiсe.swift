@@ -19,16 +19,16 @@ public protocol BTHService {
 /**
      Send raw bth transaction.
      
-     - Parameter transaction: transaction
+     - Parameter transaction: transaction hex
      - Parameter completion: Callback which returns an [BTHSendRawResponseModel](BTHSendRawResponseModel) result  or error
 */
     func sendRaw(transaction: String,
                  completion: @escaping (Result<BTHSendRawResponseModel, CryptoApiError>) -> Void)
     
 /**
-     Decode raw bth transaction.
+     Decode raw bth transaction hex.
      
-     - Parameter transaction: transaction
+     - Parameter transaction: transaction hex
      - Parameter completion: Callback which returns an [BTHDecodeRawResponseModel](BTHDecodeRawResponseModel) result  or error
 */
     func decodeRaw(transaction: String,
