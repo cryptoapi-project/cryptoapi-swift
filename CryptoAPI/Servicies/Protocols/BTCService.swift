@@ -19,16 +19,16 @@ public protocol BTCService {
 /**
      Send raw btc transaction.
      
-     - Parameter transaction: transaction
+     - Parameter transaction: transaction hex
      - Parameter completion: Callback which returns an [BTCSendRawResponseModel](BTCSendRawResponseModel) result  or error
 */
     func sendRaw(transaction: String,
                  completion: @escaping (Result<BTCSendRawResponseModel, CryptoApiError>) -> Void)
     
 /**
-     Decode raw btc transaction.
+     Decode raw btc transaction hex.
      
-     - Parameter transaction: transaction
+     - Parameter transaction: transaction hex
      - Parameter completion: Callback which returns an [BTCDecodeRawResponseModel](BTCDecodeRawResponseModel) result  or error
 */
     func decodeRaw(transaction: String,

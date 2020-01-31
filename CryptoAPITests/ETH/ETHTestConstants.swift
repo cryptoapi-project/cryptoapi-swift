@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TestConstants {
+enum ETHTestConstants {
     //static let authToken = "f25dad2aacc926604190852e94e5e9a705a72a8439281716" // Dev
     static let authToken = "74e24f797dc46915de69f97e8383f4a31cb8a6dbf45fe9ea" // Stage
     
@@ -27,12 +27,4 @@ enum TestConstants {
     
     static let ethBlockNumber = 5870510
     static let ethBlockHash = "0x0d424fbc11ce52261db0d97dec9a26136fdefcb55bde08f247318f8c39afb9ca"
-    
-    // BTC
-    static let btcAddressWithBalance = "n2RSXcN65UdAuEFUQGVcBftxarTaAfAfrZ"
-    static let btcAddressWithBalance2 = "mojkgACmWsNk185EvkR3vapnehemvdvUPQ"
-    static let btcTransactionHash = "7f827d4a3ae3b6e408fa1737f12f9dbfa2bb8fd79e0e3e63256a6e78310790a4"
-    
-    static let btcBlockHeight = 615204
-    static let btcBlockHash = "0000000000883391042526772d733064299777882c1a3fc322e7376c1f11e441"
 }
