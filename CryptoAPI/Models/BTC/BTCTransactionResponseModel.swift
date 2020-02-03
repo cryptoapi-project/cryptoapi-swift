@@ -1,21 +1,21 @@
 //
-//  BTHTransactionReceiptResponseModel.swift
+//  BTCTransactionReceiptResponseModel.swift
 //  CryptoAPI
 //
 //  Created by Artemy Markovsky on 1/29/20.
 //  Copyright © 2020 PixelPlex. All rights reserved.
 //
 
-public struct BTHTransactionsResponseModel {
+public struct BTCTransactionsResponseModel {
     public let blockHeightOfHash: String
     public let skip: Int
     public let limit: Int
     public let fromAddress: String
     public let toAddress: String
-    public let items: [BTHTransactionByHashResponseModel]
+    public let items: [BTCTransactionByHashResponseModel]
 }
 
-extension BTHTransactionsResponseModel: Codable {
+extension BTCTransactionsResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case blockHeightOfHash = "block_height_or_hash"
         case skip
@@ -26,7 +26,7 @@ extension BTHTransactionsResponseModel: Codable {
     }
 }
 
-public struct BTHTransactionByHashResponseModel {
+public struct BTCTransactionByHashResponseModel {
     public let blockHeight: Int
     public let blockHash: String
     public let blockTime: String
@@ -39,11 +39,11 @@ public struct BTHTransactionByHashResponseModel {
     public let hash: String
     public let inputCount: Int
     public let outputCount: Int
-    public let inputs: [BTHTransactionInput]
-    public let outputs: [BTHTransactionOutput]
+    public let inputs: [TransactionInput]
+    public let outputs: [TransactionOutput]
 }
 
-extension BTHTransactionByHashResponseModel: Codable {
+extension BTCTransactionByHashResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case blockHeight = "block_height"
         case blockHash = "block_hash"
@@ -62,7 +62,7 @@ extension BTHTransactionByHashResponseModel: Codable {
     }
 }
 
-public struct BTHTransactionInput {
+public struct TransactionInput {
     public let address: String
     public let prevTransactionHash: String
     public let outputIndex: Int
@@ -70,7 +70,7 @@ public struct BTHTransactionInput {
     public let script: String
 }
 
-extension BTHTransactionInput: Codable {
+extension TransactionInput: Codable {
     enum CodingKeys: String, CodingKey {
         case address
         case prevTransactionHash = "previous_transaction_hash"
@@ -80,7 +80,7 @@ extension BTHTransactionInput: Codable {
     }
 }
 
-public struct BTHTransactionOutput: Codable {
+public struct TransactionOutput: Codable {
     public let address: String
     public let satoshis: Int
     public let script: String
