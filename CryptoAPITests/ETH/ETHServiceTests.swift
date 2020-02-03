@@ -10,17 +10,16 @@ import XCTest
 @testable import CryptoAPI
 
 class ETHServiceTests: XCTestCase {
-    
-    let ethAddressWithBalance = TestConstants.ethAddressWithBalance
-    let ethAddressWithBalance2 = TestConstants.ethAddressWithBalance2
-    let ethContractAddress = TestConstants.ethContractAddress
-    let ethTokenWithBalances = TestConstants.ethTokenWithBalances
-    let transactionHash = TestConstants.transactionHash
-    let authToken = AuthorizationToken(value: TestConstants.authToken)
-    let testTimeout = TestConstants.timeout
+    let ethAddressWithBalance = ETHTestConstants.ethAddressWithBalance
+    let ethAddressWithBalance2 = ETHTestConstants.ethAddressWithBalance2
+    let ethContractAddress = ETHTestConstants.ethContractAddress
+    let ethTokenWithBalances = ETHTestConstants.ethTokenWithBalances
+    let transactionHash = ETHTestConstants.ethTransactionHash
+    let authToken = AuthorizationToken(value: ETHTestConstants.authToken)
+    let testTimeout = ETHTestConstants.timeout
     let ethInvalidAddress = "0x7ffc57839b00206d1ad20c69a1981b489f77203112"
-    let blockNumber = TestConstants.blockNumber
-    let blockHash = TestConstants.blockHash
+    let blockNumber = ETHTestConstants.ethBlockNumber
+    let blockHash = ETHTestConstants.ethBlockHash
     
     func testGetBalance() {
         //arrange
@@ -610,6 +609,7 @@ class ETHServiceTests: XCTestCase {
             case let .success(balances):
                 //assert
                 XCTAssertTrue(!balances.items.isEmpty)
+                print(balances.items)
             case let .failure(error):
                 //asserts
                 XCTAssertThrowsError(error)
@@ -916,7 +916,7 @@ class ETHServiceTests: XCTestCase {
          //arrange
          let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
          let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
-         let tx = "invalidc tion hash"
+         let tx = "invalid transaction hash"
          //act
          api.eth.sendRaw(transaction: tx) { result in
              switch result {
@@ -1031,9 +1031,9 @@ class ETHServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testCallContractFailedTest")
-        let fromBlock = TestConstants.contractLogsFromBlock
-        let toBlock = TestConstants.contractLogsToBlock
-        let addresses = TestConstants.contractLogsAddresses
+        let fromBlock = ETHTestConstants.contractLogsFromBlock
+        let toBlock = ETHTestConstants.contractLogsToBlock
+        let addresses = ETHTestConstants.contractLogsAddresses
         let topics: [String] = [String]()
        
         //act
