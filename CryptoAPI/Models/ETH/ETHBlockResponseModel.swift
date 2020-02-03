@@ -7,27 +7,27 @@
 //
 
 public struct ETHBlockResponseModel {
-    let size: Int
-    let difficulty: Int
-    let totalDifficulty: Int
-    let uncles: [String]
-    let number: Int
-    let hash: String
-    let parentHash: String
-    let nonce: String
-    let sha3Uncles: String
-    let logsBloom: String
-    let transactionRoot: String
-    let stateRoot: String
-    let receiptsRoot: String
-    let miner: String
-    let mixHash: String
-    let extraData: String
-    let gasLimit: String
-    let gasUsed: Int
-    let utc: String
-    let transactions: [String]
-    let reward: String
+    public let size: Int
+    public let difficulty: Int
+    public let totalDifficulty: Int
+    public let uncles: [String]
+    public let number: Int
+    public let hash: String
+    public let parentHash: String
+    public let nonce: String
+    public let sha3Uncles: String
+    public let logsBloom: String
+    public let transactionRoot: String
+    public let stateRoot: String
+    public let receiptsRoot: String
+    public let miner: String
+    public let mixHash: String
+    public let extraData: String
+    public let gasLimit: String
+    public let gasUsed: Int
+    public let utc: String
+    public let transactions: [String]
+    public let reward: String
 }
 
 extension ETHBlockResponseModel: Codable {
@@ -57,8 +57,8 @@ extension ETHBlockResponseModel: Codable {
 }
 
 public struct ETHBlocksResponseModel: Codable {
-    let skip: Int
-    let limit: Int
-    let count: Int
-    let items: [ETHBlockResponseModel]
+    public let skip: Int
+    public let limit: Int
+    public let count: Int
+    public let items: [ETHBlockResponseModel]
 }
