@@ -7,5 +7,5 @@
 //
 
 public struct BTHSendRawResponseModel: Codable {
-    let result: String
+    public let result: String
 }

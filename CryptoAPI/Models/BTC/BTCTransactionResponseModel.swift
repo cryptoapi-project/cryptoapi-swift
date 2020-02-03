@@ -39,8 +39,8 @@ public struct BTCTransactionByHashResponseModel {
     public let hash: String
     public let inputCount: Int
     public let outputCount: Int
-    public let inputs: [TransactionInput]
-    public let outputs: [TransactionOutput]
+    public let inputs: [BTCTransactionInput]
+    public let outputs: [BTCTransactionOutput]
 }
 
 extension BTCTransactionByHashResponseModel: Codable {
@@ -62,7 +62,7 @@ extension BTCTransactionByHashResponseModel: Codable {
     }
 }
 
-public struct TransactionInput {
+public struct BTCTransactionInput {
     public let address: String
     public let prevTransactionHash: String
     public let outputIndex: Int
@@ -70,7 +70,7 @@ public struct TransactionInput {
     public let script: String
 }
 
-extension TransactionInput: Codable {
+extension BTCTransactionInput: Codable {
     enum CodingKeys: String, CodingKey {
         case address
         case prevTransactionHash = "previous_transaction_hash"
@@ -80,7 +80,7 @@ extension TransactionInput: Codable {
     }
 }
 
-public struct TransactionOutput: Codable {
+public struct BTCTransactionOutput: Codable {
     public let address: String
     public let satoshis: Int
     public let script: String

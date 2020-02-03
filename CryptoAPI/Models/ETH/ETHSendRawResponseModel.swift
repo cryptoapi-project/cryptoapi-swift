@@ -7,5 +7,5 @@
 //
 
 public struct ETHSendRawResponseModel: Codable {
-    let hash: String
+    public let hash: String
 }

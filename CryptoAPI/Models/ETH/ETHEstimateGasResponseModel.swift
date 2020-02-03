@@ -7,14 +7,14 @@
 //
 
 public struct ETHEstimateGasResponseModel {
-    public let esimateGas: Int
+    public let estimateGas: Int
     public let gasPrice: String
     public let nonce: Int
 }
 
 extension ETHEstimateGasResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
-        case esimateGas = "estimate_gas"
+        case estimateGas = "estimate_gas"
         case gasPrice = "gas_price"
         case nonce
     }
