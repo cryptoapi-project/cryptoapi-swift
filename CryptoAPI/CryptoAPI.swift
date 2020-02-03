@@ -10,6 +10,7 @@ import Foundation
 
 public final class CryptoAPI {
     public let eth: ETHService
+    public let bth: BTHService
     public let btc: BTCService
     public let common: CommonService
     
@@ -23,12 +24,15 @@ public final class CryptoAPI {
         
         let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
         let btcNetworkAdapter = BTCNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
+        let bthNetworkAdapter = BTHNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
         let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
         
         let ethService = ETHServiceImp(networkAdapter: ethNetworkAdapter)
         let btcService = BTCServiceImp(networkAdapter: btcNetworkAdapter)
+        let bthService = BTHServiceImp(networkAdapter: bthNetworkAdapter)
         let commonService = CommonServiceImp(networkAdapter: commonNetworkAdapter)
         
+        bth = bthService
         eth = ethService
         btc = btcService
         common = commonService

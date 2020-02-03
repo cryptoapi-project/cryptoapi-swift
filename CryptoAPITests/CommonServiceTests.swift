@@ -15,7 +15,7 @@ class CommonServiceTests: XCTestCase {
             
     func testCoins() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testCoins")
         //act
         api.common.coins { result in

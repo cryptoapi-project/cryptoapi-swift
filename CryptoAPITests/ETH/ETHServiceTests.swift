@@ -17,7 +17,7 @@ class ETHServiceTests: XCTestCase {
     let transactionHash = ETHTestConstants.ethTransactionHash
     let authToken = AuthorizationToken(value: ETHTestConstants.authToken)
     let testTimeout = ETHTestConstants.timeout
-    let ethInvalidAddress = "0x7ffc57839b00206d1ad20c69a1981b489f77203112"
+    let ethInvalidAddress = ETHTestConstants.ethInvalidAddress
     let blockNumber = ETHTestConstants.ethBlockNumber
     let blockHash = ETHTestConstants.ethBlockHash
     
