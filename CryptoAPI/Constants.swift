@@ -7,6 +7,6 @@
 //
 
 enum Constants {
-    static let baseURL = "https://697-crypto-api-api.pixelplex-test.by/api" // Dev
-//    static let baseURL = "https://697-crypto-api-api.pixelplexlabs.com/api" // Stage
+    //static let baseURL = "https://api.apikey.io/api" // Dev
+    static let baseURL = "https://testnet-api.apikey.io/api" // Stage
 }

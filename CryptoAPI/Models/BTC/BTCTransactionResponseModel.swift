@@ -7,7 +7,7 @@
 //
 
 public struct BTCTransactionsResponseModel {
-    public let blockHeightOfHash: String
+    public let blockHeightOfHash: Int
     public let skip: Int
     public let limit: Int
     public let fromAddress: String
@@ -28,8 +28,8 @@ extension BTCTransactionsResponseModel: Codable {
 
 public struct BTCTransactionByHashResponseModel {
     public let blockHeight: Int
-    public let blockHash: String
-    public let blockTime: String
+    public let blockHash: String?
+    public let blockTime: String?
     public let mempoolTime: String?
     public let fee: Int
     public let size: Int
@@ -63,7 +63,7 @@ extension BTCTransactionByHashResponseModel: Codable {
 }
 
 public struct BTCTransactionInput {
-    public let address: String
+    public let address: String?
     public let prevTransactionHash: String
     public let outputIndex: Int
     public let sequenceNumber: Int
@@ -81,7 +81,7 @@ extension BTCTransactionInput: Codable {
 }
 
 public struct BTCTransactionOutput: Codable {
-    public let address: String
+    public let address: String?
     public let satoshis: Int
     public let script: String
 }

@@ -16,7 +16,7 @@ public struct BTCBlockResponseModel {
     public let size: Int
     public let version: Int 
     public let prevBlockHash: String
-    public let nextBlockHash: String
+    public let nextBlockHash: String?
     public let reward: Int
     public let transactionCount: Int
     public let transactions: [String]

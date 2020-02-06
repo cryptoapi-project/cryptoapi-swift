@@ -247,9 +247,9 @@ class BTCServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let fromAddress = btcAddressWithBalance
-        let toAddress = btcAddressWithBalance2
-        let blockHeight = 1664129
+        let fromAddress = "2N6z6fSZRQifyC8irzFrJrxJg1nbwh2PDB3"
+        let toAddress = "2MzUnALzSgniCX9FXrGeYqewSVhtfkywX2b"
+        let blockHeight = 1665130
         let skip = 0
         let limit = 10
         
@@ -300,7 +300,7 @@ class BTCServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = btcAddressWithBalance
+        let address = "2MwcRaFr3TicdFLm84AfYi3HArFQx91cwFz"
         let skip = 0
         let limit = 10
         
@@ -325,7 +325,7 @@ class BTCServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = btcAddressWithBalance
+        let address = "2MwcRaFr3TicdFLm84AfYi3HArFQx91cwFz"
         
         //act
         api.btc.addressesUxtoInfo(addresses: [address]) { result in
@@ -348,7 +348,7 @@ class BTCServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = btcAddressWithBalance
+        let address = "2MwcRaFr3TicdFLm84AfYi3HArFQx91cwFz"
         let skip = 0
         let limit = 10
         

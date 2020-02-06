@@ -8,7 +8,7 @@
 
 public struct ETHTokensBalanceResponseModel: Codable {
     public let items: [ETHTokenBalanceResponseModel]
-    public let total: Int
+    public let count: Int
 }
 
 public struct ETHTokenBalanceResponseModel: Codable {
