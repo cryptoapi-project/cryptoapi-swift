@@ -1,5 +1,5 @@
 //
-//  BTHNetwork.swift
+//  BCHNetwork.swift
 //  CryptoAPI
 //
 //  Created by Artemy Markovsky on 1/30/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BTHNetwork: Resty {
+enum BCHNetwork: Resty {
     case network
     case sendRaw(transactionHash: String)
     case decodeRaw(transaction: String)
@@ -21,7 +21,7 @@ enum BTHNetwork: Resty {
     case blocks(skip: Int, limit: Int)
 }
 
-extension BTHNetwork {
+extension BCHNetwork {
     var host: String {
         return Constants.baseURL
     }
@@ -29,25 +29,25 @@ extension BTHNetwork {
     var path: String {
         switch self {
         case .network:
-            return "/v1/coins/bth/network"
+            return "/v1/coins/bch/network"
         case .sendRaw:
-            return "/v1/coins/bth/transactions/raw/send"
+            return "/v1/coins/bch/transactions/raw/send"
         case .decodeRaw:
-            return "/v1/coins/bth/transactions/raw/decode"
+            return "/v1/coins/bch/transactions/raw/decode"
         case .transactions:
-            return "/v1/coins/bth/transactions"
+            return "/v1/coins/bch/transactions"
         case .transactionBy(let hash):
-            return "/v1/coins/bth/transactions/\(hash)"
+            return "/v1/coins/bch/blocks/\(hash)"
         case .addressesOutputs(let addresses, _, _, _):
-            return "/v1/coins/bth/addresses/\(addresses)/outputs"
+            return "/v1/coins/bch/addresses/\(addresses.description)/outputs"
         case .addressesUxtoInfo(let addresses):
-            return "/v1​/coins​/bth/addresses​/\(addresses)"
+            return "/v1​/coins​/bch/addresses​/\(addresses.description)"
         case .addressesTransactionsHistory(let addresses, _, _):
-            return "/v1/coins/bth/addresses/\(addresses)/transactions"
+            return "/v1/coins/bch/addresses/\(addresses.description)/transactions"
         case .block(let heightOrHash):
-            return "/v1/coins/bth/blocks/\(heightOrHash)"
+            return "/v1/coins/bch/blocks/\(heightOrHash)"
         case .blocks:
-            return "/v1/coins/bth/blocks"
+            return "/v1/coins/bch/blocks"
         }
     }
     

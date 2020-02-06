@@ -9,7 +9,7 @@
 import Foundation
 
 enum ETHTestConstants {
-    static let authToken = "f25dad2aacc926604190852e94e5e9a705a72a8439281716" // Dev
+    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5" // Dev
 //    static let authToken = "74e24f797dc46915de69f97e8383f4a31cb8a6dbf45fe9ea" // Stage
     
     static let timeout: TimeInterval = 30
@@ -22,8 +22,8 @@ enum ETHTestConstants {
     static let ethContractAddress = "0x2c33b034405b49171806698163d1f48be7c956de"
     static let ethTransactionHash = "0xda33d43f2754d8fbd3345e933ec024dc881d5cd1c7e0219e8d6b106906223485"
     
-    static let contractLogsFromBlock = 5838000
-    static let contractLogsToBlock = 5849000
+    static let contractLogsFromBlock = 5917545
+    static let contractLogsToBlock = 5917555
     static let contractLogsAddresses = ["0x9c67fd4eaf0497f9820a3fbf782f81d6b6dc4baa"]
     
     static let ethBlockNumber = 5870510

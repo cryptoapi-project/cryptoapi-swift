@@ -10,15 +10,15 @@ import Foundation
 
 enum BTCTestConstants {
     //static let authToken = "f25dad2aacc926604190852e94e5e9a705a72a8439281716" // Dev
-    static let authToken = "74e24f797dc46915de69f97e8383f4a31cb8a6dbf45fe9ea" // Stage
+    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5" // Stage
     
     static let timeout: TimeInterval = 30
 
     static let btcAddressWithBalance = "n2RSXcN65UdAuEFUQGVcBftxarTaAfAfrZ"
     static let btcAddressWithBalance2 = "mojkgACmWsNk185EvkR3vapnehemvdvUPQ"
     static let btcInvalidAddress = "mjTXbyDS41qWNNkvXi8H5UgmMgTzrdMh7t"
-    static let btcTransactionHash = "7f827d4a3ae3b6e408fa1737f12f9dbfa2bb8fd79e0e3e63256a6e78310790a4"
+    static let btcTransactionHash = "ec4f1b151096f1195420e016ae31798b919009c5f57364dbdf5e0d46f2108710"
     
-    static let btcBlockHeight = 615204
-    static let btcBlockHash = "0000000000883391042526772d733064299777882c1a3fc322e7376c1f11e441"
+    static let btcBlockHeight = 1665137
+    static let btcBlockHash = "00000000000227a515172c920d221b55801bbeac2ad4915799685cf3cfc72407"
 }

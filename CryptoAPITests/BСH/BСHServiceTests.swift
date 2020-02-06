@@ -1,5 +1,5 @@
 //
-//  BTHServiceTests.swift
+//  BCHServiceTests.swift
 //  CryptoAPITests
 //
 //  Created by Artemy Markovsky on 1/29/20.
@@ -9,15 +9,15 @@
 import XCTest
 @testable import CryptoAPI
 
-class BTHServiceTests: XCTestCase {
-    let bthAddressWithBalance = BTHTestConstants.bthAddressWithBalance
-    let bthAddressWithBalance2 = BTHTestConstants.bthAddressWithBalance2
-    let transactionHash = BTHTestConstants.bthTransactionHash
-    let authToken = AuthorizationToken(value: BTHTestConstants.authToken)
-    let testTimeout = BTHTestConstants.timeout
-    let bthInvalidAddress = BTHTestConstants.bthInvalidAddress
-    let blockHash = BTHTestConstants.bthBlockHash
-    let blockHeight = BTHTestConstants.bthBlockHeight
+class BCHServiceTests: XCTestCase {
+    let BCHAddressWithBalance = BCHTestConstants.BCHAddressWithBalance
+    let BCHAddressWithBalance2 = BCHTestConstants.BCHAddressWithBalance2
+    let transactionHash = BCHTestConstants.BCHTransactionHash
+    let authToken = AuthorizationToken(value: BCHTestConstants.authToken)
+    let testTimeout = BCHTestConstants.timeout
+    let BCHInvalidAddress = BCHTestConstants.BCHInvalidAddress
+    let blockHash = BCHTestConstants.BCHBlockHash
+    let blockHeight = BCHTestConstants.BCHBlockHeight
     
     func testNetworkTest() {
         //arrange
@@ -25,7 +25,7 @@ class BTHServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testNetworkTest")
         
         //act
-        api.bth.network { result in
+        api.bch.network { result in
             switch result {
             case let .success(network):
                 //assert
@@ -47,7 +47,7 @@ class BTHServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
         let tx = "invalid transaction hash"
         //act
-        api.bth.sendRaw(transaction: tx) { result in
+        api.bch.sendRaw(transaction: tx) { result in
             switch result {
             case .success:
                 //assert
@@ -68,7 +68,7 @@ class BTHServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
         let tx = "0100000001b78d508a74d6554ebebbc8b3d96b9fac9219cf4afdbf0737c245aec70340a4cd010000006a4730440220738c2fe3674666555fafb43db61e6892e1ac771d350324f1622c4d2766850881022040739dc8479bb12ba0fc7531e1387719df436b2b504192c237bf4b595d118e2f01210256459852d8a18ffcd7fb5560d0186b59c1d3051bac69875f23f5a3af52c42983ffffffff01fc530000000000001976a9142b3aa4e75216d6fa15687fc221e28d974545b56588ac00000000"
         //act
-        api.bth.decodeRaw(transaction: tx) { result in
+        api.bch.decodeRaw(transaction: tx) { result in
             switch result {
             case let .success(result):
                 //assert
@@ -90,7 +90,7 @@ class BTHServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
         let tx = "invalid transaction"
         //act
-        api.bth.decodeRaw(transaction: tx) { result in
+        api.bch.decodeRaw(transaction: tx) { result in
             switch result {
             case .success:
                 //assert
@@ -113,7 +113,7 @@ class BTHServiceTests: XCTestCase {
         let hash = blockHash
         print(hash)
         //act
-        api.bth.block(numberOrHash: String(height), completion: { result in
+        api.bch.block(numberOrHash: String(height), completion: { result in
             switch result {
             case let .success(result):
                 //assert
@@ -137,7 +137,7 @@ class BTHServiceTests: XCTestCase {
         let hash = blockHash
         print(hash)
         //act
-        api.bth.block(numberOrHash: hash, completion: { result in
+        api.bch.block(numberOrHash: hash, completion: { result in
             switch result {
             case let .success(result):
                 //assert
@@ -161,7 +161,7 @@ class BTHServiceTests: XCTestCase {
         let limit = 2
         
         //act
-        api.bth.blocks(skip: skip, limit: limit, completion: { result in
+        api.bch.blocks(skip: skip, limit: limit, completion: { result in
             switch result {
             case let .success(result):
                 //assert
@@ -184,7 +184,7 @@ class BTHServiceTests: XCTestCase {
         let hash = transactionHash
 
         //act
-        api.bth.transactionBy(hash: hash) { result in
+        api.bch.transactionBy(hash: hash) { result in
             switch result {
             case let .success(item):
                 //assert
@@ -207,7 +207,7 @@ class BTHServiceTests: XCTestCase {
         let hash = "invalid hash"
 
         //act
-        api.bth.transactionBy(hash: hash) { result in
+        api.bch.transactionBy(hash: hash) { result in
             switch result {
               case .success:
                   //assert
@@ -226,14 +226,14 @@ class BTHServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let fromAddress = bthAddressWithBalance
-        let toAddress = bthAddressWithBalance2
+        let fromAddress = BCHAddressWithBalance
+        let toAddress = BCHAddressWithBalance2
         let blockHeight = 1664129
         let skip = 0
         let limit = 10
 
         //act
-        api.bth.transactions(blockHeightOrHash: String(blockHeight), skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
+        api.bch.transactions(blockHeightOrHash: String(blockHeight), skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -253,14 +253,14 @@ class BTHServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersFailedTest")
-        let fromAddress = bthInvalidAddress
-        let toAddress = bthAddressWithBalance2
+        let fromAddress = BCHInvalidAddress
+        let toAddress = BCHAddressWithBalance2
         let blockHeight = 1664129
         let skip = 0
         let limit = 10
 
         //act
-        api.bth.transactions(blockHeightOrHash: String(blockHeight), skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
+        api.bch.transactions(blockHeightOrHash: String(blockHeight), skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
             switch result {
               case .success:
                   //assert
@@ -279,12 +279,12 @@ class BTHServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = bthAddressWithBalance
+        let address = BCHAddressWithBalance
         let skip = 0
         let limit = 10
 
         //act
-        api.bth.addressesOutputs(addresses: [address], status: "spent", skip: skip, limit: limit) { result in
+        api.bch.addressesOutputs(addresses: [address], status: "spent", skip: skip, limit: limit) { result in
             switch result {
             case let .success(outs):
                 //assert
@@ -304,10 +304,10 @@ class BTHServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = bthAddressWithBalance
+        let address = BCHAddressWithBalance
 
         //act
-        api.bth.addressesUxtoInfo(addresses: [address]) { result in
+        api.bch.addressesUxtoInfo(addresses: [address]) { result in
             switch result {
             case let .success(outs):
                 //assert
@@ -327,12 +327,12 @@ class BTHServiceTests: XCTestCase {
         //arrange
         let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = bthAddressWithBalance
+        let address = BCHAddressWithBalance
         let skip = 0
         let limit = 10
 
         //act
-        api.bth.addressesTransactionsHistory(addresses: [address], skip: skip, limit: limit) { result in
+        api.bch.addressesTransactionsHistory(addresses: [address], skip: skip, limit: limit) { result in
             switch result {
             case let .success(outs):
                 //assert

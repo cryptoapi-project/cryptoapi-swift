@@ -18,7 +18,7 @@ public struct BTCAddressOutputResponseModel {
     public let spentTransactionHash: String
     public let spentIndex: Int
     public let sequenceNumber: Int
-    public let mempoolTime: String
+    public let mempoolTime: String?
 }
 
 extension BTCAddressOutputResponseModel: Codable {

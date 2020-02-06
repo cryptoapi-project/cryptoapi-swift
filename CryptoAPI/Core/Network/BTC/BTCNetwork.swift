@@ -39,11 +39,11 @@ extension BTCNetwork {
         case .transactionBy(let hash):
             return "/v1/coins/btc/transactions/\(hash)"
         case .addressesOutputs(let addresses, _, _, _):
-            return "/v1/coins/btc/addresses/\(addresses)/outputs"
+            return "/v1/coins/btc/addresses/\(addresses.description)/outputs"
         case .addressesUxtoInfo(let addresses):
-            return "/v1​/coins​/btc​/addresses​/\(addresses)"
+            return "/v1/coins/btc/addresses/\(addresses.description)"
         case .addressesTransactionsHistory(let addresses, _, _):
-            return "/v1/coins/btc/addresses/\(addresses)/transactions"
+            return "/v1/coins/btc/addresses/\(addresses.description)/transactions"
         case .block(let heightOrHash):
             return "/v1/coins/btc/blocks/\(heightOrHash)"
         case .blocks:

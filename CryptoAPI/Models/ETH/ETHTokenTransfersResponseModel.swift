@@ -24,7 +24,8 @@ public struct ETHTokenTransferResponseModel {
     public let blockNumber: Int
     public let transactionHash: String
     public let transactionIndex: Int
-    public let timestamp: String
+    public let logIndex: Int
+    public let utc: String
 }
 
 extension ETHTokenTransferResponseModel: Codable {
@@ -38,6 +39,7 @@ extension ETHTokenTransferResponseModel: Codable {
         case blockNumber = "block_number"
         case transactionHash = "transaction_hash"
         case transactionIndex = "transaction_index"
-        case timestamp
+        case logIndex = "log_index"
+        case utc
     }
 }

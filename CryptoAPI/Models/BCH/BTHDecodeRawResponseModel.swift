@@ -1,20 +1,20 @@
 //
-//  BTHDecodeRawResponseModel.swift
+//  BCHDecodeRawResponseModel.swift
 //  CryptoAPI
 //
 //  Created by Artemy Markovsky on 1/29/20.
 //  Copyright © 2020 PixelPlex. All rights reserved.
 //
 
-public struct BTHDecodeRawResponseModel {
+public struct BCHDecodeRawResponseModel {
     public let hash: String
     public let version: Int
     public let lockTime: Int
-    public let inputs: [BTHInput]
-    public let outputs: [BTHOutput]
+    public let inputs: [BCHInput]
+    public let outputs: [BCHOutput]
 }
 
-extension BTHDecodeRawResponseModel: Codable {
+extension BCHDecodeRawResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case hash
         case version
@@ -24,14 +24,14 @@ extension BTHDecodeRawResponseModel: Codable {
     }
 }
 
-public struct BTHInput {
+public struct BCHInput {
     public let prevTransactionHash: String
     public let outputIndex: Int
     public let sequenceNumber: Int
     public let script: String
 }
 
-extension BTHInput: Codable {
+extension BCHInput: Codable {
     enum CodingKeys: String, CodingKey {
         case prevTransactionHash = "previous_transaction_hash"
         case outputIndex = "output_index"
@@ -40,13 +40,13 @@ extension BTHInput: Codable {
     }
 }
 
-public struct BTHOutput {
+public struct BCHOutput {
     public let satoshis: Int
     public let script: String
     public let scriptByKey: String
 }
 
-extension BTHOutput: Codable {
+extension BCHOutput: Codable {
     enum CodingKeys: String, CodingKey {
         case satoshis
         case script

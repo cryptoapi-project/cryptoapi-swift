@@ -1,12 +1,12 @@
 //
-//  BTHBlockResponseModel.swift
+//  BCHBlockResponseModel.swift
 //  CryptoAPI
 //
 //  Created by Artemy Markovsky on 1/29/20.
 //  Copyright © 2020 PixelPlex. All rights reserved.
 //
 
-public struct BTHBlockResponseModel {
+public struct BCHBlockResponseModel {
     public let height: Int
     public let hash: String
     public let bits: Int
@@ -16,13 +16,13 @@ public struct BTHBlockResponseModel {
     public let size: Int
     public let version: Int 
     public let prevBlockHash: String
-    public let nextBlockHash: String
+    public let nextBlockHash: String?
     public let reward: Int
     public let transactionCount: Int
     public let transactions: [String]
 }
 
-extension BTHBlockResponseModel: Codable {
+extension BCHBlockResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case height
         case hash
@@ -40,9 +40,9 @@ extension BTHBlockResponseModel: Codable {
     }
 }
 
-public struct BTHBlocksResponseModel: Codable {
+public struct BCHBlocksResponseModel: Codable {
     public let skip: Int
     public let limit: Int
     public let count: Int
-    public let items: [BTHBlockResponseModel]
+    public let items: [BCHBlockResponseModel]
 }

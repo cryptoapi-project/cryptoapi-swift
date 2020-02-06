@@ -15,5 +15,5 @@ public struct BTCAddressBalanceResponseModel: Codable {
     public let spent: String
     public let unspent: String
     public let confirmed: String
-    public let uncorfirmed: String
+    public let unconfirmed: String
 }
