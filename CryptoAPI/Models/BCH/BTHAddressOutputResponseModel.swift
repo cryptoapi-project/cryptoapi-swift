@@ -1,12 +1,12 @@
 //
-//  BTHAddressOutputResponseModel.swift
+//  BCHAddressOutputResponseModel.swift
 //  CryptoAPI
 //
 //  Created by Artemy Markovsky on 1/29/20.
 //  Copyright © 2020 PixelPlex. All rights reserved.
 //
 
-public struct BTHAddressOutputResponseModel {
+public struct BCHAddressOutputResponseModel {
     public let address: String
     public let isCoibase: Bool
     public let mintBlockHeight: Int
@@ -18,10 +18,10 @@ public struct BTHAddressOutputResponseModel {
     public let spentTransactionHash: String
     public let spentIndex: Int
     public let sequenceNumber: Int
-    public let mempoolTime: String
+    public let mempoolTime: String?
 }
 
-extension BTHAddressOutputResponseModel: Codable {
+extension BCHAddressOutputResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case address
         case isCoibase = "is_coinbase"
