@@ -44,14 +44,14 @@
 		CE66C8B423E31E56004F086B /* BСHNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8B323E31E56004F086B /* BСHNetworkAdapter.swift */; };
 		CE66C8B623E31E6A004F086B /* BСHServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8B523E31E6A004F086B /* BСHServiceImp.swift */; };
 		CE66C8B823E31E74004F086B /* BСHServiсe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8B723E31E74004F086B /* BСHServiсe.swift */; };
-		CE66C8C123E32088004F086B /* BTHAddressOutInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8B923E32088004F086B /* BTHAddressOutInfoResponseModel.swift */; };
-		CE66C8C223E32088004F086B /* BTHTransactionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BA23E32088004F086B /* BTHTransactionResponseModel.swift */; };
-		CE66C8C323E32088004F086B /* BTHBlockResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BB23E32088004F086B /* BTHBlockResponseModel.swift */; };
-		CE66C8C423E32088004F086B /* BTHAddressOutHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BC23E32088004F086B /* BTHAddressOutHistoryResponseModel.swift */; };
-		CE66C8C523E32088004F086B /* BTHDecodeRawResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BD23E32088004F086B /* BTHDecodeRawResponseModel.swift */; };
-		CE66C8C623E32088004F086B /* BTHSendRawResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BE23E32088004F086B /* BTHSendRawResponseModel.swift */; };
-		CE66C8C723E32088004F086B /* BTHAddressOutputResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BF23E32088004F086B /* BTHAddressOutputResponseModel.swift */; };
-		CE66C8C823E32088004F086B /* BTHNetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8C023E32088004F086B /* BTHNetworkResponseModel.swift */; };
+		CE66C8C123E32088004F086B /* BCHAddressOutInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8B923E32088004F086B /* BCHAddressOutInfoResponseModel.swift */; };
+		CE66C8C223E32088004F086B /* BCHTransactionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BA23E32088004F086B /* BCHTransactionResponseModel.swift */; };
+		CE66C8C323E32088004F086B /* BCHBlockResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BB23E32088004F086B /* BCHBlockResponseModel.swift */; };
+		CE66C8C423E32088004F086B /* BCHAddressOutHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BC23E32088004F086B /* BCHAddressOutHistoryResponseModel.swift */; };
+		CE66C8C523E32088004F086B /* BCHDecodeRawResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BD23E32088004F086B /* BCHDecodeRawResponseModel.swift */; };
+		CE66C8C623E32088004F086B /* BCHSendRawResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BE23E32088004F086B /* BCHSendRawResponseModel.swift */; };
+		CE66C8C723E32088004F086B /* BCHAddressOutputResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8BF23E32088004F086B /* BCHAddressOutputResponseModel.swift */; };
+		CE66C8C823E32088004F086B /* BCHNetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8C023E32088004F086B /* BCHNetworkResponseModel.swift */; };
 		CE66C8CA23E32123004F086B /* BСHServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66C8C923E32123004F086B /* BСHServiceTests.swift */; };
 		CE837A1923E1994D00A951AB /* BTCServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE837A1823E1994D00A951AB /* BTCServiceTests.swift */; };
 		CE837A1D23E19D4F00A951AB /* BTCNetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE837A1C23E19D4F00A951AB /* BTCNetworkResponseModel.swift */; };
@@ -130,14 +130,14 @@
 		CE66C8B323E31E56004F086B /* BСHNetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BСHNetworkAdapter.swift"; sourceTree = "<group>"; };
 		CE66C8B523E31E6A004F086B /* BСHServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BСHServiceImp.swift"; sourceTree = "<group>"; };
 		CE66C8B723E31E74004F086B /* BСHServiсe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BСHServiсe.swift"; sourceTree = "<group>"; };
-		CE66C8B923E32088004F086B /* BTHAddressOutInfoResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHAddressOutInfoResponseModel.swift; sourceTree = "<group>"; };
-		CE66C8BA23E32088004F086B /* BTHTransactionResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHTransactionResponseModel.swift; sourceTree = "<group>"; };
-		CE66C8BB23E32088004F086B /* BTHBlockResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHBlockResponseModel.swift; sourceTree = "<group>"; };
-		CE66C8BC23E32088004F086B /* BTHAddressOutHistoryResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHAddressOutHistoryResponseModel.swift; sourceTree = "<group>"; };
-		CE66C8BD23E32088004F086B /* BTHDecodeRawResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHDecodeRawResponseModel.swift; sourceTree = "<group>"; };
-		CE66C8BE23E32088004F086B /* BTHSendRawResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHSendRawResponseModel.swift; sourceTree = "<group>"; };
-		CE66C8BF23E32088004F086B /* BTHAddressOutputResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHAddressOutputResponseModel.swift; sourceTree = "<group>"; };
-		CE66C8C023E32088004F086B /* BTHNetworkResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHNetworkResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8B923E32088004F086B /* BCHAddressOutInfoResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHAddressOutInfoResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8BA23E32088004F086B /* BCHTransactionResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHTransactionResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8BB23E32088004F086B /* BCHBlockResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHBlockResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8BC23E32088004F086B /* BCHAddressOutHistoryResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHAddressOutHistoryResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8BD23E32088004F086B /* BCHDecodeRawResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHDecodeRawResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8BE23E32088004F086B /* BCHSendRawResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHSendRawResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8BF23E32088004F086B /* BCHAddressOutputResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHAddressOutputResponseModel.swift; sourceTree = "<group>"; };
+		CE66C8C023E32088004F086B /* BCHNetworkResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCHNetworkResponseModel.swift; sourceTree = "<group>"; };
 		CE66C8C923E32123004F086B /* BСHServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BСHServiceTests.swift"; sourceTree = "<group>"; };
 		CE837A1823E1994D00A951AB /* BTCServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCServiceTests.swift; sourceTree = "<group>"; };
 		CE837A1C23E19D4F00A951AB /* BTCNetworkResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCNetworkResponseModel.swift; sourceTree = "<group>"; };
@@ -376,14 +376,14 @@
 		CE21B4F523E31D14001E9D95 /* BCH */ = {
 			isa = PBXGroup;
 			children = (
-				CE66C8BC23E32088004F086B /* BTHAddressOutHistoryResponseModel.swift */,
-				CE66C8B923E32088004F086B /* BTHAddressOutInfoResponseModel.swift */,
-				CE66C8BF23E32088004F086B /* BTHAddressOutputResponseModel.swift */,
-				CE66C8BB23E32088004F086B /* BTHBlockResponseModel.swift */,
-				CE66C8BD23E32088004F086B /* BTHDecodeRawResponseModel.swift */,
-				CE66C8C023E32088004F086B /* BTHNetworkResponseModel.swift */,
-				CE66C8BE23E32088004F086B /* BTHSendRawResponseModel.swift */,
-				CE66C8BA23E32088004F086B /* BTHTransactionResponseModel.swift */,
+				CE66C8BC23E32088004F086B /* BCHAddressOutHistoryResponseModel.swift */,
+				CE66C8B923E32088004F086B /* BCHAddressOutInfoResponseModel.swift */,
+				CE66C8BF23E32088004F086B /* BCHAddressOutputResponseModel.swift */,
+				CE66C8BB23E32088004F086B /* BCHBlockResponseModel.swift */,
+				CE66C8BD23E32088004F086B /* BCHDecodeRawResponseModel.swift */,
+				CE66C8C023E32088004F086B /* BCHNetworkResponseModel.swift */,
+				CE66C8BE23E32088004F086B /* BCHSendRawResponseModel.swift */,
+				CE66C8BA23E32088004F086B /* BCHTransactionResponseModel.swift */,
 			);
 			path = BCH;
 			sourceTree = "<group>";
@@ -638,7 +638,7 @@
 				D03890FF23966A2B005DE0B4 /* Constants.swift in Sources */,
 				CE66C8B823E31E74004F086B /* BСHServiсe.swift in Sources */,
 				B3A4AE3923843091005AFE8E /* CommonNetworkAdapterImp.swift in Sources */,
-				CE66C8C723E32088004F086B /* BTHAddressOutputResponseModel.swift in Sources */,
+				CE66C8C723E32088004F086B /* BCHAddressOutputResponseModel.swift in Sources */,
 				CE837A1F23E1D00200A951AB /* BTCSendRawResponseModel.swift in Sources */,
 				B34D0F0D2382B48B002823F8 /* ETHContractInfoResponseModel.swift in Sources */,
 				CE66C8B623E31E6A004F086B /* BСHServiceImp.swift in Sources */,
@@ -646,11 +646,11 @@
 				B3BD0BF3237FE9C500EF0600 /* Configurator.swift in Sources */,
 				D044FBF123E808920012C2BA /* CmnRatesResponseModel.swift in Sources */,
 				B34D0F03238272A3002823F8 /* CryptoApiError.swift in Sources */,
-				CE66C8C523E32088004F086B /* BTHDecodeRawResponseModel.swift in Sources */,
+				CE66C8C523E32088004F086B /* BCHDecodeRawResponseModel.swift in Sources */,
 				CE66C8B423E31E56004F086B /* BСHNetworkAdapter.swift in Sources */,
 				D044FBF023E808920012C2BA /* CmnRatesHistoryResponseModel.swift in Sources */,
 				B34D0F132382D41B002823F8 /* ETHTokenInfoResponseModel.swift in Sources */,
-				CE66C8C423E32088004F086B /* BTHAddressOutHistoryResponseModel.swift in Sources */,
+				CE66C8C423E32088004F086B /* BCHAddressOutHistoryResponseModel.swift in Sources */,
 				B34D0F0B2382AC4D002823F8 /* ETHTransactionsResponseModel.swift in Sources */,
 				CE9704F523E1DB09007B0A2C /* BTCTransactionResponseModel.swift in Sources */,
 				CE21B4EF23E2C921001E9D95 /* BTCAddressOutHistoryResponseModel.swift in Sources */,
@@ -666,7 +666,7 @@
 				B3BD0C112380147100EF0600 /* ETHServiceImp.swift in Sources */,
 				D0E1628123DF35720034D908 /* ETHSendRawResponseModel.swift in Sources */,
 				D044FBEC23E808290012C2BA /* ETHNetworkAdapter.swift in Sources */,
-				CE66C8C823E32088004F086B /* BTHNetworkResponseModel.swift in Sources */,
+				CE66C8C823E32088004F086B /* BCHNetworkResponseModel.swift in Sources */,
 				CEE1665C23E1957500602140 /* BTCNetworkAdapterImp.swift in Sources */,
 				CE837A1D23E19D4F00A951AB /* BTCNetworkResponseModel.swift in Sources */,
 				CEE1665E23E1958C00602140 /* BTCNetworkAdapter.swift in Sources */,
@@ -676,14 +676,14 @@
 				B3BD0C072380127600EF0600 /* ETHWalletBalanceModel.swift in Sources */,
 				B3A4AE3723843072005AFE8E /* CommonNetworkAdapter.swift in Sources */,
 				D0E1628323DF38560034D908 /* ETHBlockResponseModel.swift in Sources */,
-				CE66C8C323E32088004F086B /* BTHBlockResponseModel.swift in Sources */,
+				CE66C8C323E32088004F086B /* BCHBlockResponseModel.swift in Sources */,
 				B3BD0BF9237FF78D00EF0600 /* Settings.swift in Sources */,
-				CE66C8C623E32088004F086B /* BTHSendRawResponseModel.swift in Sources */,
-				CE66C8C223E32088004F086B /* BTHTransactionResponseModel.swift in Sources */,
+				CE66C8C623E32088004F086B /* BCHSendRawResponseModel.swift in Sources */,
+				CE66C8C223E32088004F086B /* BCHTransactionResponseModel.swift in Sources */,
 				CE9704F723E1EC82007B0A2C /* BTCAddressOutputResponseModel.swift in Sources */,
 				CE21B4ED23E2C589001E9D95 /* BTCAddressOutInfoResponseModel.swift in Sources */,
 				B34D0F0023826C47002823F8 /* ETHNetworkResponseModel.swift in Sources */,
-				CE66C8C123E32088004F086B /* BTHAddressOutInfoResponseModel.swift in Sources */,
+				CE66C8C123E32088004F086B /* BCHAddressOutInfoResponseModel.swift in Sources */,
 				B3BD0BFC237FFBD600EF0600 /* ETHNetwork.swift in Sources */,
 				B34D0F072382851E002823F8 /* ETHTransfersResponseModel.swift in Sources */,
 				CE21B4F823E31D63001E9D95 /* BСHNetwork.swift in Sources */,
