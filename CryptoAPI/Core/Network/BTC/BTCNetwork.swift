@@ -67,7 +67,7 @@ extension BTCNetwork {
             return nil
             
         case let .sendRaw(transaction):
-            return ["tx": transaction]
+            return ["hash": transaction]
             
         case let .decodeRaw(transaction):
             return ["hash": transaction]
