@@ -56,7 +56,7 @@ let bch = api.bch
 
 `BTCService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BTCService.swift)
 
-`BCHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BCHService.swift)
+`BCHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BСHServiсe.swift)
 
 ### Error handling
 
