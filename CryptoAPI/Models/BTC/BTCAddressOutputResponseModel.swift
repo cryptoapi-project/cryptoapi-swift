@@ -8,7 +8,7 @@
 
 public struct BTCAddressOutputResponseModel {
     public let address: String
-    public let isCoibase: Bool
+    public let isCoinbase: Bool
     public let mintBlockHeight: Int
     public let script: String
     public let value: Int
@@ -24,7 +24,7 @@ public struct BTCAddressOutputResponseModel {
 extension BTCAddressOutputResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case address
-        case isCoibase = "is_coinbase"
+        case isCoinbase = "is_coinbase"
         case mintBlockHeight = "mint_block_height"
         case script
         case value

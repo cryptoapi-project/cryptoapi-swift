@@ -9,16 +9,17 @@
 import Foundation
 
 final public class Settings {
-    public let authorizationToken: AuthorizationToken
+    public let authorizationToken: String
     public var workingQueue: DispatchQueue
     public var timeoutIntervalForRequest: TimeInterval
     public var timeoutIntervalForResource: TimeInterval
     public var sessionConfiguration: URLSessionConfiguration
-    public var needLogs: Bool
+    public var networkType: NetworkType
+    public var debugEnabled: Bool
     
     public typealias BuildConfiguratorClosure = (Configurator) -> Void
     
-    public init(authorizationToken: AuthorizationToken, build: BuildConfiguratorClosure = { _ in }, isNeedLogs: Bool = false) {
+    public init(authorizationToken: String, build: BuildConfiguratorClosure = { _ in }) {
         self.authorizationToken = authorizationToken
         
         let configurator = Configurator()
@@ -27,6 +28,23 @@ final public class Settings {
         timeoutIntervalForRequest = configurator.timeoutIntervalForRequest
         sessionConfiguration = configurator.sessionConfiguration
         workingQueue = configurator.workingQueue
-        needLogs = isNeedLogs
+        networkType = configurator.networkType
+        debugEnabled = configurator.debugEnabled
+    }
+    
+    public func getBaseUrlString() -> String {
+        switch networkType {
+        case .mainnet:
+            return Constants.mainnetUrl
+            
+        case .testnet:
+            return Constants.testnetUrl
+            
+        case .stage:
+            return Constants.stageUrl
+            
+        case .dev:
+            return Constants.devUrl
+        }
     }
 }

@@ -13,4 +13,6 @@ final public class Configurator {
     public var timeoutIntervalForRequest: TimeInterval = 15
     public var timeoutIntervalForResource: TimeInterval = 15
     public var sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
+    public var networkType: NetworkType = .mainnet
+    public var debugEnabled: Bool = false
 }

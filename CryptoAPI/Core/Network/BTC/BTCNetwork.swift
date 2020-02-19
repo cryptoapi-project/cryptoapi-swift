@@ -22,32 +22,28 @@ enum BTCNetwork: Resty {
 }
 
 extension BTCNetwork {
-    var host: String {
-        return Constants.baseURL
-    }
-    
     var path: String {
         switch self {
         case .network:
-            return "/v1/coins/btc/network"
+            return "coins/btc/network"
         case .sendRaw:
-            return "/v1/coins/btc/transactions/raw/send"
+            return "coins/btc/transactions/raw/send"
         case .decodeRaw:
-            return "/v1/coins/btc/transactions/raw/decode"
+            return "coins/btc/transactions/raw/decode"
         case .transactions:
-            return "/v1/coins/btc/transactions"
+            return "coins/btc/transactions"
         case .transactionBy(let hash):
-            return "/v1/coins/btc/transactions/\(hash)"
+            return "coins/btc/transactions/\(hash)"
         case .addressesOutputs(let addresses, _, _, _):
-            return "/v1/coins/btc/addresses/\(addresses.description)/outputs"
+            return "coins/btc/addresses/\(addresses.description)/outputs"
         case .addressesUxtoInfo(let addresses):
-            return "/v1/coins/btc/addresses/\(addresses.description)"
+            return "coins/btc/addresses/\(addresses.description)"
         case .addressesTransactionsHistory(let addresses, _, _):
-            return "/v1/coins/btc/addresses/\(addresses.description)/transactions"
+            return "coins/btc/addresses/\(addresses.description)/transactions"
         case .block(let heightOrHash):
-            return "/v1/coins/btc/blocks/\(heightOrHash)"
+            return "coins/btc/blocks/\(heightOrHash)"
         case .blocks:
-            return "/v1/coins/btc/blocks"
+            return "coins/btc/blocks"
         }
     }
     

@@ -8,14 +8,14 @@
 
 public struct BCHAddressOutputResponseModel {
     public let address: String
-    public let isCoibase: Bool
+    public let isCoinbase: Bool
     public let mintBlockHeight: Int
     public let script: String
     public let value: Int
     public let mintIndex: Int
     public let mintTransactionHash: String
     public let spentBlockHeight: Int
-    public let spentTransactionHash: String
+    public let spentTransactionHash: String?
     public let spentIndex: Int
     public let sequenceNumber: Int
     public let mempoolTime: String?
@@ -24,7 +24,7 @@ public struct BCHAddressOutputResponseModel {
 extension BCHAddressOutputResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case address
-        case isCoibase = "is_coinbase"
+        case isCoinbase = "is_coinbase"
         case mintBlockHeight = "mint_block_height"
         case script
         case value

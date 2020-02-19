@@ -15,15 +15,22 @@ class ETHServiceTests: XCTestCase {
     let ethContractAddress = ETHTestConstants.ethContractAddress
     let ethTokenWithBalances = ETHTestConstants.ethTokenWithBalances
     let transactionHash = ETHTestConstants.ethTransactionHash
-    let authToken = AuthorizationToken(value: ETHTestConstants.authToken)
+    let authToken = ETHTestConstants.authToken
     let testTimeout = ETHTestConstants.timeout
     let ethInvalidAddress = ETHTestConstants.ethInvalidAddress
     let blockNumber = ETHTestConstants.ethBlockNumber
     let blockHash = ETHTestConstants.ethBlockHash
     
+    var api: CryptoAPI {
+        let settings = Settings(authorizationToken: authToken) { configurator in
+            configurator.debugEnabled = true
+            configurator.networkType = .testnet
+        }
+        return CryptoAPI(settings: settings)
+    }
+    
     func testGetBalance() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testGetBalance")
         let address = ethAddressWithBalance
         //act
@@ -45,7 +52,6 @@ class ETHServiceTests: XCTestCase {
     
     func testGetBalances() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testGetBalance")
         let address = ethAddressWithBalance
         let address2 = ethAddressWithBalance2
@@ -68,7 +74,6 @@ class ETHServiceTests: XCTestCase {
     
     func testGetBalanceFailed() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testGetBalance")
         let address = ethInvalidAddress
         //act
@@ -89,7 +94,6 @@ class ETHServiceTests: XCTestCase {
     
     func testEstimateSendAmountTransaction() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testEstimateSendAmountTransaction")
         let fromAddress = ethAddressWithBalance
         let toAddress = ethAddressWithBalance2
@@ -114,8 +118,7 @@ class ETHServiceTests: XCTestCase {
     }
     
     func testEstimateSendAmountTransactionFailed() {
-        //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+        //arrangelet asdfaf = Settings(authorizationToken: AuthorizationToken(value: "asdf"))
         let expectation = XCTestExpectation(description: "testEstimateSendAmountTransaction")
         let fromAddress = ethInvalidAddress
         let toAddress = ethInvalidAddress
@@ -140,7 +143,6 @@ class ETHServiceTests: XCTestCase {
     
     func testNetworkTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testNetworkTest")
 
         //act
@@ -162,7 +164,6 @@ class ETHServiceTests: XCTestCase {
     
     func testInfoTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testInfoTest")
         let address = ethAddressWithBalance
 
@@ -186,7 +187,6 @@ class ETHServiceTests: XCTestCase {
     
     func testInfosTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testInfoTest")
         let address = ethAddressWithBalance
         let address2 = ethAddressWithBalance2
@@ -211,7 +211,6 @@ class ETHServiceTests: XCTestCase {
     
     func testInfoContractTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testInfoContractTest")
         let address = ethContractAddress
 
@@ -235,7 +234,6 @@ class ETHServiceTests: XCTestCase {
     
     func testInfoFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testInfoFailedTest")
         let address = ethInvalidAddress
 
@@ -257,7 +255,6 @@ class ETHServiceTests: XCTestCase {
     
     func testHistoryAddressTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testHistoryAddressTest")
         let address = ethAddressWithBalance
         let skip = 0
@@ -283,7 +280,6 @@ class ETHServiceTests: XCTestCase {
     
     func testHistoryAddressesTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testHistoryAddressTest")
         let address = ethAddressWithBalance
         let address2 = ethAddressWithBalance2
@@ -310,7 +306,6 @@ class ETHServiceTests: XCTestCase {
     
     func testHistoryAddressFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testHistoryAddressFailedTest")
         let address = ethInvalidAddress
         let skip = 0
@@ -335,7 +330,6 @@ class ETHServiceTests: XCTestCase {
     
     func testExternalHistoryAddressTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testExternalHistoryAddressTest")
         let address = ethAddressWithBalance
         let skip = 0
@@ -360,7 +354,6 @@ class ETHServiceTests: XCTestCase {
     
     func testExternalHistoryAddressesTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testExternalHistoryAddressTest")
         let address = ethAddressWithBalance
         let address2 = ethAddressWithBalance2
@@ -386,7 +379,6 @@ class ETHServiceTests: XCTestCase {
     
     func testExternalHistoryAddressFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testExternalHistoryAddressFailedTest")
         let address = ethInvalidAddress
         let skip = 0
@@ -410,7 +402,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTransfersTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
         let fromAddress = ethAddressWithBalance
         let toAddress = ethAddressWithBalance2
@@ -436,7 +427,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTransfersFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTransfersFailedTest")
         let fromAddress = ethInvalidAddress
         let toAddress = ethAddressWithBalance2
@@ -461,7 +451,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTransactionTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTransactionTest")
         let hash = transactionHash
 
@@ -484,7 +473,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTransactionFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTransactionFailedTest")
         let hash = ethInvalidAddress
 
@@ -506,7 +494,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTransactionReceiptTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTransactionReceiptTest")
         let hash = transactionHash
 
@@ -529,7 +516,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTransactionReceiptFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTransactionReceiptFailedTest")
         let hash = ethInvalidAddress
 
@@ -551,7 +537,6 @@ class ETHServiceTests: XCTestCase {
     
     func testContractInfoTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testContractInfoTest")
         let address = ethContractAddress
 
@@ -574,7 +559,6 @@ class ETHServiceTests: XCTestCase {
     
     func testContractInfoFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testContractInfoFailedTest")
         let address = ethInvalidAddress
 
@@ -596,7 +580,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokensBalancesTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTokensBalancesTest")
         let address = ethAddressWithBalance
         let address2 = ethAddressWithBalance2
@@ -623,7 +606,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokensBalancesForSpecificTokenTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTokensBalancesTest")
         let address = ethAddressWithBalance
         let address2 = ethAddressWithBalance2
@@ -650,7 +632,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokensBalanceFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTokensBalanceFailedTest")
         let address = ethInvalidAddress
         let skip = 0
@@ -673,7 +654,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokenHistoryTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTokenHistoryTest")
         let address = ethAddressWithBalance
         let tokenAddress = ethContractAddress
@@ -698,7 +678,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokensHistoryTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTokenHistoryTest")
         let address = ethAddressWithBalance
         let address2 = ethAddressWithBalance2
@@ -724,7 +703,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokenHistoryFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTokenHistoryFailedTest")
         let address = ethInvalidAddress
         let tokenAddress = ethInvalidAddress
@@ -748,7 +726,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokenInfoTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTokenInfoTest")
         let address = ethContractAddress
 
@@ -771,7 +748,6 @@ class ETHServiceTests: XCTestCase {
     
     func testTokenInfoFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testTokenInfoFailedTest")
         let address = ethInvalidAddress
 
@@ -793,7 +769,6 @@ class ETHServiceTests: XCTestCase {
     
     func testQueryTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testQueryTest")
         let query = ""
         let skip = 0
@@ -818,7 +793,6 @@ class ETHServiceTests: XCTestCase {
     
     func testQueryWithTypesTest() {
          //arrange
-         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
          let expectation = XCTestExpectation(description: "testQueryTest")
          let query = ""
          let skip = 0
@@ -843,7 +817,6 @@ class ETHServiceTests: XCTestCase {
     
     func testQueryWithQueryTest() {
          //arrange
-         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
          let expectation = XCTestExpectation(description: "testQueryTest")
          let query = ""
          let skip = 0
@@ -868,7 +841,6 @@ class ETHServiceTests: XCTestCase {
     
     func testQueryFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testQueryFailedTest")
         let query = ""
         let skip = 0
@@ -893,7 +865,7 @@ class ETHServiceTests: XCTestCase {
     
 //    func testSendRawTransactionTest() {
 //         //arrange
-//         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
+//
 //         let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
 //         let tx = "0xf86a2c84773594008252089446ba2677a1c982b329a81f60cf90fba2e8ca9fa8872386f26fc10000801ba09f5852f83f48dc86db7d4f5f26514bdd0ef813aa15ec3a7d874354ee99cf017da06a8aa2ef22ab41377cb30c5d48d208476491f687cf20945f91f35591a94a33d3"
 //         //act
@@ -914,7 +886,6 @@ class ETHServiceTests: XCTestCase {
     
     func testSendRawTransactionFailedTest() {
          //arrange
-         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
          let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
          let tx = "invalid transaction hash"
          //act
@@ -935,7 +906,6 @@ class ETHServiceTests: XCTestCase {
     
     func testDecodeRawTransactionTest() {
          //arrange
-         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
          let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
          let tx = "0xf86b24843b9aca0082520894b0202ebbf797dd61a3b28d5e82fba2523edc1a9b880de0b6b3a7640000801ba07cf766c8ec0c2d24e98d4fd6ec8af69dadc7fc8f9ba18e1476705f016ceeda6ea0375633e6bfe837b21e4ca97f8751c6e6e9a5e4ae06bb00d83f6337ca5e714cfb"
          //act
@@ -957,7 +927,6 @@ class ETHServiceTests: XCTestCase {
     
     func testDecodeRawTransactionFailedTest() {
          //arrange
-         let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
          let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
          let tx = "invalid transaction"
          //act
@@ -978,7 +947,6 @@ class ETHServiceTests: XCTestCase {
     
     func testCallContractTest() {
          //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testCallContractFailedTest")
         let sender = "0x141d5937C7b0e4fB4C535c900C0964B4852007eA"
         let amount = 0
@@ -1004,7 +972,6 @@ class ETHServiceTests: XCTestCase {
     
     func testCallContractFailedTest() {
          //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testCallContractFailedTest")
         let sender = "invalid sender"
         let amount = 1
@@ -1029,7 +996,6 @@ class ETHServiceTests: XCTestCase {
     
     func testContractLogsTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testCallContractFailedTest")
         let fromBlock = ETHTestConstants.contractLogsFromBlock
         let toBlock = ETHTestConstants.contractLogsToBlock
@@ -1055,7 +1021,6 @@ class ETHServiceTests: XCTestCase {
     
     func testGetBlockByNumber() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testGetBlockByNumber")
         let number = blockNumber
         let hash = blockHash
@@ -1079,7 +1044,6 @@ class ETHServiceTests: XCTestCase {
     
     func testGetBlockByHash() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testGetBlockByNumber")
         let number = blockNumber
         let hash = blockHash
@@ -1103,7 +1067,6 @@ class ETHServiceTests: XCTestCase {
     
     func testGetBlocks() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken))
         let expectation = XCTestExpectation(description: "testGetBlocks")
         let skip = 0
         let limit = 10
