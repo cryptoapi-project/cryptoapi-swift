@@ -9,8 +9,7 @@
 import Foundation
 
 enum ETHTestConstants {
-    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5" // Dev
-//    static let authToken = "74e24f797dc46915de69f97e8383f4a31cb8a6dbf45fe9ea" // Stage
+    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5"
     
     static let timeout: TimeInterval = 30
     

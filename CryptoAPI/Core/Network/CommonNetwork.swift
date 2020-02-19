@@ -13,14 +13,10 @@ enum CommonNetwork: Resty {
 }
 
 extension CommonNetwork {
-    var host: String {
-        return Constants.baseURL
-    }
-    
     var path: String {
         switch self {
         case .coins:
-            return "/v1/coins"
+            return "coins"
         }
     }
         

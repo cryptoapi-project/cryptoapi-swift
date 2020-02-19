@@ -10,9 +10,6 @@ import Foundation
 
 /// The protocol used to define the specifications necessary for a `Resty`.
 public protocol Resty {
-    /// The host, conforming to RFC 1808.
-    var host: String { get }
-    
     /// The path, conforming to RFC 1808
     var path: String { get }
     
@@ -50,9 +47,10 @@ enum RestyError: Error {
 extension Resty {
     func request<T: Codable>(type: T.Type,
                              session: URLSession,
-                             authToken: AuthorizationToken, withLog: Bool = false,
+                             baseUrl: String,
+                             authToken: String, withLog: Bool = false,
                              completionHandler: @escaping (Result<T, CryptoApiError>) -> Void) {
-        guard let url = URL(string: generateURL(authToken: authToken.value, withLog: withLog)) else {
+        guard let url = URL(string: generateURL(baseUrl: baseUrl, authToken: authToken, withLog: withLog)) else {
             completionHandler(.failure(CryptoApiError.innerError(RestyError.badURL)))
             return
         }
@@ -116,12 +114,12 @@ extension Resty {
     }
     
     /// The URL of the receiver.
-    private func generateURL(authToken: String, withLog: Bool) -> String {
+    private func generateURL(baseUrl: String, authToken: String, withLog: Bool) -> String {
         let firstSymbolForToken = queryParameters == nil ? "?" : "&"
         let appendTokenString = "\(firstSymbolForToken)token=\(authToken)"
         
         var url = String()
-        url += host
+        url += baseUrl
         url += path
         url += queryParameters?.stringFromHttpParameters() ?? ""
         url += appendTokenString

@@ -13,15 +13,22 @@ class BCHServiceTests: XCTestCase {
     let BCHAddressWithBalance = BCHTestConstants.BCHAddressWithBalance
     let BCHAddressWithBalance2 = BCHTestConstants.BCHAddressWithBalance2
     let transactionHash = BCHTestConstants.BCHTransactionHash
-    let authToken = AuthorizationToken(value: BCHTestConstants.authToken)
+    let authToken = BCHTestConstants.authToken
     let testTimeout = BCHTestConstants.timeout
     let BCHInvalidAddress = BCHTestConstants.BCHInvalidAddress
     let blockHash = BCHTestConstants.BCHBlockHash
     let blockHeight = BCHTestConstants.BCHBlockHeight
     
+    var api: CryptoAPI {
+        let settings = Settings(authorizationToken: authToken) { configurator in
+            configurator.debugEnabled = true
+            configurator.networkType = .testnet
+        }
+        return CryptoAPI(settings: settings)
+    }
+    
     func testNetworkTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testNetworkTest")
         
         //act
@@ -43,7 +50,6 @@ class BCHServiceTests: XCTestCase {
     
     func testSendRawTransactionFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
         let tx = "invalid transaction hash"
         //act
@@ -64,7 +70,6 @@ class BCHServiceTests: XCTestCase {
     
     func testDecodeRawTransactionTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
         let tx = "0100000001b78d508a74d6554ebebbc8b3d96b9fac9219cf4afdbf0737c245aec70340a4cd010000006a4730440220738c2fe3674666555fafb43db61e6892e1ac771d350324f1622c4d2766850881022040739dc8479bb12ba0fc7531e1387719df436b2b504192c237bf4b595d118e2f01210256459852d8a18ffcd7fb5560d0186b59c1d3051bac69875f23f5a3af52c42983ffffffff01fc530000000000001976a9142b3aa4e75216d6fa15687fc221e28d974545b56588ac00000000"
         //act
@@ -86,7 +91,6 @@ class BCHServiceTests: XCTestCase {
     
     func testDecodeRawTransactionFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testDecodeRawTransactionTest")
         let tx = "invalid transaction"
         //act
@@ -107,7 +111,6 @@ class BCHServiceTests: XCTestCase {
     
     func testGetBlockByHeight() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testGetBlockByNumber")
         let height = blockHeight
         let hash = blockHash
@@ -131,7 +134,6 @@ class BCHServiceTests: XCTestCase {
     
     func testGetBlockByHash() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testGetBlockByNumber")
         let height = blockHeight
         let hash = blockHash
@@ -155,7 +157,6 @@ class BCHServiceTests: XCTestCase {
     
     func testGetBlocks() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testGetBlocks")
         let skip = 0
         let limit = 2
@@ -179,7 +180,6 @@ class BCHServiceTests: XCTestCase {
     
     func testTransactionTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransactionTest")
         let hash = transactionHash
 
@@ -202,7 +202,6 @@ class BCHServiceTests: XCTestCase {
     
     func testTransactionFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransactionFailedTest")
         let hash = "invalid hash"
 
@@ -224,11 +223,10 @@ class BCHServiceTests: XCTestCase {
     
     func testTransactionsTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
         let fromAddress = BCHAddressWithBalance
         let toAddress = BCHAddressWithBalance2
-        let blockHeight = 1664129
+        let blockHeight = 1360264
         let skip = 0
         let limit = 10
 
@@ -251,7 +249,6 @@ class BCHServiceTests: XCTestCase {
     
     func testTransactionsFailedTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersFailedTest")
         let fromAddress = BCHInvalidAddress
         let toAddress = BCHAddressWithBalance2
@@ -277,14 +274,13 @@ class BCHServiceTests: XCTestCase {
     
     func testAddressesOutputsTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = BCHAddressWithBalance
+        let address = BCHAddressWithBalance2
         let skip = 0
         let limit = 10
 
         //act
-        api.bch.addressesOutputs(addresses: [address], status: "spent", skip: skip, limit: limit) { result in
+        api.bch.addressesOutputs(addresses: [address], status: "unspent", skip: skip, limit: limit) { result in
             switch result {
             case let .success(outs):
                 //assert
@@ -302,7 +298,6 @@ class BCHServiceTests: XCTestCase {
     
     func testAddressesUxtoInfoTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
         let address = BCHAddressWithBalance
 
@@ -325,7 +320,6 @@ class BCHServiceTests: XCTestCase {
     
     func testAddressesTransactionsHistoryTest() {
         //arrange
-        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))
         let expectation = XCTestExpectation(description: "testTransfersTest")
         let address = BCHAddressWithBalance
         let skip = 0

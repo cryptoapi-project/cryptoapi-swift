@@ -11,6 +11,7 @@ public struct BTCNetworkResponseModel {
     public let countTransactions: String
     public let hashRate: String
     public let difficulty: String
+    public let estimateFee: String
 }
 
 extension BTCNetworkResponseModel: Codable {
@@ -19,5 +20,6 @@ extension BTCNetworkResponseModel: Codable {
         case countTransactions = "count_transactions"
         case hashRate = "hashrate"
         case difficulty
+        case estimateFee = "estimate_fee"
     }
 }

@@ -22,17 +22,37 @@ public final class CryptoAPI {
         let urlSession = URLSession(configuration: configuration)
         let authorizationToken = settings.authorizationToken
         
-        let ethNetworkAdapter = ETHNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
-        let btcNetworkAdapter = BTCNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
-        let BCHNetworkAdapter = BCHNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
-        let commonNetworkAdapter = CommonNetworkAdapterImp(session: urlSession, authToken: authorizationToken, needLogs: settings.needLogs)
+        let ethNetworkAdapter = ETHNetworkAdapterImp(
+            session: urlSession,
+            baseUrl: settings.getBaseUrlString(),
+            authToken: authorizationToken,
+            needLogs: settings.debugEnabled
+        )
+        let btcNetworkAdapter = BTCNetworkAdapterImp(
+            session: urlSession,
+            baseUrl: settings.getBaseUrlString(),
+            authToken: authorizationToken,
+            needLogs: settings.debugEnabled
+        )
+        let bchNetworkAdapter = BCHNetworkAdapterImp(
+            session: urlSession,
+            baseUrl: settings.getBaseUrlString(),
+            authToken: authorizationToken,
+            needLogs: settings.debugEnabled
+        )
+        let commonNetworkAdapter = CommonNetworkAdapterImp(
+            session: urlSession,
+            baseUrl: settings.getBaseUrlString(),
+            authToken: authorizationToken,
+            needLogs: settings.debugEnabled
+        )
         
         let ethService = ETHServiceImp(networkAdapter: ethNetworkAdapter)
         let btcService = BTCServiceImp(networkAdapter: btcNetworkAdapter)
-        let BCHService = BCHServiceImp(networkAdapter: BCHNetworkAdapter)
+        let bchService = BCHServiceImp(networkAdapter: bchNetworkAdapter)
         let commonService = CommonServiceImp(networkAdapter: commonNetworkAdapter)
         
-        bch = BCHService
+        bch = bchService
         eth = ethService
         btc = btcService
         common = commonService

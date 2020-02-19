@@ -26,7 +26,7 @@ public struct ETHBlockResponseModel {
     public let gasLimit: String
     public let gasUsed: Int
     public let utc: String
-    public let transactions: [String]
+    public let countTransactions: Int
     public let reward: String
 }
 
@@ -51,7 +51,7 @@ extension ETHBlockResponseModel: Codable {
         case gasLimit = "gas_limit"
         case gasUsed = "gas_used"
         case utc
-        case transactions
+        case countTransactions = "count_transactions"
         case reward
     }
 }

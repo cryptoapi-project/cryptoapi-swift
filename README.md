@@ -1,195 +1,98 @@
-# CryptoAPI-ios-framework (CryptoAPI-ios-framework)
+# CryptoAPI-ios-framework
 
-CryptoAPI is Swift API Wrapper framework. Designed to receive information about transactions, balances by address and send transactions.
+CryptoAPI is Swift API Wrapper framework. Designed to receive information about transactions, balances and send transactions.
 
 ## Install
 
 This framework can be obtained through CocoaPods:
 ```
-pod 'CryptoAPI', :git => 'git@gitlab.pixelplex.by:709-crypto-api-mobile-library/ios-framework.git'
+pod 'CryptoAPI', :git => 'path to your repo'
 ```
 
 ## Setup
 
 For setup framework use this simple code:
 ```swift
-// You can use default configuration
-let api = CtyptoAPI.default
+let settings = Settings(authorizationToken: "Your token")
+let api = CryptoAPI(settings: settings)
 
 // Or you can use custom configuration
-let api = CtyptoAPI(settings: Settings(build: {
-    $0.timeoutIntervalForRequest = 15
-    $0.timeoutIntervalForResource = 15
-})
+let settings = Settings(authorizationToken: "Your token") { configurator in
+    configurator.workingQueue = DispatchQueue.global()
+    configurator.timeoutIntervalForRequest = 30
+    configurator.timeoutIntervalForResource = 30
+    configurator.sessionConfiguration = URLSessionConfiguration()
+    configurator.networkType = NetworkType.testnet
+    configurator.debugEnabled = true
+}
+let api = CryptoAPI(settings: settings)
 ```
 
 ## Usage
 
-There are simple examples of usage framework
+### Networks
 
-### ETH
-
-#### Balance
-
+CryptoAPI supports `mainnet` and `testnet` chains. You can select chain type by `networkType` field when setup framework
 ```swift
-func testGetBalance() {
-    //arrange
-    let api = CtyptoAPI.default
-    let expectation = XCTestExpectation(description: "testGetBalance")
-    let address = ethAddressWithBalance
-    //act
-    api.eth.balance(addresses: [address]) { result in
-        switch result {
-        case let .success(balances):
-            //assert
-            XCTAssertTrue(!balances.isEmpty)
-        case let .failure(error):
-            //assert
-            XCTAssertThrowsError(error)
-        }
-        expectation.fulfill()
-    }
+let settings = Settings(authorizationToken: "Your token") { configurator in
+    configurator.networkType = NetworkType.testnet
+}
+let api = CryptoAPI(settings: settings)
+```
+Awailable `types` you can find [here](/CryptoAPI/NetworkType.swift)
 
-    //assert
-    wait(for: [expectation], timeout: testTimeout)
+### Servicies
+
+CryptoAPI contains 4 main services for usage.
+```swift
+let common = api.common
+let eth = api.eth
+let btc = api.btc
+let bch = api.bch
+```
+`CommonService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/CommonService.swift)
+
+`ETHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/ETHService.swift)
+
+`BTCService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BTCService.swift)
+
+`BCHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BСHServiсe.swift)
+
+### Error handling
+
+Each request contains `completion` which contains `Swift.Result`. Result returns expected response type or [CryptoApiError](/CryptoAPI/Errors/CryptoApiError.swift)
+```swift
+api.common.coins { result in
+    switch result {
+    case let .success(coins):
+        // Process result
+    case let .failure(error):
+        // Process error
+    }
+    expectation.fulfill()
 }
 ```
+## License
 
-#### Estimate 
+The MIT License (MIT)
 
-```swift
-func testEstimateSendAmountTransaction() {
-    //arrange
-    let api = CtyptoAPI.default
-    let expectation = XCTestExpectation(description: "testEstimateSendAmountTransaction")
-    let fromAddress = ethAddressWithBalance
-    let toAddress = ethAddressWithBalance2
-    let amount = "10"
-    let data = ""
+Copyright (c) 2019 PixelPlex Inc. <https://pixelplex.io>
 
-    //act
-    api.eth.estimateGas(fromAddress: fromAddress, toAddress: toAddress, data: data, value: amount) { result in
-        switch result {
-        case let .success(estimate):
-            //assert
-            XCTAssertTrue(!estimate.gasPrice.isEmpty)
-        case let .failure(error):
-            //assert
-            XCTAssertThrowsError(error)
-        }
-        expectation.fulfill()
-    }
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
 
-    //assert
-    wait(for: [expectation], timeout: testTimeout)
-}
-```
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
 
-#### History
-
-```swift
-func testHistoryAddressTest() {
-    //arrange
-    let api = CtyptoAPI.default
-    let expectation = XCTestExpectation(description: "testHistoryAddressTest")
-    let address = ethAddressWithBalance
-    let skip = 0
-    let limit = 10
-    let positive = ""
-
-    //act
-    api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive) { result in
-        switch result {
-        case let .success(history):
-            //assert
-            XCTAssertTrue(!history.items.isEmpty)
-        case let .failure(error):
-            //asserts
-            XCTAssertThrowsError(error)
-        }
-        expectation.fulfill()
-    }
-
-    //assert
-    wait(for: [expectation], timeout: testTimeout)
-}
-```
-
-### Common
-
-#### Rate
-
-```swift
-func testRates() {
-    //arrange
-    let api = CtyptoAPI.default
-    let expectation = XCTestExpectation(description: "testRates")
-    //act
-    api.common.rates { result in
-        switch result {
-        case let .success(rates):
-            //assert
-            XCTAssertTrue(rates.eth.usd > 0)
-        case let .failure(error):
-            //assert
-            XCTAssertThrowsError(error)
-        }
-        expectation.fulfill()
-    }
-
-    //assert
-    wait(for: [expectation], timeout: testTimeout)
-}
-```
-
-#### Rates history
-
-```swift
-func testRatesHistory() {
-    //arrange
-    let api = CtyptoAPI.default
-    let expectation = XCTestExpectation(description: "testRatesHistory")
-    let coin = "eth"
-    //act
-    api.common.ratesHistory(coin: coin) { result in
-        switch result {
-        case let .success(history):
-            //assert
-            XCTAssertTrue(!history.isEmpty)
-        case let .failure(error):
-            //assert
-            XCTAssertThrowsError(error)
-        }
-        expectation.fulfill()
-    }
-
-    //assert
-    wait(for: [expectation], timeout: testTimeout)
-}
-```
-
-#### Coins
-
-```swift
-func testCoins() {
-    //arrange
-    let api = CtyptoAPI.default
-    let expectation = XCTestExpectation(description: "testCoins")
-    //act
-    api.common.coins { result in
-        switch result {
-        case let .success(coins):
-            //assert
-            XCTAssertTrue(!coins.isEmpty)
-        case let .failure(error):
-            //assert
-            XCTAssertThrowsError(error)
-        }
-        expectation.fulfill()
-    }
-
-    //assert
-    wait(for: [expectation], timeout: testTimeout)
-}
-```
-
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

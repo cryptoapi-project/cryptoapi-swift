@@ -19,7 +19,6 @@ public struct BTCBlockResponseModel {
     public let nextBlockHash: String?
     public let reward: Int
     public let transactionCount: Int
-    public let transactions: [String]
 }
 
 extension BTCBlockResponseModel: Codable {
@@ -35,8 +34,7 @@ extension BTCBlockResponseModel: Codable {
         case prevBlockHash = "previous_block_hash"
         case nextBlockHash = "next_block_hash"
         case reward
-        case transactionCount = "transaction_count"
-        case transactions
+        case transactionCount = "count_transactions"
     }
 }
 

@@ -34,61 +34,57 @@ enum ETHNetwork: Resty {
 }
 
 extension ETHNetwork {
-    var host: String {
-        return Constants.baseURL
-    }
-    
     var path: String {
         switch self {
         case let .callContract(address, _, _, _):
-            return "/v1/coins/eth/contracts/\(address)/call"
+            return "coins/eth/contracts/\(address)/call"
         case .queryTokens:
-            return "/v1/coins/eth/tokens/search"
+            return "coins/eth/tokens/search"
         case .tokenInfo(let address):
-            return "/v1/coins/eth/tokens/\(address)"
+            return "coins/eth/tokens/\(address)"
         case .transaction(let hash):
-            return "/v1/coins/eth/transactions/\(hash)"
+            return "coins/eth/transactions/\(hash)"
         case .contractInfo(let addresses):
-            return "/v1/coins/eth/contracts/\(addresses)"
+            return "coins/eth/contracts/\(addresses)"
         case .info(let addresses):
-            return "/v1/coins/eth/addresses/\(addresses.description)"
+            return "coins/eth/addresses/\(addresses.description)"
         case .network:
-            return "/v1/coins/eth/network"
+            return "coins/eth/network"
         case .history( let addresses, _, _):
-            return "/v1/coins/eth/addresses/\(addresses.description)/transfers"
+            return "coins/eth/addresses/\(addresses.description)/transfers"
         case .transactions:
-            return "/v1/coins/eth/transactions"
+            return "coins/eth/transactions"
         case .externalHistory( let addresses, _, _):
-            return "/v1/coins/eth/addresses/\(addresses.description)/transactions"
+            return "coins/eth/addresses/\(addresses.description)/transactions"
         case .tokenHistory(let tokenAddress, _, _, _):
-            return "/v1/coins/eth/tokens/\(tokenAddress)/transfers"
+            return "coins/eth/tokens/\(tokenAddress)/transfers"
         case .balance(let addresses):
-            return "/v1/coins/eth/addresses/\(addresses.description)/balance"
+            return "coins/eth/addresses/\(addresses.description)/balance"
         case .tokenBalance(let addresses, _, _, let token):
             if let token = token {
-                return "/v1/coins/eth/addresses/\(addresses.description)/balance/tokens/\(token)"
+                return "coins/eth/addresses/\(addresses.description)/balance/tokens/\(token)"
             } else {
-                return "/v1/coins/eth/addresses/\(addresses.description)/balance/tokens"
+                return "coins/eth/addresses/\(addresses.description)/balance/tokens"
             }
             
         case .sendRaw:
-            return "/v1/coins/eth/transactions/raw/send"
+            return "coins/eth/transactions/raw/send"
         case .decodeRaw:
-            return "/v1/coins/eth/transactions/raw/decode"
+            return "coins/eth/transactions/raw/decode"
         case .estimateGas:
-            return "/v1/coins/eth/estimate-gas"
+            return "coins/eth/estimate-gas"
         case .subscribePushNotifications(let address, _):
-            return "/v1/coins/eth/accounts/\(address)/token/subscribe/balance"
+            return "coins/eth/accounts/\(address)/token/subscribe/balance"
         case .unsubscribePushNotifications(let address, _):
-            return "/v1/coins/eth/accounts/\(address)/token/unsubscribe/balance"
+            return "coins/eth/accounts/\(address)/token/unsubscribe/balance"
         case .contractLogs:
-            return "/v1/coins/eth/contracts/logs"
+            return "coins/eth/contracts/logs"
         case .transactionReceipt(let hash):
-            return "/v1/coins/eth/transactions/receipt/\(hash)"
+            return "coins/eth/transactions/receipt/\(hash)"
         case .block(let numberOrHash):
-            return "/v1/coins/eth/blocks/\(numberOrHash)"
+            return "coins/eth/blocks/\(numberOrHash)"
         case .blocks:
-            return "/v1/coins/eth/blocks"
+            return "coins/eth/blocks"
         }
     }
         

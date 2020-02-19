@@ -9,8 +9,7 @@
 import Foundation
 
 enum BTCTestConstants {
-    //static let authToken = "f25dad2aacc926604190852e94e5e9a705a72a8439281716" // Dev
-    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5" // Stage
+    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5"
     
     static let timeout: TimeInterval = 30
 
