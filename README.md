@@ -6,7 +6,7 @@ CryptoAPI is Swift API Wrapper framework. Designed to receive information about 
 
 This framework can be obtained through CocoaPods:
 ```
-pod 'CryptoAPI', :git => 'path to your repo'
+pod 'CryptoAPI', :git => 'https://github.com/cryptoapi-project/cryptoapi-swift'
 ```
 
 ## Setup
