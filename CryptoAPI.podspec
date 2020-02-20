@@ -10,12 +10,13 @@ Pod::Spec.new do |spec|
   spec.name         = "CryptoAPI"
   spec.version      = "0.3.2"
   spec.summary      = "CryptoAPI iOS Framework"
-  spec.homepage     = "https://gitlab.pixelplex.by/709-crypto-api-mobile-library/ios-framework"
-  spec.license      = { :type => 'MIT', :file => 'LICENSE' }
+  spec.homepage     = "https://github.com/cryptoapi-project/cryptoapi-swift"
+  spec.license      = { :type => 'MIT', :file => 'LICENSE.md' }
   spec.authors      = {
-    "Fedorenko Nikita" => ''
+    "Fedorenko Nikita" => '',
+    "Sharaev Vladimir" => ''
   }
-  spec.source       = { :git => 'https://gitlab.pixelplex.by/709-crypto-api-mobile-library/ios-framework.git' }
+  spec.source       = { :git => 'https://github.com/cryptoapi-project/cryptoapi-swift.git', :tag => "{spec.version}" }
   spec.platform     = :ios
   spec.ios.deployment_target = "9.0"
   spec.source_files    = "CryptoAPI/**/*.{swift}"
