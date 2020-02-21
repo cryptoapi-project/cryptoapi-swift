@@ -301,7 +301,7 @@ class BTCServiceTests: XCTestCase {
         let limit: Int? = nil
         
         //act
-        api.btc.addressesOutputs(addresses: [address], status: "unspent", skip: skip, limit: nil) { result in
+        api.btc.addressesOutputs(addresses: [address], status: "unspent", skip: skip, limit: limit) { result in
             switch result {
             case let .success(outs):
                 //assert
