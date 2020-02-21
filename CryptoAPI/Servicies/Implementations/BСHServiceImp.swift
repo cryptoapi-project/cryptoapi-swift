@@ -50,7 +50,7 @@ final class BCHServiceImp: BCHService {
                                     fromAddress: fromAddress, toAddress: toAddress, completion: completion)
     }
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BCHAddressOutputResponseModel], CryptoApiError>) -> Void) {
         networkAdapter.addressesOutputs(addresses: addresses, status: status, skip: skip, limit: limit, completion: completion)
     }

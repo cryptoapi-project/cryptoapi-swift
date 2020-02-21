@@ -276,8 +276,8 @@ class BCHServiceTests: XCTestCase {
         //arrange
         let expectation = XCTestExpectation(description: "testTransfersTest")
         let address = BCHAddressWithBalance2
-        let skip = 0
-        let limit = 10
+        let skip: Int? = 0
+        let limit: Int? = nil
 
         //act
         api.bch.addressesOutputs(addresses: [address], status: "unspent", skip: skip, limit: limit) { result in

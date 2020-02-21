@@ -50,7 +50,7 @@ final class BTCServiceImp: BTCService {
                                     fromAddress: fromAddress, toAddress: toAddress, completion: completion)
     }
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BTCAddressOutputResponseModel], CryptoApiError>) -> Void) {
         networkAdapter.addressesOutputs(addresses: addresses, status: status, skip: skip, limit: limit, completion: completion)
     }

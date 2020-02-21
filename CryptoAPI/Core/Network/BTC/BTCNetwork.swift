@@ -14,7 +14,7 @@ enum BTCNetwork: Resty {
     case decodeRaw(transaction: String)
     case transactions(blockHeightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String)
     case transactionBy(hash: String)
-    case addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int)
+    case addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?)
     case addressesUxtoInfo(addresses: [String])
     case addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int)
     case block(heightOrHash: String)
@@ -85,7 +85,16 @@ extension BTCNetwork {
             ]
             
         case let .addressesOutputs(_, status, skip, limit):
-            return ["status": String(status), "skip": String(skip), "limit": String(limit)]
+            var queryArray = ["status": String(status)]
+            
+            if let skip = skip {
+                queryArray["skip"] = String(skip)
+            }
+            
+            if let limit = limit {
+                queryArray["limit"] = String(limit)
+            }
+            return queryArray
             
         case let .addressesTransactionsHistory(_, skip, limit):
             return ["skip": String(skip), "limit": String(limit)]

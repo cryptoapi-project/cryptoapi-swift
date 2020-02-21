@@ -30,7 +30,7 @@ protocol BCHNetworkAdapter {
     func transactions(blockHeightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String,
                       completion: @escaping (Result<BCHTransactionsResponseModel, CryptoApiError>) -> Void)
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BCHAddressOutputResponseModel], CryptoApiError>) -> Void)
     
     func addressesUxtoInfo(addresses: [String],
