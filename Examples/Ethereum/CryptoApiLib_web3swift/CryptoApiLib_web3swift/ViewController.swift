@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         let cryptoApi = configCryptoApiLib()
         
         let mnemonicString = "your mnemonic words"
-        let toAddress = "to address"
         
         let keystore = try! BIP32Keystore(mnemonics: mnemonicString,
                                           password: "",
@@ -53,6 +52,7 @@ class ViewController: UIViewController {
             }
         }
         
+        let toAddress = "to address"
         let value = "10000"
         var estimatedGas: ETHEstimateGasResponseModel?
         cryptoApi.eth.estimateGas(fromAddress: address, toAddress: toAddress, data: "", value: value) { result in
@@ -78,14 +78,14 @@ class ViewController: UIViewController {
         
         let nonce = BigUInt(fee.nonce)
         let gasLimit = BigUInt(fee.estimateGas)
-        guard let intTxValue = BigUInt(value), let gasPrice = BigUInt(fee.gasPrice) else {
+        guard let intTransactionValue = BigUInt(value), let gasPrice = BigUInt(fee.gasPrice) else {
             return
         }
         let v = BigUInt(0)
         let r = BigUInt(0)
         let s = BigUInt(0)
         
-        var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gasLimit: gasLimit, to: ethToAddress, value: intTxValue, data: Data(), v: v, r: r, s: s)
+        var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gasLimit: gasLimit, to: ethToAddress, value: intTransactionValue, data: Data(), v: v, r: r, s: s)
         transaction.UNSAFE_setChainID(BigUInt(4)) // "4" for Rinkeby provider
         
         try! Web3Signer.signTX(transaction: &transaction, keystore: keystoreManager, account: account, password: "")

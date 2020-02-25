@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  CryptoApiLib_ EthereumKit
+//  CryptoApiLib_EthereumKit
 //
 //  Created by Artemy Markovsky on 2/24/20.
 //  Copyright © 2020 pixelplex. All rights reserved.
