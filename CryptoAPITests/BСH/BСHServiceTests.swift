@@ -301,7 +301,7 @@ class BCHServiceTests: XCTestCase {
         let limit = 10
 
         //act
-        api.bch.addressesOutputs(addresses: [address], status: "unspent", skip: skip, limit: limit) { result in
+        api.bch.addressesOutputs(addresses: [address], status: "spent", skip: skip, limit: limit) { result in
             switch result {
             case let .success(outs):
                 //assert
