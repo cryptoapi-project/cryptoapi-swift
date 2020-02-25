@@ -1,5 +1,4 @@
-# CryptoAPI-ios-framework
-
+# CryptoApiLib
 CryptoAPI is Swift API Wrapper framework. Designed to receive information about transactions, balances and send transactions.
 
 ## Install
@@ -39,7 +38,7 @@ let settings = Settings(authorizationToken: "Your token") { configurator in
 }
 let api = CryptoAPI(settings: settings)
 ```
-Awailable `types` you can find [here](/CryptoAPI/NetworkType.swift)
+Awailable `types` you can find [here](/CryptoAPI/NetworkType.swift).
 
 ### Servicies
 
@@ -50,13 +49,13 @@ let eth = api.eth
 let btc = api.btc
 let bch = api.bch
 ```
-`CommonService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/CommonService.swift)
+`CommonService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/CommonService.swift).
 
-`ETHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/ETHService.swift)
+`ETHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/ETHService.swift).
 
-`BTCService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BTCService.swift)
+`BTCService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BTCService.swift).
 
-`BCHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BСHServiсe.swift)
+`BCHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BСHServiсe.swift).
 
 ### Error handling
 
@@ -72,6 +71,12 @@ api.common.coins { result in
     expectation.fulfill()
 }
 ```
+## Examples
+
+Examples with popular `Bitсoin` libraries you can find [here](/Examples/Bitcoin).
+
+Examples with popular `Ethereum` libraries you can find [here](/Examples/Ethereum).
+
 ## License
 
 The MIT License (MIT)

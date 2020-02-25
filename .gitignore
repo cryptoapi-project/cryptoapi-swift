@@ -11,3 +11,9 @@ build
 fastlane/README.md
 report.html
 report.junit
+Carthage
+Cartfile.resolved
+
+Examples/Ethereum/CryptoApiLib_EthereumKit/CryptoApiLib_ EthereumKit.xcworkspace
+Examples/Ethereum/CryptoApiLib_Web3.swift/CryptoApiLib_Web3.swift.xcworkspace
+Examples/Ethereum/CryptoApiLib_web3swift/CryptoApiLib_web3swift.xcworkspace
