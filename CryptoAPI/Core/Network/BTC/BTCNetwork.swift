@@ -10,6 +10,7 @@ import Foundation
 
 enum BTCNetwork: Resty {
     case network
+    case estimateFee
     case sendRaw(transactionHash: String)
     case decodeRaw(transaction: String)
     case transactions(blockHeightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String)
@@ -26,6 +27,8 @@ extension BTCNetwork {
         switch self {
         case .network:
             return "coins/btc/network"
+        case .estimateFee:
+            return "coins/btc/estimate-fee"
         case .sendRaw:
             return "coins/btc/transactions/raw/send"
         case .decodeRaw:
@@ -49,7 +52,8 @@ extension BTCNetwork {
     
     var method: HTTPMethod {
         switch self {
-        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block, .blocks, .network, .transactionBy, .transactions:
+        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block,
+             .blocks, .network, .transactionBy, .transactions, .estimateFee:
             return .get
             
         case .decodeRaw, .sendRaw:
@@ -59,7 +63,8 @@ extension BTCNetwork {
     
     var bodyParameters: [String: Any]? {
         switch self {
-        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block, .blocks, .network, .transactionBy, .transactions:
+        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block, .blocks,
+             .network, .transactionBy, .transactions, .estimateFee:
             return nil
             
         case let .sendRaw(transaction):
@@ -72,7 +77,7 @@ extension BTCNetwork {
     
     var queryParameters: [String: String]? {
         switch self {
-        case .network, .block, .transactionBy, .sendRaw, .decodeRaw, .addressesUxtoInfo:
+        case .network, .block, .transactionBy, .sendRaw, .decodeRaw, .addressesUxtoInfo, .estimateFee:
             return nil
             
         case let .blocks(skip, limit):

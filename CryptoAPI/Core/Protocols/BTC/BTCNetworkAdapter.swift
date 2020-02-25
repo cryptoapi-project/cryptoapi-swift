@@ -12,6 +12,8 @@ protocol BTCNetworkAdapter {
     //BTC
     func network(completion: @escaping (Result<BTCNetworkResponseModel, CryptoApiError>) -> Void)
     
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    
     func sendRaw(transaction: String,
                  completion: @escaping (Result<BTCSendRawResponseModel, CryptoApiError>) -> Void)
     

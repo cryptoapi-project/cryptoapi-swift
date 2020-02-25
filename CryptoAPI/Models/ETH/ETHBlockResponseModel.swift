@@ -9,7 +9,7 @@
 public struct ETHBlockResponseModel {
     public let size: Int
     public let difficulty: Int
-    public let totalDifficulty: Int
+    public let totalDifficulty: String
     public let uncles: [String]
     public let number: Int
     public let hash: String

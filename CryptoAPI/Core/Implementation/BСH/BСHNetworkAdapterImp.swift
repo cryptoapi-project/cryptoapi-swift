@@ -27,6 +27,12 @@ final class BCHNetworkAdapterImp: BCHNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        BCHNetwork.estimateFee
+            .request(type: String.self, session: session, baseUrl: baseUrl,
+                     authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
+    
     func sendRaw(transaction: String, completion: @escaping (Result<BCHSendRawResponseModel, CryptoApiError>) -> Void) {
         BCHNetwork.sendRaw(transactionHash: transaction)
             .request(type: BCHSendRawResponseModel.self, session: session, baseUrl: baseUrl,
