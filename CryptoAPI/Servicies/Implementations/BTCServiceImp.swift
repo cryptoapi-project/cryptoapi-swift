@@ -19,6 +19,10 @@ final class BTCServiceImp: BTCService {
         networkAdapter.network(completion: completion)
     }
     
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        networkAdapter.estimateFee(completion: completion)
+    }
+    
     func sendRaw(transaction: String,
                  completion: @escaping (Result<BTCSendRawResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.sendRaw(transaction: transaction, completion: completion)
