@@ -318,8 +318,8 @@ class BTCServiceTests: XCTestCase {
         //arrange
         let expectation = XCTestExpectation(description: "testTransfersTest")
         let address = "2MwcRaFr3TicdFLm84AfYi3HArFQx91cwFz"
-        let skip = 0
-        let limit = 25
+        let skip: Int? = 0
+        let limit: Int? = nil
         
         //act
         api.btc.addressesOutputs(addresses: [address], status: "unspent", skip: skip, limit: limit) { result in

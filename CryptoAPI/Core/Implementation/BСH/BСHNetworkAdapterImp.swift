@@ -70,7 +70,7 @@ final class BCHNetworkAdapterImp: BCHNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BCHAddressOutputResponseModel], CryptoApiError>) -> Void) {
         BCHNetwork.addressesOutputs(addresses: addresses, status: status, skip: skip, limit: limit)
             .request(type: [BCHAddressOutputResponseModel].self, session: session, baseUrl: baseUrl,

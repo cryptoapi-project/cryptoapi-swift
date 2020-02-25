@@ -70,7 +70,7 @@ final class BTCNetworkAdapterImp: BTCNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BTCAddressOutputResponseModel], CryptoApiError>) -> Void) {
         BTCNetwork.addressesOutputs(addresses: addresses, status: status, skip: skip, limit: limit)
             .request(type: [BTCAddressOutputResponseModel].self, session: session, baseUrl: baseUrl,

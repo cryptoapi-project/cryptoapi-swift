@@ -32,7 +32,7 @@ protocol BTCNetworkAdapter {
     func transactions(blockHeightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String,
                       completion: @escaping (Result<BTCTransactionsResponseModel, CryptoApiError>) -> Void)
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BTCAddressOutputResponseModel], CryptoApiError>) -> Void)
     
     func addressesUxtoInfo(addresses: [String],
