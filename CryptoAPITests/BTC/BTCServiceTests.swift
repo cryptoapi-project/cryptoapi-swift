@@ -48,6 +48,27 @@ class BTCServiceTests: XCTestCase {
         wait(for: [expectation], timeout: testTimeout)
     }
     
+    func testEstimateFeeTest() {
+        //arrange
+        let expectation = XCTestExpectation(description: "testNetworkTest")
+        
+        //act
+        api.btc.estimateFee { result in
+            switch result {
+            case let .success(feePerKb):
+                //assert
+                XCTAssertTrue(!feePerKb.isEmpty)
+            case let .failure(error):
+                //assert
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+        
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
 //    func testSendRawTransactionTest() {
 //        //arrange
 //        let api = CryptoAPI(settings: Settings(authorizationToken: authToken, isNeedLogs: true))

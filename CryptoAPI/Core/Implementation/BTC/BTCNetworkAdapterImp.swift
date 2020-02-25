@@ -27,6 +27,12 @@ final class BTCNetworkAdapterImp: BTCNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        BTCNetwork.estimateFee
+            .request(type: String.self, session: session, baseUrl: baseUrl,
+                      authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
+    
     func sendRaw(transaction: String, completion: @escaping (Result<BTCSendRawResponseModel, CryptoApiError>) -> Void) {
         BTCNetwork.sendRaw(transactionHash: transaction)
             .request(type: BTCSendRawResponseModel.self, session: session, baseUrl: baseUrl,
