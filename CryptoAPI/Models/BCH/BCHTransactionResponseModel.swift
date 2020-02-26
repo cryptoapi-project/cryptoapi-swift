@@ -39,8 +39,8 @@ public struct BCHTransactionByHashResponseModel {
     public let hash: String
     public let inputCount: Int
     public let outputCount: Int
-    public let inputs: [BCHTransactionInput]
-    public let outputs: [BCHTransactionOutput]
+    public let inputs: [BCHTransactionInputResponseModel]
+    public let outputs: [BCHTransactionOutputResponseModel]
 }
 
 extension BCHTransactionByHashResponseModel: Codable {
@@ -62,7 +62,7 @@ extension BCHTransactionByHashResponseModel: Codable {
     }
 }
 
-public struct BCHTransactionInput {
+public struct BCHTransactionInputResponseModel {
     public let address: String?
     public let prevTransactionHash: String
     public let outputIndex: Int
@@ -70,7 +70,7 @@ public struct BCHTransactionInput {
     public let script: String
 }
 
-extension BCHTransactionInput: Codable {
+extension BCHTransactionInputResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case address
         case prevTransactionHash = "previous_transaction_hash"
@@ -80,7 +80,7 @@ extension BCHTransactionInput: Codable {
     }
 }
 
-public struct BCHTransactionOutput: Codable {
+public struct BCHTransactionOutputResponseModel: Codable {
     public let address: String?
     public let satoshis: Int
     public let script: String
