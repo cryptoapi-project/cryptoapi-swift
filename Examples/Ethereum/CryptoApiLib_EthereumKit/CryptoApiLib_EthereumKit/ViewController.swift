@@ -29,13 +29,7 @@ class ViewController: UIViewController {
         
         let mnemonic = Mnemonic.create(entropy: Data(hex: "000102030405060708090a0b0c0d0e0f"))
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-        
-        let wallet: Wallet
-        do {
-            wallet = try Wallet(seed: seed, network: .ropsten, debugPrints: true)
-        } catch let error {
-            fatalError("Error: \(error.localizedDescription)")
-        }
+        let wallet = try! Wallet(seed: seed, network: .ropsten, debugPrints: true)
         
         let address = wallet.address()
         
@@ -67,17 +61,10 @@ class ViewController: UIViewController {
         guard let fee = estimatedGas else {
             return
         }
-        guard let value = try? Converter.toWei(ether: "0.0001") else {
-            print("Invalid transaction value")
-            return
-        }
+        let value = try! Converter.toWei(ether: "0.0001")
+        
         let rawTransaction = RawTransaction(value: value, to: address, gasPrice: Int(fee.gasPrice)!, gasLimit: fee.estimateGas, nonce: fee.nonce)
-        let transactionHash: String
-        do {
-            transactionHash = try wallet.sign(rawTransaction: rawTransaction)
-        } catch let error {
-            fatalError("Error: \(error.localizedDescription)")
-        }
+        let transactionHash = try! wallet.sign(rawTransaction: rawTransaction)
         
         cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
             switch result {

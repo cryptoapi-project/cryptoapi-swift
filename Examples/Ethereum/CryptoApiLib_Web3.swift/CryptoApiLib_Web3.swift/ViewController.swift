@@ -44,7 +44,9 @@ class ViewController: UIViewController {
         }
         
         var estimatedGas: ETHEstimateGasResponseModel?
-        cryptoApi.eth.estimateGas(fromAddress: privateKey.address.hex(eip55: true), toAddress: privateKey.address.hex(eip55: true), data: "", value: "1000000000000000000") { result in
+        cryptoApi.eth.estimateGas(fromAddress: privateKey.address.hex(eip55: true),
+                                  toAddress: privateKey.address.hex(eip55: true),
+                                  data: "", value: "1000000000000000000") { result in
             switch result {
             case .success(let response):
                 estimatedGas = response
@@ -54,15 +56,10 @@ class ViewController: UIViewController {
                 let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas!.gasPrice))
                 let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas!.estimateGas))
                 let value = EthereumQuantity(quantity: 1.eth)
-                guard let toAddress = try? EthereumAddress(hex: "to addres hex", eip55: true) else {
-                    return
-                }
+                let toAddress = try! EthereumAddress(hex: "to addres hex", eip55: true)
                 
                 let transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gas: gasLimit, from: privateKey.address, to: toAddress, value: value)
-                
-                guard let signedTransaction = try? transaction.sign(with: privateKey) else {
-                    return
-                }
+                let signedTransaction = try! transaction.sign(with: privateKey)
                 
                 cryptoApi.eth.sendRaw(transaction: signedTransaction.data.hex()) { result in
                     switch result {

@@ -5,7 +5,7 @@ The `source code` of the EthereumKit library you can find  by clicking on the [l
 ### Start using
 
 Сonfigure and return the object of the CryptoAPI class, which will allow to perform all the operations provided by the CryptoApiLib library.
-```
+```swift
 func configCryptoApiLib() -> CryptoAPI {
     // Initialize setting for CryptoApi with your authorization token.
     let apiSettings = Settings(authorizationToken: "Your token") { configurator in
@@ -19,7 +19,7 @@ func configCryptoApiLib() -> CryptoAPI {
 Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.
 
 The following is an example that shows how to `generated address and obtain balance` for it using CryptoApiLib.
-```
+```swift
 let cryptoApi = configCryptoApiLib()
        
 let mnemonicString = "your mnemonic words"
@@ -49,7 +49,7 @@ cryptoApi.eth.balance(addresses: [address]) { result in
 ```
 
 Now, before creating a transaction, you need to get a `gas estimate`.
-```
+```swift
 let toAddress = "to address"
 let value = "10000"
 var estimatedGas: ETHEstimateGasResponseModel?
@@ -68,7 +68,7 @@ cryptoApi.eth.estimateGas(fromAddress: address, toAddress: toAddress, data: "", 
 
 CryptoAPI allows you to send raw transactions, but before that you need to prepare it.
 `Creating and sending a transaction` is as follows:
-```
+```swift
 guard let ethToAddress = EthereumAddress(toAddress) else {
     print("Invalid address")
     return
@@ -108,7 +108,6 @@ cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
     }
 }
 ```
-
 
 ## License
 

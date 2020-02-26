@@ -71,27 +71,27 @@ class ViewController: UIViewController {
             return
         }
         
-        guard let ethToAddress = EthereumAddress(toAddress) else {
-            print("Invalid address")
-            return
-        }
+        let ethToAddress = EthereumAddress(toAddress)!
         
         let nonce = BigUInt(fee.nonce)
         let gasLimit = BigUInt(fee.estimateGas)
-        guard let intTransactionValue = BigUInt(value), let gasPrice = BigUInt(fee.gasPrice) else {
-            return
-        }
+        let gasPrice = BigUInt(fee.gasPrice)!
+        let intTransactionValue = BigUInt(value)!
+        
         let v = BigUInt(0)
         let r = BigUInt(0)
         let s = BigUInt(0)
         
-        var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gasLimit: gasLimit, to: ethToAddress, value: intTransactionValue, data: Data(), v: v, r: r, s: s)
+        var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice,
+                                              gasLimit: gasLimit, to: ethToAddress,
+                                              value: intTransactionValue, data: Data(),
+                                              v: v,
+                                              r: r,
+                                              s: s)
         transaction.UNSAFE_setChainID(BigUInt(4)) // "4" for Rinkeby provider
         
         try! Web3Signer.signTX(transaction: &transaction, keystore: keystoreManager, account: account, password: "")
-        guard let transactionHash = transaction.encode()?.toHexString() else {
-            return
-        }
+        let transactionHash = transaction.encode()!.toHexString()
         
         cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
             switch result {
