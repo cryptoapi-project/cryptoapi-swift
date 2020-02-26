@@ -17,6 +17,13 @@ public protocol BCHService {
     func network(completion: @escaping (Result<BCHNetworkResponseModel, CryptoApiError>) -> Void)
     
 /**
+     Fee per Kb information
+     
+     - Parameter completion: Callback which returns an [String](String) result  or error
+*/
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    
+/**
      Send raw BCH transaction.
      
      - Parameter transaction: transaction hex
@@ -84,7 +91,7 @@ public protocol BCHService {
      - Parameter limit: limit
      - Parameter completion: Callback which returns an [[BCHAddressOutputResponseModel]]([BCHAddressOutputResponseModel]) result  or error
 */
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BCHAddressOutputResponseModel], CryptoApiError>) -> Void)
     
 /**

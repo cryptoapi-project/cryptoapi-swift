@@ -17,6 +17,13 @@ public protocol BTCService {
     func network(completion: @escaping (Result<BTCNetworkResponseModel, CryptoApiError>) -> Void)
     
 /**
+    Fee per Kb information
+         
+    - Parameter completion: Callback which returns an [Strint](String) result  or error
+*/
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void)
+        
+/**
      Send raw btc transaction.
      
      - Parameter transaction: transaction hex
@@ -84,7 +91,7 @@ public protocol BTCService {
      - Parameter limit: limit
      - Parameter completion: Callback which returns an [[BTCAddressOutputResponseModel]]([BTCAddressOutputResponseModel]) result  or error
 */
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BTCAddressOutputResponseModel], CryptoApiError>) -> Void)
     
 /**

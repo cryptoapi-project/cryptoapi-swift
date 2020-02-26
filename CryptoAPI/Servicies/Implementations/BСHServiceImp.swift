@@ -19,6 +19,10 @@ final class BCHServiceImp: BCHService {
         networkAdapter.network(completion: completion)
     }
     
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        networkAdapter.estimateFee(completion: completion)
+    }
+    
     func sendRaw(transaction: String,
                  completion: @escaping (Result<BCHSendRawResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.sendRaw(transaction: transaction, completion: completion)
@@ -50,7 +54,7 @@ final class BCHServiceImp: BCHService {
                                     fromAddress: fromAddress, toAddress: toAddress, completion: completion)
     }
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BCHAddressOutputResponseModel], CryptoApiError>) -> Void) {
         networkAdapter.addressesOutputs(addresses: addresses, status: status, skip: skip, limit: limit, completion: completion)
     }

@@ -1,0 +1,5 @@
+target 'CryptoApiLib_web3swift' do
+    pod 'CryptoApiLib', '~> 0.3'
+use_frameworks!
+    pod 'web3swift'
+end

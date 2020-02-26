@@ -10,8 +10,8 @@ public struct BCHDecodeRawResponseModel {
     public let hash: String
     public let version: Int
     public let lockTime: Int
-    public let inputs: [BCHInput]
-    public let outputs: [BCHOutput]
+    public let inputs: [BCHDecodeInputResponseModel]
+    public let outputs: [BCHDecodeOutputResponseModel]
 }
 
 extension BCHDecodeRawResponseModel: Codable {
@@ -24,14 +24,14 @@ extension BCHDecodeRawResponseModel: Codable {
     }
 }
 
-public struct BCHInput {
+public struct BCHDecodeInputResponseModel {
     public let prevTransactionHash: String
     public let outputIndex: Int
     public let sequenceNumber: Int
     public let script: String
 }
 
-extension BCHInput: Codable {
+extension BCHDecodeInputResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case prevTransactionHash = "previous_transaction_hash"
         case outputIndex = "output_index"
@@ -40,13 +40,13 @@ extension BCHInput: Codable {
     }
 }
 
-public struct BCHOutput {
+public struct BCHDecodeOutputResponseModel {
     public let satoshis: Int
     public let script: String
     public let scriptByKey: String
 }
 
-extension BCHOutput: Codable {
+extension BCHDecodeOutputResponseModel: Codable {
     enum CodingKeys: String, CodingKey {
         case satoshis
         case script

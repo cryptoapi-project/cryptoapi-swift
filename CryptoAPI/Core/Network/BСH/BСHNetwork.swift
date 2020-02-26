@@ -10,11 +10,12 @@ import Foundation
 
 enum BCHNetwork: Resty {
     case network
+    case estimateFee
     case sendRaw(transactionHash: String)
     case decodeRaw(transaction: String)
     case transactions(blockHeightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String)
     case transactionBy(hash: String)
-    case addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int)
+    case addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?)
     case addressesUxtoInfo(addresses: [String])
     case addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int)
     case block(heightOrHash: String)
@@ -26,6 +27,8 @@ extension BCHNetwork {
         switch self {
         case .network:
             return "coins/bch/network"
+        case .estimateFee:
+            return "coins/btc/estimate-fee"
         case .sendRaw:
             return "coins/bch/transactions/raw/send"
         case .decodeRaw:
@@ -49,7 +52,8 @@ extension BCHNetwork {
     
     var method: HTTPMethod {
         switch self {
-        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block, .blocks, .network, .transactionBy, .transactions:
+        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block, .blocks,
+             .network, .transactionBy, .transactions, .estimateFee:
             return .get
             
         case .decodeRaw, .sendRaw:
@@ -59,11 +63,12 @@ extension BCHNetwork {
     
     var bodyParameters: [String: Any]? {
         switch self {
-        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block, .blocks, .network, .transactionBy, .transactions:
+        case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block,
+             .blocks, .network, .transactionBy, .transactions, .estimateFee:
             return nil
             
         case let .sendRaw(transaction):
-            return ["tx": transaction]
+            return ["hash": transaction]
             
         case let .decodeRaw(transaction):
             return ["hash": transaction]
@@ -72,7 +77,7 @@ extension BCHNetwork {
     
     var queryParameters: [String: String]? {
         switch self {
-        case .network, .block, .transactionBy, .sendRaw, .decodeRaw, .addressesUxtoInfo:
+        case .network, .block, .transactionBy, .sendRaw, .decodeRaw, .addressesUxtoInfo, .estimateFee:
             return nil
             
         case let .blocks(skip, limit):
@@ -85,7 +90,16 @@ extension BCHNetwork {
             ]
             
         case let .addressesOutputs(_, status, skip, limit):
-            return ["status": String(status), "skip": String(skip), "limit": String(limit)]
+            var queryArray = ["status": String(status)]
+            
+            if let skip = skip {
+                queryArray["skip"] = String(skip)
+            }
+            
+            if let limit = limit {
+                queryArray["limit"] = String(limit)
+            }
+            return queryArray
             
         case let .addressesTransactionsHistory(_, skip, limit):
             return ["skip": String(skip), "limit": String(limit)]

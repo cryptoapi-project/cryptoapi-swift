@@ -48,6 +48,27 @@ class BCHServiceTests: XCTestCase {
         wait(for: [expectation], timeout: testTimeout)
     }
     
+    func testEstimateFeeTest() {
+        //arrange
+        let expectation = XCTestExpectation(description: "testNetworkTest")
+        
+        //act
+        api.bch.estimateFee { result in
+            switch result {
+            case let .success(feePerKb):
+                //assert
+                XCTAssertTrue(!feePerKb.isEmpty)
+            case let .failure(error):
+                //assert
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+        
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
     func testSendRawTransactionFailedTest() {
         //arrange
         let expectation = XCTestExpectation(description: "testSendRawTransactionTest")
@@ -276,11 +297,11 @@ class BCHServiceTests: XCTestCase {
         //arrange
         let expectation = XCTestExpectation(description: "testTransfersTest")
         let address = BCHAddressWithBalance2
-        let skip = 0
-        let limit = 10
+        let skip: Int? = 0
+        let limit: Int? = nil
 
         //act
-        api.bch.addressesOutputs(addresses: [address], status: "unspent", skip: skip, limit: limit) { result in
+        api.bch.addressesOutputs(addresses: [address], status: "spent", skip: skip, limit: limit) { result in
             switch result {
             case let .success(outs):
                 //assert

@@ -12,6 +12,8 @@ protocol BCHNetworkAdapter {
     //BCH
     func network(completion: @escaping (Result<BCHNetworkResponseModel, CryptoApiError>) -> Void)
     
+    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    
     func sendRaw(transaction: String,
                  completion: @escaping (Result<BCHSendRawResponseModel, CryptoApiError>) -> Void)
     
@@ -30,7 +32,7 @@ protocol BCHNetworkAdapter {
     func transactions(blockHeightOrHash: String, skip: Int, limit: Int, fromAddress: String, toAddress: String,
                       completion: @escaping (Result<BCHTransactionsResponseModel, CryptoApiError>) -> Void)
     
-    func addressesOutputs(addresses: [String], status: String, skip: Int, limit: Int,
+    func addressesOutputs(addresses: [String], status: String, skip: Int?, limit: Int?,
                           completion: @escaping (Result<[BCHAddressOutputResponseModel], CryptoApiError>) -> Void)
     
     func addressesUxtoInfo(addresses: [String],

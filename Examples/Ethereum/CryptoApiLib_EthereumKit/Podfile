@@ -1,0 +1,3 @@
+target 'CryptoApiLib_EthereumKit' do
+    pod 'CryptoApiLib', '~> 0.3'
+end

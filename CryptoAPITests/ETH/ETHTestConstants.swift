@@ -25,6 +25,6 @@ enum ETHTestConstants {
     static let contractLogsToBlock = 5917555
     static let contractLogsAddresses = ["0x9c67fd4eaf0497f9820a3fbf782f81d6b6dc4baa"]
     
-    static let ethBlockNumber = 5870510
-    static let ethBlockHash = "0x0d424fbc11ce52261db0d97dec9a26136fdefcb55bde08f247318f8c39afb9ca"
+    static let ethBlockNumber = 6034220
+    static let ethBlockHash = "0x90467d18c06e8998687f48c239122331eeb96419e4e49c45f282e7d6431a803a"
 }
