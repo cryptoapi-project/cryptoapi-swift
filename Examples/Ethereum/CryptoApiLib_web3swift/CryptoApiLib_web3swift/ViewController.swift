@@ -83,11 +83,10 @@ class ViewController: UIViewController {
         }
         
         let ethToAddress = EthereumAddress(ExampleConstants.toAddress)!
-        
+        let intTransactionValue = BigUInt(ExampleConstants.sendAmount)!
         let nonce = BigUInt(fee.nonce)
         let gasLimit = BigUInt(fee.estimateGas)
         let gasPrice = BigUInt(fee.gasPrice)!
-        let intTransactionValue = BigUInt(ExampleConstants.sendAmount)!
         
         let v = BigUInt(0)
         let r = BigUInt(0)

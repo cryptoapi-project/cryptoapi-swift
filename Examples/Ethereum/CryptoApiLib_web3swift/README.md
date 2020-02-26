@@ -8,8 +8,8 @@ The `source code` of the EthereumKit library you can find  by clicking on the [l
 Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.
 ```swift
 func configCryptoApiLib() -> CryptoAPI {
-    // Initialize setting for CryptoApi with your authorization token.
-    let apiSettings = Settings(authorizationToken: "Your token") { configurator in
+    // Initialize CryptoApi setting with your authorization token.
+    let apiSettings = Settings(authorizationToken: ExampleConstants.authToken) { configurator in
         configurator.networkType = NetworkType.testnet
     }
     let cryptoApi = CryptoAPI(settings: apiSettings)
@@ -36,12 +36,12 @@ enum ExampleConstants {
 The following is an example that shows how to `generated address and obtain balance` for it using CryptoApiLib.
 ```swift
 let cryptoApi = configCryptoApiLib()
-       
-let mnemonicString = "your mnemonic words"
+
+let mnemonicString = ExampleConstants.mnemonicString
 
 let keystore = try! BIP32Keystore(mnemonics: mnemonicString,
-                                  password: "",
-                                  mnemonicsPassword: "",
+                                  password: ExampleConstants.password,
+                                  mnemonicsPassword: ExampleConstants.mnemonicsPassword,
                                   language: .english)!
 let keystoreManager = KeystoreManager([keystore])
 let web = web3(provider: InfuraProvider(.Rinkeby)!)
@@ -65,10 +65,9 @@ cryptoApi.eth.balance(addresses: [address]) { result in
 
 Now, before creating a transaction, you need to get a `gas estimate`.
 ```swift
-let toAddress = "to address"
-let value = "10000"
 var estimatedGas: ETHEstimateGasResponseModel?
-cryptoApi.eth.estimateGas(fromAddress: address, toAddress: toAddress, data: "", value: value) { result in
+cryptoApi.eth.estimateGas(fromAddress: address, toAddress: ExampleConstants.toAddress,
+                          data: "", value: ExampleConstants.sendAmount) { result in
     switch result {
     case .success(let response):
         estimatedGas = response
@@ -84,35 +83,31 @@ cryptoApi.eth.estimateGas(fromAddress: address, toAddress: toAddress, data: "", 
 CryptoAPI allows you to send raw transactions, but before that you need to prepare it.
 `Creating and sending a transaction` is as follows:
 ```swift
-guard let ethToAddress = EthereumAddress(toAddress) else {
-    print("Invalid address")
+guard let fee = estimatedGas else {
     return
 }
 
+let ethToAddress = EthereumAddress(ExampleConstants.toAddress)!
+let intTransactionValue = BigUInt(ExampleConstants.sendAmount)!
 let nonce = BigUInt(fee.nonce)
 let gasLimit = BigUInt(fee.estimateGas)
-guard let intTransactionValue = BigUInt(value), let gasPrice = BigUInt(fee.gasPrice) else {
-    return
-}
+let gasPrice = BigUInt(fee.gasPrice)!
+
 let v = BigUInt(0)
 let r = BigUInt(0)
 let s = BigUInt(0)
 
-// transaction creation
-var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gasLimit: gasLimit, 
-                                        to: ethToAddress, value: intTransactionValue, data: Data(), 
-                                        v: v, 
-                                        r: r, 
-                                        s: s)
+var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice,
+                                      gasLimit: gasLimit, to: ethToAddress,
+                                      value: intTransactionValue, data: Data(),
+                                      v: v,
+                                      r: r,
+                                      s: s)
 transaction.UNSAFE_setChainID(BigUInt(4)) // "4" for Rinkeby provider
 
-// transaction signing
 try! Web3Signer.signTX(transaction: &transaction, keystore: keystoreManager, account: account, password: "")
-guard let transactionHash = transaction.encode()?.toHexString() else {
-    return
-}
+let transactionHash = transaction.encode()!.toHexString()
 
-// transaction sending
 cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
     switch result {
     case .success(let response):

@@ -61,28 +61,29 @@ class ViewController: UIViewController {
                 estimatedGas = response
                 print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
                 
-                let nonce = EthereumQuantity(quantity: BigUInt(estimatedGas!.nonce))
-                let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas!.gasPrice))
-                let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas!.estimateGas))
-                let value = EthereumQuantity(quantity: 1.eth)
-                let toAddress = try! EthereumAddress(hex: ExampleConstants.toAddress, eip55: true)
-                
-                let transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gas: gasLimit, from: privateKey.address, to: toAddress, value: value)
-                let signedTransaction = try! transaction.sign(with: privateKey)
-                
-                cryptoApi.eth.sendRaw(transaction: signedTransaction.data.hex()) { result in
-                    switch result {
-                    case .success(let txResponse):
-                        print(txResponse.hash)
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                        return
-                    }
-                }
-                
                 return
             case .failure(let error):
                 print(error)
+                return
+            }
+        }
+        
+        // prepare and send raw transaction
+        let nonce = EthereumQuantity(quantity: BigUInt(estimatedGas!.nonce))
+        let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas!.gasPrice))
+        let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas!.estimateGas))
+        let value = EthereumQuantity(quantity: 1.eth)
+        let toAddress = try! EthereumAddress(hex: ExampleConstants.toAddress, eip55: true)
+        
+        let transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gas: gasLimit, from: privateKey.address, to: toAddress, value: value)
+        let signedTransaction = try! transaction.sign(with: privateKey)
+        
+        cryptoApi.eth.sendRaw(transaction: signedTransaction.data.hex()) { result in
+            switch result {
+            case .success(let txResponse):
+                print(txResponse.hash)
+            case .failure(let error):
+                print(error.localizedDescription)
                 return
             }
         }
