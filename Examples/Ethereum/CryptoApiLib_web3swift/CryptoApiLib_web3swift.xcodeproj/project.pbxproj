@@ -12,13 +12,12 @@
 		CECB911924002BE40096F6EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECB911724002BE40096F6EA /* Main.storyboard */; };
 		CECB911B24002BE40096F6EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECB911A24002BE40096F6EA /* Assets.xcassets */; };
 		CECB911E24002BE40096F6EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECB911C24002BE40096F6EA /* LaunchScreen.storyboard */; };
-		E458D9615AC648D43F8DA74E /* Pods_CryptoApiLib_web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF051A8F1B6FF8EF61B4CD2 /* Pods_CryptoApiLib_web3swift.framework */; };
+		E0EC638CC255A313D1A5E350 /* Pods_CryptoApiLib_web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC4F9E8CE1E33B55BAA8AA /* Pods_CryptoApiLib_web3swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4DC829E6D43503A54ABE7162 /* Pods-CryptoApiLib_web3swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_web3swift.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_web3swift/Pods-CryptoApiLib_web3swift.debug.xcconfig"; sourceTree = "<group>"; };
-		6DF051A8F1B6FF8EF61B4CD2 /* Pods_CryptoApiLib_web3swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApiLib_web3swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABADC1097323E19BBEE43A49 /* Pods-CryptoApiLib_web3swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_web3swift.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_web3swift/Pods-CryptoApiLib_web3swift.release.xcconfig"; sourceTree = "<group>"; };
+		14889E711E16FB454B048EBC /* Pods-CryptoApiLib_web3swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_web3swift.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_web3swift/Pods-CryptoApiLib_web3swift.release.xcconfig"; sourceTree = "<group>"; };
+		41EC4F9E8CE1E33B55BAA8AA /* Pods_CryptoApiLib_web3swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApiLib_web3swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECB910E24002BE40096F6EA /* CryptoApiLib_web3swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApiLib_web3swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECB911124002BE40096F6EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CECB911524002BE40096F6EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +25,7 @@
 		CECB911A24002BE40096F6EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CECB911D24002BE40096F6EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CECB911F24002BE40096F6EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1D7E1ED7B56E96BC02C87D2 /* Pods-CryptoApiLib_web3swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_web3swift.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_web3swift/Pods-CryptoApiLib_web3swift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,29 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E458D9615AC648D43F8DA74E /* Pods_CryptoApiLib_web3swift.framework in Frameworks */,
+				E0EC638CC255A313D1A5E350 /* Pods_CryptoApiLib_web3swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43597EB3B704D9B5A13DB6C5 /* Frameworks */ = {
+		52B4E62D50E51662E0337646 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6DF051A8F1B6FF8EF61B4CD2 /* Pods_CryptoApiLib_web3swift.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C24921A424D6636F26F975AD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4DC829E6D43503A54ABE7162 /* Pods-CryptoApiLib_web3swift.debug.xcconfig */,
-				ABADC1097323E19BBEE43A49 /* Pods-CryptoApiLib_web3swift.release.xcconfig */,
+				F1D7E1ED7B56E96BC02C87D2 /* Pods-CryptoApiLib_web3swift.debug.xcconfig */,
+				14889E711E16FB454B048EBC /* Pods-CryptoApiLib_web3swift.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		719AD3F79904BA549A18C6CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41EC4F9E8CE1E33B55BAA8AA /* Pods_CryptoApiLib_web3swift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CECB910524002BE40096F6EA = {
@@ -63,8 +63,8 @@
 			children = (
 				CECB911024002BE40096F6EA /* CryptoApiLib_web3swift */,
 				CECB910F24002BE40096F6EA /* Products */,
-				C24921A424D6636F26F975AD /* Pods */,
-				43597EB3B704D9B5A13DB6C5 /* Frameworks */,
+				52B4E62D50E51662E0337646 /* Pods */,
+				719AD3F79904BA549A18C6CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,11 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CECB912224002BE40096F6EA /* Build configuration list for PBXNativeTarget "CryptoApiLib_web3swift" */;
 			buildPhases = (
-				59D522565CA0C9F28B2C0A82 /* [CP] Check Pods Manifest.lock */,
+				1D0A5F8443E0D09DED198023 /* [CP] Check Pods Manifest.lock */,
 				CECB910A24002BE40096F6EA /* Sources */,
 				CECB910B24002BE40096F6EA /* Frameworks */,
 				CECB910C24002BE40096F6EA /* Resources */,
-				C2411D397DE79436F2104654 /* [CP] Embed Pods Frameworks */,
+				7287176A5AFBC6A554F0C7D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,7 +158,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		59D522565CA0C9F28B2C0A82 /* [CP] Check Pods Manifest.lock */ = {
+		1D0A5F8443E0D09DED198023 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -180,7 +180,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2411D397DE79436F2104654 /* [CP] Embed Pods Frameworks */ = {
+		7287176A5AFBC6A554F0C7D0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,7 +347,7 @@
 		};
 		CECB912324002BE40096F6EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DC829E6D43503A54ABE7162 /* Pods-CryptoApiLib_web3swift.debug.xcconfig */;
+			baseConfigurationReference = F1D7E1ED7B56E96BC02C87D2 /* Pods-CryptoApiLib_web3swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -367,7 +367,7 @@
 		};
 		CECB912424002BE40096F6EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABADC1097323E19BBEE43A49 /* Pods-CryptoApiLib_web3swift.release.xcconfig */;
+			baseConfigurationReference = 14889E711E16FB454B048EBC /* Pods-CryptoApiLib_web3swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

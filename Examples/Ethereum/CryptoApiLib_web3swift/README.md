@@ -5,6 +5,7 @@ The `source code` of the EthereumKit library you can find  by clicking on the [l
 ### Start using
 
 Сonfigure and return the object of the CryptoAPI class, which will allow to perform all the operations provided by the CryptoApiLib library.
+Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.
 ```swift
 func configCryptoApiLib() -> CryptoAPI {
     // Initialize setting for CryptoApi with your authorization token.
@@ -16,7 +17,21 @@ func configCryptoApiLib() -> CryptoAPI {
     return cryptoApi
 }
 ```
-Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.
+
+The example has an `enum with constants` that can be modified with valid data to run the example.
+```swift
+enum ExampleConstants {
+    static let authToken = "Your authorization token"
+    
+    static let toAddress = "recipient address"
+    static let sendAmount = "1000000000000000000"
+    
+    static let password = "recipient address"
+    static let mnemonicsPassword = ""
+    static let mnemonicString = "mnemonic of your address"
+    static let privateKey = "0xa26da69ed1df3ba4bb2a231d506b711eace012f1bd2571dfbfff9650b03375af"
+}
+```
 
 The following is an example that shows how to `generated address and obtain balance` for it using CryptoApiLib.
 ```swift

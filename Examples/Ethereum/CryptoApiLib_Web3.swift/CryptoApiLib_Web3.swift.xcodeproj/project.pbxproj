@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8675B41CA36760349A9E9A30 /* Pods_CryptoApiLib_Web3_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E2007B3ADBEFE2196277FE /* Pods_CryptoApiLib_Web3_swift.framework */; };
 		CEA484F92403FCF300503BD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA484F82403FCF300503BD4 /* AppDelegate.swift */; };
 		CEA484FD2403FCF300503BD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA484FC2403FCF300503BD4 /* ViewController.swift */; };
 		CEA485002403FCF300503BD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA484FE2403FCF300503BD4 /* Main.storyboard */; };
 		CEA485022403FCF400503BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA485012403FCF400503BD4 /* Assets.xcassets */; };
 		CEA485052403FCF400503BD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA485032403FCF400503BD4 /* LaunchScreen.storyboard */; };
-		F36AD437C782F4A177650D6C /* Pods_CryptoApiLib_Web3_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABAF4708D8C47D5CB6DDFE3 /* Pods_CryptoApiLib_Web3_swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BB14846C75BF5689A3F5776 /* Pods-CryptoApiLib_Web3.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_Web3.swift.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift.release.xcconfig"; sourceTree = "<group>"; };
-		7ABAF4708D8C47D5CB6DDFE3 /* Pods_CryptoApiLib_Web3_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApiLib_Web3_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E2007B3ADBEFE2196277FE /* Pods_CryptoApiLib_Web3_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApiLib_Web3_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		782BA74BFBFB7479C039C156 /* Pods-CryptoApiLib_Web3.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_Web3.swift.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift.release.xcconfig"; sourceTree = "<group>"; };
+		99BAAEF17574D96DE1D9C96B /* Pods-CryptoApiLib_Web3.swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_Web3.swift.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift.debug.xcconfig"; sourceTree = "<group>"; };
 		CEA484F52403FCF300503BD4 /* CryptoApiLib_Web3.swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApiLib_Web3.swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA484F82403FCF300503BD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA484FC2403FCF300503BD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +26,6 @@
 		CEA485012403FCF400503BD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEA485042403FCF400503BD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEA485062403FCF400503BD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F610A1370DD2957600941155 /* Pods-CryptoApiLib_Web3.swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_Web3.swift.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,18 +33,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F36AD437C782F4A177650D6C /* Pods_CryptoApiLib_Web3_swift.framework in Frameworks */,
+				8675B41CA36760349A9E9A30 /* Pods_CryptoApiLib_Web3_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A76974EDE4B254A35924D72 /* Pods */ = {
+		B308D1CC68B8450A7893184A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F610A1370DD2957600941155 /* Pods-CryptoApiLib_Web3.swift.debug.xcconfig */,
-				0BB14846C75BF5689A3F5776 /* Pods-CryptoApiLib_Web3.swift.release.xcconfig */,
+				49E2007B3ADBEFE2196277FE /* Pods_CryptoApiLib_Web3_swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD23A9F51409ABEBA5CC9952 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99BAAEF17574D96DE1D9C96B /* Pods-CryptoApiLib_Web3.swift.debug.xcconfig */,
+				782BA74BFBFB7479C039C156 /* Pods-CryptoApiLib_Web3.swift.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -55,8 +63,8 @@
 			children = (
 				CEA484F72403FCF300503BD4 /* CryptoApiLib_Web3.swift */,
 				CEA484F62403FCF300503BD4 /* Products */,
-				9A76974EDE4B254A35924D72 /* Pods */,
-				E31CAE0F0EE652456AD22492 /* Frameworks */,
+				BD23A9F51409ABEBA5CC9952 /* Pods */,
+				B308D1CC68B8450A7893184A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,14 +89,6 @@
 			path = CryptoApiLib_Web3.swift;
 			sourceTree = "<group>";
 		};
-		E31CAE0F0EE652456AD22492 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7ABAF4708D8C47D5CB6DDFE3 /* Pods_CryptoApiLib_Web3_swift.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,11 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEA485092403FCF400503BD4 /* Build configuration list for PBXNativeTarget "CryptoApiLib_Web3.swift" */;
 			buildPhases = (
-				B5BB59995C6A414FFEE506A5 /* [CP] Check Pods Manifest.lock */,
+				95F2E6E9A1E3F90AFF556907 /* [CP] Check Pods Manifest.lock */,
 				CEA484F12403FCF300503BD4 /* Sources */,
 				CEA484F22403FCF300503BD4 /* Frameworks */,
 				CEA484F32403FCF300503BD4 /* Resources */,
-				E6CD3C6653C3248F6BCAFA59 /* [CP] Embed Pods Frameworks */,
+				2F9FCEF0A1CDB023B038CD97 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,7 +158,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B5BB59995C6A414FFEE506A5 /* [CP] Check Pods Manifest.lock */ = {
+		2F9FCEF0A1CDB023B038CD97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95F2E6E9A1E3F90AFF556907 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -178,23 +195,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E6CD3C6653C3248F6BCAFA59 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib_Web3.swift/Pods-CryptoApiLib_Web3.swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -347,7 +347,7 @@
 		};
 		CEA4850A2403FCF400503BD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F610A1370DD2957600941155 /* Pods-CryptoApiLib_Web3.swift.debug.xcconfig */;
+			baseConfigurationReference = 99BAAEF17574D96DE1D9C96B /* Pods-CryptoApiLib_Web3.swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -367,7 +367,7 @@
 		};
 		CEA4850B2403FCF400503BD4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BB14846C75BF5689A3F5776 /* Pods-CryptoApiLib_Web3.swift.release.xcconfig */;
+			baseConfigurationReference = 782BA74BFBFB7479C039C156 /* Pods-CryptoApiLib_Web3.swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
