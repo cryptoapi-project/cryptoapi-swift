@@ -38,10 +38,12 @@ class ViewController: UIViewController {
         let keychain = mnemonic.keychain.derivedKeychain(withPath: "m/44'/1'/0'/0/0")!
         let key = keychain.key!
         
-        // CHANGE LIMIT TO nil
+        // MARK: Get outputs
+        
+        // get address unspent outputs to calculate balance or build the transaction
         var responseOutputs: [BTCAddressOutputResponseModel]?
         cryptoApi.btc.addressesOutputs(addresses: [key.address.string], status: "unspent",
-                                       skip: 0, limit: 25) { result in
+                                       skip: 0, limit: nil) { result in
                                         switch result {
                                         case let .success(outModels):
                                             responseOutputs = outModels
@@ -53,7 +55,10 @@ class ViewController: UIViewController {
                                         }
         }
         
-        var outputs = mapOutputsResponse(model: responseOutputs!)
+        // MARK: Build transaction
+        
+        // prepare values for transaction
+        let outputs = mapOutputsResponse(model: responseOutputs!)
         let changeAddress = BTCAddress(string: ExampleConstants.changeAddress)
         let toAddress = BTCAddress(string: ExampleConstants.toAddress)
         let value = BTCAmount(ExampleConstants.sendAmount)
@@ -64,6 +69,7 @@ class ViewController: UIViewController {
         
         var spentCoins = BTCAmount(0)
         
+        // convert each output to transaction input
         for txOut in outputs {
             let txIn = BTCTransactionInput()
             txIn.previousHash = txOut.transactionHash
@@ -75,43 +81,114 @@ class ViewController: UIViewController {
             spentCoins += txOut.value
         }
         
+        // prepare otputs for transaction
         let paymentOutput = BTCTransactionOutput(value: BTCAmount(value), address: toAddress)
         transaction.addOutput(paymentOutput)
         
+        // if you have a change, then create output with your change address
         if spentCoins > (value + fee) {
             let changeValue = spentCoins - (value + fee)
             let changeOutput = BTCTransactionOutput(value: changeValue, address: changeAddress)
             transaction.addOutput(changeOutput)
         }
         
+        // sign the transaction
         for i in 0..<outputs.count {
             let txOut = outputs[i]
             let txIn = transaction.inputs[i] as! BTCTransactionInput
             
             let hash = try! transaction.signatureHash(for: txOut.script, inputIndex: UInt32(i), hashType: .SIGHASH_ALL)
-            
-            let sigScript = BTCScript()
-            
             let signature = key.signature(forHash: hash)
             var signatureForScript = signature
+            
             let hashTypeData = BTCSignatureHashType.SIGHASH_ALL.rawValue
             var hashType = hashTypeData
+            
             signatureForScript?.append(&hashType, count: 1)
+            
+            let sigScript = BTCScript()
             _ = sigScript?.appendData(signatureForScript)
             _ = sigScript?.appendData(key.publicKey as Data?)
-            
-            if !key.isValidSignature(signature, hash: hash) {
-                return
-            }
-            
+
             txIn.signatureScript = sigScript
         }
         
+        // get a transaction hex and send it with CryptoApi
         let transactionHex = BTCHexFromData(transaction.data)!
+        cryptoApi.btc.sendRaw(transaction: transactionHex) { result in
+            switch result {
+            case .success(let response):
+                print(response.result)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        // MARK: Fee estimating
+        
+        //firs of all, you need to get fee rate for kilobyte
+        var feePerKb: BTCAmount?
+        cryptoApi.btc.estimateFee { result in
+            switch result {
+            case .success(let feeString):
+                feePerKb = BTCAmount(feeString)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        //we need to calculate how much the transaction weighs and how many outs we need to take in transaction
+        //  to cover the amount sent and the fee.
+        var resultFee = feePerKb
+        
+        let maxFee = Int(pow(Double(10), Double(8))) //fee cannot be greater than 1 btc
+        while fee < maxFee {
+            let transaction = BTCTransaction() //build transaction like example above.
+            
+            let validFee = transaction.estimatedFee(withRate: feePerKb!)
+            
+            if validFee <= fee {
+                resultFee = validFee
+                break
+            }
+            
+            resultFee! += feePerKb!
+        }
+        // resultFee is the result of estimation of fee
     }
 }
 
 extension ViewController {
+    // Use this method if you want to select optimal number of outputs.
+    func selectNeededOutputs(for value: Int64, from: [BTCTransactionOutput]) -> (outs: [BTCTransactionOutput], selectedOutsAmount: BTCAmount)? {
+        var neededOuts = [BTCTransactionOutput]()
+        var total: BTCAmount = 0
+        var utxos = from
+        
+        guard utxos.count > 0 else {
+            return nil
+        }
+        
+        utxos = utxos.sorted(by: { $0.value < $1.value })
+        for txout in utxos {
+            
+            if txout.script.isPayToPublicKeyHashScript {
+                neededOuts.append(txout)
+                total += txout.value
+            }
+            
+            if total >= value {
+                break
+            }
+        }
+        
+        if total < value {
+            return nil
+        }
+        
+        return (neededOuts, total)
+    }
+    
     func mapOutputsResponse(model: [BTCAddressOutputResponseModel])  -> [BTCTransactionOutput] {
         var outputs = [BTCTransactionOutput]()
         
@@ -131,16 +208,17 @@ extension ViewController {
 }
 
 private extension String {
-    
     func invertHex() -> String {
-        
         let hexString = String(self)
         var reversedString = String()
         var charIndex = self.count
         
         while charIndex > 0 {
             charIndex -= 2
-            let substring = hexString[charIndex..<charIndex+2]
+            let lowerBound = String.Index(utf16Offset: charIndex, in: hexString)
+            let upperBound = String.Index(utf16Offset: charIndex+2, in: hexString)
+            
+            let substring = hexString[lowerBound..<upperBound]
             reversedString += String(describing: substring.first!)
             reversedString += String(describing: substring.last!)
         }
