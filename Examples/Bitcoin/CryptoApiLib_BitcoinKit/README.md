@@ -57,7 +57,7 @@ var externalIndex: UInt32 {
 }
 let network = Network.testnetBTC
 ```
-### Genarate address. Get outputs.
+### Generate address. Get outputs.
 The following is an example that shows how to `generate address and obtain unspent outputs` for it using CryptoApiLib.
 ```swift
 let mnemonic = try! Mnemonic.generate()

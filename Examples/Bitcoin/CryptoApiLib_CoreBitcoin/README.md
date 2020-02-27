@@ -33,7 +33,7 @@ enum ExampleConstants {
 }
 ```
 
-### Genarate address. Get outputs.
+### Generate address. Get outputs.
 The following is an example that shows how to `generate address and obtain unspent outputs` for it using CryptoApiLib.
 ```swift
 let cryptoApi = configCryptoApiLib()
