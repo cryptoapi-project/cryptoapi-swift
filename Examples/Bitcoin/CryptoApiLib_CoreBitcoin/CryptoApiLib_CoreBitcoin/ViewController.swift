@@ -23,10 +23,12 @@ enum ExampleConstants {
 class ViewController: UIViewController {
     
     func configCryptoApiLib() -> CryptoAPI {
+        // Initialize setting for CryptoApi with your authorization token.
         let settings = Settings(authorizationToken: ExampleConstants.authToken) { configurator in
             configurator.networkType = NetworkType.testnet
         }
         let api = CryptoAPI(settings: settings)
+        
         return api
     }
     
@@ -81,7 +83,7 @@ class ViewController: UIViewController {
             spentCoins += txOut.value
         }
         
-        // prepare otputs for transaction
+        // prepare outputs for transaction
         let paymentOutput = BTCTransactionOutput(value: BTCAmount(value), address: toAddress)
         transaction.addOutput(paymentOutput)
         
@@ -131,7 +133,9 @@ class ViewController: UIViewController {
         cryptoApi.btc.estimateFee { result in
             switch result {
             case .success(let feeString):
-                feePerKb = BTCAmount(feeString)
+                // response has result like "0.00001". Convert it to satoshi if necessary.
+                let feeSatoshi = Double(feeString)! * 10000000
+                feePerKb = BTCAmount(feeSatoshi)
             case .failure(let error):
                 print(error)
             }
@@ -141,7 +145,7 @@ class ViewController: UIViewController {
         //  to cover the amount sent and the fee.
         var resultFee = feePerKb
         
-        let maxFee = Int(pow(Double(10), Double(8))) //fee cannot be greater than 1 btc
+        let maxFee = 100000000 //fee cannot be greater than 1 btc (100000000 satoshi)
         while fee < maxFee {
             let transaction = BTCTransaction() //build transaction like example above.
             
