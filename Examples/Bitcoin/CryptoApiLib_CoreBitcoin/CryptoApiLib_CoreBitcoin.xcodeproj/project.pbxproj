@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		942D8E2CFA81F6ADBCF74441 /* libPods-CryptoApiLib_CoreBitcoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 363D67531CE7B93208491A78 /* libPods-CryptoApiLib_CoreBitcoin.a */; };
+		607EB04AB2F9EC286540C584 /* libPods-CryptoApiLib_CoreBitcoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553A8357D196BCA5B0A87CD /* libPods-CryptoApiLib_CoreBitcoin.a */; };
 		CE46BE60240550DA00BE5EDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46BE5F240550DA00BE5EDD /* AppDelegate.swift */; };
 		CE46BE64240550DA00BE5EDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46BE63240550DA00BE5EDD /* ViewController.swift */; };
 		CE46BE67240550DA00BE5EDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE46BE65240550DA00BE5EDD /* Main.storyboard */; };
@@ -16,9 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1CCDEFC193FE9F3A6B2775A5 /* Pods-CryptoApiLib_CoreBitcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_CoreBitcoin.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_CoreBitcoin/Pods-CryptoApiLib_CoreBitcoin.release.xcconfig"; sourceTree = "<group>"; };
-		363D67531CE7B93208491A78 /* libPods-CryptoApiLib_CoreBitcoin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CryptoApiLib_CoreBitcoin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B844B4379C5A82D767C1623A /* Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_CoreBitcoin/Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig"; sourceTree = "<group>"; };
+		12540D3B9FFE18ADAADB9728 /* Pods-CryptoApiLib_CoreBitcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_CoreBitcoin.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_CoreBitcoin/Pods-CryptoApiLib_CoreBitcoin.release.xcconfig"; sourceTree = "<group>"; };
+		1553A8357D196BCA5B0A87CD /* libPods-CryptoApiLib_CoreBitcoin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CryptoApiLib_CoreBitcoin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6189B91878B7A2B8BC118BFB /* Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_CoreBitcoin/Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig"; sourceTree = "<group>"; };
 		CE46BE5C240550DA00BE5EDD /* CryptoApiLib_CoreBitcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApiLib_CoreBitcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE46BE5F240550DA00BE5EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE46BE63240550DA00BE5EDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,17 +34,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				942D8E2CFA81F6ADBCF74441 /* libPods-CryptoApiLib_CoreBitcoin.a in Frameworks */,
+				607EB04AB2F9EC286540C584 /* libPods-CryptoApiLib_CoreBitcoin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		685E4C2EB241BC1C0C7B4D7F /* Frameworks */ = {
+		C74DA9493D17ED6A65C92919 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				363D67531CE7B93208491A78 /* libPods-CryptoApiLib_CoreBitcoin.a */,
+				1553A8357D196BCA5B0A87CD /* libPods-CryptoApiLib_CoreBitcoin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -55,7 +55,7 @@
 				CE46BE5E240550DA00BE5EDD /* CryptoApiLib_CoreBitcoin */,
 				CE46BE5D240550DA00BE5EDD /* Products */,
 				EE3D65825AF2807AB5314E4A /* Pods */,
-				685E4C2EB241BC1C0C7B4D7F /* Frameworks */,
+				C74DA9493D17ED6A65C92919 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,8 +84,8 @@
 		EE3D65825AF2807AB5314E4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B844B4379C5A82D767C1623A /* Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig */,
-				1CCDEFC193FE9F3A6B2775A5 /* Pods-CryptoApiLib_CoreBitcoin.release.xcconfig */,
+				6189B91878B7A2B8BC118BFB /* Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig */,
+				12540D3B9FFE18ADAADB9728 /* Pods-CryptoApiLib_CoreBitcoin.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -97,7 +97,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE46BE70240550DB00BE5EDD /* Build configuration list for PBXNativeTarget "CryptoApiLib_CoreBitcoin" */;
 			buildPhases = (
-				597E148AC4B99C00C27979CA /* [CP] Check Pods Manifest.lock */,
+				F1E37F3DEEB53CA1685C962F /* [CP] Check Pods Manifest.lock */,
 				CE46BE58240550DA00BE5EDD /* Sources */,
 				CE46BE59240550DA00BE5EDD /* Frameworks */,
 				CE46BE5A240550DA00BE5EDD /* Resources */,
@@ -159,7 +159,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		597E148AC4B99C00C27979CA /* [CP] Check Pods Manifest.lock */ = {
+		F1E37F3DEEB53CA1685C962F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -331,7 +331,7 @@
 		};
 		CE46BE71240550DB00BE5EDD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B844B4379C5A82D767C1623A /* Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig */;
+			baseConfigurationReference = 6189B91878B7A2B8BC118BFB /* Pods-CryptoApiLib_CoreBitcoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -354,7 +354,7 @@
 		};
 		CE46BE72240550DB00BE5EDD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CCDEFC193FE9F3A6B2775A5 /* Pods-CryptoApiLib_CoreBitcoin.release.xcconfig */;
+			baseConfigurationReference = 12540D3B9FFE18ADAADB9728 /* Pods-CryptoApiLib_CoreBitcoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
