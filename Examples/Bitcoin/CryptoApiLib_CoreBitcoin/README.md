@@ -1,8 +1,8 @@
 # Using CryptoApiLib library with CoreBitcoin
 
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://github.com/oleganza/CoreBitcoin)
+The `source code` of the CoreBitcoin library you can find  by clicking on the [link](https://github.com/oleganza/CoreBitcoin)
 
-### Start using
+### Start using CryptoApi
 
 Сonfigure and return the object of the CryptoAPI class, which will allow to perform all the operations provided by the CryptoApiLib library.
 Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.
@@ -18,6 +18,7 @@ func configCryptoApiLib() -> CryptoAPI {
 }
 ```
 
+### Constanst
 The example has an `enum with constants` that can be modified with valid data to run the example.
 ```swift
 enum ExampleConstants {
@@ -32,6 +33,7 @@ enum ExampleConstants {
 }
 ```
 
+### Genarate address. Get outputs.
 The following is an example that shows how to `generate address and obtain unspent outputs` for it using CryptoApiLib.
 ```swift
 let cryptoApi = configCryptoApiLib()
@@ -59,8 +61,9 @@ cryptoApi.btc.addressesOutputs(addresses: [key.address.string], status: "unspent
 }
 ```
 
-CryptoAPI allows you to send raw transactions, but before that you need to prepare it.
-`Creating and sending a transaction` is as follows:
+### Create Transaction
+CryptoAPI allows you to send raw transactions, but before that you need to prepare it. As a result, you will get a transaction ready to be sent to the network.
+`Creating a transaction` is as follows:
 ```swift
 // prepare values for transaction
 let outputs = mapOutputsResponse(model: responseOutputs!)
@@ -117,7 +120,11 @@ for i in 0..<outputs.count {
 
     txIn.signatureScript = sigScript
 }
+```
 
+### Send Transaction
+It remains only to `send` the transaction by sending a hash of the transaction using CryptoApi.
+```swift
 // get a transaction hex and send it with CryptoApi
 let transactionHex = BTCHexFromData(transaction.data)!
 cryptoApi.btc.sendRaw(transaction: transactionHex) { result in
@@ -130,6 +137,7 @@ cryptoApi.btc.sendRaw(transaction: transactionHex) { result in
 }
 ```
 
+### Calculate fee for transaction
 You can `calculate fee` for your transaction based on fee rate for kilobyte.
 ```swift
 //firs of all, you need to get fee rate for kilobyte

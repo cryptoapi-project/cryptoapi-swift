@@ -41,7 +41,6 @@ class ViewController: UIViewController {
         let key = keychain.key!
         
         // MARK: Get outputs
-        
         // get address unspent outputs to calculate balance or build the transaction
         var responseOutputs: [BTCAddressOutputResponseModel]?
         cryptoApi.btc.addressesOutputs(addresses: [key.address.string], status: "unspent",
@@ -111,7 +110,7 @@ class ViewController: UIViewController {
             let sigScript = BTCScript()
             _ = sigScript?.appendData(signatureForScript)
             _ = sigScript?.appendData(key.publicKey as Data?)
-
+            
             txIn.signatureScript = sigScript
         }
         
