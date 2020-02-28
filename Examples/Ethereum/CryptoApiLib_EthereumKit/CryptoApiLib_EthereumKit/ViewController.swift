@@ -37,12 +37,14 @@ class ViewController: UIViewController {
         
         let cryptoApi = configCryptoApiLib()
         
+        // generate address
         let mnemonic = Mnemonic.create(entropy: Data(hex: ExampleConstants.mnemonicHex))
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
         let wallet = try! Wallet(seed: seed, network: .ropsten, debugPrints: true)
         
         let address = wallet.address()
         
+        // get generated address
         cryptoApi.eth.balance(addresses: [address]) { result in
             switch result {
             case .success(let addressesBalancesArray):
@@ -55,6 +57,7 @@ class ViewController: UIViewController {
             }
         }
         
+        // estimate gas for transaction
         var estimatedGas: ETHEstimateGasResponseModel?
         cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: ExampleConstants.toAddress,
                                   data: "", value: ExampleConstants.sendAmount) { result in
@@ -69,6 +72,7 @@ class ViewController: UIViewController {
             }
         }
         
+        // build transaction for transaction
         guard let fee = estimatedGas else {
             return
         }
@@ -77,6 +81,7 @@ class ViewController: UIViewController {
         let rawTransaction = RawTransaction(value: value, to: address, gasPrice: Int(fee.gasPrice)!, gasLimit: fee.estimateGas, nonce: fee.nonce)
         let transactionHash = try! wallet.sign(rawTransaction: rawTransaction)
         
+        // send buided transaction
         cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
             switch result {
             case .success(let response):
