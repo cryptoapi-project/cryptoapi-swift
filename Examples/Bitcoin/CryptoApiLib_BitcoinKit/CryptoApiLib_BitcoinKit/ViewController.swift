@@ -71,18 +71,19 @@ class ViewController: UIViewController {
         cryptoApi.btc.addressesOutputs(
             addresses: [wallet.address.legacy],
             status: "unspent",
-            skip: 0, limit: nil)
-        {
-                result in
-                switch result {
-                case let .success(outModels):
-                    responseOutputs = outModels
-                    for output in outModels {
-                        print(output.value)
-                    }
-                case let .failure(error):
-                    print(error)
+            skip: 0,
+            limit: nil
+        ) {
+            result in
+            switch result {
+            case let .success(outModels):
+                responseOutputs = outModels
+                for output in outModels {
+                    print(output.value)
                 }
+            case let .failure(error):
+                print(error)
+            }
         }
         
         // MARK: Get fee per kilobyte

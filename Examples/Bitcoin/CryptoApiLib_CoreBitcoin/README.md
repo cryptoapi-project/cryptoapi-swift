@@ -51,17 +51,19 @@ var responseOutputs: [BTCAddressOutputResponseModel]?
 cryptoApi.btc.addressesOutputs(
     addresses: [key.address.string],
     status: "unspent",
-    skip: 0, limit: nil) {
-        result in
-        switch result {
-        case let .success(outModels):
-            responseOutputs = outModels
-            for output in outModels {
-                print(output.value)
-            }
-        case let .failure(error):
-            print(error)
+    skip: 0,
+    limit: nil
+) {
+    result in
+    switch result {
+    case let .success(outModels):
+        responseOutputs = outModels
+        for output in outModels {
+            print(output.value)
         }
+    case let .failure(error):
+        print(error)
+    }
 }
 ```
 
