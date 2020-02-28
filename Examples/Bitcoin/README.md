@@ -1,25 +1,9 @@
-# CryptoApiLib with popular Ethereum libraries
+# CryptoApiLib with popular Bitcoin libraries
 
-CryptoApiLib has the ability to be used in conjunction with many popular ethereum libraries. Here you can find links to examples of use with some libraries.
+CryptoApiLib has the ability to be used with many popular bitcoin libraries. Here you can find links to libraries and examples of use with some libraries.
 
-### EthereumKit with CryptoApiLib 
-
-An example project with the use of these libraries you can find [here](/CryptoApiLib_EthereumKit).
-
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://github.com/D-Technologies/EthereumKit)
-
-### Web3.swift with CryptoApiLib 
-
-An example project with the use of these libraries you can find [here](/CryptoApiLib_Web3.swift).
-
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://github.com/Boilertalk/Web3.swift)
-
-### web3swift with CryptoApiLib 
-
-An example project with the use of these libraries you can find [here](/CryptoApiLib_web3swift).
-
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://cocoapods.org/pods/web3swift)
-
+* **[Example project](./CryptoApiLib_CoreBitcoin)  with [CoreBitcoin](https://github.com/oleganza/CoreBitcoin).**
+* **[Example project](./CryptoApiLib_BitcoinKit)  with [BitcoinKit](https://github.com/yenom/BitcoinKit).**
 
 ## License
 
