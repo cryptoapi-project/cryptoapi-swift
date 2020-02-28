@@ -12,7 +12,7 @@ protocol BCHNetworkAdapter {
     //BCH
     func network(completion: @escaping (Result<BCHNetworkResponseModel, CryptoApiError>) -> Void)
     
-    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    func feePerKb(completion: @escaping (Result<String, CryptoApiError>) -> Void)
     
     func sendRaw(transaction: String,
                  completion: @escaping (Result<BCHSendRawResponseModel, CryptoApiError>) -> Void)

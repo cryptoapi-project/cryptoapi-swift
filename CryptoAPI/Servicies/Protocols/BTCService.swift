@@ -21,7 +21,7 @@ public protocol BTCService {
          
     - Parameter completion: Callback which returns an [Strint](String) result  or error
 */
-    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    func feePerKb(completion: @escaping (Result<String, CryptoApiError>) -> Void)
         
 /**
      Send raw btc transaction.

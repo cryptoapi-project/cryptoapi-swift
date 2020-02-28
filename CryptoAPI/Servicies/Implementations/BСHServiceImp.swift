@@ -19,8 +19,8 @@ final class BCHServiceImp: BCHService {
         networkAdapter.network(completion: completion)
     }
     
-    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
-        networkAdapter.estimateFee(completion: completion)
+    func feePerKb(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        networkAdapter.feePerKb(completion: completion)
     }
     
     func sendRaw(transaction: String,

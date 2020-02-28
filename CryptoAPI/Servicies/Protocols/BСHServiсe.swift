@@ -21,7 +21,7 @@ public protocol BCHService {
      
      - Parameter completion: Callback which returns an [String](String) result  or error
 */
-    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void)
+    func feePerKb(completion: @escaping (Result<String, CryptoApiError>) -> Void)
     
 /**
      Send raw BCH transaction.
