@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         
         let cryptoApi = configCryptoApiLib()
         
+        // generate address
         let privateKey = try! EthereumPrivateKey(hexPrivateKey: ExampleConstants.privateKey)
         let address = privateKey.address.hex(eip55: true)
         print(address)
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
             }
         }
         
+        // estimate gas for transaction
         var estimatedGas: ETHEstimateGasResponseModel?
         cryptoApi.eth.estimateGas(fromAddress: privateKey.address.hex(eip55: true),
                                   toAddress: privateKey.address.hex(eip55: true),
@@ -68,16 +70,24 @@ class ViewController: UIViewController {
             }
         }
         
-        // prepare and send raw transaction
+        // prepare transaction for send
         let nonce = EthereumQuantity(quantity: BigUInt(estimatedGas!.nonce))
         let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas!.gasPrice))
         let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas!.estimateGas))
         let value = EthereumQuantity(quantity: 1.eth)
         let toAddress = try! EthereumAddress(hex: ExampleConstants.toAddress, eip55: true)
         
-        let transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gas: gasLimit, from: privateKey.address, to: toAddress, value: value)
+        let transaction = EthereumTransaction(
+            nonce: nonce,
+            gasPrice: gasPrice,
+            gas: gasLimit,
+            from: privateKey.address,
+            to: toAddress,
+            value: value
+        )
         let signedTransaction = try! transaction.sign(with: privateKey)
         
+        // send builded raw transaction
         cryptoApi.eth.sendRaw(transaction: signedTransaction.data.hex()) { result in
             switch result {
             case .success(let txResponse):

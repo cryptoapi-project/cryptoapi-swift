@@ -39,8 +39,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let cryptoApi = configCryptoApiLib()
         
+        // generate address
         let mnemonicString = ExampleConstants.mnemonicString
-        
         let keystore = try! BIP32Keystore(mnemonics: mnemonicString,
                                           password: ExampleConstants.password,
                                           mnemonicsPassword: ExampleConstants.mnemonicsPassword,
@@ -52,6 +52,7 @@ class ViewController: UIViewController {
         let account = try! web.wallet.getAccounts().first!
         let address = keystore.addresses!.first!.address
         
+        // get balance for generated account
         cryptoApi.eth.balance(addresses: [address]) { result in
             switch result {
             case .success(let addressesBalancesArray):
@@ -64,9 +65,13 @@ class ViewController: UIViewController {
             }
         }
 
+        // estimate gas for transaction
         var estimatedGas: ETHEstimateGasResponseModel?
-        cryptoApi.eth.estimateGas(fromAddress: address, toAddress: ExampleConstants.toAddress,
-                                  data: "", value: ExampleConstants.sendAmount) { result in
+        cryptoApi.eth.estimateGas(
+            fromAddress: address, toAddress: ExampleConstants.toAddress,
+            data: "",
+            value: ExampleConstants.sendAmount
+        ) { result in
             switch result {
             case .success(let response):
                 estimatedGas = response
@@ -78,6 +83,7 @@ class ViewController: UIViewController {
             }
         }
         
+        // build transaction
         guard let fee = estimatedGas else {
             return
         }
@@ -92,17 +98,19 @@ class ViewController: UIViewController {
         let r = BigUInt(0)
         let s = BigUInt(0)
         
-        var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice,
-                                              gasLimit: gasLimit, to: ethToAddress,
-                                              value: intTransactionValue, data: Data(),
-                                              v: v,
-                                              r: r,
-                                              s: s)
+        var transaction = EthereumTransaction(
+            nonce: nonce, gasPrice: gasPrice,
+            gasLimit: gasLimit, to: ethToAddress,
+            value: intTransactionValue, data: Data(),
+            v: v, r: r, s: s
+        )
         transaction.UNSAFE_setChainID(BigUInt(4)) // "4" for Rinkeby provider
         
+        // sing the transaction
         try! Web3Signer.signTX(transaction: &transaction, keystore: keystoreManager, account: account, password: "")
         let transactionHash = transaction.encode()!.toHexString()
         
+        // send builded transaction
         cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
             switch result {
             case .success(let response):
