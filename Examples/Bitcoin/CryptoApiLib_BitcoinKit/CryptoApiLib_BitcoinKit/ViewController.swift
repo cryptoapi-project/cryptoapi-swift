@@ -87,7 +87,7 @@ class ViewController: UIViewController {
         // MARK: Get fee per kilobyte
         var feePerKb: String?
         //var feePerKb: Int64?
-        cryptoApi.btc.estimateFee { result in
+        cryptoApi.btc.feePerKb { result in
             switch result {
             case .success(let feeString):
                 // response has result like "0.00001". Convert it to satoshi if necessary.
