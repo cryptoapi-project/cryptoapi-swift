@@ -1,4 +1,4 @@
-# Using CryptoApiLib library with [web3swift](https://cocoapods.org/pods/web3swift)
+# Using CryptoApiLib library with [web3swift](https://github.com/matter-labs/web3swift)
 
 
 ### Get started
