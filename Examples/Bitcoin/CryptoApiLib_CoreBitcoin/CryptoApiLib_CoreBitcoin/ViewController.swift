@@ -50,7 +50,8 @@ class ViewController: UIViewController {
         cryptoApi.btc.addressesOutputs(
             addresses: [key.address.string],
             status: "unspent",
-            skip: 0, limit: nil) {
+            skip: 0, limit: nil)
+        {
                 result in
                 switch result {
                 case let .success(outModels):
