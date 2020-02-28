@@ -53,7 +53,7 @@ class BTCServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testNetworkTest")
         
         //act
-        api.btc.estimateFee { result in
+        api.btc.feePerKb { result in
             switch result {
             case let .success(feePerKb):
                 //assert
