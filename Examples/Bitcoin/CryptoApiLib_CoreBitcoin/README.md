@@ -1,8 +1,6 @@
-# Using CryptoApiLib library with CoreBitcoin
+# Using CryptoApiLib library with [CoreBitcoin](https://github.com/oleganza/CoreBitcoin)
 
-The `source code` of the CoreBitcoin library you can find  by clicking on the [link](https://github.com/oleganza/CoreBitcoin)
-
-### Start using CryptoApi
+### Get started
 
 Сonfigure and return the object of the CryptoAPI class, which will allow to perform all the operations provided by the CryptoApiLib library.
 Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.

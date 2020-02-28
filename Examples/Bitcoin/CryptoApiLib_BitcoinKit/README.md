@@ -1,8 +1,6 @@
-# Using CryptoApiLib library with BitcoinKit
+# Using CryptoApiLib library with [BitcoinKit](https://github.com/yenom/BitcoinKit)
 
-The `source code` of the BitcoinKit library you can find  by clicking on the [link](https://github.com/yenom/BitcoinKit)
-
-### Start using CryptoApi
+### Get started
 
 Сonfigure and return the object of the CryptoAPI class, which will allow to perform all the operations provided by the CryptoApiLib library.
 Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.
