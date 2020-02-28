@@ -4,22 +4,21 @@ CryptoApiLib has the ability to be used in conjunction with many popular ethereu
 
 ### EthereumKit with CryptoApiLib 
 
-An example project with the use of these libraries you can find [here](./CryptoApiLib_EthereumKit).
+Check out a [example project](./CryptoApiLib_EthereumKit) to understand how to use these libraries together.
 
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://github.com/D-Technologies/EthereumKit)
+Visit the [EthereumKit github repository](https://github.com/D-Technologies/EthereumKit) to discover the `source code` of library.
 
 ### Web3.swift with CryptoApiLib 
 
-An example project with the use of these libraries you can find [here](./CryptoApiLib_Web3.swift).
+Check out a [example project](./CryptoApiLib_Web3.swift) to understand how to use these libraries together.
 
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://github.com/Boilertalk/Web3.swift)
+Visit the [Web3.swift github repository](https://github.com/Boilertalk/Web3.swift) to discover the `source code` of library.
 
 ### web3swift with CryptoApiLib 
 
-An example project with the use of these libraries you can find [here](./CryptoApiLib_web3swift).
+Check out a [example project](./CryptoApiLib_web3swift) to understand how to use these libraries together.
 
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://cocoapods.org/pods/web3swift)
-
+Visit the [web3swift github repository](https://github.com/oleganza/CoreBitcoin) to discover the `source code` of library.
 
 ## License
 
