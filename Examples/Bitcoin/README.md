@@ -12,7 +12,7 @@ Visit the [CoreBitcoin github repository](https://github.com/oleganza/CoreBitcoi
 
 Check out a [example project](./CryptoApiLib_BitcoinKit) to understand how to use these libraries together.
 
-Visit the [CoreBitcoin github repository](https://github.com/yenom/BitcoinKit) to discover the `source code` of library.
+Visit the [BitcoinKit github repository](https://github.com/yenom/BitcoinKit) to discover the `source code` of library.
 
 ## License
 
