@@ -1,8 +1,7 @@
-# Using CryptoApiLib library with web3swift
+# Using CryptoApiLib library with [web3swift](https://cocoapods.org/pods/web3swift)
 
-The `source code` of the EthereumKit library you can find  by clicking on the [link](https://cocoapods.org/pods/web3swift)
 
-### Start using CryptoApi
+### Get started
 
 Сonfigure and return the object of the CryptoAPI class, which will allow to perform all the operations provided by the CryptoApiLib library.
 Further, we can use the obtained method to get the CryptoAPI object anywhere in the program.
