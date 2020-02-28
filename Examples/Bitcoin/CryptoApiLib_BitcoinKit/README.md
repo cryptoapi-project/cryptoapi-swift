@@ -17,7 +17,6 @@ func configCryptoApiLib() -> CryptoAPI {
     return cryptoApi
 }
 ```
-
 ### Constants
 The example has an `enum with constants` that can be modified with valid data to run the example.
 
@@ -62,24 +61,26 @@ The following is an example that shows how to `generate address and obtain unspe
 ```swift
 let mnemonic = try! Mnemonic.generate()
 let seed = try! Mnemonic.seed(mnemonic: mnemonic)
-let wallet = HDWallet(seed: seed, externalIndex: externalIndex, 
-                      internalIndex: internalIndex, network: network)
+let wallet = HDWallet(seed: seed, externalIndex: externalIndex, internalIndex: internalIndex, network: network)
 let privateKey = HDPrivateKey(seed: seed, network: .testnetBTC)
 
 // MARK: Get outputs
 // get address unspent outputs for balance calculating or transaction building
 var responseOutputs: [BTCAddressOutputResponseModel]?
-cryptoApi.btc.addressesOutputs(addresses: [wallet.address.legacy], status: "unspent",
-                               skip: 0, limit: nil) { result in
-                                switch result {
-                                case let .success(outModels):
-                                    responseOutputs = outModels
-                                    for output in outModels {
-                                        print(output.value)
-                                    }
-                                case let .failure(error):
-                                    print(error)
-                                }
+cryptoApi.btc.addressesOutputs(
+    addresses: [wallet.address.legacy],
+    status: "unspent",
+    skip: 0, limit: nil) {
+        result in
+        switch result {
+        case let .success(outModels):
+            responseOutputs = outModels
+            for output in outModels {
+                print(output.value)
+            }
+        case let .failure(error):
+            print(error)
+        }
 }
 ```
 ### Obtain fee rate per kilobyte with CryptoApi
@@ -91,9 +92,9 @@ cryptoApi.btc.estimateFee { result in
     switch result {
     case .success(let feeString):
         // response has result like "0.00001". Convert it to satoshi if necessary.
-            //let feeSatoshi = Double(feeString)! * ExampleConstants.btcToSatoshiRound
-            //feePerKb = Int64(feeSatoshi)
-        feePerKb = (feeString)
+        //let feeSatoshi = Double(feeString)! * ExampleConstants.btcToSatoshiRound
+        //feePerKb = Int64(feeSatoshi)
+        feePerKb = feeString
     case .failure(let error):
         print(error)
     }
@@ -141,10 +142,11 @@ for (i, output) in tx.outputs.enumerated() {
     
     let unlockingScript = Script.buildPublicKeyUnlockingScript(signature: signature, pubkey: pubkey, hashType: hashType)
     
-    inputsToSign[i] = TransactionInput(previousOutput: txin.previousOutput, signatureScript: unlockingScript, sequence: txin.sequence)
+    inputsToSign[i] = TransactionInput(previousOutput: txin.previousOutput,
+                                       signatureScript: unlockingScript,
+                                       sequence: txin.sequence)
 }
 ```
-
 ### Send Transaction
 It remains only to send the transaction by sending a hash of the transaction using CryptoApi.
 ```swift

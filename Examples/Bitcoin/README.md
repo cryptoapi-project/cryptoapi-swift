@@ -4,15 +4,15 @@ CryptoApiLib has the ability to be used with many popular bitcoin libraries. Her
 
 ### CoreBitcoin with CryptoApiLib 
 
-An example project with the use of these libraries you can find [here](/CryptoApiLib_CoreBitcoin).
+Check out a [example project](./CryptoApiLib_CoreBitcoin) to understand how to use these libraries together.
 
-The `source code` of the CoreBitcoin library you can find  by clicking on the [link](https://github.com/oleganza/CoreBitcoin)
+Visit the [CoreBitcoin github repository](https://github.com/oleganza/CoreBitcoin) to discover the `source code` of library.
 
 ### BitcoinKit with CryptoApiLib 
 
-An example project with the use of these libraries you can find [here](/CryptoApiLib_BitcoinKit).
+Check out a [example project](./CryptoApiLib_BitcoinKit) to understand how to use these libraries together.
 
-The `source code` of the BitcoinKit library you can find  by clicking on the [link](https://github.com/yenom/BitcoinKit)
+Visit the [CoreBitcoin github repository](https://github.com/yenom/BitcoinKit) to discover the `source code` of library.
 
 ## License
 

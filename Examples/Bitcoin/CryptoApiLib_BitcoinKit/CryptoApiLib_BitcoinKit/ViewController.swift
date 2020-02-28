@@ -28,9 +28,9 @@ class ViewController: UIViewController {
             configurator.networkType = NetworkType.testnet
             configurator.debugEnabled = true
         }
-        let api = CryptoAPI(settings: settings)
+        let cryptoApi = CryptoAPI(settings: settings)
         
-        return api
+        return cryptoApi
     }
 
     override func viewDidLoad() {
@@ -68,17 +68,20 @@ class ViewController: UIViewController {
         // MARK: Get outputs
         // get address unspent outputs for balance calculating or transaction building
         var responseOutputs: [BTCAddressOutputResponseModel]?
-        cryptoApi.btc.addressesOutputs(addresses: [wallet.address.legacy], status: "unspent",
-                                       skip: 0, limit: nil) { result in
-                                        switch result {
-                                        case let .success(outModels):
-                                            responseOutputs = outModels
-                                            for output in outModels {
-                                                print(output.value)
-                                            }
-                                        case let .failure(error):
-                                            print(error)
-                                        }
+        cryptoApi.btc.addressesOutputs(
+            addresses: [wallet.address.legacy],
+            status: "unspent",
+            skip: 0, limit: nil) {
+                result in
+                switch result {
+                case let .success(outModels):
+                    responseOutputs = outModels
+                    for output in outModels {
+                        print(output.value)
+                    }
+                case let .failure(error):
+                    print(error)
+                }
         }
         
         // MARK: Get fee per kilobyte
@@ -90,7 +93,7 @@ class ViewController: UIViewController {
                 // response has result like "0.00001". Convert it to satoshi if necessary.
                     //let feeSatoshi = Double(feeString)! * ExampleConstants.btcToSatoshiRound
                     //feePerKb = Int64(feeSatoshi)
-                feePerKb = (feeString)
+                feePerKb = feeString
             case .failure(let error):
                 print(error)
             }
@@ -136,7 +139,9 @@ class ViewController: UIViewController {
             
             let unlockingScript = Script.buildPublicKeyUnlockingScript(signature: signature, pubkey: pubkey, hashType: hashType)
             
-            inputsToSign[i] = TransactionInput(previousOutput: txin.previousOutput, signatureScript: unlockingScript, sequence: txin.sequence)
+            inputsToSign[i] = TransactionInput(previousOutput: txin.previousOutput,
+                                               signatureScript: unlockingScript,
+                                               sequence: txin.sequence)
         }
         
         // MARK: Send transaction

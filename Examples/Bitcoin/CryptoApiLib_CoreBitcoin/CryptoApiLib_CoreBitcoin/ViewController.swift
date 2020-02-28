@@ -11,6 +11,8 @@ import CryptoApiLib
 
 enum ExampleConstants {
     static let authToken = "Your token"
+    static let mainnetDerivationPath = "m/44'/0'/0'/0/0"
+    static let testnetDerivationPath = "m/44'/1'/0'/0/0"
     
     static let changeAddress = "sender address"
     static let toAddress = "recipient address"
@@ -27,33 +29,38 @@ class ViewController: UIViewController {
         let settings = Settings(authorizationToken: ExampleConstants.authToken) { configurator in
             configurator.networkType = NetworkType.testnet
         }
-        let api = CryptoAPI(settings: settings)
+        let cryptoApi = CryptoAPI(settings: settings)
         
-        return api
+        return cryptoApi
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let cryptoApi = configCryptoApiLib()
         
-        let mnemonic = BTCMnemonic(words: ExampleConstants.mnemonicArray, password: ExampleConstants.password, wordListType: .english)!
-        let keychain = mnemonic.keychain.derivedKeychain(withPath: "m/44'/1'/0'/0/0")!
+        let mnemonic = BTCMnemonic(words: ExampleConstants.mnemonicArray,
+                                   password: ExampleConstants.password,
+                                   wordListType: .english)!
+        let keychain = mnemonic.keychain.derivedKeychain(withPath: ExampleConstants.testnetDerivationPath)!
         let key = keychain.key!
         
         // MARK: Get outputs
         // get address unspent outputs to calculate balance or build the transaction
         var responseOutputs: [BTCAddressOutputResponseModel]?
-        cryptoApi.btc.addressesOutputs(addresses: [key.address.string], status: "unspent",
-                                       skip: 0, limit: nil) { result in
-                                        switch result {
-                                        case let .success(outModels):
-                                            responseOutputs = outModels
-                                            for output in outModels {
-                                                print(output.value)
-                                            }
-                                        case let .failure(error):
-                                            print(error)
-                                        }
+        cryptoApi.btc.addressesOutputs(
+            addresses: [key.address.string],
+            status: "unspent",
+            skip: 0, limit: nil) {
+                result in
+                switch result {
+                case let .success(outModels):
+                    responseOutputs = outModels
+                    for output in outModels {
+                        print(output.value)
+                    }
+                case let .failure(error):
+                    print(error)
+                }
         }
         
         // MARK: Build transaction
@@ -163,7 +170,8 @@ class ViewController: UIViewController {
 
 extension ViewController {
     // Use this method if you want to select optimal number of outputs.
-    func selectNeededOutputs(for value: Int64, from: [BTCTransactionOutput]) -> (outs: [BTCTransactionOutput], selectedOutsAmount: BTCAmount)? {
+    func selectNeededOutputs(for value: Int64, from: [BTCTransactionOutput]) ->
+        (outs: [BTCTransactionOutput], selectedOutsAmount: BTCAmount)? {
         var neededOuts = [BTCTransactionOutput]()
         var total: BTCAmount = 0
         var utxos = from

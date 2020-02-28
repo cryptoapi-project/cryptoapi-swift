@@ -23,6 +23,8 @@ The example has an `enum with constants` that can be modified with valid data to
 ```swift
 enum ExampleConstants {
     static let authToken = "Your token"
+    static let mainnetDerivationPath = "m/44'/0'/0'/0/0"
+    static let testnetDerivationPath = "m/44'/1'/0'/0/0"
     
     static let changeAddress = "sender address"
     static let toAddress = "recipient address"
@@ -30,6 +32,7 @@ enum ExampleConstants {
     
     static let password: String? = nil
     static let mnemonicArray = ["array", "of", "your", "brainkey", "words"]
+    
 }
 ```
 
@@ -38,26 +41,29 @@ The following is an example that shows how to `generate address and obtain unspe
 ```swift
 let cryptoApi = configCryptoApiLib()
 
-let mnemonic = BTCMnemonic(words: ExampleConstants.mnemonicArray, 
-                           password: ExampleConstants.password, wordListType: .english)!
-let keychain = mnemonic.keychain.derivedKeychain(withPath: "m/44'/1'/0'/0/0")!
+let mnemonic = BTCMnemonic(words: ExampleConstants.mnemonicArray,
+                           password: ExampleConstants.password,
+                           wordListType: .english)!
+let keychain = mnemonic.keychain.derivedKeychain(withPath: ExampleConstants.testnetDerivationPath)!
 let key = keychain.key!
 
 // MARK: Get outputs
-
 // get address unspent outputs to calculate balance or build the transaction
 var responseOutputs: [BTCAddressOutputResponseModel]?
-cryptoApi.btc.addressesOutputs(addresses: [key.address.string], status: "unspent",
-                               skip: 0, limit: nil) { result in
-    switch result {
-    case let .success(outModels):
-        responseOutputs = outModels
-        for output in outModels {
-            print(output.value)
+cryptoApi.btc.addressesOutputs(
+    addresses: [key.address.string],
+    status: "unspent",
+    skip: 0, limit: nil) {
+        result in
+        switch result {
+        case let .success(outModels):
+            responseOutputs = outModels
+            for output in outModels {
+                print(output.value)
+            }
+        case let .failure(error):
+            print(error)
         }
-    case let .failure(error):
-        print(error)
-    }
 }
 ```
 
