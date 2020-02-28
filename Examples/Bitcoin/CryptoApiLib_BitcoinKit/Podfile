@@ -1,0 +1,6 @@
+
+target 'CryptoApiLib_BitcoinKit' do
+    pod 'CryptoApiLib', '0.3.3'
+ use_frameworks!
+    pod 'BitcoinKit', '~> 1.1.0'
+end

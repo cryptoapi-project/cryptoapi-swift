@@ -31,31 +31,23 @@ let api = CryptoAPI(settings: settings)
 
 ### Networks
 
-CryptoAPI supports `mainnet` and `testnet` chains. You can select chain type by `networkType` field when setup framework
+CryptoAPI supports `mainnet` and `testnet` chains. You can select chain type by set `networkType` propetry when setup framework. All available network types you can find in [NetworkType](/CryptoAPI/NetworkType.swift) enumiration.
 ```swift
 let settings = Settings(authorizationToken: "Your token") { configurator in
     configurator.networkType = NetworkType.testnet
 }
 let api = CryptoAPI(settings: settings)
 ```
-Awailable `types` you can find [here](/CryptoAPI/NetworkType.swift).
 
 ### Servicies
 
-CryptoAPI contains 4 main services for usage.
+CryptoAPI contains 4 main services for usage. [ETHService](/CryptoAPI/Servicies/Protocols/ETHService.swift), [BTCService](/CryptoAPI/Servicies/Protocols/BTCService.swift) and [BCHService](/CryptoAPI/Servicies/Protocols/BСHServiсe.swift) have the functionality to work with the corresponding currency. The common functionality is made in [CommonService](/CryptoAPI/Servicies/Protocols/CommonService.swift), which is not tied to a specific currency.
 ```swift
 let common = api.common
 let eth = api.eth
 let btc = api.btc
 let bch = api.bch
 ```
-`CommonService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/CommonService.swift).
-
-`ETHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/ETHService.swift).
-
-`BTCService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BTCService.swift).
-
-`BCHService` protocol you can find [here](/CryptoAPI/Servicies/Protocols/BСHServiсe.swift).
 
 ### Error handling
 
@@ -73,9 +65,7 @@ api.common.coins { result in
 ```
 ## Examples
 
-Examples with popular `Bitсoin` libraries you can find [here](/Examples/Bitcoin).
-
-Examples with popular `Ethereum` libraries you can find [here](/Examples/Ethereum).
+We have prepared some [Bitcoin](/Examples/Bitcoin) and [Ethereum examples](/Examples/Ethereum) to understand how CryptoAPI works with other popular libraries.
 
 ## License
 
