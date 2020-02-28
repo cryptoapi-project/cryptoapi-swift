@@ -53,7 +53,7 @@ class BCHServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "testNetworkTest")
         
         //act
-        api.bch.estimateFee { result in
+        api.bch.feePerKb { result in
             switch result {
             case let .success(feePerKb):
                 //assert

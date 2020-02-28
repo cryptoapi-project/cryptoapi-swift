@@ -27,8 +27,8 @@ final class BCHNetworkAdapterImp: BCHNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func estimateFee(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
-        BCHNetwork.estimateFee
+    func feePerKb(completion: @escaping (Result<String, CryptoApiError>) -> Void) {
+        BCHNetwork.feePerKb
             .request(type: String.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
