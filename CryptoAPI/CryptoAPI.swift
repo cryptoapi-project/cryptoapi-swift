@@ -13,6 +13,7 @@ public final class CryptoAPI {
     public let bch: BCHService
     public let btc: BTCService
     public let common: CommonService
+    public let rates: RatesService
     
     public init(settings: Settings) {
         let configuration = settings.sessionConfiguration
@@ -46,15 +47,23 @@ public final class CryptoAPI {
             authToken: authorizationToken,
             needLogs: settings.debugEnabled
         )
+        let ratesNetworkAdapter = RatesNetworkAdapterImp(
+            session: urlSession,
+            baseUrl: settings.getBaseUrlString(),
+            authToken: authorizationToken,
+            needLogs: settings.debugEnabled
+        )
         
         let ethService = ETHServiceImp(networkAdapter: ethNetworkAdapter)
         let btcService = BTCServiceImp(networkAdapter: btcNetworkAdapter)
         let bchService = BCHServiceImp(networkAdapter: bchNetworkAdapter)
         let commonService = CommonServiceImp(networkAdapter: commonNetworkAdapter)
+        let ratesService = RatesServiceImp(networkAdapter: ratesNetworkAdapter)
         
         bch = bchService
         eth = ethService
         btc = btcService
         common = commonService
+        rates = ratesService
     }
 }
