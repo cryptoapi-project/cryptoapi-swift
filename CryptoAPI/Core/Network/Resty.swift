@@ -79,8 +79,8 @@ extension Resty {
                     do {
                         let result: String = String(describing: String(data: data, encoding: .utf8))
                         self.log(result, withLog)
-                        if let result = result as? T {
-                            //if result is not json, but string as we requred
+                        //if result is not json, but string as we requred
+                        if let result = String(data: data, encoding: .utf8) as? T {
                             completionHandler(.success(result))
                         } else {
                             completionHandler(.success(try JSONDecoder().decode(type, from: data)))

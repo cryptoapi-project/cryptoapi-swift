@@ -80,7 +80,7 @@ extension ETHNetwork {
         case .contractLogs:
             return "coins/eth/contracts/logs"
         case .transactionReceipt(let hash):
-            return "coins/eth/transactions/receipt/\(hash)"
+            return "coins/eth/transactions/\(hash)/receipt"
         case .block(let numberOrHash):
             return "coins/eth/blocks/\(numberOrHash)"
         case .blocks:
