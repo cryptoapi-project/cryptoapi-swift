@@ -68,4 +68,14 @@ final class BCHServiceImp: BCHService {
                                       completion: @escaping (Result<BCHAddressOutHistoryResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.addressesTransactionsHistory(addresses: addresses, skip: skip, limit: limit, completion: completion)
     }
+    
+    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+                                    completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, completion: completion)
+    }
+    
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+                                      completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, completion: completion)
+    }
 }

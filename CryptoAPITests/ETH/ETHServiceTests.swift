@@ -1087,4 +1087,75 @@ class ETHServiceTests: XCTestCase {
         //assert
         wait(for: [expectation], timeout: testTimeout)
     }
+    
+//    func testSubscribePushNotifications() {
+//        //assert
+//        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+//        let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
+//        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
+//        
+//        //act
+//        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertFalse(model.addresses.isEmpty)
+//                
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//        
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+    
+//    func testUnsubscribePushNotifications() {
+//        //assert
+//        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+//        let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
+//        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
+//        
+//        //act
+//        api.eth.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertEqual(model.token, firebaseToken)
+//                
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//        
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+    
+    func testSubscribePushNotificationsFailed() {
+        //assert
+        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+        let firebaseToken = "invalid token"
+        let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
+        
+        //act
+        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+            switch result {
+            case .success:
+                //assert
+                XCTFail()
+                
+            case .failure:
+                break
+            }
+            expectation.fulfill()
+        }
+        
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
 }

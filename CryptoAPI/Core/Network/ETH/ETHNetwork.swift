@@ -27,10 +27,10 @@ enum ETHNetwork: Resty {
     case tokenBalance(addresses: [String], skip: Int, limit: Int, token: String?)
     case tokenHistory(tokenAddress: String, addresses: [String], from: Int, limit: Int)
     case callContract(address: String, sender: String, amount: Int, bytecode: String)
-    case subscribePushNotifications(addresses: [String], token: String)
-    case unsubscribePushNotifications(addresses: [String], token: String)
     case block(numberOrHash: String)
     case blocks(skip: Int, limit: Int)
+    case subscribePushNotifications(addresses: [String], firebaseToken: String)
+    case unsubscribePushNotifications(addresses: [String], firebaseToken: String)
 }
 
 extension ETHNetwork {
@@ -73,10 +73,6 @@ extension ETHNetwork {
             return "coins/eth/transactions/raw/decode"
         case .estimateGas:
             return "coins/eth/estimate-gas"
-        case .subscribePushNotifications(let address, _):
-            return "coins/eth/accounts/\(address)/token/subscribe/balance"
-        case .unsubscribePushNotifications(let address, _):
-            return "coins/eth/accounts/\(address)/token/unsubscribe/balance"
         case .contractLogs:
             return "coins/eth/contracts/logs"
         case .transactionReceipt(let hash):
@@ -85,6 +81,10 @@ extension ETHNetwork {
             return "coins/eth/blocks/\(numberOrHash)"
         case .blocks:
             return "coins/eth/blocks"
+        case .subscribePushNotifications(let addresses, _):
+            return "coins/eth/push-notifications/addresses/\(addresses.description)/balance"
+        case .unsubscribePushNotifications(let addresses, _):
+            return "coins/eth/push-notifications/addresses/\(addresses.description)/balance"
         }
     }
         
@@ -95,8 +95,11 @@ extension ETHNetwork {
              .tokenInfo, .queryTokens, .contractLogs, .transactionReceipt, .block, .blocks:
             return .get
 
-        case .sendRaw, .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications, .callContract, .decodeRaw:
+        case .sendRaw, .estimateGas, .subscribePushNotifications, .callContract, .decodeRaw:
             return .post
+            
+        case .unsubscribePushNotifications:
+            return .delete
         }
     }
     
@@ -105,7 +108,7 @@ extension ETHNetwork {
         case .balance, .history, .transactions, .contractInfo,
              .tokenHistory, .tokenBalance, .network, .info,
              .externalHistory, .transaction, .tokenInfo, .queryTokens, .contractLogs,
-             .transactionReceipt, .block, .blocks:
+             .transactionReceipt, .block, .blocks, .unsubscribePushNotifications:
             return nil
             
         case let .sendRaw(transaction):
@@ -128,18 +131,15 @@ extension ETHNetwork {
                 return ["from": from, "to": to, "value": value, "data": data]
             }
             
-        case let .subscribePushNotifications(_, token):
-            return ["token": token]
-            
-        case let .unsubscribePushNotifications(_, token):
-            return ["token": token]
+        case .subscribePushNotifications(_, let firebaseToken):
+            return ["firebase_token": firebaseToken]
         }
     }
     
     var queryParameters: [String: String]? {
         switch self {
         case .balance, .network, .info, .transaction, .contractInfo, .sendRaw, .decodeRaw,
-             .estimateGas, .subscribePushNotifications, .unsubscribePushNotifications,
+             .estimateGas, .subscribePushNotifications,
              .tokenInfo, .callContract, .transactionReceipt, .block:
             return nil
             
@@ -170,6 +170,9 @@ extension ETHNetwork {
             
         case let .blocks(skip, limit):
             return ["skip": String(skip), "limit": String(limit)]
+            
+        case .unsubscribePushNotifications(_, let firebaseToken):
+            return ["firebase_token": firebaseToken]
         }
     }
     
