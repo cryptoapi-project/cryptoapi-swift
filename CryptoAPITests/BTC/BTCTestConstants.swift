@@ -20,4 +20,6 @@ enum BTCTestConstants {
     
     static let btcBlockHeight = 1665137
     static let btcBlockHash = "00000000000227a515172c920d221b55801bbeac2ad4915799685cf3cfc72407"
+    
+    static let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
 }

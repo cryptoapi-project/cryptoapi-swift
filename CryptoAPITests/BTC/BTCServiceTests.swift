@@ -18,6 +18,7 @@ class BTCServiceTests: XCTestCase {
     let btcInvalidAddress = BTCTestConstants.btcInvalidAddress
     let blockHash = BTCTestConstants.btcBlockHash
     let blockHeight = BTCTestConstants.btcBlockHeight
+    let firebaseToken = BTCTestConstants.firebaseToken
     
     var api: CryptoAPI {
         let settings = Settings(authorizationToken: authToken) { configurator in
@@ -387,11 +388,11 @@ class BTCServiceTests: XCTestCase {
 //    func testSubscribePushNotifications() {
 //        //assert
 //        let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
-//        let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
+//        let token = firebaseToken
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
 //        
 //        //act
-//        api.btc.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+//        api.btc.subscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
 //            switch result {
 //            case .success(let model):
 //                //assert
@@ -411,23 +412,23 @@ class BTCServiceTests: XCTestCase {
 //    func testUnsubscribePushNotifications() {
 //        //assert
 //        let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
-//        let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
+//        let token = firebaseToken
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
-//        
+//
 //        //act
-//        api.btc.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+//        api.btc.unsubscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
 //            switch result {
 //            case .success(let model):
 //                //assert
-//                XCTAssertEqual(model.token, firebaseToken)
-//                
+//                XCTAssertEqual(model.token, token)
+//
 //            case .failure(let error):
 //                //assert
 //                XCTAssertThrowsError(error)
 //            }
 //            expectation.fulfill()
 //        }
-//        
+//
 //        //assert
 //        wait(for: [expectation], timeout: testTimeout)
 //    }
