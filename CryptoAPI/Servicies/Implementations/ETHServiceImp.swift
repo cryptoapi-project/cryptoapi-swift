@@ -111,4 +111,14 @@ final class ETHServiceImp: ETHService {
     func blocks(skip: Int, limit: Int, completion: @escaping (Result<ETHBlocksResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.blocks(skip: skip, limit: limit, completion: completion)
     }
+    
+    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+                                    completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, completion: completion)
+    }
+    
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+                                      completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, completion: completion)
+    }
 }

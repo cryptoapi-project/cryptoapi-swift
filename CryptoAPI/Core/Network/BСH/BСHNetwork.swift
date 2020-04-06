@@ -20,6 +20,8 @@ enum BCHNetwork: Resty {
     case addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int)
     case block(heightOrHash: String)
     case blocks(skip: Int, limit: Int)
+    case subscribePushNotifications(addresses: [String], firebaseToken: String)
+    case unsubscribePushNotifications(addresses: [String], firebaseToken: String)
 }
 
 extension BCHNetwork {
@@ -47,6 +49,10 @@ extension BCHNetwork {
             return "coins/bch/blocks/\(heightOrHash)"
         case .blocks:
             return "coins/bch/blocks"
+        case .subscribePushNotifications(let addresses, _):
+            return "coins/bch/push-notifications/addresses/\(addresses.description)/balance"
+        case .unsubscribePushNotifications(let addresses, _):
+            return "coins/bch/push-notifications/addresses/\(addresses.description)/balance"
         }
     }
     
@@ -56,15 +62,18 @@ extension BCHNetwork {
              .network, .transactionBy, .transactions, .feePerKb:
             return .get
             
-        case .decodeRaw, .sendRaw:
+        case .decodeRaw, .sendRaw, .subscribePushNotifications:
             return .post
+            
+        case .unsubscribePushNotifications:
+            return .delete
         }
     }
     
     var bodyParameters: [String: Any]? {
         switch self {
         case .addressesOutputs, .addressesTransactionsHistory, .addressesUxtoInfo, .block,
-             .blocks, .network, .transactionBy, .transactions, .feePerKb:
+             .blocks, .network, .transactionBy, .transactions, .feePerKb, .unsubscribePushNotifications:
             return nil
             
         case let .sendRaw(transaction):
@@ -72,12 +81,15 @@ extension BCHNetwork {
             
         case let .decodeRaw(transaction):
             return ["hash": transaction]
+            
+        case .subscribePushNotifications(_, let firebaseToken):
+            return ["firebase_token": firebaseToken]
         }
     }
     
     var queryParameters: [String: String]? {
         switch self {
-        case .network, .block, .transactionBy, .sendRaw, .decodeRaw, .addressesUxtoInfo, .feePerKb:
+        case .network, .block, .transactionBy, .sendRaw, .decodeRaw, .addressesUxtoInfo, .feePerKb, .subscribePushNotifications:
             return nil
             
         case let .blocks(skip, limit):
@@ -103,6 +115,9 @@ extension BCHNetwork {
             
         case let .addressesTransactionsHistory(_, skip, limit):
             return ["skip": String(skip), "limit": String(limit)]
+            
+        case .unsubscribePushNotifications(_, let firebaseToken):
+            return ["firebase_token": firebaseToken]
         }
     }
     

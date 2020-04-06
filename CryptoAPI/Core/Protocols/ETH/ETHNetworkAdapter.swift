@@ -54,4 +54,9 @@ protocol ETHNetworkAdapter {
 
     func block(numberOrHash: String, completion: @escaping (Result<ETHBlockResponseModel, CryptoApiError>) -> Void)
     func blocks(skip: Int, limit: Int, completion: @escaping (Result<ETHBlocksResponseModel, CryptoApiError>) -> Void)
+    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+                                    completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+                                      completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }

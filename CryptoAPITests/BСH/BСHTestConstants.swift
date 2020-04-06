@@ -20,4 +20,6 @@ enum BCHTestConstants {
     
     static let BCHBlockHeight = 1358237
     static let BCHBlockHash = "000000000240b727260c9db1dc5399c547391345e54c953dd4e663a69fda3818"
+    
+    static let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
 }

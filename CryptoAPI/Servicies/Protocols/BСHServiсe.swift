@@ -114,4 +114,26 @@ public protocol BCHService {
 */
     func addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int,
                                       completion: @escaping (Result<BCHAddressOutHistoryResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Set firebase notification by addresses (balance updated, new transaction)
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter completion: Callback which returns an [BTCPushNotificationsResponseModel](BTCPushNotificationsResponseModel) result  or error
+     */
+    
+    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+                                    completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Remove firebase notification by addresses
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter completion: Callback which returns an [BTCPushNotificationsResponseModel](BTCPushNotificationsResponseModel) result  or error
+     */
+    
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+                                      completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }

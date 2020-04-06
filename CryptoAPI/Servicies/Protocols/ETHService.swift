@@ -209,5 +209,27 @@ public protocol ETHService {
     - Parameter completion: Callback which returns an [ETHBlocksResponseModel](ETHBlocksResponseModel) result  or error
 */
     func blocks(skip: Int, limit: Int, completion: @escaping (Result<ETHBlocksResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Set firebase notification by addresses (balance updated, new transaction)
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter completion: Callback which returns an [BTCPushNotificationsResponseModel](BTCPushNotificationsResponseModel) result  or error
+     */
+    
+    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+                                    completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Remove firebase notification by addresses
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter completion: Callback which returns an [BTCPushNotificationsResponseModel](BTCPushNotificationsResponseModel) result  or error
+     */
+    
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+                                      completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }
  

@@ -89,4 +89,18 @@ final class BCHNetworkAdapterImp: BCHNetworkAdapter {
             .request(type: BCHAddressOutHistoryResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
+    
+    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+                                    completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        BCHNetwork.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
+            .request(type: BCHPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+                     authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
+    
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+                                      completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        BCHNetwork.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
+            .request(type: BCHPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+                     authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
 }

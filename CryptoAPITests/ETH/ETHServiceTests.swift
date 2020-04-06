@@ -20,6 +20,7 @@ class ETHServiceTests: XCTestCase {
     let ethInvalidAddress = ETHTestConstants.ethInvalidAddress
     let blockNumber = ETHTestConstants.ethBlockNumber
     let blockHash = ETHTestConstants.ethBlockHash
+    let firebaseToken = ETHTestConstants.firebaseToken
     
     var api: CryptoAPI {
         let settings = Settings(authorizationToken: authToken) { configurator in
@@ -1084,6 +1085,77 @@ class ETHServiceTests: XCTestCase {
             expectation.fulfill()
         })
 
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+//    func testSubscribePushNotifications() {
+//        //assert
+//        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+//        let token = firebaseToken
+//        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
+//
+//        //act
+//        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertFalse(model.addresses.isEmpty)
+//
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+//
+//    func testUnsubscribePushNotifications() {
+//        //assert
+//        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+//        let token = firebaseToken
+//        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
+//
+//        //act
+//        api.eth.unsubscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertEqual(model.token, token)
+//
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+    
+    func testSubscribePushNotificationsFailed() {
+        //assert
+        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+        let firebaseToken = "invalid token"
+        let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
+        
+        //act
+        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+            switch result {
+            case .success:
+                //assert
+                XCTFail()
+                
+            case .failure:
+                break
+            }
+            expectation.fulfill()
+        }
+        
         //assert
         wait(for: [expectation], timeout: testTimeout)
     }

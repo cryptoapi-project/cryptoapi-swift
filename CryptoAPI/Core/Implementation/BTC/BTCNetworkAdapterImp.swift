@@ -89,4 +89,18 @@ final class BTCNetworkAdapterImp: BTCNetworkAdapter {
             .request(type: BTCAddressOutHistoryResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
+    
+    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+                                    completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        BTCNetwork.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
+            .request(type: BTCPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+                     authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
+    
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+                                      completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        BTCNetwork.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
+            .request(type: BTCPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+                     authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
 }

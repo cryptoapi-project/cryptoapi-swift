@@ -18,6 +18,7 @@ class BCHServiceTests: XCTestCase {
     let BCHInvalidAddress = BCHTestConstants.BCHInvalidAddress
     let blockHash = BCHTestConstants.BCHBlockHash
     let blockHeight = BCHTestConstants.BCHBlockHeight
+    let firebaseToken = BCHTestConstants.firebaseToken
     
     var api: CryptoAPI {
         let settings = Settings(authorizationToken: authToken) { configurator in
@@ -359,6 +360,77 @@ class BCHServiceTests: XCTestCase {
             expectation.fulfill()
         }
 
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+//    func testSubscribePushNotifications() {
+//        //assert
+//        let addresses = [BCHAddressWithBalance, BCHAddressWithBalance2]
+//        let token = firebaseToken
+//        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
+//
+//        //act
+//        api.bch.subscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertFalse(model.addresses.isEmpty)
+//
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+//
+//    func testUnsubscribePushNotifications() {
+//        //assert
+//        let addresses = [BCHAddressWithBalance, BCHAddressWithBalance2]
+//        let token = firebaseToken
+//        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
+//
+//        //act
+//        api.bch.unsubscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertEqual(model.token, token)
+//
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+    
+    func testSubscribePushNotificationsFailed() {
+        //assert
+        let addresses = [BCHAddressWithBalance, BCHAddressWithBalance2]
+        let firebaseToken = "invalid token"
+        let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
+        
+        //act
+        api.bch.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+            switch result {
+            case .success:
+                //assert
+                XCTFail()
+                
+            case .failure:
+                break
+            }
+            expectation.fulfill()
+        }
+        
         //assert
         wait(for: [expectation], timeout: testTimeout)
     }
