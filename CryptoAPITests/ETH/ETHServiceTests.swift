@@ -26,6 +26,7 @@ class ETHServiceTests: XCTestCase {
         let settings = Settings(authorizationToken: authToken) { configurator in
             configurator.debugEnabled = true
             configurator.networkType = .testnet
+//            configurator.timeoutIntervalForRequest = 30
         }
         return CryptoAPI(settings: settings)
     }

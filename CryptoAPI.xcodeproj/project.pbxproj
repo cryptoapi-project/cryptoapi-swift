@@ -88,6 +88,7 @@
 		E423BD8124378DC800A6E27D /* RatesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD8024378DC800A6E27D /* RatesNetwork.swift */; };
 		E423BD8624379B1100A6E27D /* RatesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD8524379B1100A6E27D /* RatesServiceTests.swift */; };
 		E423BD882437A25700A6E27D /* RatesHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */; };
+		E7596D762449D9730010EC5D /* ETHInternalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7596D752449D9730010EC5D /* ETHInternalTransaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		E423BD8024378DC800A6E27D /* RatesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesNetwork.swift; sourceTree = "<group>"; };
 		E423BD8524379B1100A6E27D /* RatesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesServiceTests.swift; sourceTree = "<group>"; };
 		E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoryResponseModel.swift; sourceTree = "<group>"; };
+		E7596D752449D9730010EC5D /* ETHInternalTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHInternalTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +391,7 @@
 				B34D0F062382851E002823F8 /* ETHTransfersResponseModel.swift */,
 				B34D0F0823829222002823F8 /* ETHExternalTransfersResponseModel.swift */,
 				B34D0F0A2382AC4D002823F8 /* ETHTransactionsResponseModel.swift */,
+				E7596D752449D9730010EC5D /* ETHInternalTransaction.swift */,
 				B34D0F0C2382B48B002823F8 /* ETHContractInfoResponseModel.swift */,
 				B34D0F0E2382C252002823F8 /* ETHTokensBalanceResponseModel.swift */,
 				B34D0F102382C751002823F8 /* ETHTokenTransfersResponseModel.swift */,
@@ -745,6 +748,7 @@
 				D044FBEC23E808290012C2BA /* ETHNetworkAdapter.swift in Sources */,
 				CE66C8C823E32088004F086B /* BCHNetworkResponseModel.swift in Sources */,
 				CEE1665C23E1957500602140 /* BTCNetworkAdapterImp.swift in Sources */,
+				E7596D762449D9730010EC5D /* ETHInternalTransaction.swift in Sources */,
 				CE837A1D23E19D4F00A951AB /* BTCNetworkResponseModel.swift in Sources */,
 				CEE1665E23E1958C00602140 /* BTCNetworkAdapter.swift in Sources */,
 				E423BD712437819F00A6E27D /* RatesResponseModel.swift in Sources */,
