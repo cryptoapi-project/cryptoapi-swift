@@ -27,7 +27,7 @@ public struct ETHTransactionResponseModel {
     public let v: String
     public let s: String
     public let r: String
-    public let internalTransactions: [String]
+    public let internalTransactions: [ETHInternalTransaction]
     public let confirmations: Int?
 }
 
@@ -69,7 +69,7 @@ public struct ETHTransactionByHashResponseModel {
     public let v: String
     public let s: String
     public let r: String
-    public let internalTransactions: [String]
+    public let internalTransactions: [ETHInternalTransaction]
     public let receipt: ETHTransactionByHashReceiptResponseModel
 }
 
