@@ -47,7 +47,6 @@ whitelist_rules:
   - function_parameter_count
   - identical_operands
   - implicit_getter
-  - implicit_return
   - inert_defer
   - large_tuple
   - last_where

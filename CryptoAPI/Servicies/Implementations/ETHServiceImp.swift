@@ -30,7 +30,7 @@ final class ETHServiceImp: ETHService {
         networkAdapter.info(addresses: addresses, completion: completion)
     }
     
-    func transfers(skip: Int, limit: Int, addresses: [String], positive: String,
+    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.transfers(skip: skip, limit: limit,
                                  addresses: addresses, positive: positive, completion: completion)
