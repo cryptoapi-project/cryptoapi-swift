@@ -13,12 +13,12 @@ public enum CryptoApiError: Swift.Error {
 }
 
 public struct CryptoApiTypedErrors: Codable {
-    let errors: [CryptoApiTypedError]
-    let status: Int
+    public let errors: [CryptoApiTypedError]
+    public let status: Int
 }
 
 public struct CryptoApiTypedError: Codable {
-    let message: String
-    let field: String?
-    let value: String?
+    public let message: String
+    public let field: String?
+    public let value: String?
 }
