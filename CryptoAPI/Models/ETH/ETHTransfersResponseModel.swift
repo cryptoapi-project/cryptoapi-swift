@@ -20,10 +20,11 @@ public struct ETHTransferResponseModel {
     public let from: String
     public let gas: Int
     public let hash: String
-    public let to: String
+    public let to: String?
     public let value: String
     public let gasPrice: String
     public let isInternal: Bool
+    public let input: String?
 }
 
 extension ETHTransferResponseModel: Codable {
@@ -37,5 +38,6 @@ extension ETHTransferResponseModel: Codable {
         case value
         case gasPrice = "gas_price"
         case isInternal = "internal"
+        case input
     }
 }

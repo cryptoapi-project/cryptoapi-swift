@@ -23,7 +23,7 @@ protocol ETHNetworkAdapter {
     
     func network(completion: @escaping (Result<ETHNetworkResponseModel, CryptoApiError>) -> Void)
     func info(addresses: [String], completion: @escaping (Result<[ETHInfoResponseModel], CryptoApiError>) -> Void)
-    func transfers(skip: Int, limit: Int, addresses: [String], positive: String,
+    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void)
     func externalTransfers(skip: Int, limit: Int, addresses: [String],
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void)

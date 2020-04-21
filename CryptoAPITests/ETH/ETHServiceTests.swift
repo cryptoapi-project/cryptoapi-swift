@@ -261,7 +261,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethAddressWithBalance
         let skip = 0
         let limit = 10
-        let positive = ""
+        let positive = true
 
         //act
         api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive) { result in
@@ -287,7 +287,7 @@ class ETHServiceTests: XCTestCase {
         let address2 = ethAddressWithBalance2
         let skip = 0
         let limit = 10
-        let positive = ""
+        let positive = true
 
         //act
         api.eth.transfers(skip: skip, limit: limit, addresses: [address, address2], positive: positive) { result in
@@ -312,7 +312,7 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
         let skip = 0
         let limit = 10
-        let positive = ""
+        let positive = true
 
         //act
         api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive) { result in
