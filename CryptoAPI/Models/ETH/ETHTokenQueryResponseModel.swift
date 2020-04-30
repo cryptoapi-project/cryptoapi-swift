@@ -18,7 +18,7 @@ public struct ETHTokensQueryResponseModel: Codable {
 public struct ETHTokenQueryResponseModel {
     public let address: String
     public let createTransactionHash: String
-    public let status: Bool
+    public let status: Bool?
     public let type: String
     public let info: ETHTokenQueryItemResponseModel
 }
