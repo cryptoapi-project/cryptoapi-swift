@@ -772,9 +772,9 @@ class ETHServiceTests: XCTestCase {
     func testQueryTest() {
         //arrange
         let expectation = XCTestExpectation(description: "testQueryTest")
-        let query = ""
+        let query = "0x"
         let skip = 0
-        let limit = 10
+        let limit = 20
         let types = ["ERC20"]
         //act
         api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
