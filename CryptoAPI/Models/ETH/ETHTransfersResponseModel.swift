@@ -25,6 +25,7 @@ public struct ETHTransferResponseModel {
     public let gasPrice: String
     public let isInternal: Bool
     public let input: String?
+    public let status: Bool?
 }
 
 extension ETHTransferResponseModel: Codable {
@@ -39,5 +40,6 @@ extension ETHTransferResponseModel: Codable {
         case gasPrice = "gas_price"
         case isInternal = "internal"
         case input
+        case status
     }
 }

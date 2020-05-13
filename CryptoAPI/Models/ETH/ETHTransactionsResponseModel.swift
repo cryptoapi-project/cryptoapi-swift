@@ -29,6 +29,7 @@ public struct ETHTransactionResponseModel {
     public let r: String
     public let internalTransactions: [ETHInternalTransaction]
     public let confirmations: Int?
+    public let status: Bool?
 }
 
 extension ETHTransactionResponseModel: Codable {
@@ -50,6 +51,7 @@ extension ETHTransactionResponseModel: Codable {
         case r
         case internalTransactions = "internal_transactions"
         case confirmations
+        case status
     }
 }
 
