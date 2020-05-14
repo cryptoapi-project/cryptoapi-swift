@@ -100,6 +100,8 @@
 		E4A20F82246DC9EA005BE866 /* LTCAddressOutHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F81246DC9EA005BE866 /* LTCAddressOutHistoryResponseModel.swift */; };
 		E4A20F84246DCA40005BE866 /* LTCPushNotificationsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F83246DCA40005BE866 /* LTCPushNotificationsResponseModel.swift */; };
 		E4A20F87246DCB64005BE866 /* LTCNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F86246DCB64005BE866 /* LTCNetwork.swift */; };
+		E4A20F8A246DCF61005BE866 /* LTCNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F89246DCF61005BE866 /* LTCNetworkAdapter.swift */; };
+		E4A20F8D246DD003005BE866 /* LTCNetworkAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F8C246DD003005BE866 /* LTCNetworkAdapterImp.swift */; };
 		E7596D762449D9730010EC5D /* ETHInternalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7596D752449D9730010EC5D /* ETHInternalTransaction.swift */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +212,8 @@
 		E4A20F81246DC9EA005BE866 /* LTCAddressOutHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCAddressOutHistoryResponseModel.swift; sourceTree = "<group>"; };
 		E4A20F83246DCA40005BE866 /* LTCPushNotificationsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCPushNotificationsResponseModel.swift; sourceTree = "<group>"; };
 		E4A20F86246DCB64005BE866 /* LTCNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCNetwork.swift; sourceTree = "<group>"; };
+		E4A20F89246DCF61005BE866 /* LTCNetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCNetworkAdapter.swift; sourceTree = "<group>"; };
+		E4A20F8C246DD003005BE866 /* LTCNetworkAdapterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCNetworkAdapterImp.swift; sourceTree = "<group>"; };
 		E7596D752449D9730010EC5D /* ETHInternalTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHInternalTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,6 +342,7 @@
 				D044FBEA23E8081D0012C2BA /* BTC */,
 				CE21B4FB23E31D86001E9D95 /* BСH */,
 				CE21B4FE23E31DA3001E9D95 /* ETH */,
+				E4A20F88246DCF45005BE866 /* LTC */,
 				E423BD7924378C1C00A6E27D /* Rates */,
 				B3A4AE3623843072005AFE8E /* CommonNetworkAdapter.swift */,
 			);
@@ -350,6 +355,7 @@
 				D044FBE723E807EC0012C2BA /* BTC */,
 				CE21B4F223E31CEB001E9D95 /* BСH */,
 				CE21B4F323E31CF1001E9D95 /* ETH */,
+				E4A20F8B246DCFE8005BE866 /* LTC */,
 				E423BD7824378C0D00A6E27D /* Rates */,
 				B3A4AE3823843091005AFE8E /* CommonNetworkAdapterImp.swift */,
 			);
@@ -623,6 +629,22 @@
 			path = LTC;
 			sourceTree = "<group>";
 		};
+		E4A20F88246DCF45005BE866 /* LTC */ = {
+			isa = PBXGroup;
+			children = (
+				E4A20F89246DCF61005BE866 /* LTCNetworkAdapter.swift */,
+			);
+			path = LTC;
+			sourceTree = "<group>";
+		};
+		E4A20F8B246DCFE8005BE866 /* LTC */ = {
+			isa = PBXGroup;
+			children = (
+				E4A20F8C246DD003005BE866 /* LTCNetworkAdapterImp.swift */,
+			);
+			path = LTC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -790,6 +812,7 @@
 				CE9704F523E1DB09007B0A2C /* BTCTransactionResponseModel.swift in Sources */,
 				E423BD8124378DC800A6E27D /* RatesNetwork.swift in Sources */,
 				CE21B4EF23E2C921001E9D95 /* BTCAddressOutHistoryResponseModel.swift in Sources */,
+				E4A20F8A246DCF61005BE866 /* LTCNetworkAdapter.swift in Sources */,
 				B34D0F0F2382C252002823F8 /* ETHTokensBalanceResponseModel.swift in Sources */,
 				B3BD0BF0237FE2D400EF0600 /* CryptoAPI.swift in Sources */,
 				CE21B4FA23E31D7C001E9D95 /* BСHNetworkAdapterImp.swift in Sources */,
@@ -815,6 +838,7 @@
 				CE837A2123E1D0AF00A951AB /* BTCDecodeRawResponseModel.swift in Sources */,
 				CEE1666023E1961100602140 /* BTCServiceImp.swift in Sources */,
 				E4A20F84246DCA40005BE866 /* LTCPushNotificationsResponseModel.swift in Sources */,
+				E4A20F8D246DD003005BE866 /* LTCNetworkAdapterImp.swift in Sources */,
 				B3BD0C00237FFD5500EF0600 /* Resty.swift in Sources */,
 				B3BD0C072380127600EF0600 /* ETHWalletBalanceModel.swift in Sources */,
 				B3A4AE3723843072005AFE8E /* CommonNetworkAdapter.swift in Sources */,
