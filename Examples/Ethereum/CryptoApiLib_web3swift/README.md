@@ -25,10 +25,9 @@ enum ExampleConstants {
     static let toAddress = "recipient address"
     static let sendAmount = "1000000000000000000"
     
-    static let password = "recipient address"
-    static let mnemonicsPassword = ""
+    static let password = "keystore password"
+    static let mnemonicsPassword = "mnemonic's password"
     static let mnemonicString = "mnemonic of your address"
-    static let privateKey = "0xa26da69ed1df3ba4bb2a231d506b711eace012f1bd2571dfbfff9650b03375af"
 }
 ```
 ### Generate address. Get balance.
@@ -37,7 +36,6 @@ The following is an example that shows how to `generated address and obtain bala
 let cryptoApi = configCryptoApiLib()
 
 let mnemonicString = ExampleConstants.mnemonicString
-
 let keystore = try! BIP32Keystore(mnemonics: mnemonicString,
                                   password: ExampleConstants.password,
                                   mnemonicsPassword: ExampleConstants.mnemonicsPassword,
@@ -48,12 +46,13 @@ web.addKeystoreManager(keystoreManager)
 
 let account = try! web.wallet.getAccounts().first!
 let address = keystore.addresses!.first!.address
+print("Address \(address)")
 
 cryptoApi.eth.balance(addresses: [address]) { result in
     switch result {
     case .success(let addressesBalancesArray):
         for item in addressesBalancesArray {
-            print(item.balance)
+            print("Balance \(item.balance)")
         }
         
     case .failure(let error):
@@ -64,12 +63,10 @@ cryptoApi.eth.balance(addresses: [address]) { result in
 ### Estimate nonce, gas price and gas limit
 Now, before creating a transaction, you need to get a `gas estimate`.
 ```swift
-var estimatedGas: ETHEstimateGasResponseModel?
 cryptoApi.eth.estimateGas(fromAddress: address, toAddress: ExampleConstants.toAddress,
                           data: "", value: ExampleConstants.sendAmount) { result in
     switch result {
     case .success(let response):
-        estimatedGas = response
         print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
         return
     case .failure(let error):
@@ -82,32 +79,29 @@ cryptoApi.eth.estimateGas(fromAddress: address, toAddress: ExampleConstants.toAd
 CryptoAPI allows you to send raw transactions, but before that you need to prepare it.
 `Creating and sending a transaction` is as follows:
 ```swift
-guard let fee = estimatedGas else {
-    return
-}
-
 let ethToAddress = EthereumAddress(ExampleConstants.toAddress)!
 let intTransactionValue = BigUInt(ExampleConstants.sendAmount)!
-let nonce = BigUInt(fee.nonce)
-let gasLimit = BigUInt(fee.estimateGas)
-let gasPrice = BigUInt(fee.gasPrice)!
+let nonce = BigUInt(response.nonce)
+let gasLimit = BigUInt(response.estimateGas)
+let gasPrice = BigUInt(response.gasPrice)!
 
 let v = BigUInt(0)
 let r = BigUInt(0)
 let s = BigUInt(0)
 
-var transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice,
-                                      gasLimit: gasLimit, to: ethToAddress,
-                                      value: intTransactionValue, data: Data(),
-                                      v: v,
-                                      r: r,
-                                      s: s)
+var transaction = EthereumTransaction(
+    nonce: nonce, gasPrice: gasPrice,
+    gasLimit: gasLimit, to: ethToAddress,
+    value: intTransactionValue, data: Data(),
+    v: v, r: r, s: s
+)
 transaction.UNSAFE_setChainID(BigUInt(4)) // "4" for Rinkeby provider
 
-try! Web3Signer.signTX(transaction: &transaction, keystore: keystoreManager, account: account, password: "")
+// sing the transaction
+try! Web3Signer.signTX(transaction: &transaction, keystore: keystore, account: account, password: ExampleConstants.password)
 let transactionHash = transaction.encode()!.toHexString()
 
-cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
+cryptoApi.eth.sendRaw(transaction: "0x" + transactionHash) { result in
     switch result {
     case .success(let response):
         print(response.hash)

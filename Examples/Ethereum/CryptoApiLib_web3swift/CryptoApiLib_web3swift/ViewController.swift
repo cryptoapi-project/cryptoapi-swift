@@ -17,10 +17,9 @@ enum ExampleConstants {
     static let toAddress = "recipient address"
     static let sendAmount = "1000000000000000000"
     
-    static let password = "recipient address"
-    static let mnemonicsPassword = ""
+    static let password = "keystore password"
+    static let mnemonicsPassword = "mnemonic's password"
     static let mnemonicString = "mnemonic of your address"
-    static let privateKey = "0xa26da69ed1df3ba4bb2a231d506b711eace012f1bd2571dfbfff9650b03375af"
 }
 
 class ViewController: UIViewController {
@@ -51,48 +50,49 @@ class ViewController: UIViewController {
         
         let account = try! web.wallet.getAccounts().first!
         let address = keystore.addresses!.first!.address
+        print("Address \(address)")
         
         // get balance for generated account
         cryptoApi.eth.balance(addresses: [address]) { result in
             switch result {
             case .success(let addressesBalancesArray):
                 for item in addressesBalancesArray {
-                    print(item.balance)
+                    print("Balance \(item.balance)")
                 }
                 
             case .failure(let error):
                 print(error)
             }
         }
-
+        
         // estimate gas for transaction
-        var estimatedGas: ETHEstimateGasResponseModel?
-        cryptoApi.eth.estimateGas(
-            fromAddress: address, toAddress: ExampleConstants.toAddress,
-            data: "",
-            value: ExampleConstants.sendAmount
-        ) { result in
+        cryptoApi.eth.estimateGas(fromAddress: address, toAddress: ExampleConstants.toAddress,
+                                  data: "", value: ExampleConstants.sendAmount) { result in
             switch result {
             case .success(let response):
-                estimatedGas = response
                 print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
+                
+                
+                // build transaction and get transaction hash
+                let transactionHash = self.createTransaction(response: response, keystore: keystore, account: account)
+                
+                // send builded transaction
+                self.sendRawTransaction(cryptoApi: cryptoApi, transactionHash: transactionHash)
+                
                 return
             case .failure(let error):
                 print(error)
                 return
             }
         }
-        
-        // build transaction
-        guard let fee = estimatedGas else {
-            return
-        }
-        
+    }
+    
+    func createTransaction(response: ETHEstimateGasResponseModel, keystore: BIP32Keystore, account: EthereumAddress) -> String {
         let ethToAddress = EthereumAddress(ExampleConstants.toAddress)!
         let intTransactionValue = BigUInt(ExampleConstants.sendAmount)!
-        let nonce = BigUInt(fee.nonce)
-        let gasLimit = BigUInt(fee.estimateGas)
-        let gasPrice = BigUInt(fee.gasPrice)!
+        let nonce = BigUInt(response.nonce)
+        let gasLimit = BigUInt(response.estimateGas)
+        let gasPrice = BigUInt(response.gasPrice)!
         
         let v = BigUInt(0)
         let r = BigUInt(0)
@@ -107,11 +107,14 @@ class ViewController: UIViewController {
         transaction.UNSAFE_setChainID(BigUInt(4)) // "4" for Rinkeby provider
         
         // sing the transaction
-        try! Web3Signer.signTX(transaction: &transaction, keystore: keystoreManager, account: account, password: "")
+        try! Web3Signer.signTX(transaction: &transaction, keystore: keystore, account: account, password: ExampleConstants.password)
         let transactionHash = transaction.encode()!.toHexString()
         
-        // send builded transaction
-        cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
+        return transactionHash
+    }
+    
+    func sendRawTransaction(cryptoApi: CryptoAPI, transactionHash: String) {
+        cryptoApi.eth.sendRaw(transaction: "0x" + transactionHash) { result in
             switch result {
             case .success(let response):
                 print(response.hash)
