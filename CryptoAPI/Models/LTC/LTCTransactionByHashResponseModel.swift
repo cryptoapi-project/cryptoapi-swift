@@ -63,7 +63,7 @@ extension LTCTransactionInputResponseModel: Codable {
 }
 
 public struct LTCTransactionOutputResponseModel: Codable {
-    public let address: String
+    public let address: String?
     public let satoshis: Int
     public let script: String?
 }
