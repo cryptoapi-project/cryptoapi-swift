@@ -35,7 +35,7 @@ let cryptoApi = configCryptoApiLib()
 
 let mnemonic = Mnemonic.create(entropy: Data(hex: ExampleConstants.mnemonicHex))
 let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-let wallet = try! Wallet(seed: seed, network: .ropsten, debugPrints: true)
+let wallet = try! Wallet(seed: seed, network: .private(chainID: 4, testUse: true), debugPrints: true)
 
 let address = wallet.address()
 
@@ -43,7 +43,7 @@ cryptoApi.eth.balance(addresses: [address]) { result in
     switch result {
     case .success(let addressesBalancesArray):
         for item in addressesBalancesArray {
-            print(item.balance)
+            print("Balance \(item.balance) wei")
         }
         
     case .failure(let error):
@@ -54,12 +54,9 @@ cryptoApi.eth.balance(addresses: [address]) { result in
 ### Estimate nonce, gas price and gas limit
 Now, before creating a transaction, you need to get a `gas estimate`.
 ```swift
-var estimatedGas: ETHEstimateGasResponseModel?
-cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: ExampleConstants.toAddress,
-                          data: "", value: ExampleConstants.sendAmount) { result in
+cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: ExampleConstants.toAddress, data: "", value: ExampleConstants.sendAmount) { result in
     switch result {
     case .success(let response):
-        estimatedGas = response
         print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
         return
     case .failure(let error):
@@ -72,12 +69,15 @@ cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: 
 CryptoAPI allows you to send raw transactions, but before that you need to prepare it.
 `Creating and sending a transaction` is as follows:
 ```swift
-guard let fee = estimatedGas else {
-    return
-}
 let value = Wei(ExampleConstants.sendAmount)!
 
-let rawTransaction = RawTransaction(value: value, to: address, gasPrice: Int(fee.gasPrice)!, gasLimit: fee.estimateGas, nonce: fee.nonce)
+let rawTransaction = RawTransaction(
+    value: value,
+    to: ExampleConstants.toAddress,
+    gasPrice: Int(response.gasPrice)!,
+    gasLimit: response.estimateGas,
+    nonce: response.nonce
+)
 let transactionHash = try! wallet.sign(rawTransaction: rawTransaction)
 
 cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
