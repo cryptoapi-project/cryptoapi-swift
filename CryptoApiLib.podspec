@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "CryptoApiLib"
-  spec.version      = "0.3.5"
+  spec.version      = "0.3.6"
   spec.summary      = "CryptoAPI iOS Framework"
   spec.homepage     = "https://github.com/cryptoapi-project/cryptoapi-swift"
   spec.license      = { :type => 'MIT', :file => 'LICENSE.md' }
