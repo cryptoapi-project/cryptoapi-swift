@@ -33,19 +33,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let cryptoApi = configCryptoApiLib()
         
         // generate address
         let privateKey = try! EthereumPrivateKey(hexPrivateKey: ExampleConstants.privateKey)
         let address = privateKey.address.hex(eip55: true)
-        print(address)
+        print("ETH Address: \(address)")
         
         cryptoApi.eth.balance(addresses: [address]) { result in
             switch result {
             case .success(let addressesBalancesArray):
                 for item in addressesBalancesArray {
-                    print(item.balance)
+                    print("Balance: \(item.balance)")
                 }
             
             case .failure(let error):
@@ -54,14 +53,21 @@ class ViewController: UIViewController {
         }
         
         // estimate gas for transaction
-        var estimatedGas: ETHEstimateGasResponseModel?
         cryptoApi.eth.estimateGas(fromAddress: privateKey.address.hex(eip55: true),
                                   toAddress: privateKey.address.hex(eip55: true),
                                   data: "", value: ExampleConstants.sendAmount) { result in
             switch result {
             case .success(let response):
-                estimatedGas = response
                 print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
+                
+                // prepare transaction for send
+                let transaction = self.prepareTransaction(estimatedGas: response, privateKey: privateKey)
+                
+                // sign transaction
+                let signedTransaction = try! transaction.sign(with: privateKey)
+                
+                // send builded raw transaction
+                self.sendRawTransaction(cryptoApi: cryptoApi, signedTransaction: signedTransaction)
                 
                 return
             case .failure(let error):
@@ -69,11 +75,12 @@ class ViewController: UIViewController {
                 return
             }
         }
-        
-        // prepare transaction for send
-        let nonce = EthereumQuantity(quantity: BigUInt(estimatedGas!.nonce))
-        let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas!.gasPrice))
-        let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas!.estimateGas))
+    }
+    
+    func prepareTransaction(estimatedGas: ETHEstimateGasResponseModel, privateKey: EthereumPrivateKey) -> EthereumTransaction {
+        let nonce = EthereumQuantity(quantity: BigUInt(estimatedGas.nonce))
+        let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas.gasPrice))
+        let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas.estimateGas))
         let value = EthereumQuantity(quantity: 1.eth)
         let toAddress = try! EthereumAddress(hex: ExampleConstants.toAddress, eip55: true)
         
@@ -85,10 +92,14 @@ class ViewController: UIViewController {
             to: toAddress,
             value: value
         )
-        let signedTransaction = try! transaction.sign(with: privateKey)
         
-        // send builded raw transaction
-        cryptoApi.eth.sendRaw(transaction: signedTransaction.data.hex()) { result in
+        return transaction
+    }
+    
+    func sendRawTransaction(cryptoApi: CryptoAPI, signedTransaction: EthereumSignedTransaction) {
+        let transactionHex = try! RLPEncoder().encode(signedTransaction.rlp()).toHexString()
+        
+        cryptoApi.eth.sendRaw(transaction: transactionHex) { result in
             switch result {
             case .success(let txResponse):
                 print(txResponse.hash)
@@ -99,4 +110,3 @@ class ViewController: UIViewController {
         }
     }
 }
-
