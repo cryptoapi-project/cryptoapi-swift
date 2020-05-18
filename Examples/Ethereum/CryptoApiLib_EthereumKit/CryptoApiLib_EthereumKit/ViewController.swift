@@ -21,7 +21,6 @@ enum ExampleConstants {
 }
 
 class ViewController: UIViewController {
-    
     func configCryptoApiLib() -> CryptoAPI {
         // Initialize setting for CryptoApi with your authorization token.
         let apiSettings = Settings(authorizationToken: ExampleConstants.authToken) { configurator in
@@ -40,7 +39,7 @@ class ViewController: UIViewController {
         // generate address
         let mnemonic = Mnemonic.create(entropy: Data(hex: ExampleConstants.mnemonicHex))
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-        let wallet = try! Wallet(seed: seed, network: .ropsten, debugPrints: true)
+        let wallet = try! Wallet(seed: seed, network: .private(chainID: 4, testUse: true), debugPrints: true)
         
         let address = wallet.address()
         
@@ -49,7 +48,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let addressesBalancesArray):
                 for item in addressesBalancesArray {
-                    print(item.balance)
+                    print("Balance \(item.balance) wei")
                 }
                 
             case .failure(let error):
@@ -58,30 +57,41 @@ class ViewController: UIViewController {
         }
         
         // estimate gas for transaction
-        var estimatedGas: ETHEstimateGasResponseModel?
-        cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: ExampleConstants.toAddress,
-                                  data: "", value: ExampleConstants.sendAmount) { result in
+        cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: ExampleConstants.toAddress, data: "", value: ExampleConstants.sendAmount) { result in
             switch result {
             case .success(let response):
-                estimatedGas = response
                 print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
+                
+                // build transaction and get transaction hash
+                let transactionHash = self.createTransaction(response: response, wallet: wallet)
+                
+                // send buided transaction
+                self.sendRawTransaction(cryptoApi: cryptoApi, transactionHash: transactionHash)
+                
                 return
             case .failure(let error):
                 print(error)
                 return
             }
         }
-        
-        // build transaction for transaction
-        guard let fee = estimatedGas else {
-            return
-        }
+    }
+    
+    func createTransaction(response: ETHEstimateGasResponseModel, wallet: Wallet) -> String {
         let value = Wei(ExampleConstants.sendAmount)!
         
-        let rawTransaction = RawTransaction(value: value, to: address, gasPrice: Int(fee.gasPrice)!, gasLimit: fee.estimateGas, nonce: fee.nonce)
+        let rawTransaction = RawTransaction(
+            value: value,
+            to: ExampleConstants.toAddress,
+            gasPrice: Int(response.gasPrice)!,
+            gasLimit: response.estimateGas,
+            nonce: response.nonce
+        )
         let transactionHash = try! wallet.sign(rawTransaction: rawTransaction)
         
-        // send buided transaction
+        return transactionHash
+    }
+    
+    func sendRawTransaction(cryptoApi: CryptoAPI, transactionHash: String) {
         cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
             switch result {
             case .success(let response):

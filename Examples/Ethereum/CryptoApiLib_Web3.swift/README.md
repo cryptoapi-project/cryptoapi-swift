@@ -34,13 +34,13 @@ let cryptoApi = configCryptoApiLib()
 
 let privateKey = try! EthereumPrivateKey(hexPrivateKey: ExampleConstants.privateKey)
 let address = privateKey.address.hex(eip55: true)
-print(address)
+print("ETH Address: \(address)")
 
 cryptoApi.eth.balance(addresses: [address]) { result in
     switch result {
     case .success(let addressesBalancesArray):
         for item in addressesBalancesArray {
-            print(item.balance)
+            print("Balance: \(item.balance)")
         }
     
     case .failure(let error):
@@ -51,15 +51,12 @@ cryptoApi.eth.balance(addresses: [address]) { result in
 ### Estimate nonce, gas price and gas limit
 Now, before creating a transaction, you need to get a `gas estimate`.
 ```swift
-var estimatedGas: ETHEstimateGasResponseModel?
 cryptoApi.eth.estimateGas(fromAddress: privateKey.address.hex(eip55: true),
                           toAddress: privateKey.address.hex(eip55: true),
                           data: "", value: ExampleConstants.sendAmount) { result in
     switch result {
     case .success(let response):
-        estimatedGas = response
         print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
-        
         return
     case .failure(let error):
         print(error)
@@ -71,16 +68,25 @@ cryptoApi.eth.estimateGas(fromAddress: privateKey.address.hex(eip55: true),
 CryptoAPI allows you to send raw transactions, but before that you need to prepare it.
 `Creating and sending a transaction` is as follows:
 ```swift
-let nonce = EthereumQuantity(quantity: BigUInt(estimatedGas!.nonce))
-let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas!.gasPrice))
-let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas!.estimateGas))
+let nonce = EthereumQuantity(quantity: BigUInt(estimatedGas.nonce))
+let gasPrice = EthereumQuantity(quantity: try! BigUInt(estimatedGas.gasPrice))
+let gasLimit = EthereumQuantity(quantity: BigUInt(estimatedGas.estimateGas))
 let value = EthereumQuantity(quantity: 1.eth)
 let toAddress = try! EthereumAddress(hex: ExampleConstants.toAddress, eip55: true)
 
-let transaction = EthereumTransaction(nonce: nonce, gasPrice: gasPrice, gas: gasLimit, from: privateKey.address, to: toAddress, value: value)
-let signedTransaction = try! transaction.sign(with: privateKey)
+let transaction = EthereumTransaction(
+    nonce: nonce,
+    gasPrice: gasPrice,
+    gas: gasLimit,
+    from: privateKey.address,
+    to: toAddress,
+    value: value
+)
 
-cryptoApi.eth.sendRaw(transaction: signedTransaction.data.hex()) { result in
+let signedTransaction = try! transaction.sign(with: privateKey)
+let transactionHex = try! RLPEncoder().encode(signedTransaction.rlp()).toHexString()
+
+cryptoApi.eth.sendRaw(transaction: transactionHex) { result in
     switch result {
     case .success(let txResponse):
         print(txResponse.hash)
