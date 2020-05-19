@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Changelog 0.4.0 - 2020-05-19
+### Added
+* Litecoin integration
+
 ## Changelog 0.3.6 - 2020-05-18
 ### Added
 * ETHInternalTransaction object to ETHExternalTransfersResponseModel and ETHTransactionsResponseModel
