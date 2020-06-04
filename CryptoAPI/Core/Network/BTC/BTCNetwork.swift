@@ -20,8 +20,8 @@ enum BTCNetwork: Resty {
     case addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int)
     case block(heightOrHash: String)
     case blocks(skip: Int, limit: Int)
-    case subscribePushNotifications(addresses: [String], firebaseToken: String)
-    case unsubscribePushNotifications(addresses: [String], firebaseToken: String)
+    case subscribePushNotifications(addresses: [String], firebaseToken: String, types: String)
+    case unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String)
 }
 
 extension BTCNetwork {
@@ -49,10 +49,10 @@ extension BTCNetwork {
             return "coins/btc/blocks/\(heightOrHash)"
         case .blocks:
             return "coins/btc/blocks"
-        case .subscribePushNotifications(let addresses, _):
-            return "coins/btc/push-notifications/addresses/\(addresses.description)/balance"
-        case .unsubscribePushNotifications(let addresses, _):
-            return "coins/btc/push-notifications/addresses/\(addresses.description)/balance"
+        case .subscribePushNotifications(let addresses, _, _):
+            return "coins/btc/push-notifications/addresses/\(addresses.description)"
+        case .unsubscribePushNotifications(let addresses, _, _):
+            return "coins/btc/push-notifications/addresses/\(addresses.description)"
         }
     }
     
@@ -82,8 +82,8 @@ extension BTCNetwork {
         case let .decodeRaw(transaction):
             return ["hash": transaction]
             
-        case .subscribePushNotifications(_, let firebaseToken):
-            return ["firebase_token": firebaseToken]
+        case .subscribePushNotifications(_, let firebaseToken, let types):
+            return ["firebase_token": firebaseToken, "types": types]
         }
     }
     
@@ -116,8 +116,8 @@ extension BTCNetwork {
         case let .addressesTransactionsHistory(_, skip, limit):
             return ["skip": String(skip), "limit": String(limit)]
             
-        case .unsubscribePushNotifications(_, let firebaseToken):
-            return ["firebase_token": firebaseToken]
+        case .unsubscribePushNotifications(_, let firebaseToken, let types):
+            return ["firebase_token": firebaseToken, "types": types]
         }
     }
     

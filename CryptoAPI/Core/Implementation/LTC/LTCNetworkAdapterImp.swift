@@ -90,17 +90,17 @@ final class LTCNetworkAdapterImp: LTCNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
                                     completion: @escaping (Result<LTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
-        LTCNetwork.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
+        LTCNetwork.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types)
             .request(type: LTCPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
-                                      completion: @escaping (Result<LTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
-        LTCNetwork.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
-            .request(type: LTCPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void) {
+        LTCNetwork.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types)
+            .request(type: Bool.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
 }

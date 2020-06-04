@@ -120,10 +120,11 @@ public protocol BTCService {
      
      - Parameter addresses: addresses
      - Parameter firebaseToken: firebase token
+     - Parameter types: notification types
      - Parameter completion: Callback which returns an [BTCPushNotificationsResponseModel](BTCPushNotificationsResponseModel) result  or error
      */
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
                                     completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void)
     
     /**
@@ -131,9 +132,10 @@ public protocol BTCService {
      
      - Parameter addresses: addresses
      - Parameter firebaseToken: firebase token
-     - Parameter completion: Callback which returns an [BTCPushNotificationsResponseModel](BTCPushNotificationsResponseModel) result  or error
+     - Parameter types: notification types
+     - Parameter completion: Callback which returns an [Bool](Bool) result  or error
      */
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
-                                      completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void)
 }

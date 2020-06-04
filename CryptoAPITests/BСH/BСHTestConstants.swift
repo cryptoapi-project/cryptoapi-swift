@@ -9,7 +9,7 @@
 import Foundation
 
 enum BCHTestConstants {
-    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5"
+    static let authToken = "fb551abd18852d0d0aea56c11d315e99d586a6396e8877b83bef79c15a5aad6e"
     
     static let timeout: TimeInterval = 30
     
@@ -21,5 +21,5 @@ enum BCHTestConstants {
     static let BCHBlockHeight = 1358237
     static let BCHBlockHash = "000000000240b727260c9db1dc5399c547391345e54c953dd4e663a69fda3818"
     
-    static let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
+    static let firebaseToken = "d7Jwu3kAYkPQnBZYlo97tw:APA91bFKsRbZc5GILKJeKtNWNxwx6u5D327QaqGvIlRZ71Q8HUL1gIKW-Xi_pVxVbzYRIpObhqs09qCL3piykgmlT--TMF_4SLLnajZMMarjWHDD_hljNKQkHGAjv4H_r89jiBO3gsSU"
 }

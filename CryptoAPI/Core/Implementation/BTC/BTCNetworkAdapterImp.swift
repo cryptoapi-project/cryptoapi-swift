@@ -90,17 +90,17 @@ final class BTCNetworkAdapterImp: BTCNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
                                     completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
-        BTCNetwork.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
+        BTCNetwork.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types)
             .request(type: BTCPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
-                                      completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
-        BTCNetwork.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken)
-            .request(type: BTCPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void) {
+        BTCNetwork.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types)
+            .request(type: Bool.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
 }

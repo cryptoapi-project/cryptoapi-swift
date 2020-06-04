@@ -1094,10 +1094,11 @@ class ETHServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
 //        let token = firebaseToken
+//        let types = "all"
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
 //
 //        //act
-//        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
 //            case .success(let model):
 //                //assert
@@ -1118,14 +1119,15 @@ class ETHServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
 //        let token = firebaseToken
+//        let types = "all"
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
 //
 //        //act
-//        api.eth.unsubscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//        api.eth.unsubscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
-//            case .success(let model):
+//            case .success(let success):
 //                //assert
-//                XCTAssertEqual(model.token, token)
+//                XCTAssertTrue(success)
 //
 //            case .failure(let error):
 //                //assert
@@ -1142,10 +1144,11 @@ class ETHServiceTests: XCTestCase {
         //assert
         let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
         let firebaseToken = "invalid token"
+        let types = "all"
         let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
         
         //act
-        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+        api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types) { result in
             switch result {
             case .success:
                 //assert

@@ -389,22 +389,23 @@ class BTCServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
 //        let token = firebaseToken
+//        let types = "all"
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
-//        
+//
 //        //act
-//        api.btc.subscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//        api.btc.subscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
 //            case .success(let model):
 //                //assert
 //                XCTAssertFalse(model.addresses.isEmpty)
-//                
+//
 //            case .failure(let error):
 //                //assert
 //                XCTAssertThrowsError(error)
 //            }
 //            expectation.fulfill()
 //        }
-//        
+//
 //        //assert
 //        wait(for: [expectation], timeout: testTimeout)
 //    }
@@ -413,14 +414,15 @@ class BTCServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
 //        let token = firebaseToken
+//        let types = "all"
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
 //
 //        //act
-//        api.btc.unsubscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//        api.btc.unsubscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
-//            case .success(let model):
+//            case .success(let success):
 //                //assert
-//                XCTAssertEqual(model.token, token)
+//                XCTAssertTrue(success)
 //
 //            case .failure(let error):
 //                //assert
@@ -438,9 +440,10 @@ class BTCServiceTests: XCTestCase {
         let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
         let firebaseToken = "invalid token"
         let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
+        let types = "outgoing,incoming"
         
         //act
-        api.btc.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+        api.btc.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types) { result in
             switch result {
             case .success:
                 //assert
