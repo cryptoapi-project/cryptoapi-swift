@@ -219,7 +219,7 @@ public protocol ETHService {
      - Parameter completion: Callback which returns an [ETHPushNotificationsResponseModel](ETHPushNotificationsResponseModel) result  or error
      */
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                     completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
     
     /**
@@ -231,7 +231,7 @@ public protocol ETHService {
      - Parameter completion: Callback which returns an [ETHPushNotificationsResponseModel](ETHPushNotificationsResponseModel) result  or error
      */
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                       completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }
  

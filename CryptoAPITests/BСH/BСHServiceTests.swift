@@ -368,7 +368,7 @@ class BCHServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [BCHAddressWithBalance, BCHAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
 //
 //        //act
@@ -393,7 +393,7 @@ class BCHServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [BCHAddressWithBalance, BCHAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
 //
 //        //act
@@ -401,7 +401,7 @@ class BCHServiceTests: XCTestCase {
 //            switch result {
 //            case .success(let model):
 //                //assert
-//                XCTAssertFalse(model.addresses.isEmpty)
+//                XCTAssertEqual(model.token, token)
 //
 //            case .failure(let error):
 //                //assert
@@ -418,7 +418,7 @@ class BCHServiceTests: XCTestCase {
         //assert
         let addresses = [BCHAddressWithBalance, BCHAddressWithBalance2]
         let firebaseToken = "invalid token"
-        let types = "all"
+        let types: [CryptoNotificationType] = [.outgoing, .incoming]
         let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
         
         //act

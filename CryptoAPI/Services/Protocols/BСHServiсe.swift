@@ -124,7 +124,7 @@ public protocol BCHService {
      - Parameter completion: Callback which returns an [BCHPushNotificationsResponseModel](BCHPushNotificationsResponseModel) result  or error
      */
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                     completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
     
     /**
@@ -136,6 +136,6 @@ public protocol BCHService {
      - Parameter completion: Callback which returns an [BCHPushNotificationsResponseModel](BCHPushNotificationsResponseModel) result  or error
      */
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                       completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }

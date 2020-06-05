@@ -1094,7 +1094,7 @@ class ETHServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
 //
 //        //act
@@ -1119,7 +1119,7 @@ class ETHServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
 //
 //        //act
@@ -1127,7 +1127,7 @@ class ETHServiceTests: XCTestCase {
 //            switch result {
 //            case .success(let model):
 //                //assert
-//                XCTAssertFalse(model.addresses.isEmpty)
+//                XCTAssertEqual(model.token, token)
 //
 //            case .failure(let error):
 //                //assert
@@ -1144,7 +1144,7 @@ class ETHServiceTests: XCTestCase {
         //assert
         let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
         let firebaseToken = "invalid token"
-        let types = "all"
+        let types: [CryptoNotificationType] = [.outgoing, .incoming]
         let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
         
         //act

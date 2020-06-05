@@ -123,7 +123,7 @@ public protocol LTCService {
      - Parameter types: notification types
      - Parameter completion: Callback which returns an [LTCPushNotificationsResponseModel](LTCPushNotificationsResponseModel) result  or error
      */
-    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                     completion: @escaping (Result<LTCPushNotificationsResponseModel, CryptoApiError>) -> Void)
     
     /**
@@ -134,6 +134,6 @@ public protocol LTCService {
      - Parameter types: notification types
      - Parameter completion: Callback which returns an [LTCPushNotificationsResponseModel](LTCPushNotificationsResponseModel) result  or error
      */
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                       completion: @escaping (Result<LTCPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }

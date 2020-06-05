@@ -389,7 +389,7 @@ class BTCServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
 //
 //        //act
@@ -414,7 +414,7 @@ class BTCServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
 //
 //        //act
@@ -422,7 +422,7 @@ class BTCServiceTests: XCTestCase {
 //            switch result {
 //            case .success(let model):
 //                //assert
-//                XCTAssertFalse(model.addresses.isEmpty)
+//                XCTAssertEqual(model.token, token)
 //
 //            case .failure(let error):
 //                //assert
@@ -440,7 +440,7 @@ class BTCServiceTests: XCTestCase {
         let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
         let firebaseToken = "invalid token"
         let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
-        let types = "outgoing,incoming"
+        let types: [CryptoNotificationType] = [.outgoing, .incoming]
         
         //act
         api.btc.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types) { result in

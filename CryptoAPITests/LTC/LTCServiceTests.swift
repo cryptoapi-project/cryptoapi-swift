@@ -389,7 +389,7 @@ class LTCServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [ltcAddressWithBalance, ltcAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
 //
 //        //act
@@ -414,7 +414,7 @@ class LTCServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [ltcAddressWithBalance, ltcAddressWithBalance2]
 //        let token = firebaseToken
-//        let types = "all"
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
 //
 //        //act
@@ -422,7 +422,7 @@ class LTCServiceTests: XCTestCase {
 //            switch result {
 //            case .success(let model):
 //                //assert
-//                XCTAssertFalse(model.addresses.isEmpty)
+//                XCTAssertEqual(model.token, token)
 //
 //            case .failure(let error):
 //                //assert
@@ -439,7 +439,7 @@ class LTCServiceTests: XCTestCase {
         //assert
         let addresses = [ltcAddressWithBalance, ltcAddressWithBalance2]
         let firebaseToken = "invalid token"
-        let types = "all"
+        let types: [CryptoNotificationType] = [.outgoing, .incoming]
         let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
         
         //act

@@ -41,9 +41,9 @@ protocol BTCNetworkAdapter {
     func addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int,
                                       completion: @escaping (Result<BTCAddressOutHistoryResponseModel, CryptoApiError>) -> Void)
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: [String],
                                     completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void)
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [String],
                                       completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }

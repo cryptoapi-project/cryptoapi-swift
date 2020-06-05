@@ -20,8 +20,8 @@ enum LTCNetwork: Resty {
     case addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int)
     case block(heightOrHash: String)
     case blocks(skip: Int, limit: Int)
-    case subscribePushNotifications(addresses: [String], firebaseToken: String, types: String)
-    case unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String)
+    case subscribePushNotifications(addresses: [String], firebaseToken: String, types: [String])
+    case unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [String])
 }
 
 extension LTCNetwork {
@@ -83,7 +83,7 @@ extension LTCNetwork {
             return ["hash": transaction]
             
         case .subscribePushNotifications(_, let firebaseToken, let types):
-            return ["firebase_token": firebaseToken, "types": types]
+            return ["firebase_token": firebaseToken, "types": types.description]
         }
     }
     
@@ -117,7 +117,7 @@ extension LTCNetwork {
             return ["skip": String(skip), "limit": String(limit)]
             
         case .unsubscribePushNotifications(_, let firebaseToken, let types):
-            return ["firebase_token": firebaseToken, "types": types]
+            return ["firebase_token": firebaseToken, "types": types.description]
         }
     }
     

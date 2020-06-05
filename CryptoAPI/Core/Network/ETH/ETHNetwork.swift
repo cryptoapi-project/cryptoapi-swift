@@ -29,8 +29,8 @@ enum ETHNetwork: Resty {
     case callContract(address: String, sender: String, amount: Int, bytecode: String)
     case block(numberOrHash: String)
     case blocks(skip: Int, limit: Int)
-    case subscribePushNotifications(addresses: [String], firebaseToken: String, types: String)
-    case unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String)
+    case subscribePushNotifications(addresses: [String], firebaseToken: String, types: [String])
+    case unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [String])
 }
 
 extension ETHNetwork {
@@ -132,7 +132,7 @@ extension ETHNetwork {
             }
             
         case .subscribePushNotifications(_, let firebaseToken, let types):
-            return ["firebase_token": firebaseToken, "types": types]
+            return ["firebase_token": firebaseToken, "types": types.description]
         }
     }
     
@@ -144,7 +144,7 @@ extension ETHNetwork {
             return nil
             
         case let .queryTokens(query, skip, limit, types):
-            return ["query": query, "skip": String(skip), "limit": String(limit), "types": types.joined(separator: ",")]
+            return ["query": query, "skip": String(skip), "limit": String(limit), "types": types.description]
             
         case let .history(_, from, limit, positive):
             return ["skip": String(from), "limit": String(limit), "positive": String(positive)]
@@ -172,7 +172,7 @@ extension ETHNetwork {
             return ["skip": String(skip), "limit": String(limit)]
             
         case .unsubscribePushNotifications(_, let firebaseToken, let types):
-            return ["firebase_token": firebaseToken, "types": types]
+            return ["firebase_token": firebaseToken, "types": types.description]
         }
     }
     
