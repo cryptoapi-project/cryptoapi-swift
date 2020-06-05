@@ -78,9 +78,9 @@ final class ETHServiceImp: ETHService {
         networkAdapter.tokenInfo(address: address, completion: completion)
     }
     
-    func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
+    func tokenSearch(query: String, skip: Int, limit: Int, types: [EthereumTokenType],
                      completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.tokenSearch(query: query, skip: skip, limit: limit, types: types, completion: completion)
+        networkAdapter.tokenSearch(query: query, skip: skip, limit: limit, types: types.map { $0.rawValue }, completion: completion)
     }
     
     func sendRaw(transaction: String,

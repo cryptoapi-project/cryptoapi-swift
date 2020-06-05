@@ -15,11 +15,11 @@ final class RatesServiceImp: RatesService {
         self.networkAdapter = networkAdapter
     }
     
-    func rates(coins: [String], completion: @escaping (Result<[RatesResponseModel], CryptoApiError>) -> Void) {
-        networkAdapter.rates(coins: coins, completion: completion)
+    func rates(coins: [CryptoCurrencyType], completion: @escaping (Result<[RatesResponseModel], CryptoApiError>) -> Void) {
+        networkAdapter.rates(coins: coins.map { $0.rawValue }, completion: completion)
     }
     
-    func ratesHistory(coins: [String], completion: @escaping (Result<[RatesHistoryResponseModel], CryptoApiError>) -> Void) {
-        networkAdapter.ratesHistory(coins: coins, completion: completion)
+    func ratesHistory(coins: [CryptoCurrencyType], completion: @escaping (Result<[RatesHistoryResponseModel], CryptoApiError>) -> Void) {
+        networkAdapter.ratesHistory(coins: coins.map { $0.rawValue }, completion: completion)
     }
 }

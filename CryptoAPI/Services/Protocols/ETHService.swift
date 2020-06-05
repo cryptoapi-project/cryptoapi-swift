@@ -148,7 +148,7 @@ public protocol ETHService {
     - Parameter types: types
     - Parameter completion: Callback which returns an [ETHTokensQueryResponseModel](ETHTokensQueryResponseModel) result  or error
 */
-    func tokenSearch(query: String, skip: Int, limit: Int, types: [String],
+    func tokenSearch(query: String, skip: Int, limit: Int, types: [EthereumTokenType],
                      completion: @escaping (Result<ETHTokensQueryResponseModel, CryptoApiError>) -> Void)
     
 /**

@@ -775,7 +775,7 @@ class ETHServiceTests: XCTestCase {
         let query = "0x"
         let skip = 0
         let limit = 20
-        let types = ["ERC20"]
+        let types: [EthereumTokenType] = [.ERC20]
         //act
         api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
             switch result {
@@ -794,28 +794,28 @@ class ETHServiceTests: XCTestCase {
     }
     
     func testQueryWithTypesTest() {
-         //arrange
-         let expectation = XCTestExpectation(description: "testQueryTest")
-         let query = ""
-         let skip = 0
-         let limit = 10
-         let types = ["ERC20", "ERC721"]
-         //act
-         api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
-             switch result {
-             case let .success(query):
-                 //assert
-                 XCTAssertTrue(!query.items.isEmpty)
-             case let .failure(error):
-                 //asserts
-                 XCTAssertThrowsError(error)
-             }
-             expectation.fulfill()
-         }
-
-         //assert
-         wait(for: [expectation], timeout: testTimeout)
-     }
+        //arrange
+        let expectation = XCTestExpectation(description: "testQueryTest")
+        let query = ""
+        let skip = 0
+        let limit = 10
+        let types: [EthereumTokenType] = [.ERC20, .ERC721]
+        //act
+        api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
+            switch result {
+            case let .success(query):
+                //assert
+                XCTAssertTrue(!query.items.isEmpty)
+            case let .failure(error):
+                //asserts
+                XCTAssertThrowsError(error)
+            }
+            expectation.fulfill()
+        }
+        
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
     
     func testQueryWithQueryTest() {
          //arrange
@@ -823,7 +823,7 @@ class ETHServiceTests: XCTestCase {
          let query = ""
          let skip = 0
          let limit = 10
-         let types = ["ERC20", "ERC721"]
+         let types: [EthereumTokenType] = [.ERC20, .ERC721]
          //act
          api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
              switch result {
@@ -847,7 +847,7 @@ class ETHServiceTests: XCTestCase {
         let query = ""
         let skip = 0
         let limit = 10
-        let types: [String] = []
+        let types: [EthereumTokenType] = []
 
         //act
         api.eth.tokenSearch(query: query, skip: skip, limit: limit, types: types) { result in
