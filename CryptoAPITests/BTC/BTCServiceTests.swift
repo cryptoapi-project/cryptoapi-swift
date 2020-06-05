@@ -318,7 +318,7 @@ class BTCServiceTests: XCTestCase {
     func testAddressesOutputsTest() {
         //arrange
         let expectation = XCTestExpectation(description: "testTransfersTest")
-        let address = "2MwcRaFr3TicdFLm84AfYi3HArFQx91cwFz"
+        let address = btcAddressWithBalance
         let skip: Int? = 0
         let limit: Int? = nil
         
