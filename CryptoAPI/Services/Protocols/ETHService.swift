@@ -228,10 +228,10 @@ public protocol ETHService {
      - Parameter addresses: addresses
      - Parameter firebaseToken: firebase token
      - Parameter types: notification types
-     - Parameter completion: Callback which returns an [Bool](Bool) result  or error
+     - Parameter completion: Callback which returns an [ETHPushNotificationsResponseModel](ETHPushNotificationsResponseModel) result  or error
      */
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
-                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void)
+                                      completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }
  

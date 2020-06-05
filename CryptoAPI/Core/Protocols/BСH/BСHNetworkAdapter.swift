@@ -45,5 +45,5 @@ protocol BCHNetworkAdapter {
                                     completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
-                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void)
+                                      completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }

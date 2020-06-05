@@ -98,9 +98,9 @@ final class BTCNetworkAdapterImp: BTCNetworkAdapter {
     }
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
-                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void) {
+                                      completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
         BTCNetwork.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types)
-            .request(type: Bool.self, session: session, baseUrl: baseUrl,
+            .request(type: BTCPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
 }

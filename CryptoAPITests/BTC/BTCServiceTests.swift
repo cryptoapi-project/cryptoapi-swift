@@ -409,7 +409,7 @@ class BTCServiceTests: XCTestCase {
 //        //assert
 //        wait(for: [expectation], timeout: testTimeout)
 //    }
-    
+//
 //    func testUnsubscribePushNotifications() {
 //        //assert
 //        let addresses = [btcAddressWithBalance, btcAddressWithBalance2]
@@ -420,9 +420,9 @@ class BTCServiceTests: XCTestCase {
 //        //act
 //        api.btc.unsubscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
-//            case .success(let success):
+//            case .success(let model):
 //                //assert
-//                XCTAssertTrue(success)
+//                XCTAssertFalse(model.addresses.isEmpty)
 //
 //            case .failure(let error):
 //                //assert

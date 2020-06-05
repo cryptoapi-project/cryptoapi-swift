@@ -75,7 +75,7 @@ final class LTCServiceImp: LTCService {
     }
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
-                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void) {
+                                      completion: @escaping (Result<LTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types, completion: completion)
     }
 }

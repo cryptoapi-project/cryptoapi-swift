@@ -75,7 +75,7 @@ final class BTCServiceImp: BTCService {
     }
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: String,
-                                      completion: @escaping (Result<Bool, CryptoApiError>) -> Void) {
+                                      completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types, completion: completion)
     }
 }

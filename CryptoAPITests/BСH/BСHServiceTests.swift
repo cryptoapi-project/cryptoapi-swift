@@ -399,9 +399,9 @@ class BCHServiceTests: XCTestCase {
 //        //act
 //        api.bch.unsubscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
-//            case .success(let success):
+//            case .success(let model):
 //                //assert
-//                XCTAssertTrue(success)
+//                XCTAssertFalse(model.addresses.isEmpty)
 //
 //            case .failure(let error):
 //                //assert
