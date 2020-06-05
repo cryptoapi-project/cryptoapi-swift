@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum CryptoNotificationType: String, CaseIterable {
+public enum CryptoNotificationType: String {
     case outgoing
     case incoming
     case balance
