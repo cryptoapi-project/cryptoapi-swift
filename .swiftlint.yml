@@ -24,7 +24,6 @@ whitelist_rules:
   - convenience_type
   - discouraged_direct_init
   - discouraged_object_literal
-  - discouraged_optional_boolean
   - duplicate_imports
   - dynamic_inline
   - empty_count

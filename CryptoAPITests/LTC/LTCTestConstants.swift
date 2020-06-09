@@ -21,5 +21,5 @@ enum LTCTestConstants {
     static let ltcBlockHeight = 1469976
     static let ltcBlockHash = "8cf83f693df9e9e4bc55ff79c4ccacd092b52971caa048e59f37c6b1b067c881"
     
-    static let firebaseToken = "d7Jwu3kAYkPQnBZYlo97tw:APA91bFKsRbZc5GILKJeKtNWNxwx6u5D327QaqGvIlRZ71Q8HUL1gIKW-Xi_pVxVbzYRIpObhqs09qCL3piykgmlT--TMF_4SLLnajZMMarjWHDD_hljNKQkHGAjv4H_r89jiBO3gsSU"
+    static let firebaseToken = "f2c3Shy-8k0diAWjGkMbi4:APA91bEKZuU310WRZsLxa-R5PToVOdYd0LrHoGKZ9Gbv1YDPj4J7PUKi5ZMgJFCW6jEB7mUPmLl9kceaN-1Vop4gYu0RfWYZ3wR0LLwQaDBIOl55zXFs9V1DCTl0A2jI_uAsZ_tINJvk"
 }
