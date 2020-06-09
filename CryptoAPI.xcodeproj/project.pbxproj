@@ -78,6 +78,8 @@
 		E423BD882437A25700A6E27D /* RatesHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */; };
 		E4560FF6248AEFFC00507857 /* CryptoNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */; };
 		E4560FF7248AF53600507857 /* ETHServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C2723801A5000EF0600 /* ETHServiceTests.swift */; };
+		E4560FFD248AF93900507857 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4560FFC248AF93900507857 /* CryptoCurrencyType.swift */; };
+		E4560FFF248AFB1C00507857 /* EthereumTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4560FFE248AFB1C00507857 /* EthereumTokenType.swift */; };
 		E4A20F63246DA27F005BE866 /* BСHServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F58246DA27F005BE866 /* BСHServiceImp.swift */; };
 		E4A20F64246DA27F005BE866 /* BTCServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F59246DA27F005BE866 /* BTCServiceImp.swift */; };
 		E4A20F65246DA27F005BE866 /* RatesServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F5A246DA27F005BE866 /* RatesServiceImp.swift */; };
@@ -196,6 +198,8 @@
 		E423BD8524379B1100A6E27D /* RatesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesServiceTests.swift; sourceTree = "<group>"; };
 		E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoryResponseModel.swift; sourceTree = "<group>"; };
 		E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoNotificationType.swift; sourceTree = "<group>"; };
+		E4560FFC248AF93900507857 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
+		E4560FFE248AFB1C00507857 /* EthereumTokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumTokenType.swift; sourceTree = "<group>"; };
 		E4A20F58246DA27F005BE866 /* BСHServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BСHServiceImp.swift"; sourceTree = "<group>"; };
 		E4A20F59246DA27F005BE866 /* BTCServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCServiceImp.swift; sourceTree = "<group>"; };
 		E4A20F5A246DA27F005BE866 /* RatesServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesServiceImp.swift; sourceTree = "<group>"; };
@@ -586,6 +590,8 @@
 			isa = PBXGroup;
 			children = (
 				E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */,
+				E4560FFC248AF93900507857 /* CryptoCurrencyType.swift */,
+				E4560FFE248AFB1C00507857 /* EthereumTokenType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -826,6 +832,7 @@
 				CE66C8C723E32088004F086B /* BCHAddressOutputResponseModel.swift in Sources */,
 				E4A20F6B246DA27F005BE866 /* BTCService.swift in Sources */,
 				CE837A1F23E1D00200A951AB /* BTCSendRawResponseModel.swift in Sources */,
+				E4560FFD248AF93900507857 /* CryptoCurrencyType.swift in Sources */,
 				B34D0F0D2382B48B002823F8 /* ETHContractInfoResponseModel.swift in Sources */,
 				B34D0F0523828163002823F8 /* ETHInfoResponseModel.swift in Sources */,
 				E4A20F63246DA27F005BE866 /* BСHServiceImp.swift in Sources */,
@@ -866,6 +873,7 @@
 				E423BD712437819F00A6E27D /* RatesResponseModel.swift in Sources */,
 				CE837A2123E1D0AF00A951AB /* BTCDecodeRawResponseModel.swift in Sources */,
 				E4A20F84246DCA40005BE866 /* LTCPushNotificationsResponseModel.swift in Sources */,
+				E4560FFF248AFB1C00507857 /* EthereumTokenType.swift in Sources */,
 				E4A20F8D246DD003005BE866 /* LTCNetworkAdapterImp.swift in Sources */,
 				B3BD0C00237FFD5500EF0600 /* Resty.swift in Sources */,
 				E4A20F66246DA27F005BE866 /* ETHServiceImp.swift in Sources */,

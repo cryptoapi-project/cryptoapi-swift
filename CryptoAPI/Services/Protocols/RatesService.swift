@@ -14,12 +14,12 @@ public protocol RatesService {
      - Parameter coins: Supported coins: BTC, ETH, BCH, OMG, RNT, PST, REP, ITC, KNC, BZNT, ZIL, ZRX, TRV
      - Parameter completion: Callback which returns an [RatesResponseModel](RatesResponseModel) result or error
      */
-    func rates(coins: [String], completion: @escaping (Result<[RatesResponseModel], CryptoApiError>) -> Void)
+    func rates(coins: [CryptoCurrencyType], completion: @escaping (Result<[RatesResponseModel], CryptoApiError>) -> Void)
     
     /**
      Return required coins rates history last 30 days by fiat currencies.
      - Parameter coins: Supported coins: BTC, ETH, BCH, OMG, RNT, PST, REP, ITC, KNC, BZNT, ZIL, ZRX, TRV
      - Parameter completion: Callback which returns an [RatesHistoryResponseModel](RatesHistoryResponseModel) result or error
      */
-    func ratesHistory(coins: [String], completion: @escaping (Result<[RatesHistoryResponseModel], CryptoApiError>) -> Void)
+    func ratesHistory(coins: [CryptoCurrencyType], completion: @escaping (Result<[RatesHistoryResponseModel], CryptoApiError>) -> Void)
 }

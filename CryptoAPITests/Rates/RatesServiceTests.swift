@@ -23,7 +23,7 @@ class RatesServiceTests: XCTestCase {
     
     func testRates() {
         //arrange
-        let coins = ["BTC", "ETH", "BCH"]
+        let coins: [CryptoCurrencyType] = [.BTC, .ETH, .LTC]
         let expectation = XCTestExpectation(description: "testRates")
         
         //act
@@ -46,7 +46,7 @@ class RatesServiceTests: XCTestCase {
     
     func testRatesHistory() {
         //arrange
-        let coins = ["BTC", "ETH", "BCH"]
+        let coins: [CryptoCurrencyType] = [.BTC, .ETH, .LTC]
         let expectation = XCTestExpectation(description: "testRatesHistory")
         
         //act
