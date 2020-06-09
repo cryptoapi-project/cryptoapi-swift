@@ -69,13 +69,23 @@ final class BTCServiceImp: BTCService {
         networkAdapter.addressesTransactionsHistory(addresses: addresses, skip: skip, limit: limit, completion: completion)
     }
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                     completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, completion: completion)
+        networkAdapter.subscribePushNotifications(
+            addresses: addresses,
+            firebaseToken: firebaseToken,
+            types: types.map { $0.rawValue },
+            completion: completion
+        )
     }
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                       completion: @escaping (Result<BTCPushNotificationsResponseModel, CryptoApiError>) -> Void) {
-        networkAdapter.unsubscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, completion: completion)
+        networkAdapter.unsubscribePushNotifications(
+            addresses: addresses,
+            firebaseToken: firebaseToken,
+            types: types.map { $0.rawValue },
+            completion: completion
+        )
     }
 }

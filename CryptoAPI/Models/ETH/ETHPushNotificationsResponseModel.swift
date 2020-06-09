@@ -11,4 +11,5 @@ import Foundation
 public struct ETHPushNotificationsResponseModel: Codable {
     public let addresses: [String]
     public let token: String
+    public let types: [CryptoNotificationType]
 }

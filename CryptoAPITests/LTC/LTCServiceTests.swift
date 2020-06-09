@@ -389,10 +389,11 @@ class LTCServiceTests: XCTestCase {
 //        //assert
 //        let addresses = [ltcAddressWithBalance, ltcAddressWithBalance2]
 //        let token = firebaseToken
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testSubscribePushNotifications")
 //
 //        //act
-//        api.ltc.subscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//        api.ltc.subscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
 //            case .success(let model):
 //                //assert
@@ -408,15 +409,16 @@ class LTCServiceTests: XCTestCase {
 //        //assert
 //        wait(for: [expectation], timeout: testTimeout)
 //    }
-    
+//
 //    func testUnsubscribePushNotifications() {
 //        //assert
 //        let addresses = [ltcAddressWithBalance, ltcAddressWithBalance2]
 //        let token = firebaseToken
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
 //        let expectation = XCTestExpectation(description: "testUnsubscribePushNotifications")
 //
 //        //act
-//        api.ltc.unsubscribePushNotifications(addresses: addresses, firebaseToken: token) { result in
+//        api.ltc.unsubscribePushNotifications(addresses: addresses, firebaseToken: token, types: types) { result in
 //            switch result {
 //            case .success(let model):
 //                //assert
@@ -437,10 +439,11 @@ class LTCServiceTests: XCTestCase {
         //assert
         let addresses = [ltcAddressWithBalance, ltcAddressWithBalance2]
         let firebaseToken = "invalid token"
+        let types: [CryptoNotificationType] = [.outgoing, .incoming]
         let expectation = XCTestExpectation(description: "testSubscribePushNotificationsFailed")
         
         //act
-        api.ltc.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken) { result in
+        api.ltc.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types) { result in
             switch result {
             case .success:
                 //assert

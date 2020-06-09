@@ -31,7 +31,6 @@
 		B3BD0C022380055D00EF0600 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C012380055D00EF0600 /* Dictionary+Extension.swift */; };
 		B3BD0C072380127600EF0600 /* ETHWalletBalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C032380127600EF0600 /* ETHWalletBalanceModel.swift */; };
 		B3BD0C21238017DC00EF0600 /* CryptoAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BD0BE4237FE11000EF0600 /* CryptoAPI.framework */; };
-		B3BD0C2823801A5000EF0600 /* ETHServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C2723801A5000EF0600 /* ETHServiceTests.swift */; };
 		B3BD0C2A23802CCB00EF0600 /* ETHEstimateGasResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C2923802CCB00EF0600 /* ETHEstimateGasResponseModel.swift */; };
 		CE21B4ED23E2C589001E9D95 /* BTCAddressOutInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21B4EC23E2C589001E9D95 /* BTCAddressOutInfoResponseModel.swift */; };
 		CE21B4EF23E2C921001E9D95 /* BTCAddressOutHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21B4EE23E2C921001E9D95 /* BTCAddressOutHistoryResponseModel.swift */; };
@@ -77,6 +76,8 @@
 		E423BD8124378DC800A6E27D /* RatesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD8024378DC800A6E27D /* RatesNetwork.swift */; };
 		E423BD8624379B1100A6E27D /* RatesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD8524379B1100A6E27D /* RatesServiceTests.swift */; };
 		E423BD882437A25700A6E27D /* RatesHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */; };
+		E4560FF6248AEFFC00507857 /* CryptoNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */; };
+		E4560FF7248AF53600507857 /* ETHServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C2723801A5000EF0600 /* ETHServiceTests.swift */; };
 		E4A20F63246DA27F005BE866 /* BСHServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F58246DA27F005BE866 /* BСHServiceImp.swift */; };
 		E4A20F64246DA27F005BE866 /* BTCServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F59246DA27F005BE866 /* BTCServiceImp.swift */; };
 		E4A20F65246DA27F005BE866 /* RatesServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F5A246DA27F005BE866 /* RatesServiceImp.swift */; };
@@ -194,6 +195,7 @@
 		E423BD8024378DC800A6E27D /* RatesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesNetwork.swift; sourceTree = "<group>"; };
 		E423BD8524379B1100A6E27D /* RatesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesServiceTests.swift; sourceTree = "<group>"; };
 		E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoryResponseModel.swift; sourceTree = "<group>"; };
+		E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoNotificationType.swift; sourceTree = "<group>"; };
 		E4A20F58246DA27F005BE866 /* BСHServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BСHServiceImp.swift"; sourceTree = "<group>"; };
 		E4A20F59246DA27F005BE866 /* BTCServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCServiceImp.swift; sourceTree = "<group>"; };
 		E4A20F5A246DA27F005BE866 /* RatesServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesServiceImp.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		B3BD0BFE237FFC0C00EF0600 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4560FF4248AEFC100507857 /* Types */,
 				E423BD6F2437803F00A6E27D /* Rates */,
 				D044FBED23E808760012C2BA /* Common */,
 				CE21B4F523E31D14001E9D95 /* BCH */,
@@ -577,6 +580,14 @@
 				E423BD8524379B1100A6E27D /* RatesServiceTests.swift */,
 			);
 			path = Rates;
+			sourceTree = "<group>";
+		};
+		E4560FF4248AEFC100507857 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 		E4A20F56246DA27F005BE866 /* Services */ = {
@@ -881,6 +892,7 @@
 				E4A20F6A246DA27F005BE866 /* BСHServiсe.swift in Sources */,
 				B34D0F072382851E002823F8 /* ETHTransfersResponseModel.swift in Sources */,
 				E4A20F69246DA27F005BE866 /* ETHService.swift in Sources */,
+				E4560FF6248AEFFC00507857 /* CryptoNotificationType.swift in Sources */,
 				D0479D3F23FD623E00B00E52 /* NetworkType.swift in Sources */,
 				CE21B4F823E31D63001E9D95 /* BСHNetwork.swift in Sources */,
 				B37C4EAC2385523100082779 /* ETHDecodeRawResponseModel.swift in Sources */,
@@ -892,16 +904,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4560FF7248AF53600507857 /* ETHServiceTests.swift in Sources */,
 				B3A4AE3B23843130005AFE8E /* CommonServiceTests.swift in Sources */,
 				E4DF004B246E16A100287553 /* LTCTestConstants.swift in Sources */,
 				E4DF004D246E16AE00287553 /* LTCServiceTests.swift in Sources */,
 				E423BD8624379B1100A6E27D /* RatesServiceTests.swift in Sources */,
 				CEAFDA8023E42BC20018AFD8 /* BСHTestConstants.swift in Sources */,
-				B3BD0C2823801A5000EF0600 /* ETHServiceTests.swift in Sources */,
 				CE66C8CA23E32123004F086B /* BСHServiceTests.swift in Sources */,
 				CE86AB2B23E4285A009EA834 /* BTCTestConstants.swift in Sources */,
 				CE837A1923E1994D00A951AB /* BTCServiceTests.swift in Sources */,
-				B3BD0C2823801A5000EF0600 /* ETHServiceTests.swift in Sources */,
 				D038910423968427005DE0B4 /* ETHTestConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

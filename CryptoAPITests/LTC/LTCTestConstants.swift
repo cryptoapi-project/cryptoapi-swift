@@ -9,7 +9,7 @@
 import Foundation
 
 enum LTCTestConstants {
-    static let authToken = "5de552d7efc6ff2e1b09d946cc5263e346003a93ab28bf2ffeb24979da85a1f5"
+    static let authToken = "fb551abd18852d0d0aea56c11d315e99d586a6396e8877b83bef79c15a5aad6e"
     
     static let timeout: TimeInterval = 30
     
@@ -21,5 +21,5 @@ enum LTCTestConstants {
     static let ltcBlockHeight = 1469976
     static let ltcBlockHash = "8cf83f693df9e9e4bc55ff79c4ccacd092b52971caa048e59f37c6b1b067c881"
     
-    static let firebaseToken = "euCaVJIrR92o3YMRcXSWot:APA91bFnIkCEo4RWBJsNO5ThtHAmwT1HA0-BEQTbCLDYfAcJXKTx-HoRzcB65AWcrZGo3TyORWM_Ey_IozFrRpaqTC_DmZsZMpoqrUdvK9fVA3ILbGBy-exXOZLWidhz6c_7qIp0NG0G"
+    static let firebaseToken = "f2c3Shy-8k0diAWjGkMbi4:APA91bEKZuU310WRZsLxa-R5PToVOdYd0LrHoGKZ9Gbv1YDPj4J7PUKi5ZMgJFCW6jEB7mUPmLl9kceaN-1Vop4gYu0RfWYZ3wR0LLwQaDBIOl55zXFs9V1DCTl0A2jI_uAsZ_tINJvk"
 }

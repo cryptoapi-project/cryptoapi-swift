@@ -41,9 +41,9 @@ protocol BCHNetworkAdapter {
     func addressesTransactionsHistory(addresses: [String], skip: Int, limit: Int,
                                       completion: @escaping (Result<BCHAddressOutHistoryResponseModel, CryptoApiError>) -> Void)
     
-    func subscribePushNotifications(addresses: [String], firebaseToken: String,
+    func subscribePushNotifications(addresses: [String], firebaseToken: String, types: [String],
                                     completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
     
-    func unsubscribePushNotifications(addresses: [String], firebaseToken: String,
+    func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [String],
                                       completion: @escaping (Result<BCHPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }
