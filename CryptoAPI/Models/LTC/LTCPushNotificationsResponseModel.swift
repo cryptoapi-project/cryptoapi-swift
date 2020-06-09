@@ -9,5 +9,5 @@
 public struct LTCPushNotificationsResponseModel: Codable {
     public let addresses: [String]
     public let token: String?
-    public let types: [String]
+    public let types: [CryptoNotificationType]
 }

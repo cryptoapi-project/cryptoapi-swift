@@ -28,5 +28,5 @@ enum ETHTestConstants {
     static let ethBlockNumber = 6034220
     static let ethBlockHash = "0x90467d18c06e8998687f48c239122331eeb96419e4e49c45f282e7d6431a803a"
     
-    static let firebaseToken = "d7Jwu3kAYkPQnBZYlo97tw:APA91bFKsRbZc5GILKJeKtNWNxwx6u5D327QaqGvIlRZ71Q8HUL1gIKW-Xi_pVxVbzYRIpObhqs09qCL3piykgmlT--TMF_4SLLnajZMMarjWHDD_hljNKQkHGAjv4H_r89jiBO3gsSU"
+    static let firebaseToken = "f2c3Shy-8k0diAWjGkMbi4:APA91bEKZuU310WRZsLxa-R5PToVOdYd0LrHoGKZ9Gbv1YDPj4J7PUKi5ZMgJFCW6jEB7mUPmLl9kceaN-1Vop4gYu0RfWYZ3wR0LLwQaDBIOl55zXFs9V1DCTl0A2jI_uAsZ_tINJvk"
 }
