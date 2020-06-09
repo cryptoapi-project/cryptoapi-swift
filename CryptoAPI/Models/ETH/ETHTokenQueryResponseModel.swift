@@ -12,14 +12,14 @@ public struct ETHTokensQueryResponseModel: Codable {
     public let limit: Int
     public let count: Int
     public let items: [ETHTokenQueryResponseModel]
-    public let types: [String]
+    public let types: [EthereumTokenType]
 }
 
 public struct ETHTokenQueryResponseModel {
     public let address: String
     public let createTransactionHash: String
     public let status: Bool?
-    public let type: String
+    public let type: EthereumTokenType
     public let info: ETHTokenQueryItemResponseModel
 }
 

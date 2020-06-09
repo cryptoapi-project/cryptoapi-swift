@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum EthereumTokenType: String {
+public enum EthereumTokenType: String, Codable {
     case ERC20
     case ERC721
 }
