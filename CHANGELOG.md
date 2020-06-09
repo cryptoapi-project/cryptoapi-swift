@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## Changelog 0.4.1 - 2020-06-09
+### Added
+* CryptoCurrencyType enum
+* EthereumTokenType enum
+* CryptoNotificationType enum
+* BTCPushNotificationsResponseModel struct
+
+### Changed
+* Method subscribePushNotifications. Added types parameter(array of CryptoNotificationType) and response result model(BTCPushNotificationsResponseModel)
+* Method unsubscribePushNotifications. Added types parameter(array of CryptoNotificationType) and response result model(BTCPushNotificationsResponseModel)
+* ETHTokensQueryResponseModel. Property types is [EthereumTokenType] 
+* ETHTokenQueryResponseModel. Property type is EthereumTokenType 
+
 ## Changelog 0.4.0 - 2020-05-19
 ### Added
 * Litecoin integration
