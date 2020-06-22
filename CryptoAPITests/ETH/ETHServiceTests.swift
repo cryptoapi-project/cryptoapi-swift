@@ -336,9 +336,10 @@ class ETHServiceTests: XCTestCase {
         let address = ethAddressWithBalance
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address]) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address], pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -361,9 +362,10 @@ class ETHServiceTests: XCTestCase {
         let address2 = ethAddressWithBalance2
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address, address2]) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address, address2], pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -385,9 +387,10 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address]) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address], pending: pending) { result in
             switch result {
               case .success:
                   //assert
@@ -409,9 +412,10 @@ class ETHServiceTests: XCTestCase {
         let toAddress = ethAddressWithBalance2
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
+        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress, pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -434,9 +438,10 @@ class ETHServiceTests: XCTestCase {
         let toAddress = ethAddressWithBalance2
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
+        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress, pending: pending) { result in
             switch result {
               case .success:
                   //assert

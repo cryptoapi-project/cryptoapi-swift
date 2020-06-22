@@ -54,16 +54,16 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func externalTransfers(skip: Int, limit: Int, addresses: [String],
+    func externalTransfers(skip: Int, limit: Int, addresses: [String], pending: String,
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.externalHistory(addresses: addresses, from: skip, limit: limit)
+        ETHNetwork.externalHistory(addresses: addresses, from: skip, limit: limit, pending: pending)
             .request(type: ETHExternalTransfersResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
+    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String, pending: String,
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.transactions(fromAddress: fromAddress, toAddress: toAddress, skip: skip, limit: limit)
+        ETHNetwork.transactions(fromAddress: fromAddress, toAddress: toAddress, skip: skip, limit: limit, pending: pending)
             .request(type: ETHTransactionsResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
