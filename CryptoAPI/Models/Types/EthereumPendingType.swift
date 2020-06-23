@@ -8,8 +8,14 @@
 
 import Foundation
 
+/// Ethereum pending transaction's parameter
 public enum EthereumPendingType: String, Codable {
+    /// Include pending transactions
     case include
+    
+    /// Not include pending transactions
     case exclude
+    
+    /// Only pending transactions
     case only
 }
