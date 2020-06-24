@@ -59,4 +59,10 @@ protocol ETHNetworkAdapter {
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [String],
                                       completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    func subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [String],
+                                         completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    func unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [String],
+                                           completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }

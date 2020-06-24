@@ -170,5 +170,19 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
             .request(type: ETHPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
+    
+    func subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [String],
+                                         completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.subscribeTokenPushNotifications(addresses: addresses, firebaseToken: firebaseToken, tokenAddress: tokenAddress, types: types)
+            .request(type: ETHTokenPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+                     authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
+    
+    func unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [String],
+                                           completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        ETHNetwork.unsubscribeTokenPushNotifications(addresses: addresses, firebaseToken: firebaseToken, tokenAddress: tokenAddress, types: types)
+            .request(type: ETHTokenPushNotificationsResponseModel.self, session: session, baseUrl: baseUrl,
+                     authToken: authToken, withLog: needLogs, completionHandler: completion)
+    }
 }
     

@@ -106,6 +106,7 @@
 		E4A20F8D246DD003005BE866 /* LTCNetworkAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A20F8C246DD003005BE866 /* LTCNetworkAdapterImp.swift */; };
 		E4DF004B246E16A100287553 /* LTCTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF004A246E16A100287553 /* LTCTestConstants.swift */; };
 		E4DF004D246E16AE00287553 /* LTCServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF004C246E16AE00287553 /* LTCServiceTests.swift */; };
+		E4FDEBF224A36017007A782A /* ETHTokenPushNotificationsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDEBF124A36017007A782A /* ETHTokenPushNotificationsResponseModel.swift */; };
 		E7571A4E2472B3EB0069F68C /* LTCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7571A4D2472B3EB0069F68C /* LTCService.swift */; };
 		E7571A502472B3F30069F68C /* LTCServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7571A4F2472B3F30069F68C /* LTCServiceImp.swift */; };
 		E7571A532472B46D0069F68C /* BTCBlockResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9704F223E1D6E1007B0A2C /* BTCBlockResponseModel.swift */; };
@@ -226,6 +227,7 @@
 		E4A20F8C246DD003005BE866 /* LTCNetworkAdapterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCNetworkAdapterImp.swift; sourceTree = "<group>"; };
 		E4DF004A246E16A100287553 /* LTCTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCTestConstants.swift; sourceTree = "<group>"; };
 		E4DF004C246E16AE00287553 /* LTCServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCServiceTests.swift; sourceTree = "<group>"; };
+		E4FDEBF124A36017007A782A /* ETHTokenPushNotificationsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHTokenPushNotificationsResponseModel.swift; sourceTree = "<group>"; };
 		E7571A4D2472B3EB0069F68C /* LTCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTCService.swift; sourceTree = "<group>"; };
 		E7571A4F2472B3F30069F68C /* LTCServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTCServiceImp.swift; sourceTree = "<group>"; };
 		E7596D752449D9730010EC5D /* ETHInternalTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHInternalTransaction.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				D0E1628023DF35720034D908 /* ETHSendRawResponseModel.swift */,
 				D0E1628223DF38560034D908 /* ETHBlockResponseModel.swift */,
 				E41F524B2438E85700F9EAEA /* ETHPushNotificationsResponseModel.swift */,
+				E4FDEBF124A36017007A782A /* ETHTokenPushNotificationsResponseModel.swift */,
 			);
 			path = ETH;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				E4560FF6248AEFFC00507857 /* CryptoNotificationType.swift in Sources */,
 				D0479D3F23FD623E00B00E52 /* NetworkType.swift in Sources */,
 				CE21B4F823E31D63001E9D95 /* BСHNetwork.swift in Sources */,
+				E4FDEBF224A36017007A782A /* ETHTokenPushNotificationsResponseModel.swift in Sources */,
 				B37C4EAC2385523100082779 /* ETHDecodeRawResponseModel.swift in Sources */,
 				E41F52482438BFB700F9EAEA /* BTCPushNotificationsResponseModel.swift in Sources */,
 			);

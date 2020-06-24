@@ -233,5 +233,31 @@ public protocol ETHService {
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                       completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Set contract token subscription
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter tokenAddress: Ethereum token address
+     - Parameter types: notification types
+     - Parameter completion: Callback which returns an [ETHPushNotificationsResponseModel](ETHPushNotificationsResponseModel) result  or error
+     */
+    
+    func subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+                                         completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Remove contract token subscription
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter tokenAddress: Ethereum token address
+     - Parameter types: notification types
+     - Parameter completion: Callback which returns an [ETHPushNotificationsResponseModel](ETHPushNotificationsResponseModel) result  or error
+     */
+    
+    func unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+                                           completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }
  

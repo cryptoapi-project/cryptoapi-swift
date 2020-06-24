@@ -131,4 +131,26 @@ final class ETHServiceImp: ETHService {
             completion: completion
         )
     }
+    
+    func subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+                                         completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.subscribeTokenPushNotifications(
+            addresses: addresses,
+            firebaseToken: firebaseToken,
+            tokenAddress: tokenAddress,
+            types: types.map { $0.rawValue },
+            completion: completion
+        )
+    }
+    
+    func unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+                                           completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void) {
+        networkAdapter.unsubscribeTokenPushNotifications(
+            addresses: addresses,
+            firebaseToken: firebaseToken,
+            tokenAddress: tokenAddress,
+            types: types.map { $0.rawValue },
+            completion: completion
+        )
+    }
 }

@@ -31,6 +31,8 @@ enum ETHNetwork: Resty {
     case blocks(skip: Int, limit: Int)
     case subscribePushNotifications(addresses: [String], firebaseToken: String, types: [String])
     case unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [String])
+    case subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [String])
+    case unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [String])
 }
 
 extension ETHNetwork {
@@ -85,6 +87,10 @@ extension ETHNetwork {
             return "coins/eth/push-notifications/addresses/\(addresses.description)"
         case .unsubscribePushNotifications(let addresses, _, _):
             return "coins/eth/push-notifications/addresses/\(addresses.description)"
+        case .subscribeTokenPushNotifications(let addresses, _, _, _):
+            return "coins/eth/push-notifications/addresses/\(addresses.description)/tokens"
+        case .unsubscribeTokenPushNotifications(let addresses, _, _, _):
+            return "coins/eth/push-notifications/addresses/\(addresses.description)/tokens"
         }
     }
         
@@ -95,10 +101,11 @@ extension ETHNetwork {
              .tokenInfo, .queryTokens, .contractLogs, .transactionReceipt, .block, .blocks:
             return .get
 
-        case .sendRaw, .estimateGas, .subscribePushNotifications, .callContract, .decodeRaw:
+        case .sendRaw, .estimateGas, .subscribePushNotifications, .callContract, .decodeRaw,
+             .subscribeTokenPushNotifications:
             return .post
             
-        case .unsubscribePushNotifications:
+        case .unsubscribePushNotifications, .unsubscribeTokenPushNotifications:
             return .delete
         }
     }
@@ -108,7 +115,7 @@ extension ETHNetwork {
         case .balance, .history, .transactions, .contractInfo,
              .tokenHistory, .tokenBalance, .network, .info,
              .externalHistory, .transaction, .tokenInfo, .queryTokens, .contractLogs,
-             .transactionReceipt, .block, .blocks, .unsubscribePushNotifications:
+             .transactionReceipt, .block, .blocks, .unsubscribePushNotifications, .unsubscribeTokenPushNotifications:
             return nil
             
         case let .sendRaw(transaction):
@@ -131,8 +138,11 @@ extension ETHNetwork {
                 return ["from": from, "to": to, "value": value, "data": data]
             }
             
-        case .subscribePushNotifications(_, let firebaseToken, let types):
+        case let .subscribePushNotifications(_, firebaseToken, types):
             return ["firebase_token": firebaseToken, "types": types.description]
+            
+        case let .subscribeTokenPushNotifications(_, firebaseToken, tokenAddress, types):
+            return ["firebase_token": firebaseToken, "token_address": tokenAddress, "types": types.description]
         }
     }
     
@@ -140,7 +150,7 @@ extension ETHNetwork {
         switch self {
         case .balance, .network, .info, .transaction, .contractInfo, .sendRaw, .decodeRaw,
              .estimateGas, .subscribePushNotifications,
-             .tokenInfo, .callContract, .transactionReceipt, .block:
+             .tokenInfo, .callContract, .transactionReceipt, .block, .subscribeTokenPushNotifications:
             return nil
             
         case let .queryTokens(query, skip, limit, types):
@@ -171,8 +181,11 @@ extension ETHNetwork {
         case let .blocks(skip, limit):
             return ["skip": String(skip), "limit": String(limit)]
             
-        case .unsubscribePushNotifications(_, let firebaseToken, let types):
+        case let .unsubscribePushNotifications(_, firebaseToken, types):
             return ["firebase_token": firebaseToken, "types": types.description]
+            
+        case let .unsubscribeTokenPushNotifications(_, firebaseToken, tokenAddress, types):
+            return ["firebase_token": firebaseToken, "token_address": tokenAddress, "types": types.description]
         }
     }
     
