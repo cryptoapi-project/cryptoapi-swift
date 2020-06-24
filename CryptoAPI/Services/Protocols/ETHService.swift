@@ -62,9 +62,10 @@ public protocol ETHService {
     - Parameter skip: skip
     - Parameter limit: limit
     - Parameter addresses: addresses
+    - Parameter pending: pending transactions parameter
     - Parameter completion: Callback which returns an [ETHExternalTransfersResponseModel](ETHExternalTransfersResponseModel) result  or error
 */
-    func externalTransfers(skip: Int, limit: Int, addresses: [String],
+    func externalTransfers(skip: Int, limit: Int, addresses: [String], pending: EthereumPendingType,
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void)
     
 /**
@@ -74,9 +75,10 @@ public protocol ETHService {
     - Parameter limit: limit
     - Parameter fromAddress: from address
     - Parameter toAddress: to address
+    - Parameter pending: pending transactions parameter
     - Parameter completion: Callback which returns an [ETHTransactionsResponseModel](ETHTransactionsResponseModel) result  or error
 */
-    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
+    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String, pending: EthereumPendingType,
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void)
     
 /**
@@ -233,5 +235,31 @@ public protocol ETHService {
     
     func unsubscribePushNotifications(addresses: [String], firebaseToken: String, types: [CryptoNotificationType],
                                       completion: @escaping (Result<ETHPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Set contract token subscription
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter tokenAddress: Ethereum token address
+     - Parameter types: notification types
+     - Parameter completion: Callback which returns an [ETHPushNotificationsResponseModel](ETHPushNotificationsResponseModel) result  or error
+     */
+    
+    func subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+                                         completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void)
+    
+    /**
+     Remove contract token subscription
+     
+     - Parameter addresses: addresses
+     - Parameter firebaseToken: firebase token
+     - Parameter tokenAddress: Ethereum token address
+     - Parameter types: notification types
+     - Parameter completion: Callback which returns an [ETHPushNotificationsResponseModel](ETHPushNotificationsResponseModel) result  or error
+     */
+    
+    func unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+                                           completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void)
 }
  

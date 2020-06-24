@@ -336,9 +336,10 @@ class ETHServiceTests: XCTestCase {
         let address = ethAddressWithBalance
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address]) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address], pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -361,9 +362,10 @@ class ETHServiceTests: XCTestCase {
         let address2 = ethAddressWithBalance2
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address, address2]) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address, address2], pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -385,9 +387,10 @@ class ETHServiceTests: XCTestCase {
         let address = ethInvalidAddress
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address]) { result in
+        api.eth.externalTransfers(skip: skip, limit: limit, addresses: [address], pending: pending) { result in
             switch result {
               case .success:
                   //assert
@@ -409,9 +412,10 @@ class ETHServiceTests: XCTestCase {
         let toAddress = ethAddressWithBalance2
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
+        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress, pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -434,9 +438,10 @@ class ETHServiceTests: XCTestCase {
         let toAddress = ethAddressWithBalance2
         let skip = 0
         let limit = 10
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress) { result in
+        api.eth.transactions(skip: skip, limit: limit, fromAddress: fromAddress, toAddress: toAddress, pending: pending) { result in
             switch result {
               case .success:
                   //assert
@@ -1149,6 +1154,83 @@ class ETHServiceTests: XCTestCase {
         
         //act
         api.eth.subscribePushNotifications(addresses: addresses, firebaseToken: firebaseToken, types: types) { result in
+            switch result {
+            case .success:
+                //assert
+                XCTFail()
+                
+            case .failure:
+                break
+            }
+            expectation.fulfill()
+        }
+        
+        //assert
+        wait(for: [expectation], timeout: testTimeout)
+    }
+    
+//    func testSubscribeTokenPushNotifications() {
+//        //assert
+//        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+//        let token = firebaseToken
+//        let tokenAddress = ethTokenWithBalances
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
+//        let expectation = XCTestExpectation(description: "testSubscribeTokenPushNotifications")
+//
+//        //act
+//        api.eth.subscribeTokenPushNotifications(addresses: addresses, firebaseToken: token, tokenAddress: tokenAddress, types: types) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertFalse(model.addresses.isEmpty)
+//
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+//
+//    func testUnsubscribeTokenPushNotifications() {
+//        //assert
+//        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+//        let token = firebaseToken
+//        let tokenAddress = ethTokenWithBalances
+//        let types: [CryptoNotificationType] = [.outgoing, .incoming]
+//        let expectation = XCTestExpectation(description: "testUnsubscribeTokenPushNotifications")
+//
+//        //act
+//        api.eth.unsubscribeTokenPushNotifications(addresses: addresses, firebaseToken: token, tokenAddress: tokenAddress, types: types) { result in
+//            switch result {
+//            case .success(let model):
+//                //assert
+//                XCTAssertEqual(model.token, token)
+//
+//            case .failure(let error):
+//                //assert
+//                XCTAssertThrowsError(error)
+//            }
+//            expectation.fulfill()
+//        }
+//
+//        //assert
+//        wait(for: [expectation], timeout: testTimeout)
+//    }
+    
+    func testSubscribeTokenPushNotificationsFailed() {
+        //assert
+        let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
+        let firebaseToken = "invalid token"
+        let tokenAddress = ethTokenWithBalances
+        let types: [CryptoNotificationType] = [.outgoing, .incoming]
+        let expectation = XCTestExpectation(description: "testSubscribeTokenPushNotificationsFailed")
+        
+        //act
+        api.eth.subscribeTokenPushNotifications(addresses: addresses, firebaseToken: firebaseToken, tokenAddress: tokenAddress, types: types) { result in
             switch result {
             case .success:
                 //assert

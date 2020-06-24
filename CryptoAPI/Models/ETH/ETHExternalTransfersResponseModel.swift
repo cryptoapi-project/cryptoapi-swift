@@ -15,8 +15,8 @@ public struct ETHExternalTransfersResponseModel: Codable {
 }
 
 public struct ETHExternalTransferResponseModel {
-    public let blockHash: String
-    public let blockNumber: Int
+    public let blockHash: String?
+    public let blockNumber: Int?
     public let utc: String
     public let from: String
     public let gas: Int
@@ -26,7 +26,7 @@ public struct ETHExternalTransferResponseModel {
     public let nonce: Int
     public let to: String?
     public let value: String
-    public let transactionIndex: Int
+    public let transactionIndex: Int?
     public let v: String
     public let s: String
     public let r: String
