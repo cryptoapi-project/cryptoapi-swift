@@ -13,8 +13,8 @@ enum ETHNetwork: Resty {
     case info(addresses: [String])
     case balance(addresses: [String])
     case history(addresses: [String], from: Int, limit: Int, positive: Bool)
-    case externalHistory(addresses: [String], from: Int, limit: Int)
-    case transactions(fromAddress: String, toAddress: String, skip: Int, limit: Int)
+    case externalHistory(addresses: [String], from: Int, limit: Int, pending: String)
+    case transactions(fromAddress: String, toAddress: String, skip: Int, limit: Int, pending: String)
     case transaction(hash: String)
     case transactionReceipt(hash: String)
     case estimateGas(from: String, to: String, value: String, data: String)
@@ -52,11 +52,11 @@ extension ETHNetwork {
             return "coins/eth/addresses/\(addresses.description)"
         case .network:
             return "coins/eth/network"
-        case .history( let addresses, _, _, _):
+        case .history(let addresses, _, _, _):
             return "coins/eth/addresses/\(addresses.description)/transfers"
         case .transactions:
             return "coins/eth/transactions"
-        case .externalHistory( let addresses, _, _):
+        case .externalHistory(let addresses, _, _, _):
             return "coins/eth/addresses/\(addresses.description)/transactions"
         case .tokenHistory(let tokenAddress, _, _, _):
             return "coins/eth/tokens/\(tokenAddress)/transfers"
@@ -159,11 +159,11 @@ extension ETHNetwork {
         case let .history(_, from, limit, positive):
             return ["skip": String(from), "limit": String(limit), "positive": String(positive)]
             
-        case let .transactions(from, to, skip, limit):
-            return ["from": from, "to": to, "skip": String(skip), "limit": String(limit)]
+        case let .transactions(from, to, skip, limit, pending):
+            return ["from": from, "to": to, "skip": String(skip), "limit": String(limit), "pending": pending]
             
-        case let .externalHistory(_, from, limit):
-            return ["skip": String(from), "limit": String(limit)]
+        case let .externalHistory(_, from, limit, pending):
+            return ["skip": String(from), "limit": String(limit), "pending": pending]
             
         case let .tokenHistory(_, addresses, from, limit):
             return ["skip": String(from), "limit": String(limit), "addresses": addresses.description]

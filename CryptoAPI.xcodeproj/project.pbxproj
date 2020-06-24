@@ -76,6 +76,7 @@
 		E423BD8124378DC800A6E27D /* RatesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD8024378DC800A6E27D /* RatesNetwork.swift */; };
 		E423BD8624379B1100A6E27D /* RatesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD8524379B1100A6E27D /* RatesServiceTests.swift */; };
 		E423BD882437A25700A6E27D /* RatesHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */; };
+		E43FAAC8249FE70C00F17544 /* EthereumPendingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FAAC7249FE70C00F17544 /* EthereumPendingType.swift */; };
 		E4560FF6248AEFFC00507857 /* CryptoNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */; };
 		E4560FF7248AF53600507857 /* ETHServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD0C2723801A5000EF0600 /* ETHServiceTests.swift */; };
 		E4560FFD248AF93900507857 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4560FFC248AF93900507857 /* CryptoCurrencyType.swift */; };
@@ -198,6 +199,7 @@
 		E423BD8024378DC800A6E27D /* RatesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesNetwork.swift; sourceTree = "<group>"; };
 		E423BD8524379B1100A6E27D /* RatesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesServiceTests.swift; sourceTree = "<group>"; };
 		E423BD872437A25700A6E27D /* RatesHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoryResponseModel.swift; sourceTree = "<group>"; };
+		E43FAAC7249FE70C00F17544 /* EthereumPendingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumPendingType.swift; sourceTree = "<group>"; };
 		E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoNotificationType.swift; sourceTree = "<group>"; };
 		E4560FFC248AF93900507857 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
 		E4560FFE248AFB1C00507857 /* EthereumTokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumTokenType.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 				E4560FF5248AEFFC00507857 /* CryptoNotificationType.swift */,
 				E4560FFC248AF93900507857 /* CryptoCurrencyType.swift */,
 				E4560FFE248AFB1C00507857 /* EthereumTokenType.swift */,
+				E43FAAC7249FE70C00F17544 /* EthereumPendingType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -896,6 +899,7 @@
 				E41F524C2438E85700F9EAEA /* ETHPushNotificationsResponseModel.swift in Sources */,
 				E4A20F64246DA27F005BE866 /* BTCServiceImp.swift in Sources */,
 				CE21B4ED23E2C589001E9D95 /* BTCAddressOutInfoResponseModel.swift in Sources */,
+				E43FAAC8249FE70C00F17544 /* EthereumPendingType.swift in Sources */,
 				B34D0F0023826C47002823F8 /* ETHNetworkResponseModel.swift in Sources */,
 				CE66C8C123E32088004F086B /* BCHAddressOutInfoResponseModel.swift in Sources */,
 				E4A20F72246DBAEB005BE866 /* LTCBlocksResponseModel.swift in Sources */,

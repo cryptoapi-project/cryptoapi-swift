@@ -25,9 +25,9 @@ protocol ETHNetworkAdapter {
     func info(addresses: [String], completion: @escaping (Result<[ETHInfoResponseModel], CryptoApiError>) -> Void)
     func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void)
-    func externalTransfers(skip: Int, limit: Int, addresses: [String],
+    func externalTransfers(skip: Int, limit: Int, addresses: [String], pending: String,
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void)
-    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
+    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String, pending: String,
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void)
     func transaction(hash: String,
                      completion: @escaping (Result<ETHTransactionByHashResponseModel, CryptoApiError>) -> Void)

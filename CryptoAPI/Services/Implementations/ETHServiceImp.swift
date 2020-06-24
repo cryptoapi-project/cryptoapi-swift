@@ -36,16 +36,16 @@ final class ETHServiceImp: ETHService {
                                  addresses: addresses, positive: positive, completion: completion)
     }
     
-    func externalTransfers(skip: Int, limit: Int, addresses: [String],
+    func externalTransfers(skip: Int, limit: Int, addresses: [String], pending: EthereumPendingType,
                            completion: @escaping (Result<ETHExternalTransfersResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.externalTransfers(skip: skip, limit: limit,
-                                 addresses: addresses, completion: completion)
+                                         addresses: addresses, pending: pending.rawValue, completion: completion)
     }
     
-    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String,
+    func transactions(skip: Int, limit: Int, fromAddress: String, toAddress: String, pending: EthereumPendingType,
                       completion: @escaping (Result<ETHTransactionsResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.transactions(skip: skip, limit: limit, fromAddress: fromAddress,
-                                    toAddress: toAddress, completion: completion)
+                                    toAddress: toAddress, pending: pending.rawValue, completion: completion)
     }
     
     func transaction(hash: String,
