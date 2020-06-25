@@ -51,9 +51,10 @@ public protocol ETHService {
     - Parameter limit: limit
     - Parameter addresses: addresses
     - Parameter positive: positive. If true, get only transactions with positive value
+    - Parameter pending: pending transactions parameter
     - Parameter completion: Callback which returns an [ETHTransfersResponseModel](ETHTransfersResponseModel) result  or error
 */
-    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool,
+    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool, pending: EthereumPendingType,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void)
     
 /**

@@ -47,9 +47,9 @@ final class ETHNetworkAdapterImp: ETHNetworkAdapter {
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
     
-    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool,
+    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool, pending: String,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void) {
-        ETHNetwork.history(addresses: addresses, from: skip, limit: limit, positive: positive)
+        ETHNetwork.history(addresses: addresses, from: skip, limit: limit, positive: positive, pending: pending)
             .request(type: ETHTransfersResponseModel.self, session: session, baseUrl: baseUrl,
                      authToken: authToken, withLog: needLogs, completionHandler: completion)
     }
