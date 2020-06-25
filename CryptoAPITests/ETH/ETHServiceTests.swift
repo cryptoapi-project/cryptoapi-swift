@@ -262,9 +262,10 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         let positive = true
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive) { result in
+        api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive, pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -288,9 +289,10 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         let positive = true
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.transfers(skip: skip, limit: limit, addresses: [address, address2], positive: positive) { result in
+        api.eth.transfers(skip: skip, limit: limit, addresses: [address, address2], positive: positive, pending: pending) { result in
             switch result {
             case let .success(history):
                 //assert
@@ -313,9 +315,10 @@ class ETHServiceTests: XCTestCase {
         let skip = 0
         let limit = 10
         let positive = true
+        let pending: EthereumPendingType = .include
 
         //act
-        api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive) { result in
+        api.eth.transfers(skip: skip, limit: limit, addresses: [address], positive: positive, pending: pending) { result in
             switch result {
               case .success:
                   //assert

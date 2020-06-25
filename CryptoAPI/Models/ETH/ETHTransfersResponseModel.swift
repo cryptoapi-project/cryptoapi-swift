@@ -15,7 +15,7 @@ public struct ETHTransfersResponseModel: Codable {
 }
 
 public struct ETHTransferResponseModel {
-    public let blockNumber: Int
+    public let blockNumber: Int?
     public let utc: String
     public let from: String
     public let gas: Int

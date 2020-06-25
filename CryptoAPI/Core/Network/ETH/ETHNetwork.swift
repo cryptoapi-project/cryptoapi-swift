@@ -12,7 +12,7 @@ enum ETHNetwork: Resty {
     case network
     case info(addresses: [String])
     case balance(addresses: [String])
-    case history(addresses: [String], from: Int, limit: Int, positive: Bool)
+    case history(addresses: [String], from: Int, limit: Int, positive: Bool, pending: String)
     case externalHistory(addresses: [String], from: Int, limit: Int, pending: String)
     case transactions(fromAddress: String, toAddress: String, skip: Int, limit: Int, pending: String)
     case transaction(hash: String)
@@ -52,7 +52,7 @@ extension ETHNetwork {
             return "coins/eth/addresses/\(addresses.description)"
         case .network:
             return "coins/eth/network"
-        case .history(let addresses, _, _, _):
+        case .history(let addresses, _, _, _, _):
             return "coins/eth/addresses/\(addresses.description)/transfers"
         case .transactions:
             return "coins/eth/transactions"
@@ -156,8 +156,8 @@ extension ETHNetwork {
         case let .queryTokens(query, skip, limit, types):
             return ["query": query, "skip": String(skip), "limit": String(limit), "types": types.description]
             
-        case let .history(_, from, limit, positive):
-            return ["skip": String(from), "limit": String(limit), "positive": String(positive)]
+        case let .history(_, from, limit, positive, pending):
+            return ["skip": String(from), "limit": String(limit), "positive": String(positive), "pending": pending]
             
         case let .transactions(from, to, skip, limit, pending):
             return ["from": from, "to": to, "skip": String(skip), "limit": String(limit), "pending": pending]

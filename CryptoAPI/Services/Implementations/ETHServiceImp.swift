@@ -30,10 +30,10 @@ final class ETHServiceImp: ETHService {
         networkAdapter.info(addresses: addresses, completion: completion)
     }
     
-    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool,
+    func transfers(skip: Int, limit: Int, addresses: [String], positive: Bool, pending: EthereumPendingType,
                    completion: @escaping (Result<ETHTransfersResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.transfers(skip: skip, limit: limit,
-                                 addresses: addresses, positive: positive, completion: completion)
+                                 addresses: addresses, positive: positive, pending: pending.rawValue, completion: completion)
     }
     
     func externalTransfers(skip: Int, limit: Int, addresses: [String], pending: EthereumPendingType,
