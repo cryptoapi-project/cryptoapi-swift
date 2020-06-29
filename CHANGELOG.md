@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Changelog 0.4.2 - 2020-06-29
+### Added
+* Subscribe/unsubscribe methods to push notifications for Ethereum tokens
+* Pending transactions for Ethereum
+
+### Removed
+* Rub currency for RatesResponseModel
+
 ## Changelog 0.4.1 - 2020-06-09
 ### Added
 * CryptoCurrencyType enum
