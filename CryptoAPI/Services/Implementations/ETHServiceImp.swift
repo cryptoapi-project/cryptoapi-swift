@@ -132,7 +132,7 @@ final class ETHServiceImp: ETHService {
         )
     }
     
-    func subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+    func subscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationTokenType],
                                          completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.subscribeTokenPushNotifications(
             addresses: addresses,
@@ -143,7 +143,7 @@ final class ETHServiceImp: ETHService {
         )
     }
     
-    func unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationType],
+    func unsubscribeTokenPushNotifications(addresses: [String], firebaseToken: String, tokenAddress: String, types: [CryptoNotificationTokenType],
                                            completion: @escaping (Result<ETHTokenPushNotificationsResponseModel, CryptoApiError>) -> Void) {
         networkAdapter.unsubscribeTokenPushNotifications(
             addresses: addresses,

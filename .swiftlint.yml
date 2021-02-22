@@ -104,8 +104,8 @@ file_header:
                     \/\/  .*?\.swift
                     \/\/  CryptoAPI
                     \/\/
-                    \/\/  Created by (Artemy Markovsky|Fedorenko Nikita|Vladimir Sharaev|Alexander Eskin) on \d{1,2}(\/|.)\d{1,2}(\/|.)(2019|19|2020|20)\.
-                    \/\/  Copyright © (2019|2020) PixelPlex\. All rights reserved\.
+                    \/\/  Created by (Artemy Markovsky|Fedorenko Nikita|Vladimir Sharaev|Alexander Eskin|Dmitry Medyuho) on \d{1,2}(\/|.)\d{1,2}(\/|.)(2019|19|2020|20|2021|21)\.
+                    \/\/  Copyright © (2019|2020|2021) PixelPlex\. All rights reserved\.
                     \/\/
                     
 identifier_name:
