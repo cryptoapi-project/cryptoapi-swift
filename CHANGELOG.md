@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Changelog 0.4.3 - 2021-02-24
+### Added
+* CryptoNotificationTokenType for subscribe to token push notifications
+
 ## Changelog 0.4.2 - 2020-06-29
 ### Added
 * Subscribe/unsubscribe methods to push notifications for Ethereum tokens
