@@ -1229,7 +1229,7 @@ class ETHServiceTests: XCTestCase {
         let addresses = [ethAddressWithBalance, ethAddressWithBalance2]
         let firebaseToken = "invalid token"
         let tokenAddress = ethTokenWithBalances
-        let types: [CryptoNotificationType] = [.outgoing, .incoming]
+        let types: [CryptoNotificationTokenType] = [.outgoing, .incoming]
         let expectation = XCTestExpectation(description: "testSubscribeTokenPushNotificationsFailed")
         
         //act
