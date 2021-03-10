@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Changelog 0.4.4 - 2021-03-10
+### Added
+* Add support RUB rates
+
 ## Changelog 0.4.3 - 2021-02-24
 ### Added
 * CryptoNotificationTokenType for subscribe to token push notifications
