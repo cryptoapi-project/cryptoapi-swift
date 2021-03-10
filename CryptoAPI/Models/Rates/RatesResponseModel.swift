@@ -20,6 +20,7 @@ public struct CoinRateResponseModel {
     public let cny: String
     public let jpy: String
     public let aud: String
+    public let rub: String
     public let cad: String
     public let chf: String
     public let gbp: String
@@ -33,6 +34,7 @@ extension CoinRateResponseModel: Codable {
         case cny = "CNY"
         case jpy = "JPY"
         case aud = "AUD"
+        case rub = "RUB"
         case cad = "CAD"
         case chf = "CHF"
         case gbp = "GBP"
