@@ -12,4 +12,5 @@ public enum CryptoNotificationType: String, Codable {
     case outgoing
     case incoming
     case balance
+    case all
 }
