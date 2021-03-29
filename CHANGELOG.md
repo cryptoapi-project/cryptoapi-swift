@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Changelog 0.4.5 - 2021-03-29
+### Changed
+* CryptoNotificationTokenType: add balance enum value
+* CryptoNotificationType: add all enum value
+
 ## Changelog 0.4.4 - 2021-03-10
 ### Added
 * Add support RUB rates
