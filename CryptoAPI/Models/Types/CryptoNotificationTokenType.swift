@@ -11,5 +11,6 @@ import Foundation
 public enum CryptoNotificationTokenType: String, Codable {
     case outgoing
     case incoming
+    case balance
     case all
 }
