@@ -9,7 +9,7 @@
 public struct ETHTokenInfoResponseModel {
     public let address: String
     public let type: String
-    public let createTransactionHash: String
+    public let createTransactionHash: String?
     public let holdersCount: Int
     public let info: ETHTokenInfoDetailsResponseModel
 }
