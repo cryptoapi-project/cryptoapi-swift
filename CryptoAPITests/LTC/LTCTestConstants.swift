@@ -13,7 +13,7 @@ enum LTCTestConstants {
     
     static let timeout: TimeInterval = 30
     
-    static let ltcAddressWithBalance = "QPyUK9hDT5hdDSYY2t2qSN1n71x9wNinDL"
+    static let ltcAddressWithBalance = "Qh6godHr5ZzQaWiSH4bExcvCJHiAarXMdd"
     static let ltcAddressWithBalance2 = "muv8qN6CDgSGtSXdrtmAU24ZAmFyBS1nZr"
     static let ltcInvalidAddress = "tltc1q8qgcfm5qete3q46klt520hma67qtzncljwtmqa"
     static let ltcTransactionHash = "cda131ecc45156c63a819280a1667dbcd64977a6e0b2400e3b75b5fedd077e60"
