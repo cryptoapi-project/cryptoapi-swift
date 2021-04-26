@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Changelog 0.4.6 - 2021-04-26
+### Changed
+* ETHTokenInfoResponseModel: field createTransactionHash now is optional
+
 ## Changelog 0.4.5 - 2021-03-29
 ### Changed
 * CryptoNotificationTokenType: add balance enum value
