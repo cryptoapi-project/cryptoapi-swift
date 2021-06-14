@@ -3,9 +3,25 @@ CryptoAPI is Swift API Wrapper framework. Designed to receive information about 
 
 ## Install
 
+### CocoaPods
+
 This framework can be obtained through CocoaPods:
 ```
 pod 'CryptoApiLib'
+```
+
+### Swift Package Manager
+
+[Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
+
+> Xcode 11+ is required to build CryptoApi using Swift Package Manager.
+
+To integrate CryptoApi into your Xcode project using Swift Package Manager, add it to the dependencies value of your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/cryptoapi-project/cryptoapi-swift")
+]
 ```
 
 ## Setup
