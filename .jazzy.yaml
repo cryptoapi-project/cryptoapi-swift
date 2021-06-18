@@ -1,0 +1,5 @@
+xcodebuild_arguments:
+    - "-project"
+    - "CryptoAPI.xcodeproj"
+    - "-scheme"
+    - "CryptoAPI"
