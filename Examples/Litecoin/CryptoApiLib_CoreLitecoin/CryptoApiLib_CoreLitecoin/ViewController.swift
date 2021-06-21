@@ -18,8 +18,8 @@ enum ExampleConstants {
     static let toAddress = "recipient address"
     static let sendAmount = 2100
     
-    static let password: String? = nil
-    static let mnemonicArray = ["array", "of", "your", "brainkey", "words"]
+    static let password: String? = "Qwerty1234@"
+    static let mnemonicArray = ["example","array", "of", "your", "brainkey", "words"]
     
 }
 
@@ -38,11 +38,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let cryptoApi = configCryptoApiLib()
         
-        let mnemonic: LTCMnemonic! = LTCMnemonic(
+        guard let mnemonic: LTCMnemonic = LTCMnemonic(
             words: ExampleConstants.mnemonicArray,
             password: ExampleConstants.password,
             wordListType: .english
             )
+        else {
+            print("Can't get mnemonic")
+            return
+        }
+        
         let keychain = mnemonic.keychain.derivedKeychain(withPath: ExampleConstants.testnetDerivationPath)!
         let key = keychain.key!
         

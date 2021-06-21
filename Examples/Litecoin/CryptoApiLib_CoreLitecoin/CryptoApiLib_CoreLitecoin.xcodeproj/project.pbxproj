@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF9C6F181F22FA7E8A3F7854 /* libPods-CryptoApiLib_CoreLitecoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E26295784CC8B9CACDD6B /* libPods-CryptoApiLib_CoreLitecoin.a */; };
 		E4279A86247428FB00E6A4B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4279A85247428FB00E6A4B1 /* AppDelegate.swift */; };
 		E4279A8A247428FB00E6A4B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4279A89247428FB00E6A4B1 /* ViewController.swift */; };
 		E4279A8D247428FB00E6A4B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4279A8B247428FB00E6A4B1 /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		395E26295784CC8B9CACDD6B /* libPods-CryptoApiLib_CoreLitecoin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CryptoApiLib_CoreLitecoin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BD5E980310B0A7AA78F6085 /* Pods-CryptoApiLib_CoreLitecoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_CoreLitecoin.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_CoreLitecoin/Pods-CryptoApiLib_CoreLitecoin.release.xcconfig"; sourceTree = "<group>"; };
+		E203A70A4E8192DBABF23DF6 /* Pods-CryptoApiLib_CoreLitecoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib_CoreLitecoin.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib_CoreLitecoin/Pods-CryptoApiLib_CoreLitecoin.debug.xcconfig"; sourceTree = "<group>"; };
 		E4279A82247428FB00E6A4B1 /* CryptoApiLib_CoreLitecoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApiLib_CoreLitecoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4279A85247428FB00E6A4B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4279A89247428FB00E6A4B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +37,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4279A9A24742C7E00E6A4B1 /* CoreLitecoin.framework in Frameworks */,
+				DF9C6F181F22FA7E8A3F7854 /* libPods-CryptoApiLib_CoreLitecoin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				E4279A9924742C7E00E6A4B1 /* CoreLitecoin.framework */,
+				395E26295784CC8B9CACDD6B /* libPods-CryptoApiLib_CoreLitecoin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,6 +88,8 @@
 		F3B5E98805C22EFCFD20DF4E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				E203A70A4E8192DBABF23DF6 /* Pods-CryptoApiLib_CoreLitecoin.debug.xcconfig */,
+				7BD5E980310B0A7AA78F6085 /* Pods-CryptoApiLib_CoreLitecoin.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -93,6 +101,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4279A96247428FB00E6A4B1 /* Build configuration list for PBXNativeTarget "CryptoApiLib_CoreLitecoin" */;
 			buildPhases = (
+				75D8F2E101C3DA47AE426EA2 /* [CP] Check Pods Manifest.lock */,
 				E4279A7E247428FB00E6A4B1 /* Sources */,
 				E4279A7F247428FB00E6A4B1 /* Frameworks */,
 				E4279A80247428FB00E6A4B1 /* Resources */,
@@ -152,6 +161,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		75D8F2E101C3DA47AE426EA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptoApiLib_CoreLitecoin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4279A7E247428FB00E6A4B1 /* Sources */ = {
@@ -301,6 +335,7 @@
 		};
 		E4279A97247428FB00E6A4B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E203A70A4E8192DBABF23DF6 /* Pods-CryptoApiLib_CoreLitecoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -327,6 +362,7 @@
 		};
 		E4279A98247428FB00E6A4B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BD5E980310B0A7AA78F6085 /* Pods-CryptoApiLib_CoreLitecoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
