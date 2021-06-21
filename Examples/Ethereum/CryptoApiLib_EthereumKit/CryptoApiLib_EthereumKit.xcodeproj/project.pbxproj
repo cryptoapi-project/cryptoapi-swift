@@ -246,6 +246,7 @@
 /* Begin XCBuildConfiguration section */
 		CE20B99E240593BF0081EE68 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02321933BA6D3709800679D8 /* Pods-CryptoApiLib_EthereumKit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -306,6 +307,7 @@
 		};
 		CE20B99F240593BF0081EE68 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 318ECB2D80B71474B317A3AB /* Pods-CryptoApiLib_EthereumKit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
