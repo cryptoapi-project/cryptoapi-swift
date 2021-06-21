@@ -40,15 +40,24 @@ class ViewController: UIViewController {
         
         // generate address
         let mnemonicString = ExampleConstants.mnemonicString
-        let keystore = try! BIP32Keystore(mnemonics: mnemonicString,
+        guard
+            let keystore = try? BIP32Keystore(mnemonics: mnemonicString,
                                           password: ExampleConstants.password,
                                           mnemonicsPassword: ExampleConstants.mnemonicsPassword,
-                                          language: .english)!
+                                          language: .english)
+        else {
+            print("Can't get keystore")
+            return
+        }
+        
         let keystoreManager = KeystoreManager([keystore])
         let web = web3(provider: InfuraProvider(.Rinkeby)!)
         web.addKeystoreManager(keystoreManager)
         
-        let account = try! web.wallet.getAccounts().first!
+        guard let account = try? web.wallet.getAccounts().first else {
+            print("Can't get account")
+            return
+        }
         let address = keystore.addresses!.first!.address
         print("Address \(address)")
         
