@@ -3,3 +3,4 @@ xcodebuild_arguments:
     - "CryptoAPI.xcodeproj"
     - "-scheme"
     - "CryptoAPI"
+    - BUILD_LIBRARY_FOR_DISTRIBUTION = YES
