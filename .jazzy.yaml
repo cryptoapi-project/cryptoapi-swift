@@ -1,6 +1,15 @@
 xcodebuild_arguments:
+    - "clean"
     - "-project"
     - "CryptoAPI.xcodeproj"
     - "-scheme"
     - "CryptoAPI"
+    - "-sdk"
+    - "iphonesimulator"
+    - "-configuration"
+    - "Release"
+    - "-derivedDataPath"
+    - "derived_data"
     - BUILD_LIBRARY_FOR_DISTRIBUTION = YES
+module:
+    - "CryptoAPI"
