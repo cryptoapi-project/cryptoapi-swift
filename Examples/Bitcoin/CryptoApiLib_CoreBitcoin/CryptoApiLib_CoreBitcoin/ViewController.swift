@@ -38,9 +38,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let cryptoApi = configCryptoApiLib()
         
-        let mnemonic = BTCMnemonic(words: ExampleConstants.mnemonicArray,
+        guard let mnemonic = BTCMnemonic(words: ExampleConstants.mnemonicArray,
                                    password: ExampleConstants.password,
-                                   wordListType: .english)!
+                                   wordListType: .english)
+        else {
+            print("Can't get mnemonic")
+            return
+        }
         let keychain = mnemonic.keychain.derivedKeychain(withPath: ExampleConstants.testnetDerivationPath)!
         let key = keychain.key!
         
