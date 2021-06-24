@@ -1,0 +1,3234 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name BitcoinKit
+@_exported import BitcoinKit
+import Foundation
+import BitcoinKit.Private
+import SQLite3
+import Security
+import Swift
+import UIKit
+import secp256k1
+@_hasMissingDesignatedInitializers public class HDPublicKey {
+  final public let network: BitcoinKit.Network
+  final public let depth: Swift.UInt8
+  final public let fingerprint: Swift.UInt32
+  final public let childIndex: Swift.UInt32
+  final public let raw: Foundation.Data
+  final public let chainCode: Foundation.Data
+  public func extended() -> Swift.String
+  public func publicKey() -> BitcoinKit.PublicKey
+  public func derived(at index: Swift.UInt32) throws -> BitcoinKit.HDPublicKey
+  @objc deinit
+}
+extension HDPublicKey : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension HDPublicKey : BitcoinKit.QRCodeConvertible {
+}
+public struct OpCheckSequenceVerify : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@_hasMissingDesignatedInitializers public class OpExample : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  @objc deinit
+}
+extension Mnemonic.WordList {
+  public static var italian: [Swift.String]
+}
+@available(*, deprecated, renamed: "BitcoinAddress.HashType")
+public typealias AddressType = BitcoinKit.BitcoinAddress.HashType
+public struct Transaction {
+  public let version: Swift.UInt32
+  public var txInCount: BitcoinKit.VarInt {
+    get
+  }
+  public let inputs: [BitcoinKit.TransactionInput]
+  public var txOutCount: BitcoinKit.VarInt {
+    get
+  }
+  public let outputs: [BitcoinKit.TransactionOutput]
+  public let lockTime: Swift.UInt32
+  public var txHash: Foundation.Data {
+    get
+  }
+  public var txID: Swift.String {
+    get
+  }
+  public init(version: Swift.UInt32, inputs: [BitcoinKit.TransactionInput], outputs: [BitcoinKit.TransactionOutput], lockTime: Swift.UInt32)
+  public func serialized() -> Foundation.Data
+  public func isCoinbase() -> Swift.Bool
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.Transaction
+}
+public struct FilterLoadMessage {
+  public let filter: Foundation.Data
+  public let nHashFuncs: Swift.UInt32
+  public let nTweak: Swift.UInt32
+  public let nFlags: Swift.UInt8
+  public func serialized() -> Foundation.Data
+}
+public struct TransactionOutPoint {
+  public let hash: Foundation.Data
+  public let index: Swift.UInt32
+  public init(hash: Foundation.Data, index: Swift.UInt32)
+  public func serialized() -> Foundation.Data
+}
+public struct Scalar32Bytes {
+  public enum Error : Swift.Error {
+    case tooManyBytes(expectedCount: Swift.Int, butGot: Swift.Int)
+  }
+  public static var expectedByteCount: Swift.Int
+  public let data: Foundation.Data
+  public init(data: Foundation.Data) throws
+}
+extension Mnemonic.WordList {
+  public static var spanish: [Swift.String]
+}
+public protocol SignatureHashHelper {
+  var hashType: BitcoinKit.SighashType { get }
+  func createSignatureHash(of tx: BitcoinKit.Transaction, for utxoOutput: BitcoinKit.TransactionOutput, inputIndex: Swift.Int) -> Foundation.Data
+}
+public struct OpToAltStack : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct UnspentTransaction {
+  public let output: BitcoinKit.TransactionOutput
+  public let outpoint: BitcoinKit.TransactionOutPoint
+  public init(output: BitcoinKit.TransactionOutput, outpoint: BitcoinKit.TransactionOutPoint)
+}
+public struct OpRShift : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct VersionMessage {
+  public let version: Swift.Int32
+  public let services: Swift.UInt64
+  public let timestamp: Swift.Int64
+  public let yourAddress: BitcoinKit.NetworkAddress
+  public let myAddress: BitcoinKit.NetworkAddress?
+  public let nonce: Swift.UInt64?
+  public let userAgent: BitcoinKit.VarString?
+  public let startHeight: Swift.Int32?
+  public let relay: Swift.Bool?
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.VersionMessage
+}
+public enum Mnemonic {
+}
+public struct Op2Drop : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpSwap : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct NetworkAddress {
+  public let services: Swift.UInt64
+  public let address: Swift.String
+  public let port: Swift.UInt16
+  public func serialized() -> Foundation.Data
+}
+extension NetworkAddress : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension BitcoinAddress {
+  public enum HashType : Swift.UInt8 {
+    case pubkeyHash
+    case scriptHash
+    public typealias RawValue = Swift.UInt8
+    public init?(rawValue: Swift.UInt8)
+    public var rawValue: Swift.UInt8 {
+      get
+    }
+  }
+}
+public struct OpVerIf : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct AddressMessage {
+  public let count: BitcoinKit.VarInt
+  public let addressList: [BitcoinKit.NetworkAddress]
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.AddressMessage
+}
+extension Mnemonic.WordList {
+  public static var traditionalChinese: [Swift.String]
+}
+public struct Op2Div : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpConcatenate : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpXor : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@_hasMissingDesignatedInitializers open class Network {
+  @available(*, deprecated, renamed: "mainnetBCH")
+  public static var mainnet: BitcoinKit.Network
+  @available(*, deprecated, renamed: "testnetBCH")
+  public static var testnet: BitcoinKit.Network
+  public static var mainnetBCH: BitcoinKit.Network
+  public static var testnetBCH: BitcoinKit.Network
+  public static var mainnetBTC: BitcoinKit.Network
+  public static var testnetBTC: BitcoinKit.Network
+  open var name: Swift.String {
+    get
+  }
+  open var alias: Swift.String {
+    get
+  }
+  open var scheme: Swift.String {
+    get
+  }
+  open var coinType: BitcoinKit.CoinType {
+    get
+  }
+  open var pubkeyhash: Swift.UInt8 {
+    get
+  }
+  open var privatekey: Swift.UInt8 {
+    get
+  }
+  open var scripthash: Swift.UInt8 {
+    get
+  }
+  open var xpubkey: Swift.UInt32 {
+    get
+  }
+  open var xprivkey: Swift.UInt32 {
+    get
+  }
+  open var magic: Swift.UInt32 {
+    get
+  }
+  open var port: Swift.UInt32 {
+    get
+  }
+  open var dnsSeeds: [Swift.String] {
+    get
+  }
+  open var checkpoints: [BitcoinKit.Checkpoint] {
+    get
+  }
+  open var genesisBlock: Foundation.Data {
+    get
+  }
+  @objc deinit
+}
+extension Network : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.Network, rhs: BitcoinKit.Network) -> Swift.Bool
+}
+public struct Checkpoint {
+  public let height: Swift.Int32
+  public let hash: Foundation.Data
+  public let timestamp: Swift.UInt32
+  public let target: Swift.UInt32
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BTCMainnet : BitcoinKit.Mainnet {
+  override public var scheme: Swift.String {
+    get
+  }
+  override public var magic: Swift.UInt32 {
+    get
+  }
+  override public var coinType: BitcoinKit.CoinType {
+    get
+  }
+  override public var dnsSeeds: [Swift.String] {
+    get
+  }
+  override public var checkpoints: [BitcoinKit.Checkpoint] {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BTCTestnet : BitcoinKit.Testnet {
+  override public var scheme: Swift.String {
+    get
+  }
+  override public var magic: Swift.UInt32 {
+    get
+  }
+  override public var dnsSeeds: [Swift.String] {
+    get
+  }
+  override public var checkpoints: [BitcoinKit.Checkpoint] {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BCHMainnet : BitcoinKit.Mainnet {
+  override public var scheme: Swift.String {
+    get
+  }
+  override public var magic: Swift.UInt32 {
+    get
+  }
+  override public var coinType: BitcoinKit.CoinType {
+    get
+  }
+  override public var dnsSeeds: [Swift.String] {
+    get
+  }
+  override public var checkpoints: [BitcoinKit.Checkpoint] {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BCHTestnet : BitcoinKit.Testnet {
+  override public var scheme: Swift.String {
+    get
+  }
+  override public var magic: Swift.UInt32 {
+    get
+  }
+  override public var dnsSeeds: [Swift.String] {
+    get
+  }
+  override public var checkpoints: [BitcoinKit.Checkpoint] {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Mainnet : BitcoinKit.Network {
+  override public var name: Swift.String {
+    get
+  }
+  override public var alias: Swift.String {
+    get
+  }
+  override public var pubkeyhash: Swift.UInt8 {
+    get
+  }
+  override public var privatekey: Swift.UInt8 {
+    get
+  }
+  override public var scripthash: Swift.UInt8 {
+    get
+  }
+  override public var xpubkey: Swift.UInt32 {
+    get
+  }
+  override public var xprivkey: Swift.UInt32 {
+    get
+  }
+  override public var port: Swift.UInt32 {
+    get
+  }
+  override public var checkpoints: [BitcoinKit.Checkpoint] {
+    get
+  }
+  override public var genesisBlock: Foundation.Data {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Testnet : BitcoinKit.Network {
+  override public var name: Swift.String {
+    get
+  }
+  override public var alias: Swift.String {
+    get
+  }
+  override public var coinType: BitcoinKit.CoinType {
+    get
+  }
+  override public var pubkeyhash: Swift.UInt8 {
+    get
+  }
+  override public var privatekey: Swift.UInt8 {
+    get
+  }
+  override public var scripthash: Swift.UInt8 {
+    get
+  }
+  override public var xpubkey: Swift.UInt32 {
+    get
+  }
+  override public var xprivkey: Swift.UInt32 {
+    get
+  }
+  override public var port: Swift.UInt32 {
+    get
+  }
+  override public var checkpoints: [BitcoinKit.Checkpoint] {
+    get
+  }
+  override public var genesisBlock: Foundation.Data {
+    get
+  }
+  @objc deinit
+}
+public struct OpPubkey : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpVer : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct ScriptFactory {
+  public struct Standard {
+  }
+  public struct LockTime {
+  }
+  public struct MultiSig {
+  }
+  public struct OpReturn {
+  }
+  public struct Condition {
+  }
+  public struct HashedTimeLockedContract {
+  }
+}
+extension ScriptFactory.Standard {
+  public static func buildP2PK(publickey: BitcoinKit.PublicKey) -> BitcoinKit.Script?
+  public static func buildP2PKH(address: BitcoinKit.Address) -> BitcoinKit.Script?
+  public static func buildP2SH(script: BitcoinKit.Script) -> BitcoinKit.Script
+  public static func buildMultiSig(publicKeys: [BitcoinKit.PublicKey]) -> BitcoinKit.Script?
+  public static func buildMultiSig(publicKeys: [BitcoinKit.PublicKey], signaturesRequired: Swift.UInt) -> BitcoinKit.Script?
+}
+extension ScriptFactory.LockTime {
+  public static func build(script: BitcoinKit.Script, lockDate: Foundation.Date) -> BitcoinKit.Script?
+  public static func build(script: BitcoinKit.Script, lockIntervalSinceNow: Foundation.TimeInterval) -> BitcoinKit.Script?
+  public static func build(address: BitcoinKit.Address, lockIntervalSinceNow: Foundation.TimeInterval) -> BitcoinKit.Script?
+  public static func build(address: BitcoinKit.Address, lockDate: Foundation.Date) -> BitcoinKit.Script?
+}
+extension ScriptFactory.OpReturn {
+  public static func build(text: Swift.String) -> BitcoinKit.Script?
+}
+extension ScriptFactory.Condition {
+  public static func build(scripts: [BitcoinKit.Script]) -> BitcoinKit.Script?
+}
+extension ScriptFactory.HashedTimeLockedContract {
+  public static func build(recipient: BitcoinKit.Address, sender: BitcoinKit.Address, lockDate: Foundation.Date, hash: Foundation.Data, hashOp: BitcoinKit.HashOperator) -> BitcoinKit.Script?
+  public static func build(recipient: BitcoinKit.Address, sender: BitcoinKit.Address, lockIntervalSinceNow: Foundation.TimeInterval, hash: Foundation.Data, hashOp: BitcoinKit.HashOperator) -> BitcoinKit.Script?
+  public static func build(recipient: BitcoinKit.Address, sender: BitcoinKit.Address, lockIntervalSinceNow: Foundation.TimeInterval, secret: Foundation.Data, hashOp: BitcoinKit.HashOperator) -> BitcoinKit.Script?
+  public static func build(recipient: BitcoinKit.Address, sender: BitcoinKit.Address, lockDate: Foundation.Date, secret: Foundation.Data, hashOp: BitcoinKit.HashOperator) -> BitcoinKit.Script?
+}
+@_hasMissingDesignatedInitializers public class HashOperator {
+  public static var SHA256: BitcoinKit.HashOperator
+  public static var HASH160: BitcoinKit.HashOperator
+  public var opcode: BitcoinKit.OpCode {
+    get
+  }
+  public var hashSize: Swift.Int {
+    get
+  }
+  public func hash(_ data: Foundation.Data) -> Foundation.Data
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HashOperatorSha256 : BitcoinKit.HashOperator {
+  override final public var opcode: BitcoinKit.OpCode {
+    get
+  }
+  override final public var hashSize: Swift.Int {
+    get
+  }
+  override final public func hash(_ data: Foundation.Data) -> Foundation.Data
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HashOperatorHash160 : BitcoinKit.HashOperator {
+  override final public var opcode: BitcoinKit.OpCode {
+    get
+  }
+  override final public var hashSize: Swift.Int {
+    get
+  }
+  override final public func hash(_ data: Foundation.Data) -> Foundation.Data
+  @objc deinit
+}
+extension Mnemonic {
+  public enum WordList {
+  }
+}
+extension BitcoinAddress : BitcoinKit.Address {
+  @available(*, deprecated, renamed: "legacy")
+  public var base58: Swift.String {
+    get
+  }
+  @available(*, unavailable, message: "Use init(cashaddr:) or init(legacy:) instead.")
+  public init(_ string: Swift.String)
+}
+public struct Message {
+  public let magic: Swift.UInt32
+  public let command: Swift.String
+  public let length: Swift.UInt32
+  public let checksum: Foundation.Data
+  public let payload: Foundation.Data
+  public static var minimumLength: Swift.Int
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.Message?
+}
+public struct OpN : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Op2Over : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpPushData1 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public struct OpPushData2 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public struct OpPushData4 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+@available(*, deprecated, message: "AddressFactory will be removed in ver. 2.0.0. Use BitcoinAddress.init(legacy:) or BitcoinAddress.init(cashaddr:) instead.")
+public struct AddressFactory {
+  public static func create(_ plainAddress: Swift.String) throws -> BitcoinKit.Address
+}
+extension BitcoinAddress {
+  public struct VersionByte {
+    public let rawValue: Swift.UInt8
+    public let hashType: BitcoinKit.BitcoinAddress.HashType
+    public let hashSize: BitcoinKit.BitcoinAddress.HashSize
+    public init(_ hashType: BitcoinKit.BitcoinAddress.HashType, _ hashSize: BitcoinKit.BitcoinAddress.HashSize)
+    public init?(_ rawValue: Swift.UInt8)
+  }
+}
+extension BitcoinAddress.VersionByte : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.BitcoinAddress.VersionByte, rhs: BitcoinKit.BitcoinAddress.VersionByte) -> Swift.Bool
+}
+public struct OpNum2Bin : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public struct OpAdd : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Op1Add : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpSize : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpBin2Num : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public struct OpDuplicate : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpWithin : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public func securelyGenerateBytes(count: Swift.Int) throws -> Foundation.Data
+@objc public class Peer : ObjectiveC.NSObject, Foundation.StreamDelegate {
+  final public let host: Swift.String
+  public var port: Swift.UInt32 {
+    get
+  }
+  final public let network: BitcoinKit.Network
+  weak public var delegate: BitcoinKit.PeerDelegate?
+  public convenience init(network: BitcoinKit.Network = .testnetBCH)
+  public init(host: Swift.String, network: BitcoinKit.Network = .testnetBCH)
+  @objc deinit
+  public func connect()
+  public func disconnect()
+  public func startSync(filters: [Foundation.Data] = [], latestBlockHash: Foundation.Data)
+  public func sendTransaction(transaction: BitcoinKit.Transaction)
+  @objc public func stream(_ stream: Foundation.Stream, handle eventCode: Foundation.Stream.Event)
+  @objc override dynamic public init()
+}
+public protocol PeerDelegate : AnyObject {
+  func peerDidConnect(_ peer: BitcoinKit.Peer)
+  func peerDidDisconnect(_ peer: BitcoinKit.Peer)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveVersionMessage message: BitcoinKit.VersionMessage)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveAddressMessage message: BitcoinKit.AddressMessage)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveGetDataMessage message: BitcoinKit.GetDataMessage)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveInventoryMessage message: BitcoinKit.InventoryMessage)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveBlockMessage message: BitcoinKit.BlockMessage, hash: Foundation.Data)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveMerkleBlockMessage message: BitcoinKit.MerkleBlockMessage, hash: Foundation.Data)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveTransaction transaction: BitcoinKit.Transaction, hash: Foundation.Data)
+  func peer(_ peer: BitcoinKit.Peer, didReceiveRejectMessage message: BitcoinKit.RejectMessage)
+}
+extension PeerDelegate {
+  public func peerDidConnect(_ peer: BitcoinKit.Peer)
+  public func peerDidDisconnect(_ peer: BitcoinKit.Peer)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveVersionMessage message: BitcoinKit.VersionMessage)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveAddressMessage message: BitcoinKit.AddressMessage)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveGetDataMessage message: BitcoinKit.GetDataMessage)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveInventoryMessage message: BitcoinKit.InventoryMessage)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveBlockMessage message: BitcoinKit.BlockMessage, hash: Foundation.Data)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveMerkleBlockMessage message: BitcoinKit.MerkleBlockMessage, hash: Foundation.Data)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveTransaction transaction: BitcoinKit.Transaction, hash: Foundation.Data)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveRejectMessage message: BitcoinKit.RejectMessage)
+}
+public struct OpLessThanOrEqual : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct TransactionWitness {
+}
+public protocol ScriptChunk {
+  var scriptData: Foundation.Data { get }
+  var range: Swift.Range<Swift.Int> { get }
+  var chunkData: Foundation.Data { get }
+  var opCode: BitcoinKit.OpCode { get }
+  var string: Swift.String { get }
+}
+extension ScriptChunk {
+  public var opCode: BitcoinKit.OpCode {
+    get
+  }
+  public var opcodeValue: Swift.UInt8 {
+    get
+  }
+  public var chunkData: Foundation.Data {
+    get
+  }
+  public func updated(scriptData data: Foundation.Data) -> BitcoinKit.ScriptChunk
+  public func updated(scriptData data: Foundation.Data, range updatedRange: Swift.Range<Swift.Int>) -> BitcoinKit.ScriptChunk
+}
+public struct OpcodeChunk : BitcoinKit.ScriptChunk {
+  public var scriptData: Foundation.Data
+  public var range: Swift.Range<Swift.Int>
+  public init(scriptData: Foundation.Data, range: Swift.Range<Swift.Int>)
+  public var string: Swift.String {
+    get
+  }
+}
+public struct DataChunk : BitcoinKit.ScriptChunk {
+  public var scriptData: Foundation.Data
+  public var range: Swift.Range<Swift.Int>
+  public init(scriptData: Foundation.Data, range: Swift.Range<Swift.Int>)
+  public var pushedData: Foundation.Data {
+    get
+  }
+  public var string: Swift.String {
+    get
+  }
+  public var isDataCompact: Swift.Bool {
+    get
+  }
+}
+public class Script {
+  public var data: Foundation.Data {
+    get
+  }
+  public var string: Swift.String {
+    get
+  }
+  public var hex: Swift.String {
+    get
+  }
+  public func toP2SH() -> BitcoinKit.Script
+  public func standardP2SHAddress(network: BitcoinKit.Network) -> BitcoinKit.BitcoinAddress
+  public typealias MultisigVariables = (nSigRequired: Swift.UInt, publickeys: [BitcoinKit.PublicKey])
+  public var multisigRequirements: BitcoinKit.Script.MultisigVariables?
+  public init()
+  public init(chunks: [BitcoinKit.ScriptChunk])
+  public convenience init?(data: Foundation.Data)
+  public convenience init?(hex: Swift.String)
+  public convenience init?(address: BitcoinKit.Address)
+  public convenience init?(publicKeys: [BitcoinKit.PublicKey], signaturesRequired: Swift.UInt)
+  public var isStandard: Swift.Bool {
+    get
+  }
+  public var isPublicKeyScript: Swift.Bool {
+    get
+  }
+  public var isPayToPublicKeyHashScript: Swift.Bool {
+    get
+  }
+  public var isPayToScriptHashScript: Swift.Bool {
+    get
+  }
+  public var endsWithPayToScriptHash: Swift.Bool {
+    get
+  }
+  public var isStandardMultisignatureScript: Swift.Bool {
+    get
+  }
+  public var isMultisignatureScript: Swift.Bool {
+    get
+  }
+  public var isStandardOpReturnScript: Swift.Bool {
+    get
+  }
+  public func standardOpReturnData() -> Foundation.Data?
+  public var isDataOnly: Swift.Bool {
+    get
+  }
+  public var scriptChunks: [BitcoinKit.ScriptChunk] {
+    get
+  }
+  public func standardAddress(network: BitcoinKit.Network) -> BitcoinKit.BitcoinAddress?
+  public func invalidateSerialization()
+  @discardableResult
+  public func append(_ opcode: BitcoinKit.OpCode) throws -> BitcoinKit.Script
+  @discardableResult
+  public func appendData(_ newData: Foundation.Data) throws -> BitcoinKit.Script
+  @discardableResult
+  public func appendScript(_ otherScript: BitcoinKit.Script) throws -> BitcoinKit.Script
+  @discardableResult
+  public func deleteOccurrences(of data: Foundation.Data) throws -> BitcoinKit.Script
+  @discardableResult
+  public func deleteOccurrences(of opcode: BitcoinKit.OpCode) throws -> BitcoinKit.Script
+  public func subScript(from index: Swift.Int) throws -> BitcoinKit.Script
+  public func subScript(to index: Swift.Int) throws -> BitcoinKit.Script
+  public func chunk(at index: Swift.Int) -> BitcoinKit.ScriptChunk
+  public func opcode(at index: Swift.Int) -> BitcoinKit.OpCode
+  public func pushedData(at index: Swift.Int) -> Foundation.Data?
+  public func execute(with context: BitcoinKit.ScriptExecutionContext) throws
+  @objc deinit
+}
+extension Script {
+  public static func buildPublicKeyHashOut(pubKeyHash: Foundation.Data) -> Foundation.Data
+  public static func buildPublicKeyUnlockingScript(signature: Foundation.Data, pubkey: BitcoinKit.PublicKey, hashType: BitcoinKit.SighashType) -> Foundation.Data
+  public static func isPublicKeyHashOut(_ script: Foundation.Data) -> Swift.Bool
+  public static func getPublicKeyHash(from script: Foundation.Data) -> Foundation.Data
+}
+extension Script : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct OpSplit : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@available(*, deprecated, renamed: "BitcoinAddress")
+public typealias Cashaddr = BitcoinKit.BitcoinAddress
+public struct OpNop : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpOr : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNip : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public enum OpCode : BitcoinKit.OpCodeProtocol {
+  case OP_0
+  case OP_FALSE
+  case OP_PUSHDATA1
+  case OP_PUSHDATA2
+  case OP_PUSHDATA4
+  case OP_1NEGATE
+  case OP_RESERVED
+  case OP_1
+  case OP_TRUE
+  case OP_2
+  case OP_3
+  case OP_4
+  case OP_5
+  case OP_6
+  case OP_7
+  case OP_8
+  case OP_9
+  case OP_10
+  case OP_11
+  case OP_12
+  case OP_13
+  case OP_14
+  case OP_15
+  case OP_16
+  case OP_NOP
+  case OP_VER
+  case OP_IF
+  case OP_NOTIF
+  case OP_VERIF
+  case OP_VERNOTIF
+  case OP_ELSE
+  case OP_ENDIF
+  case OP_VERIFY
+  case OP_RETURN
+  case OP_TOALTSTACK
+  case OP_FROMALTSTACK
+  case OP_2DROP
+  case OP_2DUP
+  case OP_3DUP
+  case OP_2OVER
+  case OP_2ROT
+  case OP_2SWAP
+  case OP_IFDUP
+  case OP_DEPTH
+  case OP_DROP
+  case OP_DUP
+  case OP_NIP
+  case OP_OVER
+  case OP_PICK
+  case OP_ROLL
+  case OP_ROT
+  case OP_SWAP
+  case OP_TUCK
+  case OP_CAT
+  case OP_SIZE
+  case OP_SPLIT
+  case OP_NUM2BIN
+  case OP_BIN2NUM
+  case OP_INVERT
+  case OP_AND
+  case OP_OR
+  case OP_XOR
+  case OP_EQUAL
+  case OP_EQUALVERIFY
+  case OP_RESERVED1
+  case OP_RESERVED2
+  case OP_1ADD
+  case OP_1SUB
+  case OP_2MUL
+  case OP_2DIV
+  case OP_NEGATE
+  case OP_ABS
+  case OP_NOT
+  case OP_0NOTEQUAL
+  case OP_ADD
+  case OP_SUB
+  case OP_MUL
+  case OP_DIV
+  case OP_MOD
+  case OP_LSHIFT
+  case OP_RSHIFT
+  case OP_BOOLAND
+  case OP_BOOLOR
+  case OP_NUMEQUAL
+  case OP_NUMEQUALVERIFY
+  case OP_NUMNOTEQUAL
+  case OP_LESSTHAN
+  case OP_GREATERTHAN
+  case OP_LESSTHANOREQUAL
+  case OP_GREATERTHANOREQUAL
+  case OP_MIN
+  case OP_MAX
+  case OP_WITHIN
+  case OP_RIPEMD160
+  case OP_SHA1
+  case OP_SHA256
+  case OP_HASH160
+  case OP_HASH256
+  case OP_CODESEPARATOR
+  case OP_CHECKSIG
+  case OP_CHECKSIGVERIFY
+  case OP_CHECKMULTISIG
+  case OP_CHECKMULTISIGVERIFY
+  case OP_CHECKLOCKTIMEVERIFY
+  case OP_CHECKSEQUENCEVERIFY
+  case OP_PUBKEYHASH
+  case OP_PUBKEY
+  case OP_INVALIDOPCODE
+  case OP_NOP1
+  case OP_NOP4
+  case OP_NOP5
+  case OP_NOP6
+  case OP_NOP7
+  case OP_NOP8
+  case OP_NOP9
+  case OP_NOP10
+  public var name: Swift.String {
+    get
+  }
+  public var value: Swift.UInt8 {
+    get
+  }
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+  public static func == (a: BitcoinKit.OpCode, b: BitcoinKit.OpCode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct OpVerify : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct TransactionPlan {
+  public let unspentTransactions: [BitcoinKit.UnspentTransaction]
+  public let amount: Swift.UInt64
+  public let fee: Swift.UInt64
+  public let change: Swift.UInt64
+  public init(unspentTransactions: [BitcoinKit.UnspentTransaction], amount: Swift.UInt64, fee: Swift.UInt64, change: Swift.UInt64)
+}
+public struct OpRipemd160 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpCheckMultiSigVerify : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpIf : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension Mnemonic.WordList {
+  public static var japanese: [Swift.String]
+}
+public struct OpCodeFactory {
+  public static func get(with value: Swift.UInt8) -> BitcoinKit.OpCode
+  public static func get(with name: Swift.String) -> BitcoinKit.OpCode
+  public typealias SmallInteger = Swift.Int
+  public static func opcode(for smallInteger: BitcoinKit.OpCodeFactory.SmallInteger) -> BitcoinKit.OpCode
+  public static func smallInteger(from opcode: BitcoinKit.OpCode) -> BitcoinKit.OpCodeFactory.SmallInteger
+}
+public struct BloomFilter {
+  public let nHashFuncs: Swift.UInt32
+  public let nTweak: Swift.UInt32
+  public let size: Swift.UInt32
+  public init(elements: Swift.Int, falsePositiveRate: Swift.Double, randomNonce nTweak: Swift.UInt32)
+  public mutating func insert(_ data: Foundation.Data)
+}
+extension BloomFilter : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public enum TransactionSignerError : Swift.Error {
+  case noKeyFound
+  public static func == (a: BitcoinKit.TransactionSignerError, b: BitcoinKit.TransactionSignerError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+final public class TransactionSigner {
+  final public let unspentTransactions: [BitcoinKit.UnspentTransaction]
+  final public let transaction: BitcoinKit.Transaction
+  final public let sighashHelper: BitcoinKit.SignatureHashHelper
+  public init(unspentTransactions: [BitcoinKit.UnspentTransaction], transaction: BitcoinKit.Transaction, sighashHelper: BitcoinKit.SignatureHashHelper)
+  final public func sign(with keys: [BitcoinKit.PrivateKey]) throws -> BitcoinKit.Transaction
+  @objc deinit
+}
+public struct OpGreaterThan : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpCodeSeparator : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct TransactionPlanner {
+  public enum DustPolicy {
+    case toFee
+    case toReceiver
+    public static func == (a: BitcoinKit.TransactionPlanner.DustPolicy, b: BitcoinKit.TransactionPlanner.DustPolicy) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public var feePerByte: Swift.UInt64
+  public var dustPolicy: BitcoinKit.TransactionPlanner.DustPolicy
+  public init(feePerByte: Swift.UInt64, dustPolicy: BitcoinKit.TransactionPlanner.DustPolicy = .toFee)
+  public func plan(unspentTransactions: [BitcoinKit.UnspentTransaction], target amount: Swift.UInt64) -> BitcoinKit.TransactionPlan
+}
+public struct BigNumber {
+  public var int32: Swift.Int32
+  public var data: Foundation.Data
+  public static var zero: BitcoinKit.BigNumber
+  public static var one: BitcoinKit.BigNumber
+  public static var negativeOne: BitcoinKit.BigNumber
+  public init()
+  public init(_ int32: Swift.Int32)
+  public init(int32: Swift.Int32)
+  public init(_ data: Foundation.Data)
+}
+extension BigNumber : Swift.Comparable {
+  public static func == (lhs: BitcoinKit.BigNumber, rhs: BitcoinKit.BigNumber) -> Swift.Bool
+  public static func < (lhs: BitcoinKit.BigNumber, rhs: BitcoinKit.BigNumber) -> Swift.Bool
+}
+public struct OpTuck : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpReserved2 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpAnd : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNumEqual : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct VarString : Swift.ExpressibleByStringLiteral {
+  public typealias StringLiteralType = Swift.String
+  public let length: BitcoinKit.VarInt
+  public let value: Swift.String
+  public init(stringLiteral value: Swift.String)
+  public init(_ value: Swift.String)
+  public func serialized() -> Foundation.Data
+  public typealias ExtendedGraphemeClusterLiteralType = BitcoinKit.VarString.StringLiteralType
+  public typealias UnicodeScalarLiteralType = BitcoinKit.VarString.StringLiteralType
+}
+extension VarString : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct PointOnCurve {
+  public let x: BitcoinKit.Scalar32Bytes
+  public let y: BitcoinKit.Scalar32Bytes
+  public init(x: BitcoinKit.Scalar32Bytes, y: BitcoinKit.Scalar32Bytes)
+}
+extension PointOnCurve {
+  public enum Error : Swift.Error {
+    case multiplicationResultedInTooFewBytes(expected: Swift.Int, butGot: Swift.Int)
+    case expectedUncompressedPoint
+    case publicKeyContainsTooFewBytes(expected: Swift.Int, butGot: Swift.Int)
+  }
+  public static func decodePointFromPublicKey(_ publicKey: BitcoinKit.PublicKey) throws -> BitcoinKit.PointOnCurve
+  public func multiplyBy(scalar: BitcoinKit.Scalar32Bytes) throws -> BitcoinKit.PointOnCurve
+  public func multiplyBy(privateKey: BitcoinKit.PrivateKey) throws -> BitcoinKit.PointOnCurve
+  public func multiplyBy(scalar scalarData: Foundation.Data) throws -> BitcoinKit.PointOnCurve
+}
+public protocol SighashType {
+  var rawValue: Swift.UInt8 { get }
+}
+extension SighashType {
+  public var uint8: Swift.UInt8 {
+    get
+  }
+  public var uint32: Swift.UInt32 {
+    get
+  }
+  public var isAll: Swift.Bool {
+    get
+  }
+  public var isSingle: Swift.Bool {
+    get
+  }
+  public var isNone: Swift.Bool {
+    get
+  }
+  public var hasForkId: Swift.Bool {
+    get
+  }
+  public var isAnyoneCanPay: Swift.Bool {
+    get
+  }
+}
+extension UInt8 {
+  @available(*, deprecated, message: "Use hashType.uint8 instead")
+  public init(_ hashType: BitcoinKit.SighashType)
+}
+extension UInt32 {
+  @available(*, deprecated, message: "Use hashType.uint32 instead")
+  public init(_ hashType: BitcoinKit.SighashType)
+}
+extension SighashType {
+  public typealias BCH = BitcoinKit.BCHSighashType
+  public typealias BTC = BitcoinKit.BTCSighashType
+}
+public enum BCHSighashType : BitcoinKit.SighashType {
+  case ALL
+  case NONE
+  case SINGLE
+  case ALL_ANYONECANPAY
+  case NONE_ANYONECANPAY
+  case SINGLE_ANYONECANPAY
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+  public static func == (a: BitcoinKit.BCHSighashType, b: BitcoinKit.BCHSighashType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum BTCSighashType : BitcoinKit.SighashType {
+  case ALL
+  case NONE
+  case SINGLE
+  case ALL_ANYONECANPAY
+  case NONE_ANYONECANPAY
+  case SINGLE_ANYONECANPAY
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+  public static func == (a: BitcoinKit.BTCSighashType, b: BitcoinKit.BTCSighashType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct BitArray : Swift.Hashable, Swift.RangeReplaceableCollection {
+  public init()
+  public init<S>(_ elements: S) where S : Swift.Sequence, S.Element == Swift.Bool
+  public init(data: Foundation.Data)
+  public init?<S>(binaryString: S) where S : Swift.StringProtocol
+  public init(intRepresentation: [Swift.Int])
+  public init(repeating repeatedValue: Swift.Bool, count: Swift.Int)
+  public var count: Swift.Int {
+    get
+  }
+  public var first: Swift.Bool? {
+    get
+  }
+  public var last: Swift.Bool? {
+    get
+  }
+  public var cardinality: Swift.Int {
+    get
+  }
+  public mutating func append(_ bit: Swift.Bool)
+  public mutating func insert(_ bit: Swift.Bool, at index: Swift.Int)
+  @discardableResult
+  public mutating func removeLast() -> Swift.Bool
+  @discardableResult
+  public mutating func remove(at index: Swift.Int) -> Swift.Bool
+  public mutating func removeAll(keepingCapacity keep: Swift.Bool = false)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public typealias Element = Swift.Bool
+  public typealias Index = Swift.Int
+  public typealias Iterator = Swift.IndexingIterator<BitcoinKit.BitArray>
+  public typealias SubSequence = Swift.Slice<BitcoinKit.BitArray>
+  public typealias Indices = Swift.DefaultIndices<BitcoinKit.BitArray>
+}
+extension BitArray : Swift.MutableCollection {
+  public var startIndex: Swift.Int {
+    get
+  }
+  public var endIndex: Swift.Int {
+    get
+  }
+  public func index(after i: Swift.Int) -> Swift.Int
+  public subscript(index: Swift.Int) -> Swift.Bool {
+    get
+    set(newValue)
+  }
+}
+extension BitArray : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Swift.Bool...)
+  public typealias ArrayLiteralElement = Swift.Bool
+}
+extension BitArray : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var binaryString: Swift.String {
+    get
+  }
+}
+public func == (lhs: BitcoinKit.BitArray, rhs: BitcoinKit.BitArray) -> Swift.Bool
+extension BitArray {
+  public func asBoolArray() -> [Swift.Bool]
+  public func asBytesArray() -> [Swift.UInt8]
+  public func asData() -> Foundation.Data
+}
+extension UInt32 {
+  public var hex: Swift.String {
+    get
+  }
+}
+public struct PongMessage {
+  public let nonce: Swift.UInt64
+  public func serialized() -> Foundation.Data
+}
+public struct OpNotIf : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension Mnemonic.WordList {
+  public static var korean: [Swift.String]
+}
+public struct OpOver : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpMod : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public enum BitcoinScheme : Swift.String {
+  case bitcoincash
+  case bchtest
+  case bitcoin
+  case none
+  public init?(scheme: Swift.String)
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum AddressError : Swift.Error {
+  case invalid
+  case invalidScheme
+  case invalidVersionByte
+  case invalidDataSize
+  public static func == (a: BitcoinKit.AddressError, b: BitcoinKit.AddressError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct OpHash160 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension Mnemonic.WordList {
+  public static var simplifiedChinese: [Swift.String]
+}
+public struct OpRoll : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpGreaterThanOrEqual : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpSha1 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpInvalidOpCode : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct PrivateKey {
+  @available(*, deprecated, renamed: "data")
+  public var raw: Foundation.Data {
+    get
+  }
+  public let data: Foundation.Data
+  public let network: BitcoinKit.Network
+  public let isPublicKeyCompressed: Swift.Bool
+  public init(network: BitcoinKit.Network = .testnetBCH, isPublicKeyCompressed: Swift.Bool = true)
+  public init(wif: Swift.String) throws
+  public init(data: Foundation.Data, network: BitcoinKit.Network = .testnetBCH, isPublicKeyCompressed: Swift.Bool = true)
+  public func publicKeyPoint() throws -> BitcoinKit.PointOnCurve
+  public func publicKey() -> BitcoinKit.PublicKey
+  public func toWIF() -> Swift.String
+  public func sign(_ data: Foundation.Data) -> Foundation.Data
+  @available(*, unavailable, message: "Use SignatureHashHelper and sign(_ data: Data) method instead")
+  public func sign(_ tx: BitcoinKit.Transaction, utxoToSign: BitcoinKit.UnspentTransaction, hashType: BitcoinKit.SighashType, inputIndex: Swift.Int = 0) -> Foundation.Data
+}
+extension PrivateKey : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.PrivateKey, rhs: BitcoinKit.PrivateKey) -> Swift.Bool
+}
+extension PrivateKey : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension PrivateKey : BitcoinKit.QRCodeConvertible {
+}
+public enum PrivateKeyError : Swift.Error {
+  case invalidFormat
+  public static func == (a: BitcoinKit.PrivateKeyError, b: BitcoinKit.PrivateKeyError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension Transaction {
+  @available(*, deprecated, message: "Use BCHSignatureHashHelper.createSignatureHash(of:for:inputIndex:) or BTCSignatureHashHelper.createSignatureHash(of:for:inputIndex:) instead")
+  public func signatureHash(for utxo: BitcoinKit.TransactionOutput, inputIndex: Swift.Int, hashType: BitcoinKit.SighashType) -> Foundation.Data
+}
+public struct OpEndIf : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Base58 {
+  public static func encode(_ bytes: Foundation.Data) -> Swift.String
+  public static func decode(_ string: Swift.String) -> Foundation.Data?
+}
+public protocol QRCodeConvertible {
+  var qrcodeString: Swift.String { get }
+  func qrImage(size: CoreGraphics.CGSize) -> UIKit.UIImage?
+}
+extension QRCodeConvertible {
+  public func qrImage(size: CoreGraphics.CGSize = CGSize(width: 200, height: 200)) -> UIKit.UIImage?
+}
+extension CustomStringConvertible where Self : BitcoinKit.QRCodeConvertible {
+  public var qrcodeString: Swift.String {
+    get
+  }
+}
+public struct OpNumNotEqual : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpCheckLockTimeVerify : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpSub : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Op0 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public struct CoinType {
+  public let index: Swift.UInt32
+  public let symbol: Swift.String
+  public let name: Swift.String
+  public init(_ index: Swift.UInt32, _ symbol: Swift.String, _ name: Swift.String)
+}
+extension CoinType : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.CoinType, rhs: BitcoinKit.CoinType) -> Swift.Bool
+}
+extension CoinType {
+  public static var testnet: BitcoinKit.CoinType
+  public static var btc: BitcoinKit.CoinType
+  public static var bch: BitcoinKit.CoinType
+}
+public struct OpPick : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension BitcoinAddress {
+  public var versionByte: BitcoinKit.BitcoinAddress.VersionByte {
+    get
+  }
+  public var cashaddr: Swift.String {
+    get
+  }
+  public init(cashaddr: Swift.String) throws
+}
+extension Mnemonic.WordList {
+  public static var english: [Swift.String]
+}
+public struct OpHash256 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public enum ScriptChunkError : Swift.Error {
+  case error(Swift.String)
+}
+public struct ScriptChunkHelper {
+  public static func scriptData(for data: Foundation.Data, preferredLengthEncoding: Swift.Int) -> Foundation.Data?
+  public static func parseChunk(from scriptData: Foundation.Data, offset: Swift.Int) throws -> BitcoinKit.ScriptChunk
+}
+public struct InventoryMessage {
+  public let count: BitcoinKit.VarInt
+  public let inventoryItems: [BitcoinKit.InventoryItem]
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.InventoryMessage
+}
+public struct VarInt : Swift.ExpressibleByIntegerLiteral {
+  public typealias IntegerLiteralType = Swift.UInt64
+  public let underlyingValue: Swift.UInt64
+  public init(integerLiteral value: Swift.UInt64)
+  public init(_ value: Swift.UInt64)
+  public init(_ value: Swift.Int)
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.VarInt
+}
+extension VarInt : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct OpCheckMultiSig : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpEqualVerify : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpElse : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpReserved1 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Op2Rot : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct MockHelper {
+  @available(*, deprecated, renamed: "createUnspentTransaction(lockScript:)")
+  public static func createUtxo(lockScript: BitcoinKit.Script) -> BitcoinKit.UnspentTransaction
+  public static func createUnspentTransaction(lockScript: BitcoinKit.Script) -> BitcoinKit.UnspentTransaction
+  @available(*, deprecated, renamed: "createTransaction(unspentTransaction:)")
+  public static func createTransaction(utxo: BitcoinKit.UnspentTransaction) -> BitcoinKit.Transaction
+  public static func createTransaction(unspentTransaction: BitcoinKit.UnspentTransaction) -> BitcoinKit.Transaction
+  public static func updateTransaction(_ tx: BitcoinKit.Transaction, unlockScriptData: Foundation.Data) -> BitcoinKit.Transaction
+  public static func verifySingleKey(lockScript: BitcoinKit.Script, unlockScriptBuilder: BitcoinKit.MockUnlockScriptBuilder, key: BitcoinKit.MockKey, verbose: Swift.Bool = true) throws -> Swift.Bool
+  public static func verifyMultiKey(lockScript: BitcoinKit.Script, unlockScriptBuilder: BitcoinKit.MockUnlockScriptBuilder, keys: [BitcoinKit.MockKey], verbose: Swift.Bool = true) throws -> Swift.Bool
+}
+public struct InventoryItem {
+  public let type: Swift.Int32
+  public let hash: Foundation.Data
+  public func serialized() -> Foundation.Data
+  public var objectType: BitcoinKit.InventoryItem.ObjectType {
+    get
+  }
+  public enum ObjectType : Swift.Int32 {
+    case error
+    case transactionMessage
+    case blockMessage
+    case filteredBlockMessage
+    case compactBlockMessage
+    case unknown
+    public typealias RawValue = Swift.Int32
+    public init?(rawValue: Swift.Int32)
+    public var rawValue: Swift.Int32 {
+      get
+    }
+  }
+}
+public protocol Address : Swift.CustomStringConvertible {
+  var network: BitcoinKit.Network { get }
+  var hashType: BitcoinKit.BitcoinAddress.HashType { get }
+  var data: Foundation.Data { get }
+  var legacy: Swift.String { get }
+  var cashaddr: Swift.String { get }
+}
+extension Address {
+  @available(*, deprecated, message: "Always returns nil. If you need public key with address, please use PublicKey instead.")
+  public var publicKey: Foundation.Data? {
+    get
+  }
+  @available(*, deprecated, renamed: "legacy")
+  public var base58: Swift.String {
+    get
+  }
+  @available(*, deprecated, renamed: "hashType")
+  public var type: BitcoinKit.BitcoinAddress.HashType {
+    get
+  }
+}
+extension Mnemonic.WordList {
+  public static var french: [Swift.String]
+}
+public struct OpLessThan : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension Data {
+  public init?(hex: Swift.String)
+  public var hex: Swift.String {
+    get
+  }
+}
+extension PublicKey {
+  @available(*, deprecated, message: "toLegacy() will be removed. Use toBitcoinAddress instead.")
+  public func toLegacy() -> BitcoinKit.LegacyAddress
+  @available(*, deprecated, message: "toCashaddr() will be removed. Use toBitcoinAddress instead.")
+  public func toCashaddr() -> BitcoinKit.Cashaddr
+  public func toBitcoinAddress() -> BitcoinKit.BitcoinAddress
+}
+public struct Crypto {
+  public static func sha1(_ data: Foundation.Data) -> Foundation.Data
+  public static func sha256(_ data: Foundation.Data) -> Foundation.Data
+  public static func sha256sha256(_ data: Foundation.Data) -> Foundation.Data
+  public static func ripemd160(_ data: Foundation.Data) -> Foundation.Data
+  public static func sha256ripemd160(_ data: Foundation.Data) -> Foundation.Data
+  public static func hmacsha512(data: Foundation.Data, key: Foundation.Data) -> Foundation.Data
+  public static func sign(_ data: Foundation.Data, privateKey: BitcoinKit.PrivateKey) throws -> Foundation.Data
+  public static func verifySignature(_ signature: Foundation.Data, message: Foundation.Data, publicKey: Foundation.Data) throws -> Swift.Bool
+  public static func verifySigData(for tx: BitcoinKit.Transaction, inputIndex: Swift.Int, utxo: BitcoinKit.TransactionOutput, sigData: Foundation.Data, pubKeyData: Foundation.Data) throws -> Swift.Bool
+}
+public enum CryptoError : Swift.Error {
+  case signFailed
+  case noEnoughSpace
+  case signatureParseFailed
+  case publicKeyParseFailed
+  public static func == (a: BitcoinKit.CryptoError, b: BitcoinKit.CryptoError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct OpLShift : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct TransactionOutput {
+  public let value: Swift.UInt64
+  public var scriptLength: BitcoinKit.VarInt {
+    get
+  }
+  public let lockingScript: Foundation.Data
+  public func scriptCode() -> Foundation.Data
+  public init(value: Swift.UInt64, lockingScript: Foundation.Data)
+  public init()
+  public func serialized() -> Foundation.Data
+}
+extension UInt64 {
+  public var hex: Swift.String {
+    get
+  }
+}
+public class BlockChain {
+  public init(network: BitcoinKit.Network, blockStore: BitcoinKit.BlockStore)
+  public func addBlock(_ block: BitcoinKit.BlockMessage, hash: Foundation.Data) throws
+  public func addMerkleBlock(_ merkleBlock: BitcoinKit.MerkleBlockMessage, hash: Foundation.Data) throws
+  public func addTransaction(_ transaction: BitcoinKit.Transaction, hash: Foundation.Data) throws
+  public func calculateBalance(address: BitcoinKit.Address) throws -> Swift.Int64
+  public func latestBlockHash() -> Foundation.Data
+  @objc deinit
+}
+public enum Status : Darwin.OSStatus, Swift.Error {
+  case success
+  case unimplemented
+  case diskFull
+  case io
+  case opWr
+  case param
+  case wrPerm
+  case allocate
+  case userCanceled
+  case badReq
+  case internalComponent
+  case notAvailable
+  case readOnly
+  case authFailed
+  case noSuchKeychain
+  case invalidKeychain
+  case duplicateKeychain
+  case duplicateCallback
+  case invalidCallback
+  case duplicateItem
+  case itemNotFound
+  case bufferTooSmall
+  case dataTooLarge
+  case noSuchAttr
+  case invalidItemRef
+  case invalidSearchRef
+  case noSuchClass
+  case noDefaultKeychain
+  case interactionNotAllowed
+  case readOnlyAttr
+  case wrongSecVersion
+  case keySizeNotAllowed
+  case noStorageModule
+  case noCertificateModule
+  case noPolicyModule
+  case interactionRequired
+  case dataNotAvailable
+  case dataNotModifiable
+  case createChainFailed
+  case invalidPrefsDomain
+  case inDarkWake
+  case aclNotSimple
+  case policyNotFound
+  case invalidTrustSetting
+  case noAccessForItem
+  case invalidOwnerEdit
+  case trustNotAvailable
+  case unsupportedFormat
+  case unknownFormat
+  case keyIsSensitive
+  case multiplePrivKeys
+  case passphraseRequired
+  case invalidPasswordRef
+  case invalidTrustSettings
+  case noTrustSettings
+  case pkcs12VerifyFailure
+  case invalidCertificate
+  case notSigner
+  case policyDenied
+  case invalidKey
+  case decode
+  case `internal`
+  case unsupportedAlgorithm
+  case unsupportedOperation
+  case unsupportedPadding
+  case itemInvalidKey
+  case itemInvalidKeyType
+  case itemInvalidValue
+  case itemClassMissing
+  case itemMatchUnsupported
+  case useItemListUnsupported
+  case useKeychainUnsupported
+  case useKeychainListUnsupported
+  case returnDataUnsupported
+  case returnAttributesUnsupported
+  case returnRefUnsupported
+  case returnPersitentRefUnsupported
+  case valueRefUnsupported
+  case valuePersistentRefUnsupported
+  case returnMissingPointer
+  case matchLimitUnsupported
+  case itemIllegalQuery
+  case waitForCallback
+  case missingEntitlement
+  case upgradePending
+  case mpSignatureInvalid
+  case otrTooOld
+  case otrIDTooNew
+  case serviceNotAvailable
+  case insufficientClientID
+  case deviceReset
+  case deviceFailed
+  case appleAddAppACLSubject
+  case applePublicKeyIncomplete
+  case appleSignatureMismatch
+  case appleInvalidKeyStartDate
+  case appleInvalidKeyEndDate
+  case conversionError
+  case appleSSLv2Rollback
+  case quotaExceeded
+  case fileTooBig
+  case invalidDatabaseBlob
+  case invalidKeyBlob
+  case incompatibleDatabaseBlob
+  case incompatibleKeyBlob
+  case hostNameMismatch
+  case unknownCriticalExtensionFlag
+  case noBasicConstraints
+  case noBasicConstraintsCA
+  case invalidAuthorityKeyID
+  case invalidSubjectKeyID
+  case invalidKeyUsageForPolicy
+  case invalidExtendedKeyUsage
+  case invalidIDLinkage
+  case pathLengthConstraintExceeded
+  case invalidRoot
+  case crlExpired
+  case crlNotValidYet
+  case crlNotFound
+  case crlServerDown
+  case crlBadURI
+  case unknownCertExtension
+  case unknownCRLExtension
+  case crlNotTrusted
+  case crlPolicyFailed
+  case idpFailure
+  case smimeEmailAddressesNotFound
+  case smimeBadExtendedKeyUsage
+  case smimeBadKeyUsage
+  case smimeKeyUsageNotCritical
+  case smimeNoEmailAddress
+  case smimeSubjAltNameNotCritical
+  case sslBadExtendedKeyUsage
+  case ocspBadResponse
+  case ocspBadRequest
+  case ocspUnavailable
+  case ocspStatusUnrecognized
+  case endOfData
+  case incompleteCertRevocationCheck
+  case networkFailure
+  case ocspNotTrustedToAnchor
+  case recordModified
+  case ocspSignatureError
+  case ocspNoSigner
+  case ocspResponderMalformedReq
+  case ocspResponderInternalError
+  case ocspResponderTryLater
+  case ocspResponderSignatureRequired
+  case ocspResponderUnauthorized
+  case ocspResponseNonceMismatch
+  case codeSigningBadCertChainLength
+  case codeSigningNoBasicConstraints
+  case codeSigningBadPathLengthConstraint
+  case codeSigningNoExtendedKeyUsage
+  case codeSigningDevelopment
+  case resourceSignBadCertChainLength
+  case resourceSignBadExtKeyUsage
+  case trustSettingDeny
+  case invalidSubjectName
+  case unknownQualifiedCertStatement
+  case mobileMeRequestQueued
+  case mobileMeRequestRedirected
+  case mobileMeServerError
+  case mobileMeServerNotAvailable
+  case mobileMeServerAlreadyExists
+  case mobileMeServerServiceErr
+  case mobileMeRequestAlreadyPending
+  case mobileMeNoRequestPending
+  case mobileMeCSRVerifyFailure
+  case mobileMeFailedConsistencyCheck
+  case notInitialized
+  case invalidHandleUsage
+  case pvcReferentNotFound
+  case functionIntegrityFail
+  case internalError
+  case memoryError
+  case invalidData
+  case mdsError
+  case invalidPointer
+  case selfCheckFailed
+  case functionFailed
+  case moduleManifestVerifyFailed
+  case invalidGUID
+  case invalidHandle
+  case invalidDBList
+  case invalidPassthroughID
+  case invalidNetworkAddress
+  case crlAlreadySigned
+  case invalidNumberOfFields
+  case verificationFailure
+  case unknownTag
+  case invalidSignature
+  case invalidName
+  case invalidCertificateRef
+  case invalidCertificateGroup
+  case tagNotFound
+  case invalidQuery
+  case invalidValue
+  case callbackFailed
+  case aclDeleteFailed
+  case aclReplaceFailed
+  case aclAddFailed
+  case aclChangeFailed
+  case invalidAccessCredentials
+  case invalidRecord
+  case invalidACL
+  case invalidSampleValue
+  case incompatibleVersion
+  case privilegeNotGranted
+  case invalidScope
+  case pvcAlreadyConfigured
+  case invalidPVC
+  case emmLoadFailed
+  case emmUnloadFailed
+  case addinLoadFailed
+  case invalidKeyRef
+  case invalidKeyHierarchy
+  case addinUnloadFailed
+  case libraryReferenceNotFound
+  case invalidAddinFunctionTable
+  case invalidServiceMask
+  case moduleNotLoaded
+  case invalidSubServiceID
+  case attributeNotInContext
+  case moduleManagerInitializeFailed
+  case moduleManagerNotFound
+  case eventNotificationCallbackNotFound
+  case inputLengthError
+  case outputLengthError
+  case privilegeNotSupported
+  case deviceError
+  case attachHandleBusy
+  case notLoggedIn
+  case algorithmMismatch
+  case keyUsageIncorrect
+  case keyBlobTypeIncorrect
+  case keyHeaderInconsistent
+  case unsupportedKeyFormat
+  case unsupportedKeySize
+  case invalidKeyUsageMask
+  case unsupportedKeyUsageMask
+  case invalidKeyAttributeMask
+  case unsupportedKeyAttributeMask
+  case invalidKeyLabel
+  case unsupportedKeyLabel
+  case invalidKeyFormat
+  case unsupportedVectorOfBuffers
+  case invalidInputVector
+  case invalidOutputVector
+  case invalidContext
+  case invalidAlgorithm
+  case invalidAttributeKey
+  case missingAttributeKey
+  case invalidAttributeInitVector
+  case missingAttributeInitVector
+  case invalidAttributeSalt
+  case missingAttributeSalt
+  case invalidAttributePadding
+  case missingAttributePadding
+  case invalidAttributeRandom
+  case missingAttributeRandom
+  case invalidAttributeSeed
+  case missingAttributeSeed
+  case invalidAttributePassphrase
+  case missingAttributePassphrase
+  case invalidAttributeKeyLength
+  case missingAttributeKeyLength
+  case invalidAttributeBlockSize
+  case missingAttributeBlockSize
+  case invalidAttributeOutputSize
+  case missingAttributeOutputSize
+  case invalidAttributeRounds
+  case missingAttributeRounds
+  case invalidAlgorithmParms
+  case missingAlgorithmParms
+  case invalidAttributeLabel
+  case missingAttributeLabel
+  case invalidAttributeKeyType
+  case missingAttributeKeyType
+  case invalidAttributeMode
+  case missingAttributeMode
+  case invalidAttributeEffectiveBits
+  case missingAttributeEffectiveBits
+  case invalidAttributeStartDate
+  case missingAttributeStartDate
+  case invalidAttributeEndDate
+  case missingAttributeEndDate
+  case invalidAttributeVersion
+  case missingAttributeVersion
+  case invalidAttributePrime
+  case missingAttributePrime
+  case invalidAttributeBase
+  case missingAttributeBase
+  case invalidAttributeSubprime
+  case missingAttributeSubprime
+  case invalidAttributeIterationCount
+  case missingAttributeIterationCount
+  case invalidAttributeDLDBHandle
+  case missingAttributeDLDBHandle
+  case invalidAttributeAccessCredentials
+  case missingAttributeAccessCredentials
+  case invalidAttributePublicKeyFormat
+  case missingAttributePublicKeyFormat
+  case invalidAttributePrivateKeyFormat
+  case missingAttributePrivateKeyFormat
+  case invalidAttributeSymmetricKeyFormat
+  case missingAttributeSymmetricKeyFormat
+  case invalidAttributeWrappedKeyFormat
+  case missingAttributeWrappedKeyFormat
+  case stagedOperationInProgress
+  case stagedOperationNotStarted
+  case verifyFailed
+  case querySizeUnknown
+  case blockSizeMismatch
+  case publicKeyInconsistent
+  case deviceVerifyFailed
+  case invalidLoginName
+  case alreadyLoggedIn
+  case invalidDigestAlgorithm
+  case invalidCRLGroup
+  case certificateCannotOperate
+  case certificateExpired
+  case certificateNotValidYet
+  case certificateRevoked
+  case certificateSuspended
+  case insufficientCredentials
+  case invalidAction
+  case invalidAuthority
+  case verifyActionFailed
+  case invalidCertAuthority
+  case invaldCRLAuthority
+  case invalidCRLEncoding
+  case invalidCRLType
+  case invalidCRL
+  case invalidFormType
+  case invalidID
+  case invalidIdentifier
+  case invalidIndex
+  case invalidPolicyIdentifiers
+  case invalidTimeString
+  case invalidReason
+  case invalidRequestInputs
+  case invalidResponseVector
+  case invalidStopOnPolicy
+  case invalidTuple
+  case multipleValuesUnsupported
+  case notTrusted
+  case noDefaultAuthority
+  case rejectedForm
+  case requestLost
+  case requestRejected
+  case unsupportedAddressType
+  case unsupportedService
+  case invalidTupleGroup
+  case invalidBaseACLs
+  case invalidTupleCredendtials
+  case invalidEncoding
+  case invalidValidityPeriod
+  case invalidRequestor
+  case requestDescriptor
+  case invalidBundleInfo
+  case invalidCRLIndex
+  case noFieldValues
+  case unsupportedFieldFormat
+  case unsupportedIndexInfo
+  case unsupportedLocality
+  case unsupportedNumAttributes
+  case unsupportedNumIndexes
+  case unsupportedNumRecordTypes
+  case fieldSpecifiedMultiple
+  case incompatibleFieldFormat
+  case invalidParsingModule
+  case databaseLocked
+  case datastoreIsOpen
+  case missingValue
+  case unsupportedQueryLimits
+  case unsupportedNumSelectionPreds
+  case unsupportedOperator
+  case invalidDBLocation
+  case invalidAccessRequest
+  case invalidIndexInfo
+  case invalidNewOwner
+  case invalidModifyMode
+  case missingRequiredExtension
+  case extendedKeyUsageNotCritical
+  case timestampMissing
+  case timestampInvalid
+  case timestampNotTrusted
+  case timestampServiceNotAvailable
+  case timestampBadAlg
+  case timestampBadRequest
+  case timestampBadDataFormat
+  case timestampTimeNotAvailable
+  case timestampUnacceptedPolicy
+  case timestampUnacceptedExtension
+  case timestampAddInfoNotAvailable
+  case timestampSystemFailure
+  case signingTimeMissing
+  case timestampRejection
+  case timestampWaiting
+  case timestampRevocationWarning
+  case timestampRevocationNotification
+  case unexpectedError
+}
+extension Status : Swift.RawRepresentable, Swift.CustomStringConvertible {
+  public init(status: Darwin.OSStatus)
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Darwin.OSStatus
+  public init?(rawValue: Darwin.OSStatus)
+  public var rawValue: Darwin.OSStatus {
+    get
+  }
+}
+extension Status : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+public struct OpReserved : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct VerackMessage {
+  public func serialized() -> Foundation.Data
+}
+public struct Op1Negate : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension BitcoinAddress {
+  public var legacy: Swift.String {
+    get
+  }
+  public init(legacy: Swift.String) throws
+}
+public struct FeeCalculator {
+  public static func calculateDust(feePerByte: Swift.UInt64) -> Swift.UInt64
+  public static func calculateFee(inputs: Swift.UInt64, outputs: Swift.UInt64, feePerByte: Swift.UInt64) -> Swift.UInt64
+  public static func calculateSingleInputFee(feePerByte: Swift.UInt64) -> Swift.UInt64
+}
+public struct BCHSignatureHashHelper : BitcoinKit.SignatureHashHelper {
+  public let zero: Foundation.Data
+  public let one: Foundation.Data
+  public let hashType: BitcoinKit.SighashType
+  public init(hashType: BitcoinKit.BCHSighashType)
+  public func createPrevoutHash(of tx: BitcoinKit.Transaction) -> Foundation.Data
+  public func createSequenceHash(of tx: BitcoinKit.Transaction) -> Foundation.Data
+  public func createOutputsHash(of tx: BitcoinKit.Transaction, index: Swift.Int) -> Foundation.Data
+  public func createSignatureHash(of tx: BitcoinKit.Transaction, for utxo: BitcoinKit.TransactionOutput, inputIndex: Swift.Int) -> Foundation.Data
+}
+public struct BTCSignatureHashHelper : BitcoinKit.SignatureHashHelper {
+  public let zero: Foundation.Data
+  public let one: Foundation.Data
+  public let hashType: BitcoinKit.SighashType
+  public init(hashType: BitcoinKit.BTCSighashType)
+  public func createSigningInput(of txin: BitcoinKit.TransactionInput, from utxoOutput: BitcoinKit.TransactionOutput) -> BitcoinKit.TransactionInput
+  public func createBlankInput(of txin: BitcoinKit.TransactionInput) -> BitcoinKit.TransactionInput
+  public func createInputs(of tx: BitcoinKit.Transaction, for utxoOutput: BitcoinKit.TransactionOutput, inputIndex: Swift.Int) -> [BitcoinKit.TransactionInput]
+  public func createOutputs(of tx: BitcoinKit.Transaction, inputIndex: Swift.Int) -> [BitcoinKit.TransactionOutput]
+  public func createSignatureHash(of tx: BitcoinKit.Transaction, for utxoOutput: BitcoinKit.TransactionOutput, inputIndex: Swift.Int) -> Foundation.Data
+}
+public struct OpInvert : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpMax : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct GetBlocksMessage {
+  public let version: Swift.UInt32
+  public let hashCount: BitcoinKit.VarInt
+  public let blockLocatorHashes: Foundation.Data
+  public let hashStop: Foundation.Data
+  public func serialized() -> Foundation.Data
+}
+public struct OpIfDup : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop1 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop4 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop5 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop6 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop7 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop8 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop9 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNop10 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension Mnemonic {
+  public static func deriveLanguageFromMnemonic(words: [Swift.String]) -> BitcoinKit.Mnemonic.Language?
+  @discardableResult
+  public static func validateChecksumDerivingLanguageOf(mnemonic mnemonicWords: [Swift.String]) throws -> Swift.Bool
+  @discardableResult
+  public static func validateChecksumOf(mnemonic mnemonicWords: [Swift.String], language: BitcoinKit.Mnemonic.Language) throws -> Swift.Bool
+}
+open class HDWallet {
+  public enum Chain : Swift.Int {
+    case external
+    case `internal`
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  final public let mnemonic: [Swift.String]?
+  final public let seed: Foundation.Data
+  final public let network: BitcoinKit.Network
+  public var rootXPrivKey: BitcoinKit.HDPrivateKey
+  public var rootXPubKey: BitcoinKit.HDPublicKey
+  open var purpose: Swift.UInt32 {
+    get
+  }
+  open var coinType: Swift.UInt32 {
+    get
+  }
+  public var account: Swift.UInt32
+  public var externalIndex: Swift.UInt32 {
+    get
+  }
+  public var internalIndex: Swift.UInt32 {
+    get
+  }
+  public var address: BitcoinKit.BitcoinAddress {
+    get
+  }
+  public var changeAddress: BitcoinKit.BitcoinAddress {
+    get
+  }
+  public var externalPrivKeys: [BitcoinKit.PrivateKey]! {
+    get
+  }
+  public var internalPrivKeys: [BitcoinKit.PrivateKey]! {
+    get
+  }
+  public var privKeys: [BitcoinKit.PrivateKey] {
+    get
+  }
+  public var externalPubKeys: [BitcoinKit.PublicKey]! {
+    get
+  }
+  public var internalPubKeys: [BitcoinKit.PublicKey]! {
+    get
+  }
+  public var pubKeys: [BitcoinKit.PublicKey] {
+    get
+  }
+  public var externalAddresses: [BitcoinKit.BitcoinAddress]! {
+    get
+  }
+  public var internalAddresses: [BitcoinKit.BitcoinAddress]! {
+    get
+  }
+  public var addresses: [BitcoinKit.BitcoinAddress] {
+    get
+  }
+  public init(seed: Foundation.Data, externalIndex: Swift.UInt32, internalIndex: Swift.UInt32, network: BitcoinKit.Network, account: Swift.UInt32 = 0)
+  public init(mnemonic: [Swift.String], passphrase: Swift.String, externalIndex: Swift.UInt32, internalIndex: Swift.UInt32, network: BitcoinKit.Network, account: Swift.UInt32 = 0) throws
+  public static func create(passphrase: Swift.String, network: BitcoinKit.Network) -> BitcoinKit.HDWallet
+  public func xprivKey(index: Swift.UInt32, chain: BitcoinKit.HDWallet.Chain) -> BitcoinKit.HDPrivateKey
+  public func xpubKey(index: Swift.UInt32, chain: BitcoinKit.HDWallet.Chain) -> BitcoinKit.HDPublicKey
+  public func privKey(index: Swift.UInt32, chain: BitcoinKit.HDWallet.Chain) -> BitcoinKit.PrivateKey
+  public func pubKey(index: Swift.UInt32, chain: BitcoinKit.HDWallet.Chain) -> BitcoinKit.PublicKey
+  public func address(index: Swift.UInt32, chain: BitcoinKit.HDWallet.Chain) -> BitcoinKit.BitcoinAddress
+  public func incrementExternalIndex(by value: Swift.UInt32)
+  public func incrementInternalIndex(by value: Swift.UInt32)
+  @available(*, unavailable)
+  public var transactions: [BitcoinKit.Transaction] {
+    get
+  }
+  @available(*, unavailable)
+  public var unspentTransactions: [BitcoinKit.Transaction] {
+    get
+  }
+  @available(*, unavailable)
+  public var balance: Swift.UInt64 {
+    get
+  }
+  @available(*, unavailable, renamed: "address")
+  public func receiveAddress() throws -> BitcoinKit.Address
+  @available(*, unavailable, message: "Use address(_ index: UInt32, chain: Chain) instead")
+  public func receiveAddress(index: Swift.UInt32) throws -> BitcoinKit.Address
+  @available(*, unavailable, renamed: "pubKey")
+  public func publicKey(index: Swift.UInt32) throws -> BitcoinKit.PublicKey
+  @available(*, unavailable, renamed: "privKey")
+  public func privateKey(index: Swift.UInt32) throws -> BitcoinKit.PrivateKey
+  @available(*, unavailable, renamed: "xpubKey")
+  public func extendedPublicKey(index: Swift.UInt32) throws -> BitcoinKit.HDPublicKey
+  @available(*, unavailable, renamed: "xprivKey")
+  public func extendedPrivateKey(index: Swift.UInt32) throws -> BitcoinKit.HDPrivateKey
+  @available(*, unavailable, message: "Use address(_ index: UInt32, chain: Chain) instead")
+  public func changeAddress(index: Swift.UInt32) throws -> BitcoinKit.Address
+  @available(*, unavailable, renamed: "pubKey")
+  public func changePublicKey(index: Swift.UInt32) throws -> BitcoinKit.PublicKey
+  @available(*, unavailable, renamed: "privKey")
+  public func changePrivateKey(index: Swift.UInt32) throws -> BitcoinKit.PrivateKey
+  @available(*, unavailable, renamed: "xpubKey")
+  public func changeExtendedPublicKey(index: Swift.UInt32) throws -> BitcoinKit.HDPublicKey
+  @available(*, unavailable, renamed: "xprivKey")
+  public func changeExtendedPrivateKey(index: Swift.UInt32) throws -> BitcoinKit.HDPrivateKey
+  @objc deinit
+}
+public struct PaymentURI {
+  public let address: BitcoinKit.BitcoinAddress
+  public let label: Swift.String?
+  public let message: Swift.String?
+  public let amount: Foundation.Decimal?
+  public let others: [Swift.String : Swift.String]
+  public let uri: Foundation.URL
+  public enum Keys : Swift.String {
+    case address
+    case label
+    case message
+    case amount
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public init(_ string: Swift.String) throws
+}
+public struct OpPubkeyHash : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension Mnemonic {
+  public static func wordList(for language: BitcoinKit.Mnemonic.Language) -> [Swift.String]
+}
+public struct OpDepth : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpBoolOr : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpReturn : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@_hasMissingDesignatedInitializers public class MockKey {
+  public static var keyA: BitcoinKit.MockKey
+  public static var keyB: BitcoinKit.MockKey
+  public static var keyC: BitcoinKit.MockKey
+  public static var keyD: BitcoinKit.MockKey
+  public var privkey: BitcoinKit.PrivateKey {
+    get
+  }
+  public var pubkey: BitcoinKit.PublicKey {
+    get
+  }
+  public var pubkeyHash: Foundation.Data {
+    get
+  }
+  @objc deinit
+}
+extension MockKey : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension MockKey : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.MockKey, rhs: BitcoinKit.MockKey) -> Swift.Bool
+}
+public protocol OpCodeProtocol {
+  var name: Swift.String { get }
+  var value: Swift.UInt8 { get }
+  func isEnabled() -> Swift.Bool
+  func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+extension OpCodeProtocol {
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+  public func execute(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public enum OpCodeExecutionError : Swift.Error {
+  case notImplemented(Swift.String)
+  case error(Swift.String)
+  case opcodeRequiresItemsOnStack(Swift.Int)
+  case invalidBignum
+  case disabled
+}
+public func == (lhs: BitcoinKit.OpCodeProtocol, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public func == <Other>(lhs: BitcoinKit.OpCodeProtocol, rhs: Other) -> Swift.Bool where Other : Swift.BinaryInteger
+public func == <Other>(lhs: Other, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool where Other : Swift.BinaryInteger
+public func != (lhs: BitcoinKit.OpCodeProtocol, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public func != <Other>(lhs: BitcoinKit.OpCodeProtocol, rhs: Other) -> Swift.Bool where Other : Swift.BinaryInteger
+public func != <Other>(lhs: Other, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool where Other : Swift.BinaryInteger
+public func > (lhs: BitcoinKit.OpCodeProtocol, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public func > <Other>(lhs: BitcoinKit.OpCodeProtocol, rhs: Other) -> Swift.Bool where Other : Swift.BinaryInteger
+public func > <Other>(lhs: Other, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool where Other : Swift.BinaryInteger
+public func < (lhs: BitcoinKit.OpCodeProtocol, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public func < <Other>(lhs: BitcoinKit.OpCodeProtocol, rhs: Other) -> Swift.Bool where Other : Swift.BinaryInteger
+public func < <Other>(lhs: Other, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool where Other : Swift.BinaryInteger
+public func >= (lhs: BitcoinKit.OpCodeProtocol, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public func <= (lhs: BitcoinKit.OpCodeProtocol, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public func ... (lhs: BitcoinKit.OpCodeProtocol, rhs: BitcoinKit.OpCodeProtocol) -> Swift.Range<Swift.UInt8>
+public func ~= (pattern: BitcoinKit.OpCodeProtocol, op: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public func ~= (pattern: Swift.Range<Swift.UInt8>, op: BitcoinKit.OpCodeProtocol) -> Swift.Bool
+public struct RejectMessage {
+  public let message: BitcoinKit.VarString
+  public let ccode: Swift.UInt8
+  public let reason: BitcoinKit.VarString
+  public let data: Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.RejectMessage
+}
+public struct OpBoolAnd : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpMul : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpCheckSigVerify : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNumEqualVerify : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Bech32 {
+  public static func encode(payload: Foundation.Data, prefix: Swift.String, separator: Swift.String = ":") -> Swift.String
+  @available(*, unavailable, renamed: "encode(payload:prefix:separator:)")
+  public static func encode(_ bytes: Foundation.Data, prefix: Swift.String, seperator: Swift.String = ":") -> Swift.String
+  public static func decode(_ string: Swift.String, separator: Swift.String = ":") -> (prefix: Swift.String, data: Foundation.Data)?
+  @available(*, unavailable, renamed: "decode(string:separator:)")
+  public static func decode(_ string: Swift.String, seperator: Swift.String = ":") -> (prefix: Swift.String, data: Foundation.Data)?
+}
+final public class HDKeychain {
+  public init(rootKey: BitcoinKit.HDPrivateKey)
+  public convenience init(seed: Foundation.Data, network: BitcoinKit.Network)
+  final public func derivedKey(path: Swift.String) throws -> BitcoinKit.HDPrivateKey
+  @objc deinit
+}
+public class PeerGroup : BitcoinKit.PeerDelegate {
+  final public let blockChain: BitcoinKit.BlockChain
+  final public let maxConnections: Swift.Int
+  weak public var delegate: BitcoinKit.PeerGroupDelegate?
+  public init(blockChain: BitcoinKit.BlockChain, maxConnections: Swift.Int = 1)
+  public func start()
+  public func stop()
+  public func addFilter(_ filter: Foundation.Data)
+  public func sendTransaction(transaction: BitcoinKit.Transaction)
+  public func peerDidConnect(_ peer: BitcoinKit.Peer)
+  public func peerDidDisconnect(_ peer: BitcoinKit.Peer)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveVersionMessage message: BitcoinKit.VersionMessage)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveMerkleBlockMessage message: BitcoinKit.MerkleBlockMessage, hash: Foundation.Data)
+  public func peer(_ peer: BitcoinKit.Peer, didReceiveTransaction transaction: BitcoinKit.Transaction, hash: Foundation.Data)
+  @objc deinit
+}
+public protocol PeerGroupDelegate : AnyObject {
+  func peerGroupDidStart(_ peerGroup: BitcoinKit.PeerGroup)
+  func peerGroupDidStop(_ peerGroup: BitcoinKit.PeerGroup)
+  func peerGroupDidReceiveTransaction(_ peerGroup: BitcoinKit.PeerGroup)
+}
+extension PeerGroupDelegate {
+  public func peerGroupDidStart(_ peerGroup: BitcoinKit.PeerGroup)
+  public func peerGroupDidStop(_ peerGroup: BitcoinKit.PeerGroup)
+  public func peerGroupDidReceiveTransaction(_ peerGroup: BitcoinKit.PeerGroup)
+}
+public struct BitcoinAddress {
+  public let data: Foundation.Data
+  public let network: BitcoinKit.Network
+  public let hashType: BitcoinKit.BitcoinAddress.HashType
+  public let hashSize: BitcoinKit.BitcoinAddress.HashSize
+  public init(data: Foundation.Data, hashType: BitcoinKit.BitcoinAddress.HashType, network: BitcoinKit.Network) throws
+}
+extension BitcoinAddress : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension BitcoinAddress : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.BitcoinAddress, rhs: BitcoinKit.BitcoinAddress) -> Swift.Bool
+}
+extension BitcoinAddress : BitcoinKit.QRCodeConvertible {
+}
+public struct QRCodeGenerator {
+  public static func generate(from string: Swift.String, size: CoreGraphics.CGSize = CGSize(width: 200, height: 200)) -> UIKit.UIImage?
+}
+public struct PublicKey {
+  public let data: Foundation.Data
+  @available(*, deprecated, renamed: "data")
+  public var raw: Foundation.Data {
+    get
+  }
+  public var pubkeyHash: Foundation.Data {
+    get
+  }
+  public let network: BitcoinKit.Network
+  public let isCompressed: Swift.Bool
+  public init(bytes data: Foundation.Data, network: BitcoinKit.Network)
+}
+extension PublicKey : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.PublicKey, rhs: BitcoinKit.PublicKey) -> Swift.Bool
+}
+extension PublicKey : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension PublicKey : BitcoinKit.QRCodeConvertible {
+}
+public struct Op2Swap : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Op3Duplicate : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public typealias MnemonicError = BitcoinKit.Mnemonic.Error
+extension Mnemonic {
+  public enum Error : Swift.Error {
+    case randomBytesError
+    case unsupportedByteCountOfEntropy(got: Swift.Int)
+    indirect case validationError(BitcoinKit.Mnemonic.Error.ValidationError)
+  }
+}
+extension Mnemonic.Error {
+  public enum ValidationError : Swift.Error {
+    case badWordCount(expectedAnyOf: [Swift.Int], butGot: Swift.Int)
+    case wordNotInList(Swift.String, language: BitcoinKit.Mnemonic.Language)
+    case unableToDeriveLanguageFrom(words: [Swift.String])
+    case checksumMismatch
+  }
+}
+public struct UnspentTransactionSelector {
+  public static func select(from unspentTransactions: [BitcoinKit.UnspentTransaction], targetValue: Swift.UInt64, feePerByte: Swift.UInt64) -> [BitcoinKit.UnspentTransaction]
+}
+public struct BlockMessage {
+  public let version: Swift.Int32
+  public let prevBlock: Foundation.Data
+  public let merkleRoot: Foundation.Data
+  public let timestamp: Swift.UInt32
+  public let bits: Swift.UInt32
+  public let nonce: Swift.UInt32
+  public let transactionCount: BitcoinKit.VarInt
+  public let transactions: [BitcoinKit.Transaction]
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.BlockMessage
+  public func computeMerkleRoot() -> Foundation.Data
+}
+public struct Op2Duplicate : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@available(*, deprecated)
+public struct UnsignedTransaction {
+  public let tx: BitcoinKit.Transaction
+  public let utxos: [BitcoinKit.UnspentTransaction]
+  public init(tx: BitcoinKit.Transaction, utxos: [BitcoinKit.UnspentTransaction])
+}
+public struct TransactionInput {
+  public let previousOutput: BitcoinKit.TransactionOutPoint
+  public var scriptLength: BitcoinKit.VarInt {
+    get
+  }
+  public let signatureScript: Foundation.Data
+  public let sequence: Swift.UInt32
+  public init(previousOutput: BitcoinKit.TransactionOutPoint, signatureScript: Foundation.Data, sequence: Swift.UInt32)
+  public func isCoinbase() -> Swift.Bool
+  public func serialized() -> Foundation.Data
+}
+public struct OpSha256 : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpNot : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@available(*, deprecated, renamed: "BitcoinAddress")
+public typealias LegacyAddress = BitcoinKit.BitcoinAddress
+public enum ScriptVerification {
+  case StrictEncoding
+  case EvenS
+  public static func == (a: BitcoinKit.ScriptVerification, b: BitcoinKit.ScriptVerification) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum ScriptMachineError : Swift.Error {
+  case exception(Swift.String)
+  case error(Swift.String)
+  case opcodeRequiresItemsOnStack(Swift.Int)
+  case invalidBignum
+}
+public struct ScriptMachine {
+  public init()
+  public static func verifyTransaction(signedTx: BitcoinKit.Transaction, inputIndex: Swift.UInt32, utxo: BitcoinKit.TransactionOutput, blockTimeStamp: Swift.UInt32 = UInt32(NSTimeIntervalSince1970)) throws -> Swift.Bool
+  public static func verify(lockScript: BitcoinKit.Script, unlockScript: BitcoinKit.Script, context: BitcoinKit.ScriptExecutionContext) throws -> Swift.Bool
+  public static func run(_ script: BitcoinKit.Script, context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpVerNotIf : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct HeadersMessage {
+  public static var MAX_HEADERS: Swift.Int
+  public var count: BitcoinKit.VarInt {
+    get
+  }
+  public let headers: [BitcoinKit.BlockMessage]
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) throws -> BitcoinKit.HeadersMessage
+}
+public struct MurmurHash {
+  public static func hashValue(_ bytes: Foundation.Data, _ seed: Swift.UInt32) -> Swift.UInt32
+}
+public struct Base58Check {
+  public static func encode(_ payload: Foundation.Data) -> Swift.String
+  public static func decode(_ string: Swift.String) -> Foundation.Data?
+}
+extension Mnemonic {
+  public static func generate(strength: BitcoinKit.Mnemonic.Strength = .default, language: BitcoinKit.Mnemonic.Language = .english) throws -> [Swift.String]
+}
+extension Mnemonic {
+  public static func seed(mnemonic words: [Swift.String], passphrase: Swift.String = "", validateChecksum: (([Swift.String]) throws -> Swift.Void) = { try Mnemonic.validateChecksumDerivingLanguageOf(mnemonic: $0) }) rethrows -> Foundation.Data
+}
+public struct Op2Mul : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func isEnabled() -> Swift.Bool
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpEqual : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct GetDataMessage {
+  public let count: BitcoinKit.VarInt
+  public let inventoryItems: [BitcoinKit.InventoryItem]
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.GetDataMessage
+}
+public class ScriptExecutionContext {
+  public var verificationFlags: BitcoinKit.ScriptVerification?
+  public var stack: [Foundation.Data] {
+    get
+  }
+  public var altStack: [Foundation.Data] {
+    get
+  }
+  public var conditionStack: [Swift.Bool] {
+    get
+  }
+  public var opCount: Swift.Int {
+    get
+  }
+  public var transaction: BitcoinKit.Transaction? {
+    get
+  }
+  public var utxoToVerify: BitcoinKit.TransactionOutput? {
+    get
+  }
+  public var txinToVerify: BitcoinKit.TransactionInput? {
+    get
+  }
+  public var inputIndex: Swift.UInt32 {
+    get
+  }
+  public var blockTimeStamp: Swift.UInt32
+  public var verbose: Swift.Bool
+  public init(isDebug: Swift.Bool = false)
+  public init?(transaction: BitcoinKit.Transaction, utxoToVerify: BitcoinKit.TransactionOutput, inputIndex: Swift.UInt32)
+  public var shouldExecute: Swift.Bool {
+    get
+  }
+  public func shouldVerifyP2SH() -> Swift.Bool
+  public func pushToStack(_ bool: Swift.Bool)
+  public func pushToStack(_ n: Swift.Int32) throws
+  public func pushToStack(_ data: Foundation.Data) throws
+  public func resetStack()
+  public func swapDataAt(i: Swift.Int, j: Swift.Int)
+  public func assertStackHeightGreaterThanOrEqual(_ n: Swift.Int) throws
+  public func assertAltStackHeightGreaterThanOrEqual(_ n: Swift.Int) throws
+  public func incrementOpCount(by i: Swift.Int = 1) throws
+  public func deserializeP2SHLockScript(stackForP2SH: [Foundation.Data]) throws -> BitcoinKit.Script
+  public func data(at i: Swift.Int) -> Foundation.Data
+  public func number(at i: Swift.Int) throws -> Swift.Int32
+  public func bool(at i: Swift.Int) -> Swift.Bool
+  @objc deinit
+}
+extension ScriptExecutionContext : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct Op1Sub : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpRot : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpCheckSig : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct GetHeadersMessage {
+  public let version: Swift.UInt32
+  public let hashCount: BitcoinKit.VarInt
+  public let blockLocatorHashes: Foundation.Data
+  public let hashStop: Foundation.Data
+  public func serialized() -> Foundation.Data
+}
+extension Mnemonic {
+  public enum Strength : Swift.Int, Swift.CaseIterable {
+    case `default`
+    case low
+    case medium
+    case high
+    case veryHigh
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+    public typealias AllCases = [BitcoinKit.Mnemonic.Strength]
+    public static var allCases: [BitcoinKit.Mnemonic.Strength] {
+      get
+    }
+  }
+}
+extension Mnemonic.Strength {
+  public init?(wordCount: Swift.Int)
+  public init?(byteCount: Swift.Int)
+}
+public struct OpAbsolute : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@_hasMissingDesignatedInitializers public class HDPrivateKey {
+  final public let network: BitcoinKit.Network
+  final public let depth: Swift.UInt8
+  final public let fingerprint: Swift.UInt32
+  final public let childIndex: Swift.UInt32
+  public init(privateKey: Foundation.Data, chainCode: Foundation.Data, network: BitcoinKit.Network)
+  public convenience init(seed: Foundation.Data, network: BitcoinKit.Network)
+  public func extended() -> Swift.String
+  public func privateKey() -> BitcoinKit.PrivateKey
+  public func extendedPublicKey() -> BitcoinKit.HDPublicKey
+  public func derived(at index: Swift.UInt32, hardened: Swift.Bool = false) throws -> BitcoinKit.HDPrivateKey
+  @objc deinit
+}
+extension HDPrivateKey : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension HDPrivateKey : BitcoinKit.QRCodeConvertible {
+}
+public enum DerivationError : Swift.Error {
+  case derivationFailed
+  public static func == (a: BitcoinKit.DerivationError, b: BitcoinKit.DerivationError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public typealias SigKeyPair = (signature: Foundation.Data, key: BitcoinKit.PublicKey)
+public protocol MockUnlockScriptBuilder {
+  func build(pairs: [BitcoinKit.SigKeyPair]) -> BitcoinKit.Script
+}
+public struct OpMin : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpDiv : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpFromAltStack : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct MerkleBlockMessage {
+  public let version: Swift.Int32
+  public let prevBlock: Foundation.Data
+  public let merkleRoot: Foundation.Data
+  public let timestamp: Swift.UInt32
+  public let bits: Swift.UInt32
+  public let nonce: Swift.UInt32
+  public let totalTransactions: Swift.UInt32
+  public let numberOfHashes: BitcoinKit.VarInt
+  public let hashes: [Foundation.Data]
+  public let numberOfFlags: BitcoinKit.VarInt
+  public let flags: [Swift.UInt8]
+  public func serialized() -> Foundation.Data
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.MerkleBlockMessage
+}
+public struct OpNegate : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct Payment {
+  public enum State {
+    case sent
+    case received
+    public static func == (a: BitcoinKit.Payment.State, b: BitcoinKit.Payment.State) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public let state: BitcoinKit.Payment.State
+  public let index: Swift.Int64
+  public let amount: Swift.Int64
+  public let from: BitcoinKit.Address
+  public let to: BitcoinKit.Address
+  public let txid: Foundation.Data
+}
+extension Payment : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.Payment, rhs: BitcoinKit.Payment) -> Swift.Bool
+}
+public protocol BlockStore {
+  func addBlock(_ block: BitcoinKit.BlockMessage, hash: Foundation.Data) throws
+  func addMerkleBlock(_ merkleBlock: BitcoinKit.MerkleBlockMessage, hash: Foundation.Data) throws
+  func addTransaction(_ transaction: BitcoinKit.Transaction, hash: Foundation.Data) throws
+  func calculateBalance(address: BitcoinKit.Address) throws -> Swift.Int64
+  func latestBlockHash() throws -> Foundation.Data?
+}
+public class SQLiteBlockStore : BitcoinKit.BlockStore {
+  public static func `default`() throws -> BitcoinKit.SQLiteBlockStore
+  public init(file: Foundation.URL, network: BitcoinKit.Network = .testnetBCH) throws
+  @objc deinit
+  public func addBlock(_ block: BitcoinKit.BlockMessage, hash: Foundation.Data) throws
+  public func addMerkleBlock(_ merkleBlock: BitcoinKit.MerkleBlockMessage, hash: Foundation.Data) throws
+  public func addTransaction(_ transaction: BitcoinKit.Transaction, hash: Foundation.Data) throws
+  public func addTransactionInput(_ input: BitcoinKit.TransactionInput, txId: Foundation.Data) throws
+  public func addTransactionOutput(index: Swift.Int, output: BitcoinKit.TransactionOutput, txId: Foundation.Data) throws
+  public func calculateBalance(address: BitcoinKit.Address) throws -> Swift.Int64
+  public func transactions(address: BitcoinKit.Address) throws -> [BitcoinKit.Payment]
+  public func unspentTransactions(address: BitcoinKit.Address) throws -> [BitcoinKit.Payment]
+  public func latestBlockHash() throws -> Foundation.Data?
+}
+public struct PingMessage {
+  public let nonce: Swift.UInt64
+  public static func deserialize(_ data: Foundation.Data) -> BitcoinKit.PingMessage
+}
+extension BitcoinAddress {
+  public struct HashSize {
+    public let rawValue: Swift.UInt8
+    public init?(rawValue: Swift.UInt8)
+    public init?(sizeInBits: Swift.Int)
+  }
+}
+extension BitcoinAddress.HashSize {
+  public var sizeInBits: Swift.Int {
+    get
+  }
+  public var sizeInBytes: Swift.Int {
+    get
+  }
+}
+extension BitcoinAddress.HashSize : Swift.Equatable {
+  public static func == (lhs: BitcoinKit.BitcoinAddress.HashSize, rhs: BitcoinKit.BitcoinAddress.HashSize) -> Swift.Bool
+}
+extension BitcoinAddress.HashSize {
+  public static var bits160: BitcoinKit.BitcoinAddress.HashSize
+  public static var bits192: BitcoinKit.BitcoinAddress.HashSize
+  public static var bits224: BitcoinKit.BitcoinAddress.HashSize
+  public static var bits256: BitcoinKit.BitcoinAddress.HashSize
+  public static var bits320: BitcoinKit.BitcoinAddress.HashSize
+  public static var bits384: BitcoinKit.BitcoinAddress.HashSize
+  public static var bits448: BitcoinKit.BitcoinAddress.HashSize
+  public static var bits512: BitcoinKit.BitcoinAddress.HashSize
+}
+public struct OP0NotEqual : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+public struct OpDrop : BitcoinKit.OpCodeProtocol {
+  public var value: Swift.UInt8 {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public func mainProcess(_ context: BitcoinKit.ScriptExecutionContext) throws
+}
+@available(*, deprecated, message: "Use BTCSignatureHashHelper instead")
+public struct TransactionSignatureSerializer {
+  public init(transaction: BitcoinKit.Transaction, output: BitcoinKit.TransactionOutput, inputIndex: Swift.Int, hashType: BitcoinKit.SighashType)
+  public func serialize() -> Foundation.Data
+}
+public struct TransactionBuilder {
+  public static func build(from plan: BitcoinKit.TransactionPlan, toAddress: BitcoinKit.Address, changeAddress: BitcoinKit.Address) -> BitcoinKit.Transaction
+}
+extension Mnemonic {
+  public enum Language : Swift.String, Swift.CaseIterable {
+    case english
+    case japanese
+    case korean
+    case spanish
+    case simplifiedChinese
+    case traditionalChinese
+    case french
+    case italian
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public typealias AllCases = [BitcoinKit.Mnemonic.Language]
+    public static var allCases: [BitcoinKit.Mnemonic.Language] {
+      get
+    }
+  }
+}
