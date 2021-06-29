@@ -1,0 +1,8 @@
+platform :ios, '13.0'
+use_frameworks!
+
+target 'CryptoApiLib-EthereumKit' do
+  pod 'EthereumKit.swift'
+  pod 'CryptoApiLib'
+  pod 'BigInt'
+end

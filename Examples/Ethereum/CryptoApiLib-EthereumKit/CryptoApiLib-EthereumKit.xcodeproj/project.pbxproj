@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		557E7A77268B29B600705A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E7A76268B29B600705A8A /* AppDelegate.swift */; };
+		557E7A7B268B29B600705A8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E7A7A268B29B600705A8A /* ViewController.swift */; };
+		557E7A7E268B29B600705A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E7A7C268B29B600705A8A /* Main.storyboard */; };
+		557E7A80268B29B800705A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 557E7A7F268B29B800705A8A /* Assets.xcassets */; };
+		557E7A83268B29B800705A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557E7A81268B29B800705A8A /* LaunchScreen.storyboard */; };
+		557E7AE9268B39FE00705A8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E7AE8268B39FE00705A8A /* SceneDelegate.swift */; };
+		A848BCEABE6CA900FD778197 /* Pods_CryptoApiLib_EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09485A10451DB2854DEB589C /* Pods_CryptoApiLib_EthereumKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09485A10451DB2854DEB589C /* Pods_CryptoApiLib_EthereumKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApiLib_EthereumKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D2AFCB0BF356F550135A9B1 /* Pods-CryptoApiLib-EthereumKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib-EthereumKit.release.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib-EthereumKit/Pods-CryptoApiLib-EthereumKit.release.xcconfig"; sourceTree = "<group>"; };
+		557E7A73268B29B600705A8A /* CryptoApiLib-EthereumKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CryptoApiLib-EthereumKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		557E7A76268B29B600705A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		557E7A7A268B29B600705A8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		557E7A7D268B29B600705A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		557E7A7F268B29B800705A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		557E7A82268B29B800705A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		557E7A84268B29B800705A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		557E7AE8268B39FE00705A8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C3F321B68EFDBA72FF040A1C /* Pods-CryptoApiLib-EthereumKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApiLib-EthereumKit.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApiLib-EthereumKit/Pods-CryptoApiLib-EthereumKit.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		557E7A70268B29B600705A8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A848BCEABE6CA900FD778197 /* Pods_CryptoApiLib_EthereumKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		557E7A6A268B29B600705A8A = {
+			isa = PBXGroup;
+			children = (
+				557E7A75268B29B600705A8A /* CryptoApiLib-EthereumKit */,
+				557E7A74268B29B600705A8A /* Products */,
+				FE886CAA532C5794A16791D4 /* Pods */,
+				8B7E13F503B49B556EAA881B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		557E7A74268B29B600705A8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				557E7A73268B29B600705A8A /* CryptoApiLib-EthereumKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		557E7A75268B29B600705A8A /* CryptoApiLib-EthereumKit */ = {
+			isa = PBXGroup;
+			children = (
+				557E7A76268B29B600705A8A /* AppDelegate.swift */,
+				557E7AE8268B39FE00705A8A /* SceneDelegate.swift */,
+				557E7A7A268B29B600705A8A /* ViewController.swift */,
+				557E7A7C268B29B600705A8A /* Main.storyboard */,
+				557E7A7F268B29B800705A8A /* Assets.xcassets */,
+				557E7A81268B29B800705A8A /* LaunchScreen.storyboard */,
+				557E7A84268B29B800705A8A /* Info.plist */,
+			);
+			path = "CryptoApiLib-EthereumKit";
+			sourceTree = "<group>";
+		};
+		8B7E13F503B49B556EAA881B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09485A10451DB2854DEB589C /* Pods_CryptoApiLib_EthereumKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE886CAA532C5794A16791D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3F321B68EFDBA72FF040A1C /* Pods-CryptoApiLib-EthereumKit.debug.xcconfig */,
+				1D2AFCB0BF356F550135A9B1 /* Pods-CryptoApiLib-EthereumKit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		557E7A72268B29B600705A8A /* CryptoApiLib-EthereumKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 557E7A87268B29B800705A8A /* Build configuration list for PBXNativeTarget "CryptoApiLib-EthereumKit" */;
+			buildPhases = (
+				273B2FD6250DC575D5803B3C /* [CP] Check Pods Manifest.lock */,
+				557E7A6F268B29B600705A8A /* Sources */,
+				557E7A70268B29B600705A8A /* Frameworks */,
+				557E7A71268B29B600705A8A /* Resources */,
+				33B5521E5C2ED9924F51B825 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CryptoApiLib-EthereumKit";
+			productName = "CryptoApiLib-EthereumKit";
+			productReference = 557E7A73268B29B600705A8A /* CryptoApiLib-EthereumKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		557E7A6B268B29B600705A8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					557E7A72268B29B600705A8A = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 557E7A6E268B29B600705A8A /* Build configuration list for PBXProject "CryptoApiLib-EthereumKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 557E7A6A268B29B600705A8A;
+			productRefGroup = 557E7A74268B29B600705A8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				557E7A72268B29B600705A8A /* CryptoApiLib-EthereumKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		557E7A71268B29B600705A8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				557E7A83268B29B800705A8A /* LaunchScreen.storyboard in Resources */,
+				557E7A80268B29B800705A8A /* Assets.xcassets in Resources */,
+				557E7A7E268B29B600705A8A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		273B2FD6250DC575D5803B3C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptoApiLib-EthereumKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33B5521E5C2ED9924F51B825 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib-EthereumKit/Pods-CryptoApiLib-EthereumKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib-EthereumKit/Pods-CryptoApiLib-EthereumKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoApiLib-EthereumKit/Pods-CryptoApiLib-EthereumKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		557E7A6F268B29B600705A8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				557E7A7B268B29B600705A8A /* ViewController.swift in Sources */,
+				557E7A77268B29B600705A8A /* AppDelegate.swift in Sources */,
+				557E7AE9268B39FE00705A8A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		557E7A7C268B29B600705A8A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				557E7A7D268B29B600705A8A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		557E7A81268B29B800705A8A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				557E7A82268B29B800705A8A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		557E7A85268B29B800705A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		557E7A86268B29B800705A8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		557E7A88268B29B800705A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3F321B68EFDBA72FF040A1C /* Pods-CryptoApiLib-EthereumKit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7Q43CUMWT;
+				INFOPLIST_FILE = "CryptoApiLib-EthereumKit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matoshko.CryptoApiLib-EthereumKit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		557E7A89268B29B800705A8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D2AFCB0BF356F550135A9B1 /* Pods-CryptoApiLib-EthereumKit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7Q43CUMWT;
+				INFOPLIST_FILE = "CryptoApiLib-EthereumKit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matoshko.CryptoApiLib-EthereumKit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		557E7A6E268B29B600705A8A /* Build configuration list for PBXProject "CryptoApiLib-EthereumKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				557E7A85268B29B800705A8A /* Debug */,
+				557E7A86268B29B800705A8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		557E7A87268B29B800705A8A /* Build configuration list for PBXNativeTarget "CryptoApiLib-EthereumKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				557E7A88268B29B800705A8A /* Debug */,
+				557E7A89268B29B800705A8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 557E7A6B268B29B600705A8A /* Project object */;
+}
