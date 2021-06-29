@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     func configEthereumKit() -> Kit {
+        // Initialize setting for EthereumKit with your parametrs.
         let ethereumKit = try! Kit.instance(
             words: ExampleConstants.words,
             syncMode: .api,
@@ -98,7 +99,6 @@ class ViewController: UIViewController {
                 comletion(transaction.transaction.hash.hex)
                 // sendSingle returns FullTransaction object which contains transaction, receiptWithLogs and internalTransactions
             })
-
     }
 
     func sendRawTransaction(cryptoApi: CryptoAPI, transactionHash: String) {

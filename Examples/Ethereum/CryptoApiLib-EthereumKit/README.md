@@ -1,6 +1,4 @@
-# Using CryptoApiLib library with [EthereumKit](https://github.com/D-Technologies/EthereumKit)
-
-### Notice: Example is Deprecated because of old EthereumKit
+# Using CryptoApiLib library with [EthereumKit](https://github.com/horizontalsystems/ethereum-kit-ios)
 
 ### Get started
 
@@ -17,6 +15,24 @@ func configCryptoApiLib() -> CryptoAPI {
     return cryptoApi
 }
 ```
+
+```swift
+func configEthereumKit() -> Kit {
+    // Initialize setting for EthereumKit with your parametrs.
+    let ethereumKit = try! Kit.instance(
+        words: ExampleConstants.words,
+        syncMode: .api,
+        rpcApi: .incubed,
+        etherscanApiKey: "",
+        walletId: "testWallet"
+    )
+    
+    ethereumKit.start()
+    
+    return ethereumKit
+}
+```
+
 ### Constanst
 The example has an `enum with constants` that can be modified with valid data to run the example.
 ```swift
@@ -28,26 +44,25 @@ enum ExampleConstants {
     static let sendAmount = "100000000000000"
     
     static let mnemonicHex = "000102030405060708090a0b0c0d0e0f"
+    static let words = ["example","array", "of", "your", "brainkey", "words"]
 }
 ```
 ### Generate address. Get balance.
 The following is an example that shows how to `generated address and obtain balance` for it using CryptoApiLib.
 ```swift
 let cryptoApi = configCryptoApiLib()
+let kit = configEthereumKit()
 
-let mnemonic = Mnemonic.create(entropy: Data(hex: ExampleConstants.mnemonicHex))
-let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-let wallet = try! Wallet(seed: seed, network: .private(chainID: 4, testUse: true), debugPrints: true)
+let address = kit.address.description
 
-let address = wallet.address()
-
+// get generated address
 cryptoApi.eth.balance(addresses: [address]) { result in
     switch result {
     case .success(let addressesBalancesArray):
         for item in addressesBalancesArray {
             print("Balance \(item.balance) wei")
         }
-        
+
     case .failure(let error):
         print(error)
     }
@@ -56,10 +71,18 @@ cryptoApi.eth.balance(addresses: [address]) { result in
 ### Estimate nonce, gas price and gas limit
 Now, before creating a transaction, you need to get a `gas estimate`.
 ```swift
+// estimate gas for transaction
 cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: ExampleConstants.toAddress, data: "", value: ExampleConstants.sendAmount) { result in
     switch result {
     case .success(let response):
         print("nonse: \(response.nonce), gas prise: \(response.gasPrice), estimate: \(response.estimateGas).")
+
+        // build transaction and get transaction hash
+        self.createTransaction(kit: kit) { hash in
+            // send buided transaction
+            self.sendRawTransaction(cryptoApi: cryptoApi, transactionHash: hash)
+        }
+        
         return
     case .failure(let error):
         print(error)
@@ -71,23 +94,23 @@ cryptoApi.eth.estimateGas(fromAddress: ExampleConstants.fromAddress, toAddress: 
 CryptoAPI allows you to send raw transactions, but before that you need to prepare it.
 `Creating and sending a transaction` is as follows:
 ```swift
-let value = Wei(ExampleConstants.sendAmount)!
+let amount = BigUInt(stringLiteral: ExampleConstants.sendAmount)
+let address = try! Address(hex: "0x73eb56f175916bd17b97379c1fdb5af1b6a82c84")
 
-let rawTransaction = RawTransaction(
-    value: value,
-    to: ExampleConstants.toAddress,
-    gasPrice: Int(response.gasPrice)!,
-    gasLimit: response.estimateGas,
-    nonce: response.nonce
-)
-let transactionHash = try! wallet.sign(rawTransaction: rawTransaction)
+kit
+    .sendSingle(address: address, value: amount, gasPrice: 50_000_000_000, gasLimit: 1_000_000_000_000)
+    .subscribe(onSuccess: { transaction in
+        print("Transcation hash: \(transaction.transaction.hash.hex)")
+        comletion(transaction.transaction.hash.hex)
+        // sendSingle returns FullTransaction object which contains transaction, receiptWithLogs and internalTransactions
+    })
 
 cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
     switch result {
     case .success(let response):
         print(response.hash)
         return
-        
+
     case .failure(let error):
         fatalError("Error: \(error.localizedDescription)")
     }
@@ -99,7 +122,7 @@ cryptoApi.eth.sendRaw(transaction: transactionHash) { result in
 
 The MIT License (MIT)
 
-Copyright (c) 2019 PixelPlex Inc. <https://pixelplex.io>
+Copyright (c) 2021 PixelPlex Inc. <https://pixelplex.io>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

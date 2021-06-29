@@ -1,5 +1,7 @@
 # Using CryptoApiLib library with [BitcoinKit](https://github.com/yenom/BitcoinKit)
 
+### Notice: The example can only be run on iOS device
+
 ### Get started
 
 Сonfigure and return the object of the CryptoAPI class, which will allow to perform all the operations provided by the CryptoApiLib library.
