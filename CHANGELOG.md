@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Changelog 0.4.7 - 2022-02-18
+### Changed
+* ETHTransactionByHashResponseModel: field receipt now is optional
+
 ## Changelog 0.4.6 - 2021-04-26
 ### Changed
 * ETHTokenInfoResponseModel: field createTransactionHash now is optional
