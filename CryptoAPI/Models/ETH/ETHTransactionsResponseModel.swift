@@ -72,7 +72,7 @@ public struct ETHTransactionByHashResponseModel {
     public let s: String
     public let r: String
     public let internalTransactions: [ETHInternalTransaction]
-    public let receipt: ETHTransactionByHashReceiptResponseModel
+    public let receipt: ETHTransactionByHashReceiptResponseModel?
 }
 
 extension ETHTransactionByHashResponseModel: Codable {
