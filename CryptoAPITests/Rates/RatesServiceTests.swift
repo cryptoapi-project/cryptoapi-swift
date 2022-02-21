@@ -46,16 +46,16 @@ class RatesServiceTests: XCTestCase {
     
     func testRatesHistory() {
         //arrange
-        let coins: [CryptoCurrencyType] = [.BTC, .ETH, .LTC]
+        let coins: [CryptoCurrencyType] = [.BTC]
         let expectation = XCTestExpectation(description: "testRatesHistory")
-        
+
         //act
         api.rates.ratesHistory(coins: coins) { result in
             switch result {
             case .success(let rates):
                 //assert
                 XCTAssertFalse(rates.isEmpty)
-                
+
             case .failure(let error):
                 //assert
                 XCTAssertThrowsError(error)
