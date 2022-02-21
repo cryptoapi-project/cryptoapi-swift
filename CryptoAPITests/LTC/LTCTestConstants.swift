@@ -15,7 +15,7 @@ enum LTCTestConstants {
     
     static let ltcAddressWithBalance = "Qh6godHr5ZzQaWiSH4bExcvCJHiAarXMdd"
     static let ltcAddressWithBalance2 = "muv8qN6CDgSGtSXdrtmAU24ZAmFyBS1nZr"
-    static let ltcInvalidAddress = "tltc1q8qgcfm5qete3q46klt520hma67qtzncljwtmqa"
+    static let ltcInvalidAddress = "tltc1q8qgcfm5qete3q46klt520hma67qtzncljwtmqa2"
     static let ltcTransactionHash = "cda131ecc45156c63a819280a1667dbcd64977a6e0b2400e3b75b5fedd077e60"
     
     static let ltcBlockHeight = 1469976
